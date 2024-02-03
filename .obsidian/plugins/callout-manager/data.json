@@ -1,0 +1,38 @@
+{
+  "callouts": {
+    "custom": [
+      "Definition"
+    ],
+    "settings": {
+      "Definition": [
+        {
+          "changes": {
+            "icon": "lucide-arrow-right"
+          }
+        },
+        {
+          "condition": {
+            "colorScheme": "light"
+          },
+          "changes": {
+            "color": "26, 76, 59"
+          }
+        },
+        {
+          "condition": {
+            "colorScheme": "dark"
+          },
+          "changes": {
+            "color": "26, 76, 59"
+          }
+        }
+      ]
+    }
+  },
+  "calloutDetection": {
+    "obsidianFallbackForced": false,
+    "obsidian": true,
+    "theme": true,
+    "snippet": true
+  }
+}
