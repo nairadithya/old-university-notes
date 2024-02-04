@@ -1,7 +1,7 @@
 \documentclass{report}
 
 \input{preamble}
-\title{\Huge{23MAT112}\\ Class Notes}
+\title{\Huge{23MAT102}\\ Class Notes}
 \author{\huge{Adithya Nair}}
 \date{}
 
@@ -13,40 +13,206 @@
 \tableofcontents
 
 \pagebreak
-\chapter{Sets, Vector Spaces And Subspaces}
-\section{Sets}
+\section{A Basic Order Of Importance}
+\begin{itemize}
+    \item \textbf{Axiom} - Statements taken as fact
+    \item \textbf{Theorem} - Statements that are proven using axioms
+    \item \textbf{Lemma} - Statements proven using theorems
+    \item \textbf{Proposition} - Statements, regardless of whether it is true or false, is assumed to be true
+    \item \textbf{Corollary} - A theorem that is proven using another theorem.*
+\end{itemize}
+\chapter{A Revision Of Sets And Functions}
+Sets are assumed to be sets on the basis of a theory known as \textbf{Naive Set Theory}. according to this theory, A set is defined as,
+
 \begin{definition}[Sets]
-   A set is a collection of objects. e.g. - $\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$
+A set is a collection of objects
 \end{definition}
 
-Notations - 
-\begin{itemize}
-	 \item $A,B \dots Z$ will denote sets
-	 \item $a,b \dots z$ will denote elements 
-	 \item $a \in A$, a is an element of A
-	 \item $a \notin A$, a is not an element of A
-\end{itemize}
+e.g. - \[\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}\]
 
-Roster Notation
-\begin{itemize}
-      \item $\mathbb{N} = {1,2,\dots}$
-      \item $\mathbb{A} = {2,4,6,8}$ 
-      \item $B = {x \in Z^+ | x < 10}$
-\end{itemize}
-\subsection{Subsets}
+\section{Notations}
+A,B...Z will denote sets\\
+a,b...z will denote elements\\
+a $\in$ A, a is an element of A\\
+a $\notin$  A, a is not an element of A\\
+
+\section{Roster Notation}
+\[\mathbb{N} = \{1,2...\}\]
+\[A = \{2,4,6,8\]
+\[B = \{ x \in Z+| x < 10 \} \]
+ B is written in set builder form
+
+\section{Basic Concepts Of Sets}
 \begin{definition}[Subsets]
-A and B are two sets. A is a subset of b, and we write $A \subset B$, if every element of A is also an element of B.	
+A and B are two sets. A is a subset of B, and we write A $\subset$ B, if every element of A is also an element of B
 \end{definition}
-\begin{theorem}[Equivalence Of Sets]
-   Two sets A and B are equal, and we write A = B, $\iff A \subset B$ and $B \subset A$
+
+\begin{theorem}
+    Two sets A and B are equal and we write A=B if and only if A $\subset$ B and B $\subset$ A
 \end{theorem}
-\subsection{Unions}
+
 \begin{definition}[Unions]
-The union of two sets A and B denoted by $A \cup B$, is 
-\[
-   A \cup B = {x \ | \ x \in A \ or \ x \in B}
-\]
+    The union of two sets A and B, denoted by A $\cup$ B, is
+    \[ A \cup B = \{x|\ x \in A \ and \ x \in B\}\]
 \end{definition}
+\begin{definition}[Intersections]
+    The intersection of two sets denoted by A $\cap$ B, is
+    \[A \cap B = \{x|\ x \in A \ or \ x \in B\}\]
+\end{definition}
+\begin{definition}[Set Difference]
+    The difference of two sets denoted by A$\setminus$ B is
+    \[A\setminus B = {x|\ x \in A \ and \ x \notin B}\]
+\end{definition}
+
+\begin{definition}[Set Complement]
+    The complement of a set A, denoted by A $^{C}$ is,
+    \[A^{C} = \{x \in X |\ x \notin A \}\]
+\end{definition}
+\begin{itemize}
+    \item $(B \cup C)^{C} = B^{C}  \cap C^{C}$
+    \item $(B \cap C)^{C} = B^{C} \cap C^{C}$
+    \item $A\setminus (B\cup C) = (A\setminus B) \cap (A \setminus C)$
+    \item $A\setminus (B\cap C) = (A\setminus B) \cup (A \setminus C)$
+\end{itemize}
+\section{Logical Notation}
+$\forall$ - for all\\
+$\exists$ - there exists\\
+$\exists!$ - there exists a unique\\
+
+\section{Functions}
+f: A $\rightarrow$ B\\
+f(a) = b, a $\in$ A, b $\in$ B\\
+A is the \textbf{domain} of the function, B is the \textbf{codomain} of the function and, \\
+\{b$\in$ B \textbar f(a) = b \} - Range\\
+\section{Cartesian Product}
+\[A \times B = \{(a,b) | a \in A, b \in B\}\]
+
+
+
+\section{Composition Of Functions}
+(g$\circ$f)(x) = (g(f(x))
+
+A function is the same as a mapping, which is the same as a transformation 
+\section{Types Of Functions}
+\begin{enumerate}
+    \item f is injective(one-one) if,
+    \[f(a) = f(a')\ then\ a\ =\ a'\]
+    \item f is surjective(onto) if, 
+    \[\forall b \in B, \exists \ a \in A, \  f(a) = b\]
+    \item f is bijective if f is injective and surjective
+    \end{enumerate}   
+\section*{Reference}
+Knowles - Linear Vector Spaces and Cartesian Tensors\\
+Halmos - Finite Dimensional Linear Spaces\\
+Gelfand - Linear Algebra
+\chapter{Vector Spaces}
+A vector space over a field F = $\mathbb{R}$ or $\mathbb{C}$ is a set V with two operations:
+\begin{enumerate}
+\item +:V$\times$ V $\rightarrow$ V i.e. "+" is closed under addition.
+
+\item $\cdot$:F $\times$ V $\rightarrow$ V, i.e. $"\cdot"$ is closed under multiplication
+\end{enumerate}
+having the following properties
+
+\begin{enumerate}
+    \item \textbf{Associativity}\\
+    \[\forall \ v_1, v_2,v_3 \in V, (v_1 + v_2) + v_3 = v_1 + (v_2 + v_3)\]
+    \item \textbf{Existence of identity element}\\
+    \[\exists! \ 0 \in V, \forall v\ in V, such that 0 + v = v\]
+    \item \textbf{Existence of additive inverse}
+    \[\forall \ v \in V \exists (-v) \in V, v + (-v) = 0\]
+    \item \textbf{Commutativity}
+    \[\forall \ u, v \in V, u+v = v+u \]
+        Properties 1 to 4 constitute a group known as the "abelian group" or "commutative group"
+    \item \textbf{Existence of multiplactive identity}
+    \[\exists! \ 1 \in V, \ such \ that \ \forall \ v \in V, 1\cdot v = v\]
+    \item \textbf{Associativity}
+    \[\mu, \lambda \in F, v \in V, \lambda(\mu \cdot v) = (\lambda\mu)\cdot v\]
+    \item \textbf{Distribution of + over $\cdot$}
+    \[(\lambda + \mu) \cdot v = \lambda \cdot v + \mu \cdot v, \forall \ \mu, \lambda \in F\]
+    \item \textbf{Distribution of $\cdot$ over +}
+    \[\lambda \cdot(u + v)\ = \lambda \cdot u + \lambda \cdot v, \forall \lambda \in \ F, u,v \in V\]    
+\end{enumerate}
+\section{Examples Of Vector Spaces}
+\begin{enumerate}
+    \item V = {0}
+    \item $\mathbb{R}$
+    \item All polynomials of order \textbf{at most} n
+\end{enumerate}
+\section*{Reference}
+    \begin{itemize}
+        \item Donald Knuth
+        \item Marvin Mirsky, MIT
+        \item Web Of Stories, Youtube Channel
+        \item Axler, Chapter 1
+        \item Olver, Shakiban, Chapter 2
+        \item Terrence Tao Notes - AMS Open Math
+    \end{itemize}
+    \section{Some Theorems And Proofs Regarding Vector Spaces}
+\begin{theorem}
+    Additive identity is unique
+\end{theorem}
+    \begin{proof}
+        Suppose $\exists \ additive \ identities \ 0_1$, $0_2$ such that
+        \[\forall u \in V, 0_1 + u \ \& \ 0_2 + u = u\]
+        \[0_1 + 0_2 = 0_2\]
+        \[0_2 + 0_1 = 0_1\]
+        \[\therefore 0_1 = 0_2\]
+    \end{proof}
+\begin{theorem}
+    Additive inverse is unique
+\end{theorem}
+    \begin{proof}
+        Suppose additive inverses of u are $v_1, v_2$
+        \[u + v_1 = 0, u + v_2 = 0\]
+        \[v_2 + (u+v_1) = v_2 + 0\]
+        \[(v_2 + u) + v_1 = v_2\]
+        \[0 + v_1 = v_2\]
+        \[v_1 = v_2\]
+        \end{proof}
+\begin{theorem}
+    $0\cdot u = 0$
+\end{theorem}
+\begin{proof}
+
+   Let 0 . u = 0 
+   Consider,
+   \[
+   v + v = 0.u + 0.u = (0+0).u
+   \]
+\[
+	= 0.u = v
+\]	
+\[
+	\implies v+v = v \\
+\]
+\[
+       v+(v + (-v)) = v + -v \\
+\]
+\[
+	\implies v = 0 
+\]
+\end{proof}
+\begin{theorem}[Scalars And Inverses]
+	\[
+	   (-\lambda)u = -(\lambda.u) = \lambda . (-u)
+	\]
+\end{theorem}
+\begin{proof}
+	Let $v = (-\lambda).u$
+	Consider,
+	\begin{displaymath}
+	v + \lambda. u = (-\lambda).u + \lambda u	
+	\end{displaymath}
+	
+\end{proof}
+
+\section{Fields}
+A) To every pair $\alpha$ and $\beta$ of scalars, there corresponds a scalar $\alpha + \beta$ called the sum of $\alpha \text{ and } \beta$, in such a way that 
+\begin{enumerate}
+	\item addition is commutative, $\alpha + \beta = \beta + \alpha$
+	\item addition is associative, $(\alpha + \beta)+\gamma = \alpha + (\beta + \gamma)$   
+	\item There exists a unique scalar 0, called zero, such that $\alpha + 0 = \alpha$ for every scalar $\alpha$, and 
+	\item to every scalar $\alpha$, there corresponds a unique scalar $(-\alpha)$ such that $\alpha + (-\alpha) = 0$ 
+\end{enumerate}
 \end{document}
-
-
