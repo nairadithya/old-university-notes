@@ -3,12 +3,17 @@
 \contentsline {section}{\numberline {1.1}Notations}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Roster Notation}{3}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Basic Concepts Of Sets}{4}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Logical Notation}{5}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Logical Notation}{4}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Functions}{5}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Cartesian Product}{5}{section.1.6}%
 \contentsline {section}{\numberline {1.7}Composition Of Functions}{5}{section.1.7}%
 \contentsline {section}{\numberline {1.8}Types Of Functions}{5}{section.1.8}%
-\contentsline {chapter}{\numberline {2}Vector Spaces}{6}{chapter.2}%
+\contentsline {chapter}{\numberline {2}Linear Algebra}{6}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Examples Of Vector Spaces}{7}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Some Theorems And Proofs Regarding Vector Spaces}{7}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Fields}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Examples Of Vector Spaces And Fields}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Subspaces}{10}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Span}{11}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Linear dependence and independence}{12}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Basis}{12}{section.2.8}%

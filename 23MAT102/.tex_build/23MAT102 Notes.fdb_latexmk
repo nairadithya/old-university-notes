@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1707018348.00309 "23MAT102 Notes.tex" "23MAT102 Notes.pdf" "23MAT102 Notes" 1707018349.17653 0
-  ".tex_build/23MAT102 Notes.aux" 1707018349.07793 4104 007aeae56c50b7fb5173d6a8cbebfe83 "pdflatex"
-  ".tex_build/23MAT102 Notes.out" 1707018349.07793 2222 e57fd6dd7fba14dbb8390fb33dd97f0c "pdflatex"
-  ".tex_build/23MAT102 Notes.toc" 1707018349.07793 1113 838108c9ed1861ca7de62cb6723fc04a "pdflatex"
+["pdflatex"] 1707154014.32066 "23MAT102 Notes.tex" "23MAT102 Notes.pdf" "23MAT102 Notes" 1707154015.88711 0
+  ".tex_build/23MAT102 Notes.aux" 1707154015.78412 6305 1feae94fc77ca11c0838bfb8042826c5 "pdflatex"
+  ".tex_build/23MAT102 Notes.out" 1707154015.78412 2966 37b804fd6c17f9a8cde925ec5255865c "pdflatex"
+  ".tex_build/23MAT102 Notes.toc" 1707154015.78412 1506 55c50696c7bc430c77416972d7748717 "pdflatex"
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -308,7 +308,7 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1706802972.31809 4869619 7d726d4cf9a0b1708bb0229db1546f71 ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1706802989 6881325 d72c08c5ca784dc91a32dbe850762d62 ""
   "/usr/local/texlive/2023/texmf.cnf" 1706802969.9901 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "23MAT102 Notes.tex" 1707018346.48997 7200 c371f9f875439b2b90fee942e2d4f0d5 ""
+  "23MAT102 Notes.tex" 1707154012.57209 14677 ff950d0258e08feee1f30e646e636648 ""
   "preamble.tex" 1706969244.19935 19942 1342c461cb25961844bbf39fb4317d8d ""
   (generated)
   ".tex_build/23MAT102 Notes.aux"

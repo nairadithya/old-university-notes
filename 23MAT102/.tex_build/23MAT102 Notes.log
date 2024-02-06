@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.1)  4 FEB 2024 09:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.2.1)  5 FEB 2024 22:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1284,11 +1284,6 @@ l.16 \section
 
 ] [2{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Chapter 1.
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--38
-
- []
-
 [3
 
 ]
@@ -1296,40 +1291,19 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 51.
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 51.
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--81
-
- []
-
-[4
-pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.81 
-     ]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 86.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--87
-
- []
-
-[5]
+ [4
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.87 \section
+             {Cartesian Product}] [5]
 Chapter 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
-
- []
-
 [6
 
 ]
@@ -1344,12 +1318,13 @@ Package hyperref Info: bookmark level for unknown replacementproof defaults to 0
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 163.
-Package mdframed Info: Not enough space on this page on input line 164.
- [7]
-Package mdframed Info: Not enough space on this page on input line 164.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 166.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 172.
+ [7]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 174.
@@ -1362,27 +1337,77 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 202.
- [8] [9] (.tex_build/23MAT102 Notes.aux)
+ [8] [9] [10]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 301.
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 301.
+Package mdframed Info: Not enough space on this page on input line 313.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 315.
+
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.325     L
+           et S be a finite collection of vectors in a vector space V.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 332.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 335.
+
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.351     A
+           ny collection S of vectors in a vector space V are linearly depen... [11]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.360     A
+            basis in a vector space V is a set S of linearly independent vec...
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.363     T
+           he dimension of a finite dimensional vector space V is the number...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 366.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 373.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 397.
+ [12]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 399.
+ [13] (.tex_build/23MAT102 Notes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `"23MAT102 Notes".out' has not changed.
-(rerunfilecheck)             Checksum: E57FD6DD7FBA14DBB8390FB33DD97F0C;2222.
+(rerunfilecheck)             Checksum: 37B804FD6C17F9A8CDE925EC5255865C;2966.
  ) 
 Here is how much of TeX's memory you used:
- 50107 strings out of 476064
- 1206289 string characters out of 5792266
- 1951975 words of memory out of 5000000
- 71248 multiletter control sequences out of 15000+600000
+ 50324 strings out of 476064
+ 1210673 string characters out of 5792266
+ 1952975 words of memory out of 5000000
+ 71435 multiletter control sequences out of 15000+600000
  567771 words of font info for 73 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 104i,10n,104p,754b,1502s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,11n,104p,754b,1795s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on ".tex_build/23MAT102 Notes.pdf" (10 pages, 181463 bytes).
+Output written on ".tex_build/23MAT102 Notes.pdf" (14 pages, 206424 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
- 275 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 373 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 351 words of extra memory for PDF output out of 10000 (max. 10000000)
 
