@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "23PHY114/Code For Finding Mass Of A Rigid Body.md",
+                "file": "23MAT112/Interesting Things To Add To Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "23PHY114/Code For Finding Mass Of A Rigid Body.md",
+                "file": "23MAT112/Interesting Things To Add To Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "23PHY114/Code For Finding Mass Of A Rigid Body.md",
+                "file": "23MAT112/Interesting Things To Add To Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "23PHY114/Code For Finding Mass Of A Rigid Body.md"
+                "file": "23MAT112/Interesting Things To Add To Notes.md"
               }
             }
           }
@@ -149,20 +149,24 @@
   },
   "active": "ccb49d593a62f0ae",
   "lastOpenFiles": [
-    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
+    "DSA Lab",
+    "23MAT112/Class Notes.pdf",
+    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
+    "23MAT112/Interesting Things To Add To Notes.md",
+    "OOPS Lab/Programs - 7.2.24.md",
+    "23MAT112/Class Notes.tex~",
+    "OOPS Lab/Program4.java~",
+    "OOPS Lab/Program8.java~",
+    "OOPS Lab/Program8.java",
+    "OOPS Lab/4913",
+    "OOPS Lab/Program7.java~",
+    "OOPS Lab/Program7.java",
+    "OOPS Lab/Program6.java~",
+    "OOPS Lab/Program6.java",
     "23PHY114/Code For Finding Mass Of A Rigid Body.md",
-    "23PHY114/Class Notes.tex~",
-    "23PHY114/preamble.tex",
-    "23PHY114/Class Notes.tex",
-    "23PHY114",
-    "23MAT102/23MAT102 Notes.tex~",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
     "Excalidraw/Drawing 2024-02-05 14.35.32.excalidraw.md",
     "Excalidraw/Drawing 2024-02-05 14.47.12.excalidraw.md",
-    "23MAT112/Class Notes.pdf",
-    "Excalidraw",
-    "23MAT102/23MAT102 Notes.pdf",
-    "23CHY115 - Introduction To Materials Informatics",
-    "23MAT112/template.toc",
     "23MAT112/Gallier Notes.md",
     "mathS.md",
     "23MAT112/Class Notes.md"
