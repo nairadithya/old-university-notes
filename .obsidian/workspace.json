@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "bcc7f07fed663854",
+        "id": "4127ed4befd2d5e7",
         "type": "tabs",
         "children": [
           {
-            "id": "ccb49d593a62f0ae",
+            "id": "41e88670c7842111",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "DSA Lab/Programs - 8.2.24.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -69,7 +65,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "6324ec6758904568",
@@ -85,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "DSA Lab/Programs - 8.2.24.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "DSA Lab/Programs - 8.2.24.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "DSA Lab/Programs - 8.2.24.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -147,24 +140,23 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ccb49d593a62f0ae",
+  "active": "41e88670c7842111",
   "lastOpenFiles": [
+    "DSA Lab/Programs - 8.2.24.md",
+    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
+    "23PHY114/Code For Finding Mass Of A Rigid Body.md",
+    "DSA Lab/insertElementToCertainPosition.java~",
+    "DSA Lab/insertElementToCertainPosition.java",
+    "DSA Lab/searchArray.java~",
+    "DSA Lab/searchArray.java",
     "DSA Lab/insertElementToBeginning.java~",
     "DSA Lab/insertElementToBeginning.java",
     "DSA Lab/insertElementToBeginning~",
     "DSA Lab/insertElementToBeginning",
     "DSA Lab/readArray.java~",
     "DSA Lab/inputArray.java~",
-    "DSA Lab/4913",
     "23MAT112/Interesting Things To Add To Notes.md",
-    "DSA Lab/Programs - 8.2.24.md",
-    "DSA Lab/insertElementToEnd.java~",
-    "DSA Lab/insertElementToEnd.java",
-    "DSA Lab/inputArray.java",
-    "DSA Lab/readArray.java",
-    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
     "OOPS Lab/Programs - 7.2.24.md",
-    "23PHY114/Code For Finding Mass Of A Rigid Body.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
     "Excalidraw/Drawing 2024-02-05 14.35.32.excalidraw.md",
     "Excalidraw/Drawing 2024-02-05 14.47.12.excalidraw.md",
