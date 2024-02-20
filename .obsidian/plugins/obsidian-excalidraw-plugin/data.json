@@ -18,7 +18,7 @@
   "previewImageType": "SVGIMG",
   "allowImageCache": true,
   "displayExportedImageIfAvailable": false,
-  "previewMatchObsidianTheme": false,
+  "previewMatchObsidianTheme": true,
   "width": "400",
   "dynamicStyling": "colorful",
   "isLeftHanded": false,

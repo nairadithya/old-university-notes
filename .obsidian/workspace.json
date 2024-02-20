@@ -4,18 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "4127ed4befd2d5e7",
+        "id": "9ab29b62bb642e29",
         "type": "tabs",
         "children": [
           {
-            "id": "41e88670c7842111",
+            "id": "791c0b40be244f2a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1a0b4972f53d7f08",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "23MAT112/Class Notes.pdf"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -82,6 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "23MAT112/Class Notes.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "23MAT112/Class Notes.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +136,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "23MAT112/Class Notes.pdf"
+              }
             }
           }
         ]
@@ -140,26 +159,42 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "41e88670c7842111",
+  "active": "1a0b4972f53d7f08",
   "lastOpenFiles": [
-    "DSA Lab/Programs - 8.2.24.md",
-    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
-    "23PHY114/Code For Finding Mass Of A Rigid Body.md",
-    "DSA Lab/insertElementToCertainPosition.java~",
-    "DSA Lab/insertElementToCertainPosition.java",
-    "DSA Lab/searchArray.java~",
-    "DSA Lab/searchArray.java",
-    "DSA Lab/insertElementToBeginning.java~",
-    "DSA Lab/insertElementToBeginning.java",
-    "DSA Lab/insertElementToBeginning~",
-    "DSA Lab/insertElementToBeginning",
-    "DSA Lab/readArray.java~",
-    "DSA Lab/inputArray.java~",
-    "23MAT112/Interesting Things To Add To Notes.md",
-    "OOPS Lab/Programs - 7.2.24.md",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
+    "23MAT112/Class Notes.tex~",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
+    "23MAT112/Class Notes.pdf",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 3.md",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+    "23CHY115 - Introduction To Materials Informatics/template.pdf",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 5.md",
+    "Excalidraw/Drawing 2024-02-16 14.36.14.excalidraw.md",
+    "Excalidraw/Drawing 2024-02-15 12.37.21.excalidraw.md",
+    "Excalidraw/Drawing 2024-02-15 11.20.40.excalidraw.md",
+    "Excalidraw/Drawing 2024-02-12 14.15.49.excalidraw.md",
     "Excalidraw/Drawing 2024-02-05 14.35.32.excalidraw.md",
     "Excalidraw/Drawing 2024-02-05 14.47.12.excalidraw.md",
+    "Excalidraw/Drawing 2024-02-19 14.15.59.excalidraw.md",
+    "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.svg",
+    "OOPS Lab/Programs 19.2.24/IncTest.java~",
+    "OOPS Lab/Programs 19.2.24/IncTest.java",
+    "OOPS Lab/Programs 19.2.24/printLargest.java~",
+    "OOPS Lab/Programs 19.2.24/printLargest.java",
+    "OOPS Lab/Programs 19.2.24/DeclarationTest.java~",
+    "OOPS Lab/Programs 19.2.24/DeclarationTest.java",
+    "OOPS Lab/Programs 19.2.24",
+    "Untitled.canvas",
+    "OOPS Lab/Programs - 14.2.24.md",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
+    "23PHY114/Notes So Far.md",
+    "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.md",
+    "23PHY114/Project Description.md",
+    "DSA Lab/Queue.md",
+    "OOPS Lab/Queue.md",
+    "OOPS Lab/Programs - 7.2.24.md",
+    "DSA Lab/Programs - 8.2.24.md",
+    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
+    "23MAT112/Interesting Things To Add To Notes.md",
     "23MAT112/Gallier Notes.md",
     "mathS.md",
     "23MAT112/Class Notes.md"
