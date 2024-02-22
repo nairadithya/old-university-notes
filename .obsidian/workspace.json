@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
+                "file": "23PHY114/Notes So Far.md",
                 "mode": "source",
                 "source": false
               }
@@ -23,9 +23,21 @@
             "id": "1a0b4972f53d7f08",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "23MAT112/Class Notes.pdf"
+                "file": "OOPS Lab/Programs - 19.2.24.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ca4fc6ea37986a47",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2024-02-20 14.36.04.excalidraw.md"
               }
             }
           }
@@ -80,8 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "6324ec6758904568",
@@ -97,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "23MAT112/Class Notes.pdf",
+                "file": "OOPS Lab/Programs - 19.2.24.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "23MAT112/Class Notes.pdf",
+                "file": "OOPS Lab/Programs - 19.2.24.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "23MAT112/Class Notes.pdf"
+                "file": "OOPS Lab/Programs - 19.2.24.md"
               }
             }
           }
@@ -161,12 +172,20 @@
   },
   "active": "1a0b4972f53d7f08",
   "lastOpenFiles": [
-    "23MAT112/Class Notes.tex~",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
     "23MAT112/Class Notes.pdf",
+    "OOPS Lab/Programs - 19.2.24.md",
+    "23PHY114/Notes So Far.md",
+    "DSA Lab/Programs - 8.2.24.md",
+    "23MAT102/23MAT102 Notes.pdf",
+    "23MAT112/Interesting Things To Add To Notes.md",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
+    "Excalidraw/Drawing 2024-02-20 14.36.04.excalidraw.md",
+    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
+    "23PHY114/Project Description.md",
+    "23CHY115 - Introduction To Materials Informatics/template.pdf",
+    "23MAT112/Class Notes.tex~",
     "23CHY115 - Introduction To Materials Informatics/Lecture 3.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
-    "23CHY115 - Introduction To Materials Informatics/template.pdf",
     "23CHY115 - Introduction To Materials Informatics/Lecture 5.md",
     "Excalidraw/Drawing 2024-02-16 14.36.14.excalidraw.md",
     "Excalidraw/Drawing 2024-02-15 12.37.21.excalidraw.md",
@@ -182,21 +201,13 @@
     "OOPS Lab/Programs 19.2.24/printLargest.java",
     "OOPS Lab/Programs 19.2.24/DeclarationTest.java~",
     "OOPS Lab/Programs 19.2.24/DeclarationTest.java",
-    "OOPS Lab/Programs 19.2.24",
     "Untitled.canvas",
     "OOPS Lab/Programs - 14.2.24.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
-    "23PHY114/Notes So Far.md",
     "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.md",
-    "23PHY114/Project Description.md",
     "DSA Lab/Queue.md",
     "OOPS Lab/Queue.md",
     "OOPS Lab/Programs - 7.2.24.md",
-    "DSA Lab/Programs - 8.2.24.md",
-    "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
-    "23MAT112/Interesting Things To Add To Notes.md",
-    "23MAT112/Gallier Notes.md",
-    "mathS.md",
-    "23MAT112/Class Notes.md"
+    "23MAT112/Gallier Notes.md"
   ]
 }

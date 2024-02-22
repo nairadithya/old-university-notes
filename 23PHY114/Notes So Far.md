@@ -86,3 +86,31 @@ l = 10m,
 R = 1500N, 
 \Delta l = 0.01
 $$
+This pillar is circular in its cross-section.
+
+$\sigma_{yy} = \frac{P}{A_c}$
+
+This is known as engineering stress, this stress does not account for the slight deformation that takes place when the force is applied.
+
+True stress is...
+
+$\sigma_{yy} = \frac{P}{A_d}$
+
+The rate at which the object bulges or thins out is called the **Poisson Ratio**.
+
+$\nu,\kappa, E$ - representations for Poisson Ratio
+# For Uniaxial Deformation
+
+$\sigma_{yy} = E \epsilon_{yy}$
+$\frac{F}{A}=E \frac{\Delta l}{l}$
+$F = (\frac{EA}{l})\Delta l$
+$F = k\Delta x$
+
+# Another Case
+
+
+
+# Finite Element Method - Computing Basis
+The aim of this method is to reduce a complex system down to this equation.
+
+$$[F] = [k] [\Delta x],\text{where k is the stiffness matrix.}$$

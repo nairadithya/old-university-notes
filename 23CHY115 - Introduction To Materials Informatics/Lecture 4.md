@@ -70,7 +70,7 @@ For the notation, when $\bra{v}$ is written, the basis is transformed to its com
 
 $\bra{v} = v_1^* \bra{e_1} + v_2^*\bra{e_2}$, where $v_1^*$ and $v_2^*$ is the corresponding complex conjugate
 
-Performing the dot product is denoted by $\bra{v}\ket{w} = (v_1^*\bra{\hat{e_1}}+ v_2^*\bra{\hat{e_2}})(w_1 \ket{\hat{e_1}} + w_2 \ket{\hat{e_2}})$
+Performing the dot product is denoted by $\braket{v|w} = (v_1^*\bra{\hat{e_1}}+ v_2^*\bra{\hat{e_2}})(w_1 \ket{\hat{e_1}} + w_2 \ket{\hat{e_2}})$
 
 $\bra{\hat{e_1}}\ket{\hat{e_2}}=0$, $\bra{\hat{e_1}}\ket{\hat{e_2}}=1$
 
