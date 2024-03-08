@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9ab29b62bb642e29",
+        "id": "dbf452e3cf7aa454",
         "type": "tabs",
         "children": [
           {
-            "id": "791c0b40be244f2a",
+            "id": "546a3287d99aea56",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,29 +20,16 @@
             }
           },
           {
-            "id": "1a0b4972f53d7f08",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OOPS Lab/Programs - 19.2.24.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ca4fc6ea37986a47",
+            "id": "c40a3c8a1e78cf66",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
               "state": {
-                "file": "Excalidraw/Drawing 2024-02-20 14.36.04.excalidraw.md"
+                "file": "Excalidraw/Drawing 2024-03-07 14.31.30.excalidraw.md"
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -92,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "6324ec6758904568",
@@ -108,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OOPS Lab/Programs - 19.2.24.md",
+                "file": "23PHY114/Notes So Far.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OOPS Lab/Programs - 19.2.24.md",
+                "file": "23PHY114/Notes So Far.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OOPS Lab/Programs - 19.2.24.md"
+                "file": "23PHY114/Notes So Far.md"
               }
             }
           }
@@ -170,20 +157,37 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "1a0b4972f53d7f08",
+  "active": "546a3287d99aea56",
   "lastOpenFiles": [
-    "23MAT112/Class Notes.pdf",
-    "OOPS Lab/Programs - 19.2.24.md",
+    "Excalidraw/Drawing 2024-03-07 14.31.30.excalidraw.md",
     "23PHY114/Notes So Far.md",
+    "Excalidraw/Drawing 2024-03-07 14.21.05.excalidraw.md",
+    "DSA Lab/Infix To Pre-fix.md",
+    "Excalidraw/Drawing 2024-02-26 11.57.53.excalidraw.md",
+    "Excalidraw/Drawing 2024-02-23 14.16.35.excalidraw.md",
+    "Excalidraw/Drawing 2024-03-06 21.13.52.excalidraw.md",
+    "23MAT112/Class Notes.tex~",
+    "23PHY114/Project Description.md",
+    "23MAT112/Quiz 2 Short Notes.pdf",
+    "OOPS Lab/Queue.md",
+    "DSA Lab/Implementation Of Stack/Data Structures.md",
     "DSA Lab/Programs - 8.2.24.md",
+    "DSA Lab/Implementation Of Stack/QueueX.md",
+    "23PHY114/stiffness.jl~",
+    "23PHY114/Finite Element Method.m",
+    "23PHY114/stiffness.jl",
+    "23PHY114/stiffness.m~",
+    "DSA Lab/Queue.md",
+    "23PHY114/stiffness.m",
+    "2024-02-23.md",
+    "23PHY114/truss.m",
+    "OOPS Lab/Programs - 19.2.24.md",
+    "Excalidraw/Drawing 2024-02-20 14.36.04.excalidraw.md",
+    "23MAT112/Class Notes.pdf",
     "23MAT102/23MAT102 Notes.pdf",
     "23MAT112/Interesting Things To Add To Notes.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
-    "Excalidraw/Drawing 2024-02-20 14.36.04.excalidraw.md",
     "23MAT112/An Explanation For Why All Positive Definite Matrices Are Full-Rank Matrices.md",
-    "23PHY114/Project Description.md",
-    "23CHY115 - Introduction To Materials Informatics/template.pdf",
-    "23MAT112/Class Notes.tex~",
     "23CHY115 - Introduction To Materials Informatics/Lecture 3.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 5.md",
@@ -191,23 +195,7 @@
     "Excalidraw/Drawing 2024-02-15 12.37.21.excalidraw.md",
     "Excalidraw/Drawing 2024-02-15 11.20.40.excalidraw.md",
     "Excalidraw/Drawing 2024-02-12 14.15.49.excalidraw.md",
-    "Excalidraw/Drawing 2024-02-05 14.35.32.excalidraw.md",
-    "Excalidraw/Drawing 2024-02-05 14.47.12.excalidraw.md",
-    "Excalidraw/Drawing 2024-02-19 14.15.59.excalidraw.md",
     "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.svg",
-    "OOPS Lab/Programs 19.2.24/IncTest.java~",
-    "OOPS Lab/Programs 19.2.24/IncTest.java",
-    "OOPS Lab/Programs 19.2.24/printLargest.java~",
-    "OOPS Lab/Programs 19.2.24/printLargest.java",
-    "OOPS Lab/Programs 19.2.24/DeclarationTest.java~",
-    "OOPS Lab/Programs 19.2.24/DeclarationTest.java",
-    "Untitled.canvas",
-    "OOPS Lab/Programs - 14.2.24.md",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
-    "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.md",
-    "DSA Lab/Queue.md",
-    "OOPS Lab/Queue.md",
-    "OOPS Lab/Programs - 7.2.24.md",
-    "23MAT112/Gallier Notes.md"
+    "Untitled.canvas"
   ]
 }
