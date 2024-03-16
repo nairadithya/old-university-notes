@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function}\PYG{+w}{ }stiffnessLocal\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{localStiffnessGenerator}\PYG{p}{(}E,A,l,theta\PYG{p}{);}
+    \PYG{n}{stiffnessConstant} \PYG{p}{=} \PYG{n}{E}\PYG{o}{*}\PYG{n}{A}\PYG{o}{/}\PYG{n}{l}\PYG{p}{;}
+    \PYG{n}{R} \PYG{p}{=} \PYG{p}{[}\PYG{n+nb}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{n+nb}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{);} \PYG{n+nb}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{n+nb}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)];}
+    \PYG{n}{stiffnessMatrix} \PYG{p}{=} \PYG{p}{[}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0} \PYG{o}{\PYGZhy{}}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{);}\PYG{o}{\PYGZhy{}}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0} \PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{)];}
+    \PYG{n}{R4} \PYG{p}{=} \PYG{p}{[}\PYG{n}{R} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{n}{R}\PYG{p}{];}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{R4}\PYG{o}{*}\PYG{n}{stiffnessMatrix}\PYG{o}{*}\PYG{n}{R4}\PYG{o}{\PYGZsq{}}\PYG{p}{;}
+\PYG{k}{end}
+\end{Verbatim}
