@@ -445,5 +445,4 @@ $$ Substituting $(EIV'')'$ as -S,
 $$
 [\int q''EIv'' dx]_{\text{ This becomes the term k}} + \int qw dx - [q(S(x) - (q'M(x)]^l_0
 $$
-$$
-$$
+

@@ -1,0 +1,99 @@
+\documentclass{report}
+\input{preamble}
+\usepackage{fancyhdr}
+\usepackage{minted}
+\title{\Huge{23PHY114}\\ Class Notes}
+\author{\huge{Adithya Nair}}
+\date{}
+\begin{document}
+
+\maketitle
+\newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\tableofcontents
+\chapter{Solids}
+\section{Moment Of Area}
+The moment of inertia is used to help find the "resistance" to the force, given a specific axis or direction.
+
+\section{Resisting Force And Moments From Supports} % (fold)
+\label{sec:resisting_force_and_moments_from_supports}
+There are three main kinds of supports - 
+\begin{enumerate}
+  \item Pin/Hinge - Fixes linear motion but leaves rotation free. 
+  \item Roller - Fixes rotation but leaves motion free. 
+  \item Clamp - Fixes both linear and rotational motion.
+\end{enumerate}
+% section Resisting Force And Moments From Supports (end)
+Take this case, with a bunch of forces being applied to the given load. 
+\begin{figure}[ht]
+    \includegraphics[width=0.9\textwidth]{figures/ProblemExample1.pdf}
+\end{figure}
+There are three main things we need to find for this figure. 
+\begin{enumerate}
+  \item The resultant force acting on this bar fixed to a hinge. 
+  \item The support reaction force and moment.
+  \item The moment on the object (maximum)
+\end{enumerate}
+The way to approach the problem is as always,
+\begin{enumerate}
+  \item Free Body Diagram first. 
+  \item Assuming $\Sigma f = 0 $, because the object has no acceleration currently, because it is fixed.
+  \item Assuming $\Sigma M = 0$
+  \item The point at which the resultant force is applied is found by, 
+    \[
+      \frac{\int |r|dm}{\int dm}
+    \]
+\end{enumerate}
+\section{For Uniaxial Deformation} % (fold)
+
+\label{sec:for_uniaxial_deformation}
+Main Subroutines For Uniaxial Deformation
+% section For Uniaxial Deformation (end)
+\subsection{Finding The Local Stiffness Matrix} % (fold)
+\begin{minted}{octave}
+function stiffnessLocal = localStiffnessGenerator(E,A,l,theta);
+    stiffnessConstant = E*A/l;
+    R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
+    stiffnessMatrix = [stiffnessConstant 0 -stiffnessConstant 0; zeros(1,4);-stiffnessConstant 0 stiffnessConstant 0; zeros(1,4)];
+    R4 = [R zeros(2,2); zeros(2,2) R];
+    stiffnessLocal = R4*stiffnessMatrix*R4';
+end
+\end{minted}
+\label{sec:finding_the_local_stiffness_matrix}
+% subsubsection Finding The Local Stiffness Matrix (end)
+\subsection{Converting The Local Stiffness To A Global Stiffness Matrix}
+\begin{minted}{octave}
+   function stiffnessLocalGlobal = local2Global(stiffnessLocal,node1,node2,nodeCount)
+    stiffnessLocalGlobal = zeros(2*nodeCount,2*nodeCount);
+    i = 2*node1 - 1;
+    j = 2*node2 - 1;
+    stiffnessLocalGlobal(i:(i+1),i:(i+1)) = stiffnessLocal(1:2,1:2);
+    stiffnessLocalGlobal(i:(i+1),j:(j+1)) = stiffnessLocal(1:2,3:4);
+    stiffnessLocalGlobal(j:(j+1),i:(i+1)) = stiffnessLocal(3:4,1:2);
+    stiffnessLocalGlobal(j:(j+1),j:(j+1)) = stiffnessLocal(3:4,3:4);
+end
+\end{minted}
+\subsection{Main Loop Through Evaluating The Global Stiffness Matrix}
+\begin{minted}{octave}
+   A = 0; theta = 0; l = 0; stiffnessLocal = zeros(4,4); nodeAxialForces = zeros(nodeCount,1);
+for element = 1:5 % For first three bars
+    A = areaVector(element);
+    theta = angleVector(element);
+    l = lengthVector(element);
+    stiffnessLocal = localStiffnessGenerator(E,A,l,theta);
+    nodeCounter = element*2 - 1;
+    stiffnessLocalGlobal = local2Global(stiffnessLocal,nodeVector(nodeCounter),nodeVector(nodeCounter+1),nodeCount);
+    stiffnessLocal
+    stiffnessLocalGlobal
+    stiffnessGlobal += stiffnessLocalGlobal;
+end
+\end{minted}
+\subsection{Applying Boundary Conditions}
+\begin{minted}{octave}
+selectedVector = [3 5:end]
+forceEval = forceVector(selectedVector);
+displacementEval = displacementVector(selectedVector);
+stiffnessEval = stiffnessGlobal(selectedVector);
+displacementEval = stiffnessEval\forceEval;
+\end{minted}
+\end{document}

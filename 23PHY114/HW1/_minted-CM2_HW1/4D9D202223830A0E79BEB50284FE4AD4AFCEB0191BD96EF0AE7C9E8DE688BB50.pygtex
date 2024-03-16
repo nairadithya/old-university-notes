@@ -1,0 +1,182 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+     \PYG{c}{\PYGZpc{} Input}
+\PYG{n}{E} \PYG{p}{=} \PYG{l+m+mf}{200e7}\PYG{p}{;}
+\PYG{n}{elementCount} \PYG{p}{=} \PYG{l+m+mi}{9}\PYG{p}{;}
+\PYG{n}{nodeCount} \PYG{p}{=} \PYG{l+m+mi}{6}\PYG{p}{;}
+
+\PYG{n}{areaVector} \PYG{p}{=} \PYG{l+m+mf}{2.5e\PYGZhy{}3}\PYG{o}{*}\PYG{n+nb}{ones}\PYG{p}{(}\PYG{n}{elementCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{c}{\PYGZpc{} Following from the node order}
+\PYG{c}{\PYGZpc{} 12 23 34 45 56 13 35 24 46}
+\PYG{n}{lengthVector} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{];}
+\PYG{n}{angleVector} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{90}\PYG{p}{;}\PYG{l+m+mi}{360}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{atan}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{);}\PYG{l+m+mi}{90}\PYG{p}{;}\PYG{l+m+mi}{360}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{atan}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{o}{/}\PYG{l+m+mi}{4}\PYG{p}{);}\PYG{l+m+mi}{45}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{];}
+\PYG{n}{positionVector} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{8}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{l+m+mi}{8}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{12}\PYG{p}{;}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{c}{\PYGZpc{} ABCDEGH}
+
+\PYG{n}{nodeVector} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{l+m+mi}{6}\PYG{p}{;}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{3}\PYG{p}{;}\PYG{l+m+mi}{5}\PYG{p}{;}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{4}\PYG{p}{;}\PYG{l+m+mi}{6}\PYG{p}{];} \PYG{c}{\PYGZpc{} AB, BC, CD, DA, DB}
+\PYG{n}{displacementVector} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{forceVector} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{forceVector}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{p}{=} \PYG{l+m+mi}{400}\PYG{p}{;} \PYG{c}{\PYGZpc{} F2}
+\PYG{n}{forceVector}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{p}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1200}\PYG{p}{;} \PYG{c}{\PYGZpc{} F1}
+
+\PYG{c}{\PYGZpc{} DE, EG,}
+
+\PYG{n}{stiffnessGlobal} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{);}
+
+\PYG{k}{function}\PYG{+w}{ }stiffnessLocal\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{localStiffnessGenerator}\PYG{p}{(}E,A,l,theta\PYG{p}{);}
+    \PYG{n}{stiffnessConstant} \PYG{p}{=} \PYG{n}{E}\PYG{o}{*}\PYG{n}{A}\PYG{o}{/}\PYG{n}{l}\PYG{p}{;}
+    \PYG{n}{R} \PYG{p}{=} \PYG{p}{[}\PYG{n+nb}{cosd}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{n+nb}{sind}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{);} \PYG{n+nb}{sind}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{n+nb}{cosd}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)];}
+    \PYG{n}{stiffnessMatrix} \PYG{p}{=} \PYG{p}{[}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0} \PYG{o}{\PYGZhy{}}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{);}\PYG{o}{\PYGZhy{}}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0} \PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{)];}
+    \PYG{n}{R4} \PYG{p}{=} \PYG{p}{[}\PYG{n}{R} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{n}{R}\PYG{p}{];}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{R4}\PYG{o}{*}\PYG{n}{stiffnessMatrix}\PYG{o}{*}\PYG{n}{R4}\PYG{o}{\PYGZsq{}}\PYG{p}{;}
+\PYG{k}{end}
+\PYG{k}{function}\PYG{+w}{ }stiffnessLocalGlobal\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{local2Global}\PYG{p}{(}stiffnessLocal,node1,node2,nodeCount\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{stiffnessLocalGlobal} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{);}
+    \PYG{n}{i} \PYG{p}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{node1} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{j} \PYG{p}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{node2} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{);}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{k}{function}\PYG{+w}{ }forceAxial\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{tension}\PYG{p}{(}stiffnessLocal,theta,displacementSelected\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{R} \PYG{p}{=} \PYG{p}{[}\PYG{n+nb}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{n+nb}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{);} \PYG{n+nb}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{n+nb}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)];}
+    \PYG{n}{R4} \PYG{p}{=} \PYG{p}{[}\PYG{n}{R} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{n}{R}\PYG{p}{];}
+    \PYG{n}{displacementLocal} \PYG{p}{=} \PYG{n}{R4}\PYG{o}{\PYGZsq{}*}\PYG{n}{displacementSelected}\PYG{p}{;}
+    \PYG{n}{forceAxial} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{o}{*}\PYG{n}{displacementLocal}\PYG{p}{;}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZpc{} Looping through the entire structure.}
+\PYG{n}{A} \PYG{p}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{theta} \PYG{p}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{l} \PYG{p}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{);}
+\PYG{k}{for} \PYG{n}{element} \PYG{p}{=} \PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n}{elementCount} \PYG{c}{\PYGZpc{} For first three bars}
+    \PYG{n}{A} \PYG{p}{=} \PYG{n}{areaVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{theta} \PYG{p}{=} \PYG{n}{angleVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{l} \PYG{p}{=} \PYG{n}{lengthVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{localStiffnessGenerator}\PYG{p}{(}\PYG{n}{E}\PYG{p}{,}\PYG{n}{A}\PYG{p}{,}\PYG{n}{l}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{);}
+    \PYG{n}{nodeCounter} \PYG{p}{=} \PYG{n}{element}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{stiffnessLocalGlobal} \PYG{p}{=} \PYG{n}{local2Global}\PYG{p}{(}\PYG{n}{stiffnessLocal}\PYG{p}{,}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{),}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{nodeCount}\PYG{p}{);}
+    \PYG{n}{stiffnessGlobal} \PYG{o}{+=} \PYG{n}{stiffnessLocalGlobal}\PYG{p}{;}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZpc{} Applying Boundary Conditions,}
+\PYG{n+nb}{range} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{n}{nodeCount}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}
+\PYG{n}{forceEval} \PYG{p}{=} \PYG{n}{forceVector}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{);}
+\PYG{n}{displacementEval} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{);}
+\PYG{n}{stiffnessEval} \PYG{p}{=} \PYG{n}{stiffnessGlobal}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{,}\PYG{n+nb}{range}\PYG{p}{);}
+\PYG{n}{displacementEval} \PYG{p}{=} \PYG{n}{stiffnessEval}\PYG{o}{\PYGZbs{}}\PYG{n}{forceEval}\PYG{p}{;}
+
+
+\PYG{n}{displacementVector}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{)} \PYG{p}{=} \PYG{n}{displacementEval}\PYG{p}{;}
+\PYG{n}{forceVector} \PYG{p}{=} \PYG{n}{stiffnessGlobal}\PYG{o}{*}\PYG{n}{displacementVector}\PYG{p}{;}
+
+
+\PYG{n}{positionVectorNew} \PYG{p}{=} \PYG{n}{positionVector} \PYG{o}{+} \PYG{n}{displacementVector}\PYG{p}{;}
+\PYG{n+nb}{plot}\PYG{p}{(}\PYG{n}{positionVector}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{n}{positionVector}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{l+s}{\PYGZsq{}\PYGZhy{}\PYGZhy{}or\PYGZsq{}}\PYG{p}{);}
+\PYG{n+nb}{hold} \PYG{n}{on}\PYG{p}{;}
+\PYG{n+nb}{plot}\PYG{p}{(}\PYG{n}{positionVectorNew}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{n}{positionVectorNew}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{l+s}{\PYGZsq{}\PYGZhy{}\PYGZhy{}ob\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{forceAxial} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{nodeAxialForces} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{c}{\PYGZpc{} 2 Finding Axial Forces}
+\PYG{k}{for} \PYG{n}{element} \PYG{p}{=} \PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n}{elementCount}
+    \PYG{n}{A} \PYG{p}{=} \PYG{n}{areaVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{theta} \PYG{p}{=} \PYG{n}{angleVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{l} \PYG{p}{=} \PYG{n}{lengthVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{nodeCounter} \PYG{p}{=} \PYG{n}{element}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{localStiffnessGenerator}\PYG{p}{(}\PYG{n}{E}\PYG{p}{,}\PYG{n}{A}\PYG{p}{,}\PYG{n}{l}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{);}
+    \PYG{n}{displacementVectorSelected} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{displacementVectorSelected}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{):(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{))}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{displacementVectorSelected}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{)} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{forceAxial} \PYG{p}{=} \PYG{n}{tension}\PYG{p}{(}\PYG{n}{stiffnessLocal}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{,}\PYG{n}{displacementVectorSelected}\PYG{p}{);}
+    \PYG{n}{nodeAxialForces}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{))} \PYG{o}{+=} \PYG{n}{forceAxial}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{nodeAxialForces}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{o}{+=} \PYG{n}{forceAxial}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZpc{} Calculating Stresses And Strains}
+\PYG{n}{stressVector} \PYG{p}{=} \PYG{n}{nodeAxialForces}\PYG{o}{/}\PYG{n}{A}\PYG{p}{;}
+\PYG{n}{strainVector} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{o}{/}\PYG{n}{l}\PYG{p}{;}
+
+\PYG{c}{\PYGZpc{} When maximum stress is 300 MPa, Forces need a new area,}
+\PYG{n}{stressVector} \PYG{p}{=} \PYG{l+m+mf}{300e6}\PYG{p}{;}
+\PYG{n}{areaVector} \PYG{p}{=} \PYG{n}{stressVector}\PYG{o}{./}\PYG{n}{forceVector}\PYG{p}{;}
+\PYG{n}{displacementVector} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{forceVector} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{forceVector}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{p}{=} \PYG{l+m+mi}{400}\PYG{p}{;} \PYG{c}{\PYGZpc{} F2}
+\PYG{n}{forceVector}\PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{p}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1200}\PYG{p}{;} \PYG{c}{\PYGZpc{} F1}
+
+\PYG{c}{\PYGZpc{} DE, EG,}
+
+\PYG{n}{stiffnessGlobal} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{);}
+
+\PYG{k}{function}\PYG{+w}{ }stiffnessLocal\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{localStiffnessGenerator}\PYG{p}{(}E,A,l,theta\PYG{p}{);}
+    \PYG{n}{stiffnessConstant} \PYG{p}{=} \PYG{n}{E}\PYG{o}{*}\PYG{n}{A}\PYG{o}{/}\PYG{n}{l}\PYG{p}{;}
+    \PYG{n}{R} \PYG{p}{=} \PYG{p}{[}\PYG{n+nb}{cosd}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{n+nb}{sind}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{);} \PYG{n+nb}{sind}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{n+nb}{cosd}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)];}
+    \PYG{n}{stiffnessMatrix} \PYG{p}{=} \PYG{p}{[}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0} \PYG{o}{\PYGZhy{}}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{);}\PYG{o}{\PYGZhy{}}\PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0} \PYG{n}{stiffnessConstant} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{)];}
+    \PYG{n}{R4} \PYG{p}{=} \PYG{p}{[}\PYG{n}{R} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{n}{R}\PYG{p}{];}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{R4}\PYG{o}{*}\PYG{n}{stiffnessMatrix}\PYG{o}{*}\PYG{n}{R4}\PYG{o}{\PYGZsq{}}\PYG{p}{;}
+\PYG{k}{end}
+\PYG{k}{function}\PYG{+w}{ }stiffnessLocalGlobal\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{local2Global}\PYG{p}{(}stiffnessLocal,node1,node2,nodeCount\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{stiffnessLocalGlobal} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{nodeCount}\PYG{p}{);}
+    \PYG{n}{i} \PYG{p}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{node1} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{j} \PYG{p}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{node2} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{);}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{i}\PYG{p}{:(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{n}{stiffnessLocalGlobal}\PYG{p}{(}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{j}\PYG{p}{:(}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{k}{function}\PYG{+w}{ }forceAxial\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{tension}\PYG{p}{(}stiffnessLocal,theta,displacementSelected\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{R} \PYG{p}{=} \PYG{p}{[}\PYG{n+nb}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{n+nb}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{);} \PYG{n+nb}{sin}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)} \PYG{n+nb}{cos}\PYG{p}{(}\PYG{n}{theta}\PYG{p}{)];}
+    \PYG{n}{R4} \PYG{p}{=} \PYG{p}{[}\PYG{n}{R} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{n}{R}\PYG{p}{];}
+    \PYG{n}{displacementLocal} \PYG{p}{=} \PYG{n}{R4}\PYG{o}{\PYGZsq{}*}\PYG{n}{displacementSelected}\PYG{p}{;}
+    \PYG{n}{forceAxial} \PYG{p}{=} \PYG{n}{stiffnessLocal}\PYG{o}{*}\PYG{n}{displacementLocal}\PYG{p}{;}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZpc{} Looping through the entire structure.}
+\PYG{n}{A} \PYG{p}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{theta} \PYG{p}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{l} \PYG{p}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{);}
+\PYG{k}{for} \PYG{n}{element} \PYG{p}{=} \PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n}{elementCount} \PYG{c}{\PYGZpc{} For first three bars}
+    \PYG{n}{A} \PYG{p}{=} \PYG{n}{areaVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{theta} \PYG{p}{=} \PYG{n}{angleVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{l} \PYG{p}{=} \PYG{n}{lengthVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{localStiffnessGenerator}\PYG{p}{(}\PYG{n}{E}\PYG{p}{,}\PYG{n}{A}\PYG{p}{,}\PYG{n}{l}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{);}
+    \PYG{n}{nodeCounter} \PYG{p}{=} \PYG{n}{element}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{stiffnessLocalGlobal} \PYG{p}{=} \PYG{n}{local2Global}\PYG{p}{(}\PYG{n}{stiffnessLocal}\PYG{p}{,}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{),}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{n}{nodeCount}\PYG{p}{);}
+    \PYG{n}{stiffnessGlobal} \PYG{o}{+=} \PYG{n}{stiffnessLocalGlobal}\PYG{p}{;}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZpc{} Applying Boundary Conditions,}
+\PYG{n+nb}{range} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{n}{nodeCount}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}
+\PYG{n}{forceEval} \PYG{p}{=} \PYG{n}{forceVector}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{);}
+\PYG{n}{displacementEval} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{);}
+\PYG{n}{stiffnessEval} \PYG{p}{=} \PYG{n}{stiffnessGlobal}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{,}\PYG{n+nb}{range}\PYG{p}{);}
+\PYG{n}{displacementEval} \PYG{p}{=} \PYG{n}{stiffnessEval}\PYG{o}{\PYGZbs{}}\PYG{n}{forceEval}\PYG{p}{;}
+
+
+\PYG{n}{displacementVector}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{)} \PYG{p}{=} \PYG{n}{displacementEval}\PYG{p}{;}
+\PYG{n}{forceVector} \PYG{p}{=} \PYG{n}{stiffnessGlobal}\PYG{o}{*}\PYG{n}{displacementVector}\PYG{p}{;}
+
+
+\PYG{n}{positionVectorNew} \PYG{p}{=} \PYG{n}{positionVector} \PYG{o}{+} \PYG{n}{displacementVector}\PYG{p}{;}
+\PYG{n+nb}{plot}\PYG{p}{(}\PYG{n}{positionVector}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{n}{positionVector}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{l+s}{\PYGZsq{}\PYGZhy{}\PYGZhy{}or\PYGZsq{}}\PYG{p}{);}
+\PYG{n+nb}{hold} \PYG{n}{on}\PYG{p}{;}
+\PYG{n+nb}{plot}\PYG{p}{(}\PYG{n}{positionVectorNew}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{n}{positionVectorNew}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{:}\PYG{k}{end}\PYG{p}{),}\PYG{l+s}{\PYGZsq{}\PYGZhy{}\PYGZhy{}ob\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{forceAxial} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{nodeAxialForces} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n}{nodeCount}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{c}{\PYGZpc{} 2 Finding Axial Forces}
+\PYG{k}{for} \PYG{n}{element} \PYG{p}{=} \PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n}{elementCount}
+    \PYG{n}{A} \PYG{p}{=} \PYG{n}{areaVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{theta} \PYG{p}{=} \PYG{n}{angleVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{l} \PYG{p}{=} \PYG{n}{lengthVector}\PYG{p}{(}\PYG{n}{element}\PYG{p}{);}
+    \PYG{n}{nodeCounter} \PYG{p}{=} \PYG{n}{element}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{stiffnessLocal} \PYG{p}{=} \PYG{n}{localStiffnessGenerator}\PYG{p}{(}\PYG{n}{E}\PYG{p}{,}\PYG{n}{A}\PYG{p}{,}\PYG{n}{l}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{);}
+    \PYG{n}{displacementVectorSelected} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{displacementVectorSelected}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{):(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{))}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{displacementVectorSelected}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{)} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{):(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{forceAxial} \PYG{p}{=} \PYG{n}{tension}\PYG{p}{(}\PYG{n}{stiffnessLocal}\PYG{p}{,}\PYG{n}{theta}\PYG{p}{,}\PYG{n}{displacementVectorSelected}\PYG{p}{);}
+    \PYG{n}{nodeAxialForces}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{p}{))} \PYG{o}{+=} \PYG{n}{forceAxial}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}
+    \PYG{n}{nodeAxialForces}\PYG{p}{(}\PYG{n}{nodeVector}\PYG{p}{(}\PYG{n}{nodeCounter}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))} \PYG{o}{+=} \PYG{n}{forceAxial}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{c}{\PYGZpc{} Calculating Stresses And Strains}
+\PYG{n}{stressVector} \PYG{p}{=} \PYG{n}{nodeAxialForces}\PYG{o}{/}\PYG{n}{A}\PYG{p}{;}
+\PYG{n}{strainVector} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{o}{/}\PYG{n}{l}\PYG{p}{;}
+
+\end{Verbatim}

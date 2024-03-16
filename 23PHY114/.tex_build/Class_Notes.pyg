@@ -1,0 +1,5 @@
+   selectedVector = [3 5:end]
+forceEval = forceVector(selectedVector);
+displacementEval = displacementVector(selectedVector);
+stiffnessEval = stiffnessGlobal(selectedVector);
+displacementEval = stiffnessEval\forceEval;
