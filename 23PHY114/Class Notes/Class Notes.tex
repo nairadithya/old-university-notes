@@ -1,7 +1,72 @@
 \documentclass{report}
 \input{preamble}
 \usepackage{fancyhdr}
-\usepackage{minted}
+\usepackage{listings}
+\lstset{
+language=Octave,
+backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+breaklines=true,                 % sets automatic line breaking
+captionpos=b,                    % sets the caption-position to bottom
+commentstyle=\color{gray},    % comment style
+%escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+extendedchars=true,            % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+frame=single,                    % adds a frame around the code
+% frameround=fttt,
+keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+classoffset=0,
+keywordstyle=\color{RoyalBlue},       % keyword style
+deletekeywords={function,endfunction, if,endif},
+classoffset=1,
+morekeywords={function,endfunction, if,endif},
+keywordstyle=\bf\color{Red},       % keyword style
+classoffset=2,
+morekeywords={persistent},            % if you want to add more keywords to the set
+keywordstyle=\bf\color{ForestGreen},       % keyword style
+classoffset=0,
+literate=
+{/}{{{\color{Mahogany}/}}}1
+{*}{{{\color{Mahogany}*}}}1
+{.*}{{{\color{Mahogany}.*}}}2
+{+}{{{\color{Mahogany}+{}}}}1
+{=}{{{\bf\color{Mahogany}=}}}1
+{-}{{{\color{Mahogany}-}}}1
+{[}{{{\bf\color{RedOrange}[}}}1
+{]}{{{\bf\color{RedOrange}]}}}1
+{ç}{{\c{c}}}1 % Cedilha
+{á}{{\'{a}}}1 % Acentos agudos
+{é}{{\'{e}}}1
+{í}{{\'{i}}}1
+{ó}{{\'{o}}}1
+{ú}{{\'{u}}}1
+{â}{{\^{a}}}1 % Acentos circunflexos
+{ê}{{\^{e}}}1
+{î}{{\^{i}}}1
+{ô}{{\^{o}}}1
+{û}{{\^{u}}}1
+{à}{{\`{a}}}1 % Acentos graves
+{è}{{\`{e}}}1
+{ì}{{\`{i}}}1
+{ò}{{\`{o}}}1
+{ù}{{\`{u}}}1
+{ã}{{\~{a}}}1 % Tils
+{ẽ}{{\~{e}}}1
+{ĩ}{{\~{i}}}1
+{õ}{{\~{o}}}1
+{ũ}{{\~{u}}}1,
+numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+numbersep=6pt,                   % how far the line-numbers are from the code
+numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+showstringspaces=false,          % underline spaces within strings only
+showtabs=false,                  % show tabs within strings adding particular underscores
+stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+stringstyle=\color{purple},     % string literal style
+tabsize=2,                       % sets default tabsize to 2 spaces
+title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
 \title{\Huge{23PHY114}\\ Class Notes}
 \author{\huge{Adithya Nair}}
 \date{}
@@ -52,7 +117,7 @@ The way to approach the problem is as always,
 Main Subroutines For Uniaxial Deformation
 % section For Uniaxial Deformation (end)
 \subsection{Finding The Local Stiffness Matrix} % (fold)
-\begin{minted}{octave}
+\begin{lstlisting}{octave}
 function stiffnessLocal = localStiffnessGenerator(E,A,l,theta);
     stiffnessConstant = E*A/l;
     R = [cos(theta) -sin(theta); sin(theta) cos(theta)];
@@ -60,11 +125,11 @@ function stiffnessLocal = localStiffnessGenerator(E,A,l,theta);
     R4 = [R zeros(2,2); zeros(2,2) R];
     stiffnessLocal = R4*stiffnessMatrix*R4';
 end
-\end{minted}
+\end{lstlisting}
 \label{sec:finding_the_local_stiffness_matrix}
 % subsubsection Finding The Local Stiffness Matrix (end)
 \subsection{Converting The Local Stiffness To A Global Stiffness Matrix}
-\begin{minted}{octave}
+\begin{lstlisting}{octave}
    function stiffnessLocalGlobal = local2Global(stiffnessLocal,node1,node2,nodeCount)
     stiffnessLocalGlobal = zeros(2*nodeCount,2*nodeCount);
     i = 2*node1 - 1;
@@ -74,9 +139,9 @@ end
     stiffnessLocalGlobal(j:(j+1),i:(i+1)) = stiffnessLocal(3:4,1:2);
     stiffnessLocalGlobal(j:(j+1),j:(j+1)) = stiffnessLocal(3:4,3:4);
 end
-\end{minted}
+\end{lstlisting}
 \subsection{Main Loop Through Evaluating The Global Stiffness Matrix}
-\begin{minted}{octave}
+\begin{lstlisting}{octave}
    A = 0; theta = 0; l = 0; stiffnessLocal = zeros(4,4); nodeAxialForces = zeros(nodeCount,1);
 for element = 1:5 % For first three bars
     A = areaVector(element);
@@ -89,13 +154,13 @@ for element = 1:5 % For first three bars
     stiffnessLocalGlobal
     stiffnessGlobal += stiffnessLocalGlobal;
 end
-\end{minted}
+\end{lstlisting}
 \subsection{Applying Boundary Conditions}
-\begin{minted}{octave}
+\begin{lstlisting}{octave}
 selectedVector = [3 5:end]
 forceEval = forceVector(selectedVector);
 displacementEval = displacementVector(selectedVector);
 stiffnessEval = stiffnessGlobal(selectedVector);
 displacementEval = stiffnessEval\forceEval;
-\end{minted}
+\end{lstlisting}
 \end{document}
