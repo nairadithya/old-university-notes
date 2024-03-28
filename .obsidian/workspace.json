@@ -8,24 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "546a3287d99aea56",
+            "id": "fa98ea3ba05d00ab",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "23MAT112/Class Notes.pdf"
-              }
-            }
-          },
-          {
-            "id": "c40a3c8a1e78cf66",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding.md",
-                "mode": "source",
-                "source": false
+                "file": "23PHY114/CM2_HW1.pdf"
               }
             }
           },
@@ -126,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding.md",
+                "file": "Bending Moment.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding.md",
+                "file": "Bending Moment.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -166,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding.md"
+                "file": "Bending Moment.md"
               }
             }
           }
@@ -188,13 +176,16 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "c40a3c8a1e78cf66",
+  "active": "f3339c05765b0ae9",
   "lastOpenFiles": [
+    "23PHY114/CM2_HW1.pdf",
+    "23PHY114/Notes So Far.md",
+    "Bending Moment.md",
+    "23PHY114/Class Notes/Class Notes.tex~",
+    "23MAT112/Class Notes.pdf",
+    "23CHY115 - Introduction To Materials Informatics/Coding.md",
     "23PHY114/HW1/Q1.m~",
     "23ECE113/Midsem Pattern.md",
-    "23CHY115 - Introduction To Materials Informatics/Coding.md",
-    "Bending Moment.md",
-    "23PHY114/Notes So Far.md",
     "23ECE113",
     "23PHY114/Class_Notes.pyg",
     "23PHY114/Class Notes.toc",
@@ -202,9 +193,6 @@
     "23PHY114/Class Notes.aux",
     "23PHY114/Class_Notes.aex",
     "23PHY114/Class Notes.pdf",
-    "23PHY114/Class Notes.log",
-    "23PHY114/Class",
-    "23PHY114/octave-workspace",
     "Excalidraw/Drawing 2024-03-14 15.22.20.excalidraw.md",
     "23PHY114/The Finite Element Method For Axial Deformation.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",

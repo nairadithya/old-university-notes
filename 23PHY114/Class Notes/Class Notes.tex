@@ -1,72 +1,5 @@
 \documentclass{report}
 \input{preamble}
-\usepackage{fancyhdr}
-\usepackage{listings}
-\lstset{
-language=Octave,
-backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
-breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-breaklines=true,                 % sets automatic line breaking
-captionpos=b,                    % sets the caption-position to bottom
-commentstyle=\color{gray},    % comment style
-%escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-extendedchars=true,            % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-frame=single,                    % adds a frame around the code
-% frameround=fttt,
-keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-classoffset=0,
-keywordstyle=\color{RoyalBlue},       % keyword style
-deletekeywords={function,endfunction, if,endif},
-classoffset=1,
-morekeywords={function,endfunction, if,endif},
-keywordstyle=\bf\color{Red},       % keyword style
-classoffset=2,
-morekeywords={persistent},            % if you want to add more keywords to the set
-keywordstyle=\bf\color{ForestGreen},       % keyword style
-classoffset=0,
-literate=
-{/}{{{\color{Mahogany}/}}}1
-{*}{{{\color{Mahogany}*}}}1
-{.*}{{{\color{Mahogany}.*}}}2
-{+}{{{\color{Mahogany}+{}}}}1
-{=}{{{\bf\color{Mahogany}=}}}1
-{-}{{{\color{Mahogany}-}}}1
-{[}{{{\bf\color{RedOrange}[}}}1
-{]}{{{\bf\color{RedOrange}]}}}1
-{ç}{{\c{c}}}1 % Cedilha
-{á}{{\'{a}}}1 % Acentos agudos
-{é}{{\'{e}}}1
-{í}{{\'{i}}}1
-{ó}{{\'{o}}}1
-{ú}{{\'{u}}}1
-{â}{{\^{a}}}1 % Acentos circunflexos
-{ê}{{\^{e}}}1
-{î}{{\^{i}}}1
-{ô}{{\^{o}}}1
-{û}{{\^{u}}}1
-{à}{{\`{a}}}1 % Acentos graves
-{è}{{\`{e}}}1
-{ì}{{\`{i}}}1
-{ò}{{\`{o}}}1
-{ù}{{\`{u}}}1
-{ã}{{\~{a}}}1 % Tils
-{ẽ}{{\~{e}}}1
-{ĩ}{{\~{i}}}1
-{õ}{{\~{o}}}1
-{ũ}{{\~{u}}}1,
-numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-numbersep=6pt,                   % how far the line-numbers are from the code
-numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
-rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-showstringspaces=false,          % underline spaces within strings only
-showtabs=false,                  % show tabs within strings adding particular underscores
-stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
-stringstyle=\color{purple},     % string literal style
-tabsize=2,                       % sets default tabsize to 2 spaces
-title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
-}
 \title{\Huge{23PHY114}\\ Class Notes}
 \author{\huge{Adithya Nair}}
 \date{}
@@ -77,6 +10,7 @@ title=\lstname,                   % show the filename of files included with \ls
 % \pdfbookmark[<level>]{<title>}{<dest>}
 \tableofcontents
 \chapter{Solids}
+\createintro
 \section{Moment Of Area}
 The moment of inertia is used to help find the "resistance" to the force, given a specific axis or direction.
 
@@ -90,9 +24,7 @@ There are three main kinds of supports -
 \end{enumerate}
 % section Resisting Force And Moments From Supports (end)
 Take this case, with a bunch of forces being applied to the given load. 
-\begin{figure}[ht]
-    \includegraphics[width=0.9\textwidth]{figures/ProblemExample1.pdf}
-\end{figure}
+
 There are three main things we need to find for this figure. 
 \begin{enumerate}
   \item The resultant force acting on this bar fixed to a hinge. 
@@ -110,7 +42,8 @@ The way to approach the problem is as always,
     \]
 \end{enumerate}
 \section{Derivation Of The Uniaxial Formula}
-\section{For Uniaxial Deformation} % (fold)
+
+\section{Code For Uniaxial Deformation} % (fold)
 
 
 \label{sec:for_uniaxial_deformation}
@@ -130,7 +63,7 @@ end
 % subsubsection Finding The Local Stiffness Matrix (end)
 \subsection{Converting The Local Stiffness To A Global Stiffness Matrix}
 \begin{lstlisting}{octave}
-   function stiffnessLocalGlobal = local2Global(stiffnessLocal,node1,node2,nodeCount)
+function stiffnessLocalGlobal = local2Global(stiffnessLocal,node1,node2,nodeCount)
     stiffnessLocalGlobal = zeros(2*nodeCount,2*nodeCount);
     i = 2*node1 - 1;
     j = 2*node2 - 1;
@@ -142,8 +75,8 @@ end
 \end{lstlisting}
 \subsection{Main Loop Through Evaluating The Global Stiffness Matrix}
 \begin{lstlisting}{octave}
-   A = 0; theta = 0; l = 0; stiffnessLocal = zeros(4,4); nodeAxialForces = zeros(nodeCount,1);
-for element = 1:5 % For first three bars
+ A = 0; theta = 0; l = 0; stiffnessLocal = zeros(4,4); nodeAxialForces = zeros(nodeCount,1);
+for element = 1:elementCount % For first three bars
     A = areaVector(element);
     theta = angleVector(element);
     l = lengthVector(element);
@@ -163,4 +96,163 @@ displacementEval = displacementVector(selectedVector);
 stiffnessEval = stiffnessGlobal(selectedVector);
 displacementEval = stiffnessEval\forceEval;
 \end{lstlisting}
+\section{Deriving For Bending Deformation}
+Taking this example of a bar fixed to the wall, and examining small components of the bar and examining the forces at work on the component, we get a Tension, Moment and Stress.
+
+Taking things along the $\hat{i}$ direction, we get
+$$
+-T + T + \Delta T = 0
+$$
+ What does this tell us? Tension is constant. 
+
+While $-S + S + \Delta S - w\Delta x = 0$
+
+$$
+\frac{dS}{dx} = \lim_{\Delta x \rightarrow 0} \frac{\Delta S}{\Delta x} = w(x)
+$$
+We get an expression for the effects of the distributed force on the shear force of an individual object.
+
+Looking at the angular momentum balance,
+
+$$
+\sum M_{/P} = 0
+$$
+$$
+-M + (M + \Delta M) \hat{k} + (-\Delta x \hat{i} \times(-T\hat{i} - S \hat{j}) + (\frac{-\Delta x}{2} \hat{i} \times (-w(x) \Delta x \hat{j}))
+$$
+$$
+\implies \frac{\Delta M }{\Delta x} + S - w\frac{\Delta x}{2} = 0
+$$
+Taking the limit on the equations, we get,
+$$
+\frac{dM}{dx} + S = 0
+$$
+
+Thus we get,
+$$
+\frac{dT}{dx} = 0
+$$
+$$
+\frac{dS}{dx} = w(x)
+$$
+$$
+\frac{dM}{dx} = -S
+$$
+Now we get to the Finite Element Method for bending.
+$$
+\theta(x) = v'(x)
+$$
+We find by simplification,
+
+$$
+c_1 = v_l 
+$$
+$$
+c_2 = \theta_l
+$$
+$$
+c_3 = \frac{3}{l^2}(v_r-v_l) - \frac{1}{l} (2\theta_l + \theta_r)
+$$
+$$
+c_4 = \frac{2}{l^3} (v_l-v_r) + \frac{\theta_l+\theta_r}{l^2}
+$$
+
+$$
+v(x) = H_1(x) v_l + H_2(x)\theta_l (H_3(x)) v_r + (H_4(x)) \theta_r
+$$
+$$
+H_1 = 2(\frac{x}{l}^3) - 3\frac{x}{l}^2 + 1
+$$
+$$
+H_2 = x-2\frac{x^2}{l} + \frac{x^3}{l^2}
+$$
+$$
+H_3 = 3(\frac{x}{l})^2 -2\frac{x}{l}^3
+$$
+$$
+H_4 = \frac{x^3}{l^2} - \frac{x^2}{l}
+$$
+
+
+
+Since we know that,
+$$
+\int_0^l EIq''v''dx
+$$
+$$
+v = \underline{H}(x)^T v
+$$
+$$
+q = H(x)
+$$
+
+\section{Quick Reference Notes}
+\subsection{Derivations}
+The governing differential equation is 
+\[
+  EI v^{(4)} = w(x)
+\]
+
+Then we can form a linear relationship
+\begin{align*}
+  v(x) & - \text{deflection} \\
+  v^{(2)}(x) = \theta(x) & - \text{slope} \\
+  EIv^{(2)}(x) = M(x) & - \text{bending moment related to curvature} \\
+  EIv^{(3)}(x) = \frac{dM}{dx} = V(x) & - \text{transverse shear} \\ 
+  EIv^{(4)}(x) = \frac{dV}{dx} = w(x) & - \text{load}
+\end{align*}
+
+Where, v is the deflection or displacement of the beam. E is the Young's Modulus and I is 
+
+\subsection{Deriving Stiffness Matrix}
+Use Hermite's interpolation formula to derive cubic shape functions for the deflection of beams.
+
+\section{Final Equation}
+For a bar, with axial, bending and shear deformation... The final equation is, where R, S and M are Axial, Shear and Moment.
+
+\[
+  F = k\Delta x
+\]
+
+\[
+  \begin{bmatrix}
+    R_1 \\ 
+    S_1 \\
+    M_1\\
+    R_2 \\ 
+    S_2 \\
+    M_2\\
+  \end{bmatrix}
+  = 
+  \begin{bmatrix}
+    C_1 & 0 & 0 & -C_1 & 0 & 0 \\ 
+    0 & 12C_2 & 6C_2L & 0 & -12C_2 & 6C_2L \\
+    0 & 6C_2L & 4C_2L^2 & 0 & -6C_2L & 2C_2L^2 \\
+    -C_1 & 0 & 0 & C_1 & 0 & 0 \\ 
+    0 & -12C_2 & -6C_2L & 0 & 12C_2 & -6C_2L \\
+    0 & 6C_2L & 2C_2L^2 & 0 & -6C_2L & 2C_2L^2 \\
+  \end{bmatrix}
+  \begin{bmatrix}
+    u_1 \\ 
+    v_1 \\ 
+    \theta_1 \\
+    u_2 \\ 
+    v_2 \\ 
+    \theta_2 \\
+  \end{bmatrix}
+\]
+Where, $C_1 = \frac{EA}{L}$ and $C_2 = \frac{EI}{L^3}$
+
+Rotating the matrix by angle $\theta$
+
+\[
+  R = \begin{bmatrix}
+    c & s & 0 & 0 & 0 & 0 \\ 
+    -s & c & 0 & 0 & 0 & 0 \\ 
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & c & s & 0 \\ 
+    0 & 0 & 0 & -s & c & 0 \\ 
+    0 & 0 & 0 & 0 & 0 & 1 \\
+  \end{bmatrix}
+\]
 \end{document}

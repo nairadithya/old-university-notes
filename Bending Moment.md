@@ -6,10 +6,6 @@ $$
 \int_0^l EIq''v''dx_{stiffness} + \int_0^lqwdx_{\text{ext. force or moment}} + [qS - q'M]_0^l
 $$
 
-
-
->[!faq] Learn how to simplify the polynomial equation down to find the constants associated with the vertical displacement.
-
 $$
 v(x) = c_1 + c_2 x + c_3 x^2 + c_4 x^3 
 $$
