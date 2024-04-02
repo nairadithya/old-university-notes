@@ -23,7 +23,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bending Moment.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
                 "mode": "source",
                 "source": false
               }
@@ -114,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Bending Moment.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bending Moment.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -154,7 +154,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Bending Moment.md"
+                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md"
               }
             }
           }
@@ -178,9 +178,13 @@
   },
   "active": "f3339c05765b0ae9",
   "lastOpenFiles": [
+    "23MAT112/Class Notes.tex~",
+    "23CHY115 - Introduction To Materials Informatics/Coding/matrixMultiplication.py~",
+    "23CHY115 - Introduction To Materials Informatics/Coding/matrixMultiplication.py",
+    "Bending Moment.md",
+    "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
     "23PHY114/CM2_HW1.pdf",
     "23PHY114/Notes So Far.md",
-    "Bending Moment.md",
     "23PHY114/Class Notes/Class Notes.tex~",
     "23MAT112/Class Notes.pdf",
     "23CHY115 - Introduction To Materials Informatics/Coding.md",
@@ -190,9 +194,6 @@
     "23PHY114/Class_Notes.pyg",
     "23PHY114/Class Notes.toc",
     "23PHY114/Class Notes.out",
-    "23PHY114/Class Notes.aux",
-    "23PHY114/Class_Notes.aex",
-    "23PHY114/Class Notes.pdf",
     "Excalidraw/Drawing 2024-03-14 15.22.20.excalidraw.md",
     "23PHY114/The Finite Element Method For Axial Deformation.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
@@ -213,7 +214,6 @@
     "2024-02-23.md",
     "OOPS Lab/Programs - 19.2.24.md",
     "Excalidraw/Drawing 2024-02-20 14.36.04.excalidraw.md",
-    "23MAT112/Interesting Things To Add To Notes.md",
     "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.svg",
     "Untitled.canvas"
   ]
