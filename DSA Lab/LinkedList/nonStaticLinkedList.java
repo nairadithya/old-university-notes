@@ -2,10 +2,7 @@ import java.io.*;
 // Java program to implement
 // a Singly Linked List
 public class LinkedList {
-	Node head; // head of list
-	// Linked list Node.
-	// Node is a static nested class
-	// so main() can access it
+	Node head;
 		class Node {
 			int data;
 			Node next;
@@ -29,31 +26,30 @@ public class LinkedList {
 			this.head = new_node;
 		}
 		else {
-	// Else traverse till the last node
-	// and insert the new_node there
+		// Else traverse till the last node
+		// and insert the new_node there
 			Node last = this.head;
 			while (last.next != null) {
 				last = last.next;
 			}
-	// Insert the new_node at last node
+		// Insert the new_node at last node
 		last.next = new_node;
 		}
-	// Return the list by head
+		// Return the list by head
 		return this;
 	}
-
 	// **************TRAVERSAL**************
 	// Method to print the LinkedList.
 	public void printList()
 	{
 		Node currNode = this.head;
 		System.out.print("\nLinkedList: ");
-	// Traverse through the LinkedList
+		// Traverse through the LinkedList
 		while (currNode != null) {
 			System.out.print(currNode.data + " ");
 			currNode = currNode.next;
-	}
-		System.out.println("\n");
+		}
+	System.out.println("\n");
 	}
 	// **************DELETION BY KEY**************
 	// Method to delete a node in the LinkedList by KEY
@@ -110,8 +106,7 @@ public class LinkedList {
 		if (index == 0 && currNode != null) {
 			this.head = currNode.next; // Changed head
 			// Display the message
-			System.out.println(
-			index + " position element deleted");
+			System.out.println(index + " position element deleted");
 			// Return the updated List
 			return this;
 		}
@@ -130,8 +125,7 @@ public class LinkedList {
 				// position Unlink currNode from linked list
 				prev.next = currNode.next;
 				// Display the message
-				System.out.println(
-				index + " position element deleted");
+				System.out.println(index + " position element deleted");
 				break;
 			}
 			else {
@@ -152,8 +146,7 @@ public class LinkedList {
 		// In this case, the currNode should be null
 		if (currNode == null) {
 			// Display the message
-			System.out.println(
-			index + " position element not found");
+			System.out.println(index + " position element not found");
 		}
 		// return the List
 		return this;
