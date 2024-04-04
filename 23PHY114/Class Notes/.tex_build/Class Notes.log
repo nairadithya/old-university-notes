@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.12)  27 MAR 2024 08:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.12)  2 APR 2024 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1279,23 +1279,37 @@ Chapter 1.
 
 ]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 53.
- [3] [4] [5] [6] [7] (.tex_build/Class Notes.aux)
+ [3] [4] [5] [6] [7]
+Chapter 2.
+[8
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.291   A
+          condition where the part of the fluid at the base or in contact wi... [9]
+Overfull \hbox (32.41196pt too wide) detected at line 332
+[]
+ []
+
+[10] (.tex_build/Class Notes.aux)
 Package rerunfilecheck Info: File `"Class Notes".out' has not changed.
-(rerunfilecheck)             Checksum: D4D3649BF933F692837678EEE3276C54;2941.
+(rerunfilecheck)             Checksum: 9EEBBA5151EEF2CD78E2F2316C7EEF1D;3424.
  ) 
 Here is how much of TeX's memory you used:
- 49863 strings out of 477985
- 1178997 string characters out of 5839380
+ 50138 strings out of 477985
+ 1185168 string characters out of 5839380
  2139388 words of memory out of 6000000
- 69180 multiletter control sequences out of 15000+600000
+ 69444 multiletter control sequences out of 15000+600000
  521839 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  104i,12n,99p,751b,2465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on ".tex_build/Class Notes.pdf" (8 pages, 172563 bytes).
+Output written on ".tex_build/Class Notes.pdf" (11 pages, 193150 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 218 compressed objects within 3 object streams
- 70 named destinations out of 1000 (max. 500000)
- 269 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 

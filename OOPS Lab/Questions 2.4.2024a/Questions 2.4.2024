@@ -1,0 +1,5 @@
+Define a class Movie it has three variables, Title Rating and Language.
+
+Write a constructor for the class Movie, to set or initialize the class variables to a specific value. Write another constructor, to illustrate constructor overloading. 
+
+Create an array of objects, define a method called ticket booking which accepts the number of seats as a parameter, and computes the total ticket cost.

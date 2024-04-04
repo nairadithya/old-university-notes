@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1711508116.39779 "Class Notes.tex" "Class Notes.pdf" "Class Notes" 1711508117.41145 0
-  ".tex_build/Class Notes.aux" 1711508117.27867 3048 cf86a215e16007c0928f7f05c372ae6e "pdflatex"
-  ".tex_build/Class Notes.out" 1711508117.27867 2941 d4d3649bf933f692837678eee3276c54 "pdflatex"
-  ".tex_build/Class Notes.toc" 1711508117.27867 1300 ca6701cdde235e5f3daa29d5733fbdcc "pdflatex"
+["pdflatex"] 1712052574.47097 "Class Notes.tex" "Class Notes.pdf" "Class Notes" 1712052575.50289 0
+  ".tex_build/Class Notes.aux" 1712052575.3875 3616 038bdadea9890c2e2b8a5deff3c6d706 "pdflatex"
+  ".tex_build/Class Notes.out" 1712052575.3885 3424 9eebba5151eef2cd78e2f2316c7eef1d "pdflatex"
+  ".tex_build/Class Notes.toc" 1712052575.3885 1589 0a55fc734e3a76ef8901df963cba30a6 "pdflatex"
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -303,7 +303,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1689984000 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1708780519.84484 416754 9ac19885cb3a54811257fbd32a3f9644 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710183794 6477882 5007a7182e3d4cabf916f3175fc02cb3 ""
-  "Class Notes.tex" 1711508115.42967 7251 dc0d78e2fe7d12830cf3ddb6cb9f8388 ""
+  "Class Notes.tex" 1712052572.6175 10975 5d006c38d3bdec84bf7e71d3a0b8d723 ""
   "preamble.tex" 1711472035.933 21342 764d33f3f439cbbadde33810604b2110 ""
   (generated)
   ".tex_build/Class Notes.aux"

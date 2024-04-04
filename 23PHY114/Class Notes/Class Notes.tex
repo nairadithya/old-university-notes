@@ -255,4 +255,80 @@ Rotating the matrix by angle $\theta$
     0 & 0 & 0 & 0 & 0 & 1 \\
   \end{bmatrix}
 \]
+
+\chapter{Fluids}
+\section{Main Contents}
+\textbf{Computational Fluids Dynamics}
+\begin{enumerate}
+  \item Flow in channels and pipes
+  \item Flow over objects 
+\end{enumerate}
+
+\begin{definition}[Laminar Region]
+The region in a fluid where the flow is in a straight line is known as the laminar region 
+\end{definition}
+
+\begin{definition}[Turbulent Region]
+The region in a fluid where the flow is not smooth is known as the turbulent region
+\end{definition}
+
+\textbf{The motivation behind learning CFD}
+
+Computational Fluid Dynamics has been around as long as computers have been long. Using computation to calculate and visualize the flow of fluids is the basis behind wind tunnels. Trials can be done to help optimize solutions for the best aerodynamics.
+
+Examples of data used is the velocity profile, the force and the acceleration. These fluid simulations can take months and be used to simulate the effects of fluids on a given shape.
+
+\section{Terminology}
+In engineering terms, fluids are deformable bodies. They take up the shape of its container. Viscosity, is defined as the friction to flow - $\mu$. It dictates the rate of flow of a fluid.
+
+The counterintuitive picture. Imagine a stack of papers on your palm.  On tilting your palm, the first stack of paper goes out then the next then the next. It is dependent on the friction of the piece of paper below it. The last piece of paper has zero friction, and flows out the easiest. But a fluid does not work that way, when some water is placed on your palm, even after flowing out, some imprint of the water remains. 
+
+Think of fluids as layered.
+
+Taking a co-ordinate system, plotting the horizontal and vertical velocity of a fluid, u and v.
+
+\begin{definition}[No slip Condition]
+  A condition where the part of the fluid at the base or in contact with the surface has no horizontal velocity.
+  \[
+    U(x,0) = 0
+  \]
+\end{definition}
+
+Unlike solids, fluids have a profile that is counterintuitive to the way we imagine physics.
+
+Counterintuitively, a fluid's profile is parabolic, in a pipe. Closed on all sides, the middlemost component of the fluid moves with 
+
+\begin{note}
+\textbf{Lagrangian Method} -
+The method of following a single point and discovering interesting properties about it is known as the Lagrangian Method
+
+\textbf{Eulerian Method} -
+The method of following a single location and performing analyses on that location.
+\end{note}
+The study of fluids is performed using the Eulerian Method. 
+
+\section{Derivation Of Equations}
+Taking the fluid flowing through the figure given. In the Eulerian Method, we focus on a given location. This location here is the outlined box. 
+
+\[
+\]
+
+The mass flow rate for a given location is 
+\begin{align*}
+  \dot{m}_{in} - \dot{m}_{out} &= \frac{dm}{dt} \\
+  \dot{m} &= \frac{d\rho V}{dt} \\
+  \dot{m} &= \rho \frac{dV}{dt} \\
+          &= \rho Q & \text{(Q - volume flow rate)} \\
+\end{align*}
+\[
+  \rho \frac{dV}{dt} = \Delta y \Delta z . u
+\]
+\begin{align*}
+  (\dot{m}_{intx} + \dot{m}_{inty}) - (\dot{m}_{outx} + \dot{m}_{outy}) &= \frac{dm_{inside}}{dt} \\
+  (\rho \Delta Y \Delta Z u + \rho \Delta X \Delta Z v) - (\rho \Delta Y \Delta Z (U + \Delta U) + \rho \Delta X \Delta Z ( v + \Delta v) &= \frac{d(\rho \Delta X \Delta Y \Delta Z)}{dt} \\
+  (\rho \Delta Y \Delta Z u + \rho \Delta X \Delta Z v) - (\rho \Delta Y \Delta Z (U + \Delta U) + \rho \Delta X \Delta Z ( v + \Delta v) &= \frac{d(\rho \Delta X \Delta Y \Delta Z)}{dt} \\
+  - \rho \Delta Y \Delta Z \frac{\Delta U}{\Delta X} - \rho \Delta x \Delta z \frac{\Delta V}{\Delta Y} &= \Delta X \Delta Y \Delta Z \frac{d \rho}{dt} \\
+  - \rho \frac{\partial U}{\partial x}  - \rho \frac{\partial v}{dy} &= \frac{d\rho}{dt} \\
+\end{align*}
 \end{document}
+

@@ -14,7 +14,6 @@ def matrixMultiplication(A, B):
     else:
         print("Matrix Multiplication Is Not Possible.")
 
-
 A = [[2,2],[4,4]]
 B = [[3,3],[5,6]]
 print(matrixMultiplication(A,B))
