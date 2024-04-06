@@ -9,6 +9,7 @@
 \usepackage{xfrac}
 \usepackage[makeroom]{cancel}
 \usepackage{mathtools}
+\usepackage{fancyhdr}
 \usepackage{bookmark}
 \usepackage{enumitem}
 \usepackage{hyperref,theoremref}
@@ -81,7 +82,16 @@
 \definecolor{myexercisebg}{HTML}{F2FBF8}
 \definecolor{myexercisefg}{HTML}{88D6D1}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FANCY HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\createintro{
+  \pagestyle{fancy}
+  \fancyhead{}
+  \fancyhead[C]{23CHY115 Lecture Notes}
+  \fancyfoot[L]{Adithya Nair}
+  \fancyfoot[R]{AID23002}
+} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TCOLORBOX SETUPS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%

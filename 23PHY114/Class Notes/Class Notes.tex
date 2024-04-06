@@ -315,7 +315,7 @@ Taking the fluid flowing through the figure given. In the Eulerian Method, we fo
 
 The mass flow rate for a given location is 
 \begin{align*}
-  \dot{m}_{in} - \dot{m}_{out} &= \frac{dm}{dt} \\
+  \dot{m}_{in} - \dot{m}_{out} &= \frac{dm}{dt} &(\dot{m} = (frac{d \rho V}{dt})) \\
   \dot{m} &= \frac{d\rho V}{dt} \\
   \dot{m} &= \rho \frac{dV}{dt} \\
           &= \rho Q & \text{(Q - volume flow rate)} \\
@@ -330,5 +330,77 @@ The mass flow rate for a given location is
   - \rho \Delta Y \Delta Z \frac{\Delta U}{\Delta X} - \rho \Delta x \Delta z \frac{\Delta V}{\Delta Y} &= \Delta X \Delta Y \Delta Z \frac{d \rho}{dt} \\
   - \rho \frac{\partial U}{\partial x}  - \rho \frac{\partial v}{dy} &= \frac{d\rho}{dt} \\
 \end{align*}
-\end{document}
+\section{Recall}
+\begin{align*}
+  \dot{m}_{in} - \dot{m}_{out} = \dot{m}_{within} & &\text{(Continuity Equation)} \\
+  \frac{\partial \rho}{\partial t} = -\rho \frac{\partial u}{\partial x} - \rho \frac{\partial v}{\partial y} & &\text{(Mass Continuity Equation)} or \\
+  \frac{\partial \rho}{\partial t} = -\rho \frac{\partial u}{\partial x} - \rho \frac{\partial v}{\partial y} -\rho \frac{\partial w}{\partial z} & &\text{(in 3 dimensions)} \\
+\end{align*}
 
+Density is a function of position and time, then it can be expressed as, $\rho(x,y,z,t)$. Instantaneously, density can be observed to change. Similarly with viscosity,
+
+But the question might come about that the density in the mass continuity equation, is taken as constant, since they move outside the derivative. We assume that the density does not change with position rather than changing with time.
+
+\section{Density As A Function Of Time And Position}
+\begin{align*}
+  1) &\frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0 \\
+  2) &\frac{\partial \rho}{\partial t} + \rho (\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}) + \frac{\partial \rho}{\partial x} u + \frac{\partial \rho}{\partial y}v + \frac{\partial \rho}{\partial z} w &\text{(Applying chain rule)} \\
+  3) &\frac{d \rho}{dt} = \frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial \rho}{\partial y}\frac{\partial y}{\partial t} + \frac{\partial \rho}{\partial z}\frac{\partial z}{\partial t} &\text{(General form of partial derivatives to total derivatives)} \\
+  4) & d\frac{\rho}{dt} + \rho(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}) &\text{(Final expression)} \\
+  5) & \vec{\triangledown}  = \frac{\partial }{\partial x} \hat{i} + \frac{\partial }{\partial y} \hat{j} + \frac{\partial }{\partial z} \hat{k} &\text{(Differential Operator)} \\
+  6) &\vec{v} = u \hat{i} + v \hat{j} + w \hat{k} &\text{(Velocity Vector)} \\
+  7)&\frac{d \rho}{dt} + \rho \vec{\triangledown}\cdot{\vec{v}} = 0 &{\triangledown \cdot v \text{(Divergence of $\vec{v}$)}}
+\end{align*}
+
+\section{External Forces On Fluid}
+\[
+  \vec{\sigma} =
+  \begin{bmatrix}
+    \sigma_{xx} & \sigma_{xy} & \sigma_{xz} \\
+    \sigma_{yx} & \sigma_{yy} & \sigma_{yz} \\
+    \sigma_{zx} & \sigma_{zy} & \sigma_{zz} \\
+  \end{bmatrix}
+\]
+
+Given the fact that a fluid's smallest element does not rotate. Then,
+\[
+  \Sigma M_{/O} = 0
+\]
+Then looking at any given face for the element, the shear forces are equal and opposite to each other, from this we get. 
+\begin{align*}
+  \sigma_{xy} = \sigma_{yx} \\ 
+  \sigma_{xz} = \sigma_{zx} \\ 
+  \sigma_{yz} = \sigma_{zy} \\
+\end{align*}
+
+\section{Variation of stress across a small distance}
+insert diagram here(of cube with all forces measured)
+
+\begin{align*}
+  &\Sigma \vec{f} = m \vec{a} \\
+  &\hat{i}(-\sigma_{xx} \Delta y \Delta z + (\sigma_{xx} + \Delta\sigma_{xx})\Delta y \Delta z + (\sigma_{xy} + \Delta \sigma_{xy})\Delta x \Delta z - \sigma_{xy}\Delta x \Delta z))  + \\
+  &\hat{j}(-\sigma_{yy} \Delta x \Delta z + (\sigma_{yy} + \Delta \sigma_{yy}) \Delta x \Delta z + (\sigma_{xy}+\Delta \sigma_{xy})\Delta y \Delta z - \sigma_{xy} \Delta y \Delta z) - (\rho \Delta x \Delta y \Delta z)g \hat{j} =  (\rho \Delta x \Delta y \Delta z)\frac{d \vec{v}}{dt}\\ 
+  &\vec{v} = u \hat{i} + v \hat{j} + w \hat{k}  \\
+\end{align*}
+
+Dotting along $\hat{i}$ and $\hat{j}$, when $\Delta x \rightarrow 0, \Delta y \rightarrow 0, \Delta z \rightarrow 0$
+\begin{align*}
+  \frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} = \rho \frac{du}{dt} \\
+  \frac{\partial \sigma_{xy}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} - \rho g = \rho \frac{dv}{dt}
+\end{align*}
+There are certain equations that cannot be derived, they are simply observed and a relation is formed. Such equations are known as the constituent equation. Such as Hooke's Law. 
+
+If the fluid is Newtonian(which means that stress is directly proportional to strain) and isotropic(properties are same in all directions)
+\[
+  \sigma_{xx} = -p + 2 \mu \frac{\partial u}{\partial x} + \lambda \vec{\triangledown}\cdot\vec{v}
+\]
+$\mu$-viscosity, $\lambda = -\frac{2\mu}{3}$ This constant is related to $\mu$ for many fluids(including air). 
+\section{Navier-Stokes Equation}
+\begin{align*}
+  &-\frac{\partial P}{\partial x} + \mu(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}) = \rho \frac{du}{dt} \\
+  &-\frac{\partial P}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2}) = \rho \frac{dv}{dt} \\
+  &-\frac{\partial P}{\partial z} + \mu(\frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2}) = \rho \frac{dw}{dt} \\
+  &\frac{du}{dt} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}
+\end{align*}
+Reference - Olga Ladyzhonskaya(derived equation in 2D)
+\end{document}

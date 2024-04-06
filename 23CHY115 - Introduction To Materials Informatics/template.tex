@@ -1,23 +1,55 @@
 \documentclass{report}
 
 \input{preamble}
-\input{macros}
-\input{letterfonts}
+\usepackage{listing}[]
+\usepackage{braket}
+\usepackage{graphicx}
 
-\title{\Huge{23CHY115-Introduction To Material Informatics}\\Lecture Notes}
+\title{\Huge{23CHY115}\\Lecture Notes}
 \author{\huge{Adithya Nair}}
-\date{}
 
+\date{}
+\usepackage{listings}
+\usepackage{xcolor}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 \begin{document}
 
 \maketitle
 \newpage% or \cleardoublepage
 % \pdfbookmark[<level>]{<title>}{<dest>}
 \pdfbookmark[section]{\contentsname}{toc}
-\chapter{Lecture 1 - The Key Difference Between Quantum and Classical Mechanics} % (fold) \label{chap:Lec1}
+\chapter{Young's Double Slit Experiement And Dirac Notation} % (fold) \label{chap:Lec1}
+
+\createintro
+
 In a traditional engineering curriculum, this course goes by the name of Materials Science And Engineering. The addition to the course is Computational Materials Science and AI/ML algorithms. The objective of the program is to have domain knowledge. The primary emphasis is on Materials Science And Engineering.
 \begin{Reference}{Resources to look at for this course}
- Callister Jr. Rethwich \\
+aCallister Jr. Rethwich \\
 \textit{Materials Science And Engineering.}  \\
 An Introduction (2018,10th Edition) \\
 MIT 3.091 SC
@@ -30,6 +62,7 @@ If you choose a particular material, you're choosing it because it has certain p
 
 Structure is due to quantum mechanics(the realm of atoms)
 
+
 In traditional engineering, we only deal with performance due to properties. The quantum mechanics involved is studied by physicists.
 
 The reason traditional engineers do not need to know about the quantum mechanics underlying in the materials they use, is because they assume materials to be of a continuum. It is governed by calculus. It is deterministic.
@@ -38,10 +71,233 @@ Quantum mechanics is governed by probability. It is stochastic.
 
 Thanks to advancements in computing and AI/ML, algorithms can be designed to create new materials and even predict the properties for these new materials.
 
-The analysis of the structural differences in materials will be covered by Abhinav Sir.
-
-Example text
 
 % chapter  (end)
+\section{Young's Double Slit Experiment}
+\subsection{With Bullets}
+Here are a few details about this experiment:
 
+\begin{itemize}
+	\item Bullets were shot to two screens, one screen with two slits.
+	\item A detector is placed on the second screen.
+	\item An analysis of the two screens, and the probabilty of the detector detecting a bullet in a given point on the second screen is performed.
+	\item Another assumption is that the bullets are indestructible.
+	\item When one of the slits are closed, it forms a wave, which has a local maxima at the slit which is not closed.
+	\item When both slits are open, the maxima is at the centre of the second screen because the probability of both slits allowing the bullet to enter is twice when either one of those slits are closed.
+		\[
+			P_{12} = P_1 + P_2
+		\]
+\end{itemize}
+\includegraphics[width=0.3\textwidth, trim=18mm 100mm 18mm 5mm angle=0]{figures/Double Slit Experiment Solids.pdf}
+\includegraphics[width=0.3\textwidth, trim=-18mm 100mm 20mm -10mm angle=0]{figures/Double Slit Experiment Solids(Slit 1 Closed).pdf}
+\includegraphics[width=0.3\textwidth, trim=-18mm 100mm 20mm -10mm angle=0]{figures/Double Slit Experiment Solids(Slit 2 Closed).pdf}
+
+Let's say that slit one was closed, The probability as a function of the position of the detector would increase significantly. 
+\subsection{With Water Waves}
+Here are a few details about this experiment:
+\begin{itemize}
+	\item A tank of water is set up with the same setup of two screens, one screen having two slits.
+	\item A detector is placed on the screen.
+	\item An analysis of the two screens, and the probability of the detector detecting a bullet in a given point on the second screen is performed.
+	\item Probability is measured in terms of interference, which leads to the wave curve.
+	\item When one of the slits are closed, the probability distribution forms a wave with the local maxima situated where the slits are open.
+		\begin{align*}
+			I_1 = |h_1|^2  \\
+			I_2 = |h_2|^2 \\
+		\end{align*}
+	\item When both slits are open, the probability distribution forms this increasingly wavy graph as seen in the figure given below.
+		\begin{align*}
+			I_{12} = |h_1 + h_2|^2 \\
+			I_{12} = I_1 + I_2 + 2 \sqrt{I_1I_2}\cos{\delta}
+		\end{align*}
+\end{itemize}
+\subsection{With Electrons}
+Here are a few details about this experiment:
+\begin{itemize}
+	\item Replace the gun with an electron gun, which shoots electrons at a constant energy.
+	\item It is assumed that the electrons will not pass through screen 1, unless it's through the two slits.
+	\item The detector beeps when an electron hits it.
+	\item $$P(z) = \frac{\text{no. of beeps at z}}{\text{Total no. of beeps}} $$
+	\item When one slit is closed, the graph is the same as that of the bullets
+	\item When both slits are open, The same graph as the wave graph was obtained.
+		\[
+			P_{12} \neq P_1 + P_2
+		\]
+	\item On measuring the probabilities individually by adding a bulb that measures the slits, Add up the individual probabilities we get,
+		\[
+			P'_{12} = P'_1 + P'_2
+		\]
+	\item It is impossible to arrange the light in such a way that one can tell which hole the electron went through, and at the same time not disturb the pattern.
+\end{itemize}
+\section{Dirac Notation}
+
+State is denoted by $\ket{A}$, it encodes all the information about the particle. The measurement operator is denoted by $\hat{A}$. Going back to the electron gun experiment. Under the conjecture that the electrons are waves, The state of the entire system would be, $\ket{A_1}$ + $\ket{A_2}$ , before measurement. There are \textbf{two} measurements in the experiment, once with the light source and then with the detector. Let's take the measurement to be $\hat{A}$, which includes both the light source and the detector that beeps. 
+$$\hat{A}(\ket{A_1} + \ket{A_2})$$
+
+Taking an example, a 2d plane.
+
+Some vector $$\underline{v} = v_1 \hat{e_1} + v_2 \hat{e_2}$$, where $\hat{e_1} \perp \hat{e_2}$
+
+Take another orthogonal basis $\hat{e_1}'$ and $\hat{e_2}'$
+
+Then, $$\underline{v} = v_1' \hat{e_1}' + v_2' \hat{e_2}'$$
+
+ In linear algebra,
+$$A\vec{x} = b$$
+
+Consider a general vector $\vec{w}$
+
+In which,
+
+$$A\vec{v} = \vec{w}$$
+
+The vector is going to be denoted as $\ket{v}$, and $\hat{O}$ as the operator.
+
+$$\hat{O}\ket{v} = \ket{w}$$
+
+To find how much of $\vec{v}$ is in $\vec{w}$, we take the projection of v onto w.
+
+$\ket{v} = v_1 \ket{\hat{e_1}}+ v_2 \ket{\hat{e_2}}$
+
+For the notation, when $\bra{v}$ is written, the basis is transformed to its complex conjugate.
+
+$\bra{v} = v_1^* \bra{e_1} + v_2^*\bra{e_2}$, where $v_1^*$ and $v_2^*$ is the corresponding complex conjugate
+
+Performing the dot product is denoted by $$\braket{v | w} = (v_1^*\bra{\hat{e_1}}+ v_2^*\bra{\hat{e_2}})(w_1 \ket{\hat{e_1}} + w_2 \ket{\hat{e_2}})$$
+
+$$\braket{\hat{e_1} | \hat{e_2}}=0$$ $$\braket{\hat{e_1} | \hat{e_2}}=1$$
+
+$$v_1^*w_1 + v_2^*w_2$$
+
+\begin{Reference}{Leonard Susskind}
+jLeonard Susskind, a lecturer at Stanford.
+He delivered a lecture series called ``The Theoretical Minimum", on the minimum amount of knowledge required to understand the mechanisms behind physics.
+\end{Reference}
+
+Coming back to the core of what we're trying to solve, about state and measurement.
+
+$$\hat{O}\vec{v} = \vec{w}$$
+
+We learned earlier this semester that there are some vectors, that transformations do not affect. (Eigenvectors and eigenvalues.)
+
+Take two such vectors $v_1$ and $v_2$,
+\begin{align*}
+\hat{O}\vec{v_1} = \lambda_1 \vec{v_1} \\
+\hat{O}\vec{v_2} = \lambda_1 \vec{v_2} \\
+\hat{O}\ket{v_1} = \lambda_1 \ket{v_1} \\
+\hat{O}\ket{v_2} = \lambda_2 \ket{v_2} \\
+\ket{v} = v_1' \ket{v^{(1)}}+v_2' \ket{v^{(2)}} \\
+\end{align*}
+
+Reminder, this is the equation we're working in.
+$$\hat{O}\ket{v}=\ket{w}$$
+
+Recall the double slit  experiment, Going back to the electron gun experiment The two slits $A_1$ and $A_2$ are denoted by $\ket{A_1}$ and $\ket{A_2}$. Under the conjecture that the electrons are waves, The state of the entire system before measurement would be,
+$$\ket{A_1} + \ket{A_2}$$ 
+
+There are \textbf{two} measurements in the experiment, once with the light source and then with the detector.
+
+Let's take the measurement to be $\hat{A}$, which includes both the light source and the detector that beeps.
+
+$$\hat{A}(\ket{A_1} + \ket{A_2}) = \{\ket{A_1}, \ket{A_2}\}$$
+
+It becomes apparent that $\ket{A_1}$and $\ket{A_2}$ are eigenvectors. Taking the vector $\ket{\alpha}$ $$\ket{\alpha} = \ket{A_1}+\ket{A_2}$$
+
+The state of a system is analogous to the eigenvectors of the operator.
+
+Then,
+\begin{align*}
+\hat{A}\ket{\alpha} = \{\ket{A_1}, \ket{A_2}\} \\
+\hat{A}(\ket{A_1} + \ket{A_2}) = \hat{A}\ket{A_1} + \hat{A} \ket{A_2}\} \\
+=a_1 \ket{A_1} + a_2 \ket{A_2} \\
+\end{align*}
+Remember that,
+\begin{align*}
+\ket{\alpha} = \ket{A_1} + \ket{A_2} \\
+\bra{\alpha} = \bra{A_1}+\bra{A_2} \\
+\Braket{\alpha | A | \alpha} \\
+\end{align*}
+\section{Atomic Mass}
+\begin{definition}{Atomic Mass}
+	aThe atomic mass of an atom can be defined as the sum of the masses of protons and electrons
+\end{definition}
+\begin{definition}{Isotopes}
+	aThe number of protons is the same for all atoms of an element; The number of neutrons may vary. Thus, some elements will have two or more different atomic masses, known as isotopes
+\end{definition}
+\begin{definition}{Atomic Weight}
+	aThe atomic weight of an element corresponds to the weighted average of the atomic masses of the atom's naturally occuring isotopes.
+\end{definition}
+\begin{definition}{Atomic mass unit}
+	aThe atomic mass unit(amu) may be used to compute atomic weight. 1 amu is defined as $\frac{1}{12}$ of the atomic mass of the most common isotop of carbon  12 $(^{12}C)(A = 12.00000)$	
+\end{definition}
+With this scheme, the masses of protons and neutrons are slightly larger than unity, and 
+\[
+	A \approx Z + N
+\]
+
+\begin{align*}
+	\text{Weighted Average = } &\frac{\Sigma w x}{\Sigma w} &\text{(w is the fraction of occurence and x is the values given.)}
+\end{align*}
+\chapter{Coding}
+\lstset{language=Python}
+\section{Metrics For Algorithms}
+\begin{align*}
+	\frac{TP}{FN+TP} &= \frac{TP}{P} &\text{Recall/Sensitivity/True Positive rate} \\
+	\frac{FP}{TN+FP} &= \frac{FP}{N} &\text{False Positive Rate/False Alarm Rate} \\
+	\frac{TN}{TN+FP} &= \frac{TN}{N} = 1 - (FPR) &\text{Specificity/True Negative Rate} \\
+	\frac{TP}{TP+FP} & &\text{Precision} \\
+	\frac{FN}{FN+TP} &= \frac{FN}{P} &\text{False Negative Rate} \\
+	\frac{TP + TN}{P+N} &= \frac{TP+TN}{TP+TN+FP+FN} &\text{Accuracy} \\
+\end{align*}
+\section{Confusion Matrix Function}
+\begin{lstlisting}
+def confusion_matrix_binary(actual, predicted):
+    tp = fp = tn = fn = 0
+
+    for i in range(len(actual)):
+        if actual[i] == 1 and predicted[i] == 1:
+            tp += 1
+        elif actual[i] == 0 and predicted[i] == 1:
+            fp += 1  
+        elif actual[i] == 0 and predicted[i] == 0:
+            tn += 1  
+        elif actual[i] == 1 and predicted[i] == 0:
+            fn += 1 
+    return tp, fp, tn, fn
+\end{lstlisting}
+\begin{definition}{F-Score}
+	aThe F-score is the harmonic mean of Precision and Recall
+	\[
+		F = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+	\]
+	\[
+		\text{F1 Score} = \frac{TP}{TP+ \frac{1}{2}(FP+FN)}
+	\]
+\end{definition}
+
+\includegraphics[width=0.9\textwidth, trim=18mm 100mm 18mm 5mm angle=0]{figures/confusion matrix generalized.pdf}
+ 
+\section{Micro Averaging}
+\begin{align*}
+	\text{Micro Precision} &= \frac{Net TP}{Net TP + Net FP} \\
+	\text{Micro Recall} &= \frac{Net TP}{Net TP + Net FN} \\
+\end{align*}
+\section{SciKitLearn Functions For Measuring Accuracy}
+\begin{lstlisting}
+	import sklearn.metrics
+	accuracy_score = accuracy_score(y_true, y_pred) # returns accuracy
+	confusion_matrix(y_true,y_pred, normalize = all/pred/true/none) # returns confusion matrix
+	classification_report(y_true,y_pred, target_names = target_names) # returns classification report
+	f1_score(y_true,y_pred) # returns f1, f1_micro, f1_macro and f1_weighted
+\end{lstlisting}
+
+\section{Numpy Functions}
+\begin{lstlisting}
+	import numpy as np
+	a = np.array() # Returns a numpy matrix 
+	a.ndim # Returns no. of dimensions
+	a.shape # Returns dimensions of a
+	a.np.random.random((m,n))# Returns random matrix
+\end{lstlisting}
 \end{document}
+

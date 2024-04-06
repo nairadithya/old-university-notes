@@ -30,6 +30,30 @@
             }
           },
           {
+            "id": "a68e366345b1c25e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8f896d8fe183c6ef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "df2153a6d19da290",
             "type": "leaf",
             "state": {
@@ -48,7 +72,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -114,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -154,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md"
+                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md"
               }
             }
           }
@@ -176,30 +200,31 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f3339c05765b0ae9",
+  "active": "8f896d8fe183c6ef",
   "lastOpenFiles": [
-    "23MAT112/Class Notes.tex~",
-    "23PHY114/Class Notes/Class Notes.tex~",
-    "OOPS Lab/Questions 2.4.2024a/Movies.java~",
-    "23CHY115 - Introduction To Materials Informatics/Coding/matrixMultiplication.py~",
-    "OOPS Lab/Questions 2.4.2024a/Movies.java",
-    "OOPS Lab/Questions 2.4.2024a/Questions 2.4.2024",
-    "OOPS Lab/Questions 2.4.2024a",
-    "OOPS Lab/Questions 2.4.2024",
+    "23CHY115 - Introduction To Materials Informatics/template.tex~",
+    "23CHY115 - Introduction To Materials Informatics/figures/confusion matrix generalized.pdf",
+    "23CHY115 - Introduction To Materials Informatics/figures/lu49602852hjhl.tmp",
+    "23CHY115 - Introduction To Materials Informatics/preamble.tex~",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 3.md",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
+    "23CHY115 - Introduction To Materials Informatics/missfont.log",
+    "23CHY115 - Introduction To Materials Informatics/template.synctex.gz",
+    "23CHY115 - Introduction To Materials Informatics/template.pdf",
+    "23CHY115 - Introduction To Materials Informatics/template.log",
+    "23CHY115 - Introduction To Materials Informatics/figures/Double Slit Experiment Solids(Slit 2 Closed).pdf",
+    "23CHY115 - Introduction To Materials Informatics/figures/lu4484594kogeq.tmp",
+    "23CHY115 - Introduction To Materials Informatics/figures/Double Slit Experiment Solids(Slit 1 Closed).pdf",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
     "OOPS Lab/Questions 2.4.2024.md",
-    "23CHY115 - Introduction To Materials Informatics/Coding/matrixMultiplication.py",
     "Bending Moment.md",
     "23CHY115 - Introduction To Materials Informatics/Coding/Exercise.md",
-    "23PHY114/CM2_HW1.pdf",
     "23PHY114/Notes So Far.md",
-    "23MAT112/Class Notes.pdf",
     "23CHY115 - Introduction To Materials Informatics/Coding.md",
     "23ECE113/Midsem Pattern.md",
     "Excalidraw/Drawing 2024-03-14 15.22.20.excalidraw.md",
     "23PHY114/The Finite Element Method For Axial Deformation.md",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 4.md",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
     "Excalidraw/Drawing 2024-03-07 14.31.30.excalidraw.md",
     "Excalidraw/Drawing 2024-03-07 14.21.05.excalidraw.md",
     "DSA Lab/Infix To Pre-fix.md",
@@ -213,7 +238,6 @@
     "DSA Lab/Implementation Of Stack/QueueX.md",
     "DSA Lab/Queue.md",
     "2024-02-23.md",
-    "OOPS Lab/Programs - 19.2.24.md",
     "Excalidraw/Drawing 2024-02-15 11.20.39.excalidraw.svg",
     "Untitled.canvas"
   ]
