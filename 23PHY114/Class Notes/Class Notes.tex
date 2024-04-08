@@ -1,5 +1,6 @@
 \documentclass{report}
 \input{preamble}
+\usepackage{cancel}
 \title{\Huge{23PHY114}\\ Class Notes}
 \author{\huge{Adithya Nair}}
 \date{}
@@ -274,7 +275,7 @@ The region in a fluid where the flow is not smooth is known as the turbulent reg
 
 \textbf{The motivation behind learning CFD}
 
-Computational Fluid Dynamics has been around as long as computers have been long. Using computation to calculate and visualize the flow of fluids is the basis behind wind tunnels. Trials can be done to help optimize solutions for the best aerodynamics.
+Computational Fluid Dynamics has been around as long as computers have been around. Using computation to calculate and visualize the flow of fluids is the basis behind wind tunnels. Trials can be done to help optimize solutions for the best aerodynamics.
 
 Examples of data used is the velocity profile, the force and the acceleration. These fluid simulations can take months and be used to simulate the effects of fluids on a given shape.
 
@@ -287,7 +288,7 @@ Think of fluids as layered.
 
 Taking a co-ordinate system, plotting the horizontal and vertical velocity of a fluid, u and v.
 
-\begin{definition}[No slip Condition]
+\begin{definition}[No Slip Condition]
   A condition where the part of the fluid at the base or in contact with the surface has no horizontal velocity.
   \[
     U(x,0) = 0
@@ -395,12 +396,118 @@ If the fluid is Newtonian(which means that stress is directly proportional to st
   \sigma_{xx} = -p + 2 \mu \frac{\partial u}{\partial x} + \lambda \vec{\triangledown}\cdot\vec{v}
 \]
 $\mu$-viscosity, $\lambda = -\frac{2\mu}{3}$ This constant is related to $\mu$ for many fluids(including air). 
-\section{Navier-Stokes Equation}
+\section{Navier-Stokes Equation For Newtonian Isotropic Fluids} % (fold)
 \begin{align*}
   &-\frac{\partial P}{\partial x} + \mu(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}) = \rho \frac{du}{dt} \\
-  &-\frac{\partial P}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2}) = \rho \frac{dv}{dt} \\
+  &-\frac{\partial P}{\partial y} + \mu(\frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2}) - \rho g = \rho \frac{dv}{dt} \\
   &-\frac{\partial P}{\partial z} + \mu(\frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2}) = \rho \frac{dw}{dt} \\
   &\frac{du}{dt} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v\frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z}
 \end{align*}
-Reference - Olga Ladyzhonskaya(derived equation in 2D)
+Analyzing the given equations, here's a breakdown of what the individual terms mean, 
+
+\begin{align*}
+  &\frac{\partial P}{\partial x} &\text{(The force due to the pressure on the fluid)} \\
+  &\mu(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}) &\text{(Viscous Forces)} \\
+  &-\rho g & \text{(Gravitational forces)}
+\end{align*}
+
+Simplying using the gradient or ``nabla" operator, 
+\begin{align*}
+-\frac{\partial P}{\partial x} \hat{i} - \frac{\partial P}{\partial y}- \frac{\partial P}{\partial z}\hat{k} &= -\vec{\triangledown} p \\ 
+    \mu(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2})u &= \mu \vec{\triangledown} \cdot \vec{\triangledown} u  \\
+    \rho \frac{d \vec{v}}{dt} = \rho(\frac{\partial \vec{v}}{\partial t} + u \frac{\partial \vec{v}}{\partial x} + v \frac{\partial \vec{v}}{\partial y} + w \frac{\partial \vec{v}}{\partial z}) &= \rho(\frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \vec{\triangledown} \vec{v})
+\end{align*}
+
+Resulting with, 
+\[
+  - \vec{\triangledown}p + \mu \triangledown^2\vec{v} - \rho g \hat{j} = \rho \frac{d \vec{v}}{dt} = \rho (\frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \vec{\triangledown} \vec{v})
+\]
+The continuity equation is,
+\[
+  \frac{\partial \rho}{\partial t} + \vec{\triangledown} \cdot (\rho \vec{v}) = \frac{d \rho}{dt} + \rho \vec{\triangledown} \cdot \vec{\triangledown} = 0
+\]
+Refer to \textit{Schaum's Fluid Dynamics Chapter 5} for derivations
+\section{Special Flows}
+\begin{enumerate}
+  \item Bernoulli's Equation \[
+   \frac{d}{dx}(p + \rho g + \frac{v^2}{2})  = 0
+  \]
+\item \textbf{Flow between parallel plates} - in this case, $\vec{v} = u \hat{i}$ only, since the water only flows horizontally, which means $\frac{\partial u}{\partial x} = 0$. 
+  \begin{align*}
+    \cancel{\frac{d \rho}{d t}} + \rho (\vec{\triangledown} \cdot \vec{v}) = 0 \\ 
+    \rho(\frac{\partial u}{\partial x} + \cancel{\frac{\partial v}{\partial y}} + \cancel{\frac{\partial w}{\partial z}}) = 0 \\
+    \frac{\partial u}{\partial x} = 0
+  \end{align*}
+  The second thing to look at is, 
+  \begin{align*}
+    -\frac{dp}{dx} + \mu(\frac{\partial^2 u}{\partial y^2}) &= \rho \cancel{\frac{du}{dt}}+ u \cancel{\frac{\partial u}{\partial x}} + v \frac{\partial v}{\partial y} + w \cancel{\frac{\partial u}{\partial z}}) \\
+  \end{align*}
+  {These are fully developed flows}
+  \begin{align*}
+    =-\frac{\partial p}{\partial x} + \mu \frac{\partial^2 u}{\partial y^2} &= 0\\
+    u \text{ is a function of y}
+  \end{align*} 
+  \[
+    -\frac{d p}{dy} + \mu(\cancel{\frac{d^2v}{dx^2}}+ \cancel{\frac{d^2v}{dy^2}} + \cancel{\frac{d^2v}{dz^2}} - \rho g = \rho \cancel{\rho\frac{dv}{dt}} - \rho g) = \rho \frac{dv}{dt}
+  \]
+  \begin{align*}
+    \therefore -\frac{dP}{dy} - \rho g = 0 \\
+    - \frac{-d P}{dy} = \rho g \\
+   \int d p = - \int \rho g dy  \\
+    p = - \rho g y + c
+  \end{align*}
+  p is a function of y, but we don't know whether $p$ is a function of x or not. 
+  Now, 
+  \[
+    \mu \frac{d^2 u}{dy^2} = \frac{dp}{dx}
+  \]
+  Since u is  a function of y, and pressure is a partial derivative of x, the only possible value for both of them to have is a constant C.
+  \[
+    \frac{d^2 u}{dy^2} = \frac{C}{\mu} 
+  \]
+  Upon first integration, 
+  \[
+    \frac{du}{dy} = \frac{C}{\mu} y + C_1 
+  \]
+  Upon 2nd integration,
+  \[
+    U(y) = \frac{c}{2\mu} y^2 + C_1 y + C_2
+  \]
+Using boundary conditions,
+\[
+  U(0) = 0 \text{(No slip condition)}
+\]
+
+If the top part of the plates are fixed, then $U(L) = 0$ but $U(L) = u_0$
+Since,
+\[
+  U(y) = \frac{c}{2\mu}y^2 + c_1 y + c_2
+\]
+\[
+  U(0) = C_2 \implies C_2 = 0
+\]
+\[
+  U(L) = \frac{C}{2\mu}L^2 + C_1 L + C_2
+\]
+In no slip condition,
+\[
+  0 = \frac{C}{2\mu}L^2 + C_1 L \implies \frac{C}{2\mu}L = -C_1
+\]
+If plate is moving, 
+\[
+  u_0 = \frac{c}{2\mu} L^2 + C_1 L
+\]
+\[
+  \frac{u_0}{L} = \frac{c}{2\mu}L + c_1
+\]
+\[
+  c_1 = \frac{u_0}{L} - \frac{cL}{2\mu}
+\]
+\[
+  U(y) = \frac{c}{1\mu}(y^2) c_1 y + c_2 \text{Poiseuille flow}
+\]
+\end{enumerate}
+
+
+
 \end{document}

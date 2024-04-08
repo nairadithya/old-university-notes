@@ -15,7 +15,7 @@ public class LinkedList {
 	}
 	// **************INSERTION**************
 	// Method to insert a new node
-	public LinkedList insert(int data)
+	LinkedList insert(int data)
 	{
 		// Create a new node with given data
 		Node new_node = new Node(data);
@@ -97,7 +97,7 @@ public class LinkedList {
 	}
 	// **************DELETION AT A POSITION**************
 	// Method to delete a node in the LinkedList by POSITION
-	public LinkedList deleteAtPosition(int index) {
+	LinkedList deleteAtPosition(int index) {
 		// Store head node
 		Node currNode = this.head, prev = null;
 		// CASE 1:
@@ -162,6 +162,5 @@ public class LinkedList {
 		// Insert the values
 		list.insert(1);
 		list.printList();
-
 	}
 }
