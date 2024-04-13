@@ -1,0 +1,182 @@
+\documentclass{article}
+
+\input{preamble1}
+\title{\Huge{Quiz 2}\\ Quick Reference Notes}
+\author{\huge{Adithya Nair}}
+\date{}
+\begin{document}
+\section{Inner Products For Functions} % (fold)
+\[L^P: \int f g dx = <f,g>, \text{Where P = 2}\]
+
+Here, $L^2$ is the defined norm we are going to take, and $\langle f,g\rangle$ is the notation for the inner product.
+
+When we take the inner product for a function on itself,
+
+\[\int f f dx = \langle f,f\rangle dx = \|f\|^2\]
+
+\begin{note}
+   $\cos{x}$ and $\sin{x}$ are orthogonal to each other. $\cos{(kx)}$ and $\cos{(lx)}$ as well as $\sin{(kx)}$ and $\sin{(lx)}$ are also orthogonal to each other.
+\end{note}
+
+
+
+\section{Fourier Series}
+\begin{definition}[Fourier Series]
+   The Fourier series of a function $f(x)$ is defined on $-\pi \leq x \leq \pi$ where    \[
+   	 f(x) \approxeq \frac{a_0}{2}+\sum_{k=1}^{\infty}[a_k \cos{kx} + b_k \sin{kx}]
+   \]
+   where the coefficients are given by the inner product formulae:
+   \begin{align*}
+      a_k = \langle f, \cos{kx} \rangle = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \cos{(kx)} dx \ \forall k = 0,1,2\dots \\
+      b_k = \langle f, \sin{kx} \rangle = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \sin{(kx)} dx \ \forall k = 0,1,2\dots
+   \end{align*}
+\end{definition}
+
+\section{Change Of Scale} % (fold)
+For a periodic function f(x) such that the period p = 2L, where L is some natural number, we scale the Fourier Series to fit the interval of $2\pi$, to do this we set $x = \frac{p}{2\pi}v$, then $f(x) = f(\frac{p}{2\pi}v) = f(\frac{p}{2\pi}(v+2\pi))$
+
+Then, 
+\[
+     a_0 = \frac{1}{L} \int_{-L}^{L} f(x) dx
+\]
+\[
+  a_k = \frac{1}{L} \int_{-L }^{L} f(x) \cos {\frac{k \pi x}{L}} dx  
+\]
+\[
+ b_k = \frac{1}{L} \int_{-L }^{L} f(x) \sin {\frac{k \pi x}{L}} dx  
+\] \section{Odd And Even Functions} % (fold)
+\begin{definition}[Even Function]
+   A function such that $f(x) = f(-x)$
+   For such a function,
+   \[
+   	b_k = 0
+   \]
+   and it only has $\cos$ terms
+   \label{dfn2}
+\end{definition} % (fold)
+\begin{definition}[Odd Function]
+   A function such that $f(-x) = -f(x)$
+   For such a function,
+   \[
+   	a_0, a_k = 0
+   \]
+   And it only has $\sin$ terms
+\end{definition}
+
+\begin{theorem}
+    The Fourier coefficients of the functions $f_1 + f_2$ are the sum of the corresponding coefficients of $f_1$ and $f_2$, The Fourier coefficients of cf is c times the Fourier coefficients of f.
+
+\end{theorem}
+
+\section{Differentiation And Integration Of Fourier Series}
+
+\subsection{Half Range Expansions}
+When we're finding the Fourier Series of a function for some interval [0,L], we convert it into a periodic function by limiting them to the range $[-\pi,\pi]$ and then extend the function with a period $2\pi$.
+When a range is given, we assume both even and odd periodic extensions, and solve for the Fourier Series.
+\section{Piecewise Continuous Functions}
+
+\begin{definition}[Piecewise Continuous Functions]
+   A function f(x) is said to be piecewise continuous on an interval [a,b] if it is defined and continuous ecxept possibly at a finite number of points $a\leq x_1 \leq x_2 \leq \dots \leq x_n \leq b$ Furthermore, at each point of discontinuity, we require that the left and right hand limits exists. 
+   \[
+      f(x_k^-) = \lim_{x \rightarrow x_k^-} f(x); f(x_k^+) = \lim_{x\rightarrow x_k^+} f(x)
+   \]
+   At the ends of the domain, the left hand is ignored at a and the right hand limit is ignored at b.
+\end{definition}
+We take the basis,
+\[
+   \sigma(x) = 1, x>0 \ and \ 0, x<0
+\]
+Then
+\[
+	h(x) = \beta \sigma(x - \xi) = \beta, x> \xi \ and \ 0, x<\xi
+\]
+\begin{definition}[Piecewise $C^1$]
+   A function is called piecewise $C^1(U \subset R)$ (continuous and continuously differentiable) on the interval [a,b] except at a finite number of points $a\leq x_1 \leq x_2 \leq \dots \leq x_n \leq b$. At each exceptional point, the left and the right hand limits of both the function and its derivative exists.
+\end{definition}
+\section{Complex Fourier Series}
+\[
+   f(x) \approxeq \frac{a_0}{2}+\sum_{k=1}^{\infty}[a_k \cos{kx} + b_k \sin{kx}]
+\]
+
+The complex form of this is
+\[
+   f(x) = \sum_{k=-\infty}^{\infty} c_k e^{-ikx}
+\]
+Here the vector space is complex functions.
+% section Complex Fourier Series (end)
+The inner product is 
+\[
+   \langle f,g \rangle = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x) \overline{g(x)} dx
+\]
+And, $\cos$ and $\sin$ can be written as:
+\[
+\cos{(kx)} = \frac{e^{ikx} + e^{-ikx}}{2} \ , \ \ \sin{(kx)} = \frac{e^{ikx} - e^{-ikx}}{2i}
+\]
+\[
+   f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ikx}
+\]
+\[
+   c_k = \langle f, e^{ikx} \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx}dx
+\]
+\[
+   \langle e^{ikx},e^{ilx} \rangle = \frac{1}{2\pi} \int_{-\pi}^\pi e^{ikx} e^{-ilx}dx
+\]
+\section{Differentiation And Integration} % (fold)
+\[
+   f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty} [a_k cos(kx) + b_k sin(kx)]
+\]
+The discussion was surrounding whether or not we can differentiate or integrate functions that have been expressed with their Fourier series... Only when these functions converge. 
+Looking at integration first, the integral of sin x is -cos x, and the cos term gets converted to sin. 
+
+The problem arises with the constant term $\frac{a_0}{2}$, which is not periodic.
+\[
+   \frac{a_0}{2} = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) dx
+\]
+This term is known as the mean of the function. A Fourier Series is only integrable when the mean is zero.
+\begin{lemma}
+   If f(x)  is $2\pi$- periodic, then its integral $g(x) = \int_0^{x} f(y) dy$ is $2\pi$-periodic if and only if $\int_{-\pi}^\pi f(x) dx = 0$, so that f(x) has zero mean on the interval $[-\pi,\pi]$.
+\end{lemma}
+\begin{theorem}
+   If f is piecewise continuous and has mean zero on the interval $[-\pi,\pi]$ then its Fourier Series  
+	\begin{displaymath}
+	   f(x) \approxeq \sum_{k=1}^{\infty} [a_k cos(kx) + b_k sin(kx)]
+	\end{displaymath}
+	can be integrated term by term to produce the Fourier Series. 
+	\[
+	   g(x) = \int_0^{x} f(y) dy \approxeq m + \sum_{k=1}^{\infty} - \frac{b_k}{k} cos kx + \frac{a_k}{k} sin kx
+	\]
+	where $m = \int_{-\pi}^{\pi}$g(x) dx
+\end{theorem}
+\begin{note}
+   m is the inner product of g(x) with itself. The remarkable thing about this is it is equal to $\sum_{k=1}^{\infty} \frac{b_k}{k}$
+\end{note}
+\section{Integration Formulas} % (fold)
+\textbf{Integration By Parts}
+\[
+   \int u dv = uv - \int v du
+\]
+\label{sec:}
+\textbf{Trignometric Formulas}
+\begin{align*}
+   \int \sin{x} dx = - \cos{x} + C \\
+   \int \cos{x} dx = \sin{x} + C \\
+   \int \sec^2{x} dx = \tan{x} + C \\ 
+   \int \csc^2{x} dx = -\cot{x} + C \\ 
+   \int \sec{x} \tan{x} dx = \sec{x} + C \\ 
+   \int \csc{x} \cot{x} dx = -\csc{x} + C \\
+\end{align*}
+\textbf{Trigonometric Identities}
+\begin{align*}
+   \sin{-x} = -\sin{x} \\
+   \cos{-x} = \cos{x} \\
+   \tan{-x} = -\tan{x} \\ 
+   \cos{2x} = \cos^2{x} - \sin^2{x} \\
+   \sin{2x} = 2 \sin{x} \cos{x} \\ 
+   \sin{A + B} = \sin{A}\cos{B} + \cos{A}\sin{B}\\
+   \sin{A - B} = \sin{A}\cos{B} - \cos{A}\sin{B} \\
+   \cos{A + B} = \cos{A}\cos{B} - \sin{A}\sin{B} \\
+   \cos{A - B} = \cos{A}\cos{B} + \sin{A}\sin{B} \\
+   \tan{A + B} = \frac{\tan{A} + \tan{B}}{1-\tan{A}\tan{B}} \\
+   \tan{A - B} = \frac{\tan{A} - \tan{B}}{1+\tan{A}\tan{B}} \\
+\end{align*} 
+\end{document}

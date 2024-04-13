@@ -1,0 +1,3 @@
+1. Define a class name PassportService include necessary variables and methods. Illustrate method overloading for a method named issuePassport
+2. Create a class named room, the attributes of this class are Room number, room type, room area, availability of AC, include a member function called calculateRoomRent() and display(). Illustrate method overloading for the method calculateRoomRent()
+3. A class named university, with subclasses called Engineering and Medical. Each subclass has their child class as students. Make meaningful assumptions for data members and member functions, such that you have a function which prints the total number of students in each stream, and a method called as calculateFee() which is common for all the subclasses.

@@ -119,9 +119,7 @@ $$
 \sum M_{/P} = 0
 $$
 $$
--M + (M + \Delta M) \hat{k} + (-\Delta x \hat{i} \times(-T\hat{i} - S \hat{j}) + (\frac{-\Delta x}{2} \hat{i} \times (-w(x) \Delta x \hat{j}))
-$$
-$$
+-M + (M + \Delta M) \hat{k} + (-\Delta x \hat{i} \times(-T\hat{i} - S \hat{j}) + (\frac{-\Delta x}{2} \hat{i} \times (-w(x) \Delta x \hat{j})) $$ $$
 \implies \frac{\Delta M }{\Delta x} + S - w\frac{\Delta x}{2} = 0
 $$
 Taking the limit on the equations, we get,
@@ -348,9 +346,9 @@ But the question might come about that the density in the mass continuity equati
   2) &\frac{\partial \rho}{\partial t} + \rho (\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}) + \frac{\partial \rho}{\partial x} u + \frac{\partial \rho}{\partial y}v + \frac{\partial \rho}{\partial z} w &\text{(Applying chain rule)} \\
   3) &\frac{d \rho}{dt} = \frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial \rho}{\partial y}\frac{\partial y}{\partial t} + \frac{\partial \rho}{\partial z}\frac{\partial z}{\partial t} &\text{(General form of partial derivatives to total derivatives)} \\
   4) & d\frac{\rho}{dt} + \rho(\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}) &\text{(Final expression)} \\
-  5) & \vec{\triangledown}  = \frac{\partial }{\partial x} \hat{i} + \frac{\partial }{\partial y} \hat{j} + \frac{\partial }{\partial z} \hat{k} &\text{(Differential Operator)} \\
+  5) & \vec{\nabla}  = \frac{\partial }{\partial x} \hat{i} + \frac{\partial }{\partial y} \hat{j} + \frac{\partial }{\partial z} \hat{k} &\text{(Differential Operator)} \\
   6) &\vec{v} = u \hat{i} + v \hat{j} + w \hat{k} &\text{(Velocity Vector)} \\
-  7)&\frac{d \rho}{dt} + \rho \vec{\triangledown}\cdot{\vec{v}} = 0 &{\triangledown \cdot v \text{(Divergence of $\vec{v}$)}}
+  7)&\frac{d \rho}{dt} + \rho \vec{\nabla}\cdot{\vec{v}} = 0 &{\nabla \cdot v \text{(Divergence of $\vec{v}$)}}
 \end{align*}
 
 \section{External Forces On Fluid}
@@ -393,7 +391,7 @@ There are certain equations that cannot be derived, they are simply observed and
 
 If the fluid is Newtonian(which means that stress is directly proportional to strain) and isotropic(properties are same in all directions)
 \[
-  \sigma_{xx} = -p + 2 \mu \frac{\partial u}{\partial x} + \lambda \vec{\triangledown}\cdot\vec{v}
+  \sigma_{xx} = -p + 2 \mu \frac{\partial u}{\partial x} + \lambda \vec{\nabla}\cdot\vec{v}
 \]
 $\mu$-viscosity, $\lambda = -\frac{2\mu}{3}$ This constant is related to $\mu$ for many fluids(including air). 
 \section{Navier-Stokes Equation For Newtonian Isotropic Fluids} % (fold)
@@ -413,18 +411,18 @@ Analyzing the given equations, here's a breakdown of what the individual terms m
 
 Simplying using the gradient or ``nabla" operator, 
 \begin{align*}
--\frac{\partial P}{\partial x} \hat{i} - \frac{\partial P}{\partial y}- \frac{\partial P}{\partial z}\hat{k} &= -\vec{\triangledown} p \\ 
-    \mu(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2})u &= \mu \vec{\triangledown} \cdot \vec{\triangledown} u  \\
-    \rho \frac{d \vec{v}}{dt} = \rho(\frac{\partial \vec{v}}{\partial t} + u \frac{\partial \vec{v}}{\partial x} + v \frac{\partial \vec{v}}{\partial y} + w \frac{\partial \vec{v}}{\partial z}) &= \rho(\frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \vec{\triangledown} \vec{v})
+-\frac{\partial P}{\partial x} \hat{i} - \frac{\partial P}{\partial y}- \frac{\partial P}{\partial z}\hat{k} &= -\vec{\nabla} p \\ 
+    \mu(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2})u &= \mu \vec{\nabla} \cdot \vec{\nabla} u  \\
+    \rho \frac{d \vec{v}}{dt} = \rho(\frac{\partial \vec{v}}{\partial t} + u \frac{\partial \vec{v}}{\partial x} + v \frac{\partial \vec{v}}{\partial y} + w \frac{\partial \vec{v}}{\partial z}) &= \rho(\frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \vec{\nabla} \vec{v})
 \end{align*}
 
 Resulting with, 
 \[
-  - \vec{\triangledown}p + \mu \triangledown^2\vec{v} - \rho g \hat{j} = \rho \frac{d \vec{v}}{dt} = \rho (\frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \vec{\triangledown} \vec{v})
+  - \vec{\nabla}p + \mu \nabla^2\vec{v} - \rho g \hat{j} = \rho \frac{d \vec{v}}{dt} = \rho (\frac{\partial \vec{v}}{\partial t} + \vec{v} \cdot \vec{\nabla} \vec{v})
 \]
 The continuity equation is,
 \[
-  \frac{\partial \rho}{\partial t} + \vec{\triangledown} \cdot (\rho \vec{v}) = \frac{d \rho}{dt} + \rho \vec{\triangledown} \cdot \vec{\triangledown} = 0
+  \frac{\partial \rho}{\partial t} + \vec{\nabla} \cdot (\rho \vec{v}) = \frac{d \rho}{dt} + \rho \vec{\nabla} \cdot \vec{\nabla} = 0
 \]
 Refer to \textit{Schaum's Fluid Dynamics Chapter 5} for derivations
 \section{Special Flows}
@@ -434,7 +432,7 @@ Refer to \textit{Schaum's Fluid Dynamics Chapter 5} for derivations
   \]
 \item \textbf{Flow between parallel plates} - in this case, $\vec{v} = u \hat{i}$ only, since the water only flows horizontally, which means $\frac{\partial u}{\partial x} = 0$. 
   \begin{align*}
-    \cancel{\frac{d \rho}{d t}} + \rho (\vec{\triangledown} \cdot \vec{v}) = 0 \\ 
+    \cancel{\frac{d \rho}{d t}} + \rho (\vec{\nabla} \cdot \vec{v}) = 0 \\ 
     \rho(\frac{\partial u}{\partial x} + \cancel{\frac{\partial v}{\partial y}} + \cancel{\frac{\partial w}{\partial z}}) = 0 \\
     \frac{\partial u}{\partial x} = 0
   \end{align*}
@@ -504,10 +502,149 @@ If plate is moving,
   c_1 = \frac{u_0}{L} - \frac{cL}{2\mu}
 \]
 \[
-  U(y) = \frac{c}{1\mu}(y^2) c_1 y + c_2 \text{Poiseuille flow}
+  U(y) = \frac{c}{2\mu}(y^2) +  c_1 y + c_2 \text{ (Poiseuille flow)}
 \]
 \end{enumerate}
 
+\section{Computational Fluid Dynamics}
+This is a method to solve the Navier-Stokes equation, and all other fluids equations. This equation is a partial differential equation. We take finite difference approximations(using the Taylor series refer to Maths notes.) The beauty of this method is that every partial differential equation can be approximated to a Taylor series.
 
+And we take this further,
+\[
+  A \vec{x} = \vec{b}
+\]
+Where, $x$ is a vector composed of $u,v,w,p$. These components are functions of $x,y,z$ and $t$
+\subsection{Taylor Series}
+Let's look at a case where $U$ is just a function of $y$, $U(y)$. What if I wanted to find what $U(y+\Delta y)$ or some point later. 
+The Taylor series of $U(y+\Delta y)$ is,
+\[
+  U(y+\Delta y) = U(y) + U'(y)\frac{\Delta y}{1!} + U''(y)\frac{\Delta y^2}{2!} + U'''(y)\frac{\Delta y^3}{3!} + \dots
+\]
+For $U(y - \Delta y)$
+\[
+  U(y-\Delta y) = U(y) - U'(y)\frac{\Delta y}{1!} + U''(y)\frac{\Delta y^2}{2!} - U'''(y)\frac{\Delta y^3}{3!} + \dots
+\]
+Let's say I want to find $U'(y)$ 
+\begin{align*}
+  U'(y) &= \frac{\partial u}{\partial y} = [\frac{U(y+\Delta y) - U(y)}{\Delta y}] - \Delta y (\frac{U''(y)}{2!} - U'''(y)\frac{\Delta y}{3!} + \dots)
+\end{align*}
+I can assume the remaining terms after $[\frac{U(y+\Delta y) - U(y)}{\Delta y}] $ to be an error of the order of $\Delta y$. What this means is that, the further away I get from y, the higher the error is going to be. It is denoted by $O(\Delta y)$
 
-\end{document}
+We can find another way to express U'(y) using the second equation.
+\[
+  U'(y) = \frac{U(y) + U(y+\Delta y)}{\Delta y} + O(\Delta y)
+\]
+This is termed as the forward difference approximation
+\[
+  U'(y) = \frac{U(y) - U(y-\Delta y)}{\Delta y} - O(\Delta y)
+\]
+This is termed as the backward difference approximation
+
+On subtracting $U(y-\Delta y)$ from $U(y+\Delta y)$
+\[
+  U(y + \Delta y) - U(y - \Delta y) = 2 U'(y) \frac{\Delta y}{1} + 2U''(y)\frac{\Delta y^3}{3!}
+\]
+
+An expression for $U'(y)$ with this equation
+\[
+  U'(y) = \frac{U(y + \Delta y) - U(y - \Delta y)}{2 \Delta y} - O(\Delta y^2) 
+\]
+This is termed as the central difference approximation
+With these three approximations, we will solve the problem from earlier.
+For $U''(y)$,
+\[
+U''(y) = \frac{U(y+\Delta y) - 2U(y) + U(y-\Delta y)}{\Delta y^2}
+\]
+
+\section{For Unidirectional Flow}
+Let's look at two cases and solve,
+\begin{enumerate}
+  \item $\frac{\partial p}{\partial x}$, the pressure gradient is given
+    We assume, to be general, that the plates are moving with a speed, $U_h$ and $U_0$ respectively for the top and bottom.
+
+    The equation is,
+    \[
+      -\frac{\partial p}{\partial x} + \mu \frac{\partial^2 u}{\partial x^2} + \rho g_x = \rho \frac{\partial u}{\partial t}
+    \]
+    Substituting the equations we found using the Taylor series.
+    \[
+      -\frac{\partial p}{\partial x} + \mu(\frac{U(y+\Delta y) - 2U(y) + U(y-\Delta y)}{\Delta y^2}) + \rho g_y = \rho(\frac{U(t + \Delta t) - U(t-\Delta t)}{2\Delta t})
+    \]
+    Finding the partial derivative due to time,
+    \[
+      U'' = \frac{U(y+\Delta y, t)-2U(y,t) + U(y-\Delta y, t)}{\Delta y^2}
+    \]
+    \[
+      \dot{U} = \frac{U(y, t+ \Delta t) - U(y,t - \Delta t)}{2\Delta t}
+    \]
+
+    We finally arrive at the final method for solving this. We break each point of the fluid vertically into discrete locations. Termed as ($U_1, U_2,\dots, U_n$)
+
+    \[
+      U_i(t) = \frac{-\partial p}{\partial x} + \mu(\frac{U_{i+1} - 2U_{i} + U_{i-1}}{\Delta y}) + \rho g_y
+    \]
+    As well as,
+    \[
+      U_i(t) = \rho(\frac{U_i(t + \Delta t)-U(t-\Delta t)}{2\Delta t})
+    \]
+
+    So,
+    \[
+    U_{i}(t+\Delta t) = 2\Delta t (-\frac{-1}{\rho} \frac{\partial p}{\partial x} + g_y) + \frac{2 \Delta t \mu}{\rho}(\frac{U_{i+1} - 2U_i + U_{i-1}}{\Delta y^2}) + U_{t - \Delta t}
+    \]
+  These two equations form the basis of what we are trying to code.
+
+  The final equation to be is,
+  \[
+    U_{new}[i] = \frac{2 \Delta t}{\rho}(-\frac{\partial p}{\partial x} + \rho g_y) + \frac{2 \Delta t \mu}{\rho \Delta y^2}(U_{now}[i+1] - 2U_{now}[i] + U_{now}[i-1] + U_{old}[i])
+  \]
+  What these terms mean,
+  \begin{align*}
+    \frac{\mu}{\rho} & & \text{(Kinematic viscosity)}-\nu \\
+    \frac{\Delta t\mu}{\rho \Delta y^2} & & \text{(Diffusiion number)}-\alpha
+  \end{align*}
+  How do we put boundary conditions, we use the velocities of the plates.
+  \begin{align*}
+   &U(0,t) = U_0 = U_1(t)  \\
+   &U(h,t) = U_h = U_{N+1}(t)
+  \end{align*}
+\begin{lstlisting}{octave}
+% Defining constants
+mu = 0.6;
+rho = 100;
+g = 0.4;
+h = 1;
+N = 32;
+deltaY = h/N;
+
+% Terms in the equation
+nu = mu/rho; % Kinematic Viscosity
+alpha = 0.51; % Diffusion Number
+deltaT = alpha*rho*(deltaY^2)/mu; % Evaluating time step from alpha
+dpdx = -2; % Pressure Gradient
+
+% Velocities of the plates
+U0 = 0;
+Uh = 0;
+
+% Time for code to run
+T = 5;
+U = zeros(floor(T/deltaT),N+1);
+% Initial Conditions
+y = 0:deltaY:h;
+
+% Equation
+for k = 2:floor(T/deltaT)
+  U(k,1) = U0;
+  U(k,N+1) = Uh;
+  for i = 2:N
+    U(k,i) = deltaT/rho*(-dpdx    + rho*g) + alpha*(U(k-1,i+1)-2*U(k-1,i) + U(k-1,i-1)) + U(k-1,i);
+  end
+end
+
+% Plotting
+% Y axis - y, x axis - U(y), For a given time t
+plot(U(end,:),y,'blue');
+\end{lstlisting}
+  \item Q(t) or the flow rate is given.
+\end{enumerate}\end{document}

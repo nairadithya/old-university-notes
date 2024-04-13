@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.4.6)  12 APR 2024 04:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.4.6)  12 APR 2024 12:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -756,21 +756,26 @@ File: tikzlibrarytrees.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \l__tikzsymbols_Summertree_nr_arguments_int=\count412
 \l__tikzsymbols_Autumntree_nr_arguments_int=\count413
 \l__tikzsymbols_Wintertree_nr_arguments_int=\count414
-) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count415
+)) (/usr/share/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2023-03-14 v3.2.3 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen317
 \l__siunitx_angle_marker_box=\box124
 \l__siunitx_angle_unit_box=\box125
-\l__siunitx_compound_count_int=\count415
-\l__siunitx_number_exponent_fixed_int=\count416
-\l__siunitx_number_min_decimal_int=\count417
-\l__siunitx_number_min_integer_int=\count418
-\l__siunitx_number_round_precision_int=\count419
-\l__siunitx_number_lower_threshold_int=\count420
-\l__siunitx_number_upper_threshold_int=\count421
-\l__siunitx_number_group_first_int=\count422
-\l__siunitx_number_group_size_int=\count423
-\l__siunitx_number_group_minimum_int=\count424
+\l__siunitx_compound_count_int=\count416
+\l__siunitx_number_exponent_fixed_int=\count417
+\l__siunitx_number_min_decimal_int=\count418
+\l__siunitx_number_min_integer_int=\count419
+\l__siunitx_number_round_precision_int=\count420
+\l__siunitx_number_lower_threshold_int=\count421
+\l__siunitx_number_upper_threshold_int=\count422
+\l__siunitx_number_group_first_int=\count423
+\l__siunitx_number_group_size_int=\count424
+\l__siunitx_number_group_minimum_int=\count425
 \l__siunitx_table_tmp_box=\box126
 \l__siunitx_table_tmp_dim=\dimen318
 \l__siunitx_table_column_width_dim=\dimen319
@@ -781,9 +786,9 @@ Package: siunitx 2023-03-14 v3.2.3 A comprehensive (SI) units package
 \l__siunitx_table_after_box=\box131
 \l__siunitx_table_before_dim=\dimen320
 \l__siunitx_table_carry_dim=\dimen321
-\l__siunitx_unit_tmp_int=\count425
-\l__siunitx_unit_position_int=\count426
-\l__siunitx_unit_total_int=\count427
+\l__siunitx_unit_tmp_int=\count426
+\l__siunitx_unit_position_int=\count427
+\l__siunitx_unit_total_int=\count428
  (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen322
@@ -797,8 +802,9 @@ Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 Package: mdframed 2013/07/01 1.9b: mdframed
  (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count428
-) (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
+\etb@tempcnta=\count429
+)
+(/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
 Package: zref-abspage 2022-04-07 v2.34 Module abspage for zref (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/zref/zref-base.sty
 Package: zref-base 2022-04-07 v2.34 Module base for zref (HO)
@@ -806,14 +812,13 @@ Package zref Info: New property list: main on input line 767.
 Package zref Info: New property: default on input line 768.
 Package zref Info: New property: page on input line 769.
 )
-\c@abspage=\count429
+\c@abspage=\count430
 Package zref Info: New property: abspage on input line 65.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
 \mdf@templength=\skip84
-\c@mdf@globalstyle@cnt=\count430
+\c@mdf@globalstyle@cnt=\count431
 \mdf@skipabove@length=\skip85
 \mdf@skipbelow@length=\skip86
 \mdf@leftmargin@length=\skip87
@@ -888,16 +893,16 @@ File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
 \mdf@horizontalspaceofbox=\skip148
 \mdfsubtitleheight=\skip149
 \mdfsubsubtitleheight=\skip150
-\c@mdfcountframes=\count431
+\c@mdfcountframes=\count432
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- success******
 
-\mdf@envdepth=\count432
-\c@mdf@env@i=\count433
-\c@mdf@env@ii=\count434
-\c@mdf@zref@counter=\count435
+\mdf@envdepth=\count433
+\c@mdf@env@i=\count434
+\c@mdf@env@ii=\count435
+\c@mdf@zref@counter=\count436
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (/usr/share/texlive/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
@@ -912,7 +917,7 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowwidth=\dimen326
 \pgfarrowlinewidth=\dimen327
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
-\pgf@intersect@solutions=\count436
+\pgf@intersect@solutions=\count437
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
 File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
@@ -926,23 +931,23 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks48
 \t@pgfplots@tokc=\toks49
 \pgfplots@tmpa=\dimen328
-\c@pgfplots@coordindex=\count437
-\c@pgfplots@scanlineindex=\count438
+\c@pgfplots@coordindex=\count438
+\c@pgfplots@scanlineindex=\count439
  (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks50
 \t@pgf@tokb=\toks51
 \t@pgf@tokc=\toks52
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count439
+\c@pgfplotsarray@tmp=\count440
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count440
+\c@pgfplotstable@counta=\count441
 \t@pgfplotstable@a=\toks53
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count441
+\c@pgfplotslibrarysurf@no=\count442
  (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count442
+\pgfplots@numplots=\count443
 \pgfplots@xmin@reg=\dimen329
 \pgfplots@xmax@reg=\dimen330
 \pgfplots@ymin@reg=\dimen331
@@ -959,9 +964,9 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmargin=\skip152
 \droptitle=\skip153
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 128.
+Package hyperref Info: Option `colorlinks' set `true' on input line 153.
 \thickarrayrulewidth=\skip154
-\c@lecturecounter=\count443
+\c@lecturecounter=\count444
  (/usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
@@ -987,26 +992,26 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks54
 \XKV@tempa@toks=\toks55
 )
-\XKV@depth=\count444
+\XKV@depth=\count445
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-\xargs@max=\count445
+\xargs@max=\count446
 \xargs@toksa=\toks56
 \xargs@toksb=\toks57
 ) (/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2023/01/31 v1.1.6 Todonotes source and documentation.
 Package: todonotes 2023/01/31
-\c@@todonotes@numberoftodonotes=\count446
+\c@@todonotes@numberoftodonotes=\count447
 ) (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box139
-\sift@deathcycles=\count447
+\sift@deathcycles=\count448
 \@vwid@loff=\dimen335
 \@vwid@roff=\dimen336
 ) (/usr/share/texlive/texmf-dist/tex/latex/thmtools/thmtools.sty
 Package: thmtools 2023/02/17 v0.75
 \thmt@toks=\toks58
-\c@thmt@dummyctr=\count448
+\c@thmt@dummyctr=\count449
  (/usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
 Package: thm-patch 2023/02/17 v0.75
  (/usr/share/texlive/texmf-dist/tex/latex/thmtools/parseargs.sty
@@ -1044,19 +1049,19 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box141
 \tcb@lowerbox=\box142
 \tcb@phantombox=\box143
-\c@tcbbreakpart=\count449
-\c@tcblayer=\count450
-\c@tcolorbox@number=\count451
+\c@tcbbreakpart=\count450
+\c@tcblayer=\count451
+\c@tcolorbox@number=\count452
 \tcb@temp=\box144
 \tcb@temp=\box145
 \tcb@temp=\box146
 \tcb@temp=\box147
  (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.0.3'
-\c@tcbrastercolumn=\count452
-\c@tcbrasterrow=\count453
-\c@tcbrasternum=\count454
-\c@tcbraster=\count455
+\c@tcbrastercolumn=\count453
+\c@tcbrasterrow=\count454
+\c@tcbrasternum=\count455
+\c@tcbraster=\count456
 ) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.0.3'
 (/usr/share/texlive/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1086,28 +1091,28 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.0.3'
 \tcbfitdim=\dimen337
 \tcb@lowerfitdim=\dimen338
 \tcb@upperfitdim=\dimen339
-\tcb@cur@hbadness=\count456
+\tcb@cur@hbadness=\count457
 ) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.0.3'
 (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.0.3'
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count457
+\lst@mode=\count458
 \lst@gtempboxa=\box152
 \lst@token=\toks63
-\lst@length=\count458
+\lst@length=\count459
 \lst@currlwidth=\dimen340
-\lst@column=\count459
-\lst@pos=\count460
+\lst@column=\count460
+\lst@pos=\count461
 \lst@lostspace=\dimen341
 \lst@width=\dimen342
-\lst@newlines=\count461
-\lst@lineno=\count462
+\lst@newlines=\count462
+\lst@lineno=\count463
 \lst@maxwidth=\dimen343
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count463
-\lst@skipnumbers=\count464
+\c@lstnumber=\count464
+\lst@skipnumbers=\count465
 \lst@framebox=\box153
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -1121,7 +1126,7 @@ Library (tcolorbox): 'tcbprocessing.code.tex' version '6.0.3'
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 ))
-\c@tcblisting=\count465
+\c@tcblisting=\count466
 )) (/usr/share/texlive/texmf-dist/tex/latex/listingsutf8/listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
@@ -1141,103 +1146,103 @@ Library (tcolorbox): 'tcbposter.code.tex' version '6.0.3'
 )) (/usr/share/texlive/texmf-dist/tex/latex/pgf-blur/tikzlibraryshadows.blur.code.tex  v1.02, 2012/12/09 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex
 File: tikzlibraryshadows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-\pgfbs@fading@count=\count466
+\pgfbs@fading@count=\count467
 )
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=definition, backgroundcolor=definition!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmdefinitionbox' on input line 467.
+(thmtools)             that uses `style=thmdefinitionbox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=theorem, backgroundcolor=theorem!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmtheorembox' on input line 467.
+(thmtools)             that uses `style=thmtheorembox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=example, backgroundcolor=example!5,  rightline=true, leftline=true, topline=true, bottomline=true , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexamplebox' on input line 467.
+(thmtools)             that uses `style=thmexamplebox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=claim, backgroundcolor=claim!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmclaimbox' on input line 467.
+(thmtools)             that uses `style=thmclaimbox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=corollary, backgroundcolor=corollary!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmcorollarybox' on input line 467.
+(thmtools)             that uses `style=thmcorollarybox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=prop, backgroundcolor=prop!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmpropbox' on input line 467.
+(thmtools)             that uses `style=thmpropbox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=lemma, backgroundcolor=lemma!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmlemmabox' on input line 467.
+(thmtools)             that uses `style=thmlemmabox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=exercise, backgroundcolor=exercise!5, , ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexercisebox' on input line 467.
+(thmtools)             that uses `style=thmexercisebox' on input line 555.
 Package thmtools Info: Key `qed' (with value `\qedsymbol ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmproofbox' on input line 467.
+(thmtools)             that uses `style=thmproofbox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=proof, backgroundcolor=proof!5, backgroundcolor=white, ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmproofbox' on input line 467.
+(thmtools)             that uses `style=thmproofbox' on input line 555.
 Package thmtools Info: Key `qed' (with value `\qedsymbol ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexplanationbox' on input line 467.
+(thmtools)             that uses `style=thmexplanationbox' on input line 555.
 Package thmtools Info: Key `mdframed' (with value ` linewidth=2pt, rightline=false, leftline=true, topline=false, bottomline=false, linecolor=example, backgroundcolor=example!5, backgroundcolor=white, ')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmexplanationbox' on input line 467.
-Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 475.
+(thmtools)             that uses `style=thmexplanationbox' on input line 555.
+Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 563.
  (/usr/share/texlive/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
 Package: thmdef-mdframed 2023/02/17 v0.75
 )
-\c@theorem=\count467
-\c@claim=\count468
-\c@corollary=\count469
-\c@prop=\count470
-\c@lemma=\count471
-\c@exercise=\count472
-\c@tcb@cnt@Definition=\count473
-\c@tcb@cnt@Question=\count474
- (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)) (.tex_build/Class Notes.aux)
+\c@theorem=\count468
+\c@claim=\count469
+\c@corollary=\count470
+\c@prop=\count471
+\c@lemma=\count472
+\c@exercise=\count473
+\c@tcb@cnt@Definition=\count474
+\c@tcb@cnt@reference=\count475
+\c@tcb@cnt@Reference=\count476
+\c@tcb@cnt@Question=\count477
+) (.tex_build/Class Notes.aux)
 \openout1 = `"Class Notes.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count475
+\scratchcounter=\count478
 \scratchdimen=\dimen344
 \scratchbox=\box154
-\nofMPsegments=\count476
-\nofMParguments=\count477
+\nofMPsegments=\count479
+\nofMParguments=\count480
 \everyMPshowfont=\toks64
-\MPscratchCnt=\count478
+\MPscratchCnt=\count481
 \MPscratchDim=\dimen345
-\MPnumerator=\count479
-\makeMPintoPDFobject=\count480
+\MPnumerator=\count482
+\makeMPintoPDFobject=\count483
 \everyMPtoPDFconversion=\toks65
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1252,7 +1257,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
+* modes: twoside 
 * h-part:(L,W,R)=(61.42993pt, 491.43513pt, 61.42993pt)
 * v-part:(T,H,B)=(61.42993pt, 676.63455pt, 56.9055pt)
 * \paperwidth=614.295pt
@@ -1266,7 +1271,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=14.45377pt
-* \marginparwidth=65.0pt
+* \marginparwidth=121.0pt
 * \marginparsep=11.0pt
 * \columnsep=10.0pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
@@ -1274,20 +1279,16 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 7.
-(.tex_build/Class Notes.out) (.tex_build/Class Notes.out)
-\@outlinefile=\write4
-\openout4 = `"Class Notes.out"'.
-
+Package hyperref Info: Link coloring ON on input line 8.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
- (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
  (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
 Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
@@ -1298,63 +1299,379 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.13).
 
-\c@lstlisting=\count481
+\c@lstlisting=\count484
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks66
 \inpenc@posthook=\toks67
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (.tex_build/Class Notes.toc)
-\tf@toc=\write5
-\openout5 = `"Class Notes.toc"'.
+\tf@toc=\write4
+\openout4 = `"Class Notes.toc"'.
 
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.13 \chapter
-             {Solids} [1
+ [2
 
 ]
 Chapter 1.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 54.
-[2
+[3
 
-] [3] [4] [5]
-Chapter 2.
-[6
-
+]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.118 	L
+        et A and B be two square matrices of size $n \times n$. We say that ...
+Package mdframed Info: mdframed works in twoside mode on input line 126.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 126.
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 126.
+Package mdframed Info: mdframed works in twoside mode on input line 129.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 129.
+Package hyperref Info: bookmark level for unknown replacementproof defaults to 0 on input line 129.
+\g__tikzsymbols_savebox_F_0 g 0 G_10_Laughey_1_none_none_box=\box155
+ [4]
+Package mdframed Info: mdframed works in twoside mode on input line 146.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 146.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 146.
+Package mdframed Info: mdframed works in twoside mode on input line 149.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 149.
+Package mdframed Info: mdframed works in twoside mode on input line 176.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 176.
+Package mdframed Info: mdframed works in twoside mode on input line 183.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 183.
+ [5]
+Package mdframed Info: mdframed works in twoside mode on input line 219.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 219.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 219.
 
 pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.306 \end{note}
-                ] [7] [8] [9] [10] [11] [12] [13] (.tex_build/Class Notes.aux)
-Package rerunfilecheck Info: File `"Class Notes".out' has not changed.
-(rerunfilecheck)             Checksum: FC2284F6A5B8E5D257CB60E52910C1BE;5236.
- ) 
+<to be read again> 
+                   \relax 
+l.243 	A
+         complex matrix in which all the entries in the given matrix are equ...
+Package mdframed Info: mdframed works in twoside mode on input line 246.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 246.
+Package mdframed Info: mdframed works in twoside mode on input line 249.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 249.
+Package mdframed Info: mdframed works in twoside mode on input line 275.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 275.
+Package mdframed Info: mdframed works in twoside mode on input line 279.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 279.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 288.
+ [6]
+Package mdframed Info: mdframed works in twoside mode on input line 295.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 295.
+
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.303 A
+       ny matrix A for which the following is true:	
+Package mdframed Info: mdframed works in twoside mode on input line 329.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 329.
+Package mdframed Info: mdframed works in twoside mode on input line 346.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 346.
+ [7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [8]
+Chapter 2.
+[9
+
+]
+Package mdframed Info: mdframed works in twoside mode on input line 485.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 485.
+Package mdframed Info: mdframed works in twoside mode on input line 493.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 493.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 547.
+ [10]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.549    T
+          he Fourier series of a function $f(x)$ is defined on $-\pi \leq x ...
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11] [12]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.654    A
+           function such that $f(x) = f(-x)$
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.658    A
+           function such that $f(-x) = -f(x)$
+Package mdframed Info: mdframed works in twoside mode on input line 663.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 663.
+ [13] [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.750    A
+           function f(x) is said to be piecewise continuous on an interval [...
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.765    A
+           function is called piecewise $C^1(U \subset R)$ (continuous and c... [16]
+Package mdframed Info: mdframed works in twoside mode on input line 827.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 827.
+Package mdframed Info: mdframed works in twoside mode on input line 830.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 830.
+ [17]
+Chapter 3.
+
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.856 	A
+         polynomial is an expression of x such that:
+Package mdframed Info: mdframed works in twoside mode on input line 875.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 875.
+ [18
+
+]
+Package mdframed Info: mdframed works in twoside mode on input line 898.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 898.
+Package mdframed Info: mdframed works in twoside mode on input line 904.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 904.
+Package mdframed Info: mdframed works in twoside mode on input line 910.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 910.
+Package mdframed Info: mdframed works in twoside mode on input line 917.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 917.
+Package mdframed Info: mdframed works in twoside mode on input line 925.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 925.
+Package mdframed Info: mdframed works in twoside mode on input line 936.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 936.
+Package mdframed Info: mdframed works in twoside mode on input line 947.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 947.
+Package mdframed Info: mdframed works in twoside mode on input line 954.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 954.
+ [19]
+Package mdframed Info: Not enough space on this page on input line 964.
+Package mdframed Info: mdframed works in twoside mode on input line 971.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 971.
+Package mdframed Info: mdframed works in twoside mode on input line 978.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 978.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+Package mdframed Info: mdframed works in twoside mode on input line 999.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 999.
+Package mdframed Info: Not enough space on this page on input line 1004.
+Package mdframed Info: mdframed works in twoside mode on input line 1006.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1006.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+Package mdframed Info: mdframed works in twoside mode on input line 1048.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1048.
+Package mdframed Info: mdframed works in twoside mode on input line 1061.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1061.
+ [22]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1150 	A
+         ssumg $g(x) \neq 0$ for all $x \neq a$ in some interval containing ...
+Package mdframed Info: mdframed works in twoside mode on input line 1161.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1161.
+Package mdframed Info: Not enough space on this page on input line 1167.
+ [23]
+Package mdframed Info: Not enough space on this page on input line 1167.
+Package mdframed Info: mdframed works in twoside mode on input line 1169.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1169.
+Package mdframed Info: mdframed works in twoside mode on input line 1177.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1177.
+Package mdframed Info: mdframed works in twoside mode on input line 1185.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1185.
+Package mdframed Info: mdframed works in twoside mode on input line 1195.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1195.
+Package mdframed Info: mdframed works in twoside mode on input line 1214.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1214.
+ [24]
+Chapter 4.
+[25
+
+]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1282    L
+           et S be a subset of $\mathbb{R}^n$, and assume that $\underline{a...
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1287    A
+            set S in $\mathbb{R}^n$ is open if all its points are interior p...
+Package mdframed Info: mdframed works in twoside mode on input line 1296.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1296.
+Package mdframed Info: mdframed works in twoside mode on input line 1299.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1299.
+ [26]
+Package mdframed Info: mdframed works in twoside mode on input line 1361.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1361.
+Package mdframed Info: mdframed works in twoside mode on input line 1377.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1377.
+ [27]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1435    G
+           iven a scalar field, $f:S \rightarrow \mathbb{R}$, where S $\subs...
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1461    I
+           f $\vec{y}$ is a unit vector, the derivative $f'(\vec{a};\vec{y})... [28] [29]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1524    W
+           e say that $f$ is differentiable at $\vec{a}$, if there exists a ...
+Package mdframed Info: mdframed works in twoside mode on input line 1541.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1541.
+Package mdframed Info: mdframed works in twoside mode on input line 1551.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1551.
+ [30]
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1560    T
+           he gradient operator is a linear operator that helps calculate th...
+Package mdframed Info: mdframed works in twoside mode on input line 1606.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1606.
+Package mdframed Info: mdframed works in twoside mode on input line 1617.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1617.
+Package mdframed Info: Not enough space on this page on input line 1624.
+ [31]
+Package mdframed Info: Not enough space on this page on input line 1624.
+ [32] (.tex_build/Class Notes.aux) ) 
 Here is how much of TeX's memory you used:
- 50709 strings out of 477985
- 1193825 string characters out of 5839381
- 2204242 words of memory out of 6000000
- 69954 multiletter control sequences out of 15000+600000
- 522185 words of font info for 70 fonts, out of 8000000 for 9000
+ 50507 strings out of 477985
+ 1198407 string characters out of 5839381
+ 1880388 words of memory out of 6000000
+ 69709 multiletter control sequences out of 15000+600000
+ 522296 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 104i,18n,99p,751b,3041s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on ".tex_build/Class Notes.pdf" (14 pages, 247998 bytes).
+ 104i,14n,99p,751b,1706s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on ".tex_build/Class Notes.pdf" (32 pages, 336502 bytes).
 PDF statistics:
- 451 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
- 134 named destinations out of 1000 (max. 500000)
- 391 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 647 PDF objects out of 1000 (max. 8388607)
+ 534 compressed objects within 6 object streams
+ 178 named destinations out of 1000 (max. 500000)
+ 559 words of extra memory for PDF output out of 10000 (max. 10000000)
 

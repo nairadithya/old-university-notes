@@ -47,7 +47,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Project.md",
                 "mode": "source",
                 "source": false
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Project.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -155,7 +155,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+                "file": "23CHY115 - Introduction To Materials Informatics/Project.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -178,7 +178,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "23CHY115 - Introduction To Materials Informatics/Lecture 2.md"
+                "file": "23CHY115 - Introduction To Materials Informatics/Project.md"
               }
             }
           }
@@ -202,6 +202,8 @@
   },
   "active": "8f896d8fe183c6ef",
   "lastOpenFiles": [
+    "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
+    "23CHY115 - Introduction To Materials Informatics/Project.md",
     "23CHY115 - Introduction To Materials Informatics/template.tex~",
     "23CHY115 - Introduction To Materials Informatics/figures/confusion matrix generalized.pdf",
     "23CHY115 - Introduction To Materials Informatics/figures/lu49602852hjhl.tmp",
@@ -214,8 +216,6 @@
     "23CHY115 - Introduction To Materials Informatics/template.log",
     "23CHY115 - Introduction To Materials Informatics/figures/Double Slit Experiment Solids(Slit 2 Closed).pdf",
     "23CHY115 - Introduction To Materials Informatics/figures/lu4484594kogeq.tmp",
-    "23CHY115 - Introduction To Materials Informatics/figures/Double Slit Experiment Solids(Slit 1 Closed).pdf",
-    "23CHY115 - Introduction To Materials Informatics/Lecture 2.md",
     "23CHY115 - Introduction To Materials Informatics/Lecture 1.md",
     "OOPS Lab/Questions 2.4.2024.md",
     "Bending Moment.md",

@@ -11,16 +11,28 @@ public class linkedList{
 	void insert(int data){
 		Node newNode = new Node(data);
 		if(this.head == null){
-			this.head.data = data;
-			this.head.next = newNode;
+			head = new Node(data);
 		}
 		else {
 			Node currentNode = this.head;
 			while(currentNode != null){
 				currentNode = currentNode.next;
 			}
-			currentNode.data = data;
+
+			currentNode = new Node(data);
 		}
+	}
+	// Counting at a given position starting from 0
+	void delete(int position) {
+		Node currentNode = this.head;
+		int counter = 0;
+		while(counter != position){
+			currentNode = currentNode.next;
+			counter++;
+		}
+		//Node deletedNode = currentNode.next;
+		// currentNode.next = currentNode.next.next;
+		// return deletedNode;
 	}
 	void printList(){
 		Node currentNode = this.head;
@@ -32,6 +44,8 @@ public class linkedList{
 	public static void main(String[] args) {
 		linkedList list = new linkedList();
 		list.insert(5);
+		list.insert(8);
+		list.insert(4);
 		list.printList();
 	}
 	

@@ -1,0 +1,475 @@
+\documentclass{report}
+
+\input{quizreferencepreamble.tex}
+\title{Mathematics For Intelligent Systems 2 \\ Quick Reference Notes}
+\author{Adithya Nair}
+\createintro
+
+\begin{document}
+\maketitle
+\chapter{Eigenvalues And Eigenvectors}
+
+
+
+\textbf{\[
+   A\vec{x} = \lambda \vec{x}
+\]}
+
+\begin{note}
+	\begin{itemize}
+	\item If $Ax = \lambda x$, then $A^2 x = \lambda^2 x$ and $A^{-1}x = \lambda^{-1}x$ and $(A+cI)x = (\lambda + c)x$ 
+	\item $det(A) = \lambda_1 \lambda_2 \lambda_3 \dots \lambda_n$
+	\item trace(A) = $\lambda_1 + \lambda_2 \dots \lambda_n$
+	\item Projection matrices have $\lambda = 1,0$. 
+	\item Reflection matrices have $\lambda = -1,1$
+	\item Rotation matrices have $\lambda = \pm i$
+	\end{itemize}
+\end{note}
+\section{Determinants}
+Important Properties: 
+\begin{note}
+   \begin{itemize}
+   	\item determinant of a $2 \times 2$ matrix is $ad - bc$
+	\item determinant of a singular matrix is 0 
+	\item Row exchange of a matrix gives -det(A)
+	\item For $\begin{bmatrix}
+	      xa + yA & xb + yB \\
+	      c & d \\
+	\end{bmatrix}$
+	The determinant is $x(ad - bc) + y(Ad-bc)$
+   \end{itemize}	
+\end{note}
+\section{Finding Eigenvalues And Eigenvectors For A Given Matrix}
+The eigenvalues for a given matrix can be found by solving the equation,
+
+\[
+	\det(A- \lambda I) = 0
+\]
+The roots of this equation would be the eigenvalues of the matrix A. 
+
+The eigenvectors can be found by substituting $\lambda$ and solving for 
+\[
+   (A - \lambda I)\vec{x} = 0
+\]
+The eigenvectors fill up the nullspace of $A - \lambda I$
+\section{Similar Matrices}
+\begin{definition}[Similar And Diagonalizable Matrices]
+	Let A and B be two square matrices of size $n \times n$. We say that A and B are similar if there is an invertible matrix of the same size P such that: 
+	\[
+	   A = PBP^{-1}
+	\]
+	Then we can say that A is \textbf{diagonalizable} if A is similar to a diagonal matrix D
+\end{definition}
+where, 
+P's columns consists of the eigenvectors, and B consists of the eigenvalues of A.
+\begin{note}
+	\begin{itemize}
+	\item If $A = PBP^{-1}$, then $A^n = PB^nP^{-1}$
+	\item For symmetric matrices, $A = PBP^T$, since the eigenvectors of a symmetric matrix are orthogonal, and the eigenvalues are real.
+	\end{itemize}
+\end{note}
+\section{Positive Definite Matrix}
+\begin{definition}[Positive Definite Matrices]
+Any matrix A for which the following is true:	
+	\begin{displaymath}
+   \vec{x}^T A\vec{x} > 0, \forall \vec{x} \neq \vec{0}
+	\end{displaymath}
+is called a \textbf{positive definite matrix}
+\end{definition}
+\pagebreak
+For such a matrix: 
+\begin{itemize}
+	\item The matrix is always a full-rank matrix. 
+	\item The eigenvalues are all positive
+	\item $A+B$ is also a positive definite matrix, when A and B are positive definite. 
+	\item For a rectangular $m \times n$ matrix, we check for $A^TA \text{ or } AA^T$, \[
+	      \vec{x}^T(A^TA)\vec{x} = (\vec{x}^TA^T)(A\vec{x}) = (A\vec{x})^T(A\vec{x}) = \|{A\vec{x}}\|^2
+	\]
+	This means that $A^TA$ or $AA^T$ is always a positive definite matrix, unless x lies in the nullspace of A, in which case $Ax = 0$(in other words, $A^T A$ is always positive semi-definite)
+\end{itemize}
+\section{Singular Value Decomposition}
+\[
+	A = U \Sigma V^T
+\]
+Another way to write this is,
+\[
+   A = \sum_{i=1}^{n} u_i\sigma_i v^T_i
+\]
+\subsection{The Procedure For Finding This Decomposition}
+\begin{enumerate}
+   \item Find the eigenvectors for $A^TA$, this forms the column vectors for V. 
+   \item Normalize these column vectors of V.
+   \item The corresponding eigenvalues of V are the diagonal entries of $\Sigma^2$
+   \item Evaluate $AV = U \Sigma$
+\end{enumerate}
+\section{Important Theorems And Lemmas}
+\begin{lemma}
+   Suppose that A and B are two $n \times n$ matrices and P is an invertible matrix, such that $A = PBP^{-1}.$ Then, $A^{n} = PB^{n}P^{-1}$ 
+\end{lemma}
+\begin{proof}
+	Using the principle of mathematical induction.\\
+	We are given, $A = PBP^{-1}$
+	to show, $A^{n} = PB^{n}P^{-1}$
+
+	\textbf{Base step - } $n = 1, A^{1} = P^1 B^1 P^{-1}$, which is true 
+
+	\textbf{Induction step - } Supppose $A^{n} = PB^{n}P^{-1}$. We need to show that $A^{n+1} = PB^{n+1}P^{-1}$
+	\[
+	   A^{n+1} = A \dot A^{n}
+	\]
+	\[
+	   = (PBP^{-1})(PB^n P^{-1})
+	\]
+	\[
+	= PBB^nP^{-1} = PB^{n+1}P^{-1} \]
+\end{proof}
+\begin{theorem}
+   Let A be an $n \times n$ matrix and let $v_1,v_2,\dots,v_k$ be eigenvectors of A with distinct eigenvalues $\lambda_1, \lambda_2,\dots\lambda_k$. Then $v_1,v_2\dots v_k$ are independent. In particular, if k = n, then $v_1,v_2\dots v_k$ are a basis of eigenvectors for $\mathbb{R}^n$
+\end{theorem}
+\begin{proof}
+	Suppose $v_1,v_2\dots v_n$ are dependent such that $\exists r_i$  such that,
+	\begin{equation}
+	    \sum_{i=1}^{k} r_i v_i = 0
+		\label{eq:1}
+	\end{equation}
+	Assume that k is minimal with this property and $r_k$ is all non-zero,
+	\[
+		A.0 = r_1 A v_1 + r_2 A v_2 \dots + r_k A v_k
+	\]
+	\begin{equation}
+	0 = r_1\lambda_1 v_1 + r_2 \lambda_2 v_2 \dots r_k \lambda_k v_k = 0	
+		\label{eq:2}
+	\end{equation}
+	\begin{equation}
+	   \lambda_k \times \ref{eq:1}: r_1 \lambda_k v_1 + \dots + r_k \lambda_k v_k = 0	
+		\label{eq:3}
+	\end{equation}
+	\ref{eq:3} - \ref{eq:2}
+	\[
+	   r_1(\lambda_k - \lambda_1)v_1 + \dots + r_{k-1}(\lambda_k - \lambda_{k-1})v_{k-1} = 0
+	\]
+	$\lambda_k - \lambda_i$ is non-zero(distinct eigenvalues)\\
+	This forms a linear combination of vectors $v_1,v_2\dots v_{k-1}$ that equate to zero. \\
+	This contradicts the assumption that $v_1,v_2\dots v_{k-1}$ is the minimal set which is dependent. \\
+	Therefore the eigenvectors are independent.
+     \end{proof}
+\begin{theorem}
+   Let A be a n $\times$ n matrix, Then A is diagonalizable if and only if we can find a basis $v_{1},\cdots, v_{n}$ of eigen vectors for $R^{n}$. In this case,
+   \begin{equation}
+      A = PDP^{1}	
+   \end{equation}
+   where P is the matrix whose eigenvectors $v_{1},\cdots, v_{n}$ and D is the diagonal matrix whose diagonal entries are the corresponding eigenvalues $\lambda_{1}, \cdots, \lambda_{n}$
+\end{theorem}
+\begin{proof}
+   \[
+   Av_{i} = (PDP^{-1}v_{i})
+   \]
+where P is the matrix with column vectors $v_{1},v_{2} \cdots v_{n}$ and D is a diagonal matrix with the entries $\lambda_{1},\cdots, \lambda_{n}$
+\[
+Av_i = (PDP^{-1})P \hat{e}_{i} \\
+\]
+\[
+   Av_{i} = PD\hat{e}_i
+\]
+\[
+Av_{i} = P\lambda_{i} \hat{e}_{i} = \lambda_{i} P \hat{e}_{i} = \lambda_i v_{i}
+\]
+This proves that $v_{i}$ is the eigenvector of A, and that $\lambda_{i}$ is the corresponding eigenvalue.
+Because $P^{-1}$ exists, $v_{1},\cdots,v_{n}$ are independent, based on the theorem proven earlier, this is the basis for $R^{n}$ \\
+\textbf{Part b}
+Suppose $v_{1},\cdots, v_{n}$ are an eigenvector basis with corresponding eigenvalues $\lambda_{1},\cdots,\lambda_{n}$
+Suppose that P is the matrix with column vectors $v_{1},\cdots,v_{n}$ \[
+   \text{Let} D = P^{-1}AP 
+\]
+\[
+   D \hat{e}_{i} = (P^{-1}AP)\hat{e}_i
+\]
+\[
+   = P^{-1} A v_{i} = \lambda_{i} P^{-1}v_{i} = \lambda_{i} \hat{e}_{i}
+\]
+Thus D is the diagonal matrix with the diagonal entries $\lambda_{i}$
+\end{proof}
+%
+\begin{theorem}
+   The eigenvalues for a symmetric matrix are real.
+\end{theorem}
+\begin{proof}
+   The claim:
+	\[
+	For \\	Ax = \lambda x, A = A^T \\
+	\]
+	\[
+		\lambda \in R
+	\]
+	Take:
+	\[
+		A x = \lambda x
+	\]
+	And the complex conjugate:
+	\[
+	   \overline{A}\overline{x} = \overline{\lambda} \overline{x} \indent  (\overline{A} = A)(real \\ matrix)
+	\]
+\begin{equation}
+	   (\overline{A}\overline{x})^T = (\overline{\lambda} \overline{x})^T \iff \overline{x}^T A^T = \overline{\lambda} \overline{x}^T
+	\label{eq:Conjugate}
+\end{equation}	
+\ref{eq:Conjugate} $\times$ x
+\[
+   \overline{x}^T A^T x = \lambda \overline{x^T} x \iff \overline{x}^T A x = \overline{\lambda} \overline{x}^T x \iff \overline{x}^T \lambda x = \overline{\lambda} \overline{x}^T x \iff \lambda = \overline{\lambda}
+\]
+Then $\lambda$ is real, when $\overline{x}^T x \neq 0$
+\end{proof}
+\begin{lemma}
+   Let A be a symmetric matrix. If v and w are eigenvectors with distinct eigenvalues $\lambda \& \mu$ then v \& w are orthogonal.
+\end{lemma}
+
+\begin{proof}
+	\[
+		Av .  w = (Av)^T w = v^T A^Tw = v^T Aw = v . Aw
+	\]
+	\[
+	\iff \lambda v . w = \mu v . w \iff (\lambda - \mu) v.w = 0
+	\]
+	\[
+		\iff v . w  = 0
+	\]
+\end{proof}
+% section Symmetric Matrices (end)
+\begin{theorem}
+   Let A be a symmetric matrix. Then we can find a diagonal matrix D and an orthogonal matrix P such that,
+\[
+   A = QDQ^T
+\]	
+In particular, every symmetric matrix is diagonalisable.
+\end{theorem}
+\begin{lemma}
+	Similar matrices have the same eigenvalues
+\end{lemma}
+\begin{proof}[Proof Other Information]
+   \[
+   A\vec{x} - \lambda{x}	
+   \]
+   \[
+      AI\vec{x} = APP^{-1}x = \lambda \vec{x}
+   \]
+   \[
+      \implies P^{-1} A P P^{-1} \vec{x} = \lambda P^{-1} x
+   \]
+   \[
+   	B(P^{-1}x) = \lambda(P^{-1}\vec{x})
+   \]
+   
+\end{proof}
+
+\section{Inner Products For Functions} % (fold)
+\[L^P: \int f g dx = <f,g>, \text{Where P = 2}\]
+
+Here, $L^2$ is the defined norm we are going to take, and $\langle f,g\rangle$ is the notation for the inner product.
+
+When we take the inner product for a function on itself,
+
+\[\int f f dx = \langle f,f\rangle dx = \|f\|^2\]
+
+\begin{note}
+   $\cos{x}$ and $\sin{x}$ are orthogonal to each other. $\cos{(kx)}$ and $\cos{(lx)}$ as well as $\sin{(kx)}$ and $\sin{(lx)}$ are also orthogonal to each other.
+\end{note}
+
+
+
+\section{Fourier Series}
+\begin{definition}[Fourier Series]
+   The Fourier series of a function $f(x)$ is defined on $-\pi \leq x \leq \pi$ where    \[
+   	 f(x) \approxeq \frac{a_0}{2}+\sum_{k=1}^{\infty}[a_k \cos{kx} + b_k \sin{kx}]
+   \]
+   where the coefficients are given by the inner product formulae:
+   \begin{align*}
+      a_k = \langle f, \cos{kx} \rangle = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \cos{(kx)} dx \ \forall k = 0,1,2\dots \\
+      b_k = \langle f, \sin{kx} \rangle = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \sin{(kx)} dx \ \forall k = 0,1,2\dots
+   \end{align*}
+\end{definition}
+
+\section{Change Of Scale} % (fold)
+For a periodic function f(x) such that the period p = 2L, where L is some natural number, we scale the Fourier Series to fit the interval of $2\pi$, to do this we set $x = \frac{p}{2\pi}v$, then $f(x) = f(\frac{p}{2\pi}v) = f(\frac{p}{2\pi}(v+2\pi))$
+
+Then, 
+\[
+     a_0 = \frac{1}{L} \int_{-L}^{L} f(x) dx
+\]
+\[
+  a_k = \frac{1}{L} \int_{-L }^{L} f(x) \cos {\frac{k \pi x}{L}} dx  
+\]
+\[
+ b_k = \frac{1}{L} \int_{-L }^{L} f(x) \sin {\frac{k \pi x}{L}} dx  
+\] \section{Odd And Even Functions} % (fold)
+\begin{definition}[Even Function]
+   A function such that $f(x) = f(-x)$
+   For such a function,
+   \[
+   	b_k = 0
+   \]
+   and it only has $\cos$ terms
+   \label{dfn2}
+\end{definition} % (fold)
+\begin{definition}[Odd Function]
+   A function such that $f(-x) = -f(x)$
+   For such a function,
+   \[
+   	a_0, a_k = 0
+   \]
+   And it only has $\sin$ terms
+\end{definition}
+
+\begin{theorem}
+    The Fourier coefficients of the functions $f_1 + f_2$ are the sum of the corresponding coefficients of $f_1$ and $f_2$, The Fourier coefficients of cf is c times the Fourier coefficients of f.
+
+\end{theorem}
+
+\section{Differentiation And Integration Of Fourier Series}
+
+\subsection{Half Range Expansions}
+When we're finding the Fourier Series of a function for some interval [0,L], we convert it into a periodic function by limiting them to the range $[-\pi,\pi]$ and then extend the function with a period $2\pi$.
+When a range is given, we assume both even and odd periodic extensions, and solve for the Fourier Series. 
+
+To do this, we take the even periodic extension, where $f(x) = f(-x)$, and similary for odd periodic extensions, where $f(-x) = -f(x)$ 
+\section{Piecewise Continuous Functions}
+
+\begin{definition}[Piecewise Continuous Functions]
+   A function f(x) is said to be piecewise continuous on an interval [a,b] if it is defined and continuous ecxept possibly at a finite number of points $a\leq x_1 \leq x_2 \leq \dots \leq x_n \leq b$ Furthermore, at each point of discontinuity, we require that the left and right hand limits exists. 
+   \[
+      f(x_k^-) = \lim_{x \rightarrow x_k^-} f(x); f(x_k^+) = \lim_{x\rightarrow x_k^+} f(x)
+   \]
+   At the ends of the domain, the left hand is ignored at a and the right hand limit is ignored at b.
+\end{definition}
+We take the basis,
+\[
+   \sigma(x) = 1, x>0 \ and \ 0, x<0
+\]
+Then
+\[
+	h(x) = \beta \sigma(x - \xi) = \beta, x> \xi \ and \ 0, x<\xi
+\]
+\begin{definition}[Piecewise $C^1$]
+   A function is called piecewise $C^1(U \subset R)$ (continuous and continuously differentiable) on the interval [a,b] except at a finite number of points $a\leq x_1 \leq x_2 \leq \dots \leq x_n \leq b$. At each exceptional point, the left and the right hand limits of both the function and its derivative exists.
+\end{definition}
+\section{Complex Fourier Series}
+\[
+   f(x) \approxeq \frac{a_0}{2}+\sum_{k=1}^{\infty}[a_k \cos{kx} + b_k \sin{kx}]
+\]
+
+The complex form of this is
+\[
+   f(x) = \sum_{k=-\infty}^{\infty} c_k e^{-ikx}
+\]
+Here the vector space is complex functions.
+% section Complex Fourier Series (end)
+The inner product is 
+\[
+   \langle f,g \rangle = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x) \overline{g(x)} dx
+\]
+And, $\cos$ and $\sin$ can be written as:
+\[
+\cos{(kx)} = \frac{e^{ikx} + e^{-ikx}}{2} \ , \ \ \sin{(kx)} = \frac{e^{ikx} - e^{-ikx}}{2i}
+\]
+\[
+   f(x) = \sum_{k=-\infty}^{\infty} c_k e^{ikx}
+\]
+\[
+   c_k = \langle f, e^{ikx} \rangle = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) e^{-ikx}dx
+\]
+\[
+   \langle e^{ikx},e^{ilx} \rangle = \frac{1}{2\pi} \int_{-\pi}^\pi e^{ikx} e^{-ilx}dx
+\]
+\section{Differentiation And Integration} % (fold)
+\[
+   f(x) = \frac{a_0}{2} + \sum_{k=1}^{\infty} [a_k cos(kx) + b_k sin(kx)]
+\]
+The discussion was surrounding whether or not we can differentiate or integrate functions that have been expressed with their Fourier series... Only when these functions converge. 
+Looking at integration first, the integral of sin x is -cos x, and the cos term gets converted to sin. 
+
+The problem arises with the constant term $\frac{a_0}{2}$, which is not periodic.
+\[
+   \frac{a_0}{2} = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) dx
+\]
+This term is known as the mean of the function. A Fourier Series is only integrable when the mean is zero.
+\begin{lemma}
+   If $f(x)$  is $2\pi$- periodic, then its integral $g(x) = \int_0^{x} f(y) dy$ is $2\pi$-periodic if and only if $\int_{-\pi}^\pi f(x) dx = 0$, so that f(x) has zero mean on the interval $[-\pi,\pi]$.
+\end{lemma}
+\begin{theorem}
+   If f is piecewise continuous and has mean zero on the interval $[-\pi,\pi]$ then its Fourier Series  
+	\begin{displaymath}
+	   f(x) \approxeq \sum_{k=1}^{\infty} [a_k cos(kx) + b_k sin(kx)]
+	\end{displaymath}
+	can be integrated term by term to produce the Fourier Series. 
+	\[
+	   g(x) = \int_0^{x} f(y) dy \approxeq m + \sum_{k=1}^{\infty} - \frac{b_k}{k} cos kx + \frac{a_k}{k} sin kx
+	\]
+	where $m = \int_{-\pi}^{\pi}$g(x) dx
+\end{theorem}
+\begin{note}
+   m is the inner product of g(x) with itself. The remarkable thing about this is it is equal to $\sum_{k=1}^{\infty} \frac{b_k}{k}$
+\end{note}
+\section{Integration Formulas} % (fold)
+\textbf{Integration By Parts}
+\[
+   \int u dv = uv - \int v du
+\]
+\label{sec:}
+\textbf{Trignometric Formulas}
+\begin{align*}
+   \int \sin{x} dx & = - \cos{x} + C \\
+   \int \cos{x} dx & = \sin{x} + C \\
+   \int \sec^2{x} dx & = \tan{x} + C \\ 
+   \int \csc^2{x}  dx & = -\cot{x} + C \\ 
+   \int \sec{x} \tan{x} dx & = \sec{x} + C \\ 
+   \int \csc{x} \cot{x} dx & = -\csc{x} + C \\
+\end{align*}
+\textbf{Trigonometric Identities}
+\begin{align*}
+   \sin{-x} & = -\sin{x} \\
+   \cos{-x} &= \cos{x} \\
+   \tan{-x} &= -\tan{x} \\ 
+   \cos{2x} &= \cos^2{x} - \sin^2{x} \\
+   \sin{2x} &= 2 \sin{x} \cos{x} \\ 
+   \sin{A + B} & = \sin{A}\cos{B} + \cos{A}\sin{B}\\
+   \sin{A - B} &= \sin{A}\cos{B} - \cos{A}\sin{B} \\
+   \cos{A + B}& = \cos{A}\cos{B} - \sin{A}\sin{B} \\
+   \cos{A - B} &= \cos{A}\cos{B} + \sin{A}\sin{B} \\
+   \tan{A + B} &= \frac{\tan{A} + \tan{B}}{1-\tan{A}\tan{B}} \\
+   \tan{A - B} &= \frac{\tan{A} - \tan{B}}{1+\tan{A}\tan{B}} \\
+\end{align*} 
+\section{Fourier Transform}
+\begin{definition}[Fourier Transform]
+   The Fourier Transform of $f(x)$ $f:\mathbb{R} \rightarrow \mathbb{C}$ is denoted by $\hat{f}(k):\mathbb{R} \rightarrow \mathbb{C}$ and is defined as:
+   \[
+      \hat{f}(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} f(x) e^{-ikx} dx
+   \]
+\end{definition}
+   When does $\hat{f}(k)$ exist (for all $k \in \mathbb{R}$) 
+   \begin{enumerate}
+   	\item f must be piecewise $C^1$
+	\item $f(x) \rightarrow 0$ as $|x| \rightarrow \infty$, f must be absolutely convergent. i.e. \[\int_{-\infty}^{\infty}|f(x)| dx < \infty\]
+   \end{enumerate}
+   \textbf{The Notation} - 
+   \begin{align*}
+      &\hat{f}(k) = \mathcal{F}[f(x)] & \text{\quad Fourier Transform} \\
+      & f(x) = \mathcal{F}^{-1}[\hat{f}(k)] & \text{\quad Inverse Fourier Transform}
+   \end{align*}
+   \subsection{Properties}
+   \begin{align*}
+	& \mathcal{F}[f(x) + g(x)] = \mathcal{F}[f(x)] + \mathcal{F}[g(x)] = \hat{f}(k) + \hat{g}(k) & \text{\quad Linear Operator}  \\
+	& \mathcal{F}[cf(x)] = c\mathcal{F}[f(x)] = c \hat{f}(k) & \text{Scalar Multiplication}
+   \end{align*}
+   \begin{definition}[Convolution]
+   The convolutoin of scalar functions $f(x)$ and $g(x)$ is the scalar function $h = f*g$ is defined by the formula	
+   \[
+      h(x) = f*g(x) = \int_{-\infty}^{\infty} f(x-\xi)g(\xi) d\xi
+   \]
+   \end{definition}
+   \begin{theorem}
+      The Fourier Transform of the convolution $h(x) = f*g(x)$ of two functions is a multiple of the product of their Fourier Trasnforms.
+      \[
+	 \hat{h}(k) = \sqrt{2\pi} \hat{f}(k) \hat{g}(k)
+      \]
+   	
+   \end{theorem}
+\end{document}
