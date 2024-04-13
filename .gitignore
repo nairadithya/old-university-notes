@@ -3,7 +3,7 @@
 *.aux
 *.log
 *.gz
-/_minted*/
+_minted*/
 
 /.obsidian
 /Excalidraw

@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{selectedVector} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{3} \PYG{l+m+mi}{5}\PYG{p}{:}\PYG{k}{end}\PYG{p}{]}
-\PYG{n}{forceEval} \PYG{p}{=} \PYG{n}{forceVector}\PYG{p}{(}\PYG{n}{selectedVector}\PYG{p}{);}
-\PYG{n}{displacementEval} \PYG{p}{=} \PYG{n}{displacementVector}\PYG{p}{(}\PYG{n}{selectedVector}\PYG{p}{);}
-\PYG{n}{stiffnessEval} \PYG{p}{=} \PYG{n}{stiffnessGlobal}\PYG{p}{(}\PYG{n}{selectedVector}\PYG{p}{);}
-\PYG{n}{displacementEval} \PYG{p}{=} \PYG{n}{stiffnessEval}\PYG{o}{\PYGZbs{}}\PYG{n}{forceEval}\PYG{p}{;}
-\end{Verbatim}
