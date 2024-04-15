@@ -5,3 +5,4 @@ function kl = localstiffnessCreator(E,A,l,theta)
 	kl = [k 0 -k 0;0 0 0 0; -k 0 k 0; 0 0 0 0];
 	ke = R4*kl*R4';
 
+	
