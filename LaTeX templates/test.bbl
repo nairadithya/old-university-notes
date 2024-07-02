@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{texbook}
+Donald~E. Knuth.
+\newblock {\em The {\TeX} Book}.
+\newblock Addison-Wesley Professional, 1986.
+
+\bibitem{latex2e}
+Leslie Lamport.
+\newblock {\em {\LaTeX}: a Document Preparation System}.
+\newblock Addison Wesley, Massachusetts, 2 edition, 1994.
+
+\end{thebibliography}

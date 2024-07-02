@@ -1,0 +1,498 @@
+% BASIC PACKAGES
+
+% Gives us multiple colors.
+\usepackage[dvipsnames,pdftex]{xcolor}
+\usepackage[tmargin=2cm,rmargin=0.5in,lmargin=0.5in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+
+\usepackage{cantarell}
+% Lets us style link colors.
+\usepackage{hyperref}
+% Lets us import images and graphics.
+\usepackage{graphicx}
+% Lets us use figures in floating environments.
+\usepackage{float}
+% Lets us create multiple columns.
+\usepackage{multicol}
+% Gives us better math syntax.
+\usepackage{amsmath,amsfonts,mathtools,amsthm,amssymb}
+% Lets us strikethrough text.
+\usepackage{cancel}
+% Lets us edit the caption of a figure.
+\usepackage{caption}
+% Lets us import pdf directly in our tex code.
+\usepackage{pdfpages}
+% Lets us do algorithm stuff.
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+% Use a smiley face for our qed symbol.
+\usepackage{tikzsymbols}
+
+% TIKZ Stuff 
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikzsymbols}
+
+\usetikzlibrary{intersections, angles, quotes, calc, positioning}
+\usetikzlibrary{arrows.meta}
+
+\tikzset{
+  force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
+}
+
+
+% Colours Catppuccin Edition
+\newcommand{\mocha}{
+	\definecolor{ctpRosewater} {RGB} {245, 224, 220}	
+	\definecolor{ctpFlamingo}  {RGB} {242, 205, 205}	
+	\definecolor{ctpPink}      {RGB} {245, 194, 231}	
+	\definecolor{ctpMauve}     {RGB} {203, 166, 247}	
+	\definecolor{ctpRed}       {RGB} {243, 139, 168}	
+	\definecolor{ctpMaroon}    {RGB} {235, 160, 172}	
+	\definecolor{ctpPeach}     {RGB} {250, 179, 135}	
+	\definecolor{ctpYellow}    {RGB} {249, 226, 175}	
+	\definecolor{ctpGreen}     {RGB} {166, 227, 161}	
+	\definecolor{ctpTeal}      {RGB} {148, 226, 213}	
+	\definecolor{ctpSky}       {RGB} {137, 220, 235}	
+	\definecolor{ctpSapphire}  {RGB} {116, 199, 236}	
+	\definecolor{ctpBlue}      {RGB} {137, 180, 250}	
+	\definecolor{ctpLavender}  {RGB} {180, 190, 254}	
+	\definecolor{ctpText}      {RGB} {205, 214, 244}	
+	\definecolor{ctpSubtext1}  {RGB} {186, 194, 222} 
+	\definecolor{ctpSubtext0}  {RGB} {166, 173, 200}	
+	\definecolor{ctpOverlay2}  {RGB} {147, 153, 178}	
+	\definecolor{ctpOverlay1}  {RGB} {127, 132, 156}	
+	\definecolor{ctpOverlay0}  {RGB} {108, 112, 134}	
+	\definecolor{ctpSurface2}  {RGB} {88, 91, 112}	
+	\definecolor{ctpSurface1}  {RGB} {69, 71, 90}	
+	\definecolor{ctpSurface0}  {RGB} {49, 50, 68}	
+	\definecolor{ctpBase}      {RGB} {30, 30, 46}	
+	\definecolor{ctpMantle}    {RGB} {24, 24, 37}	
+	\definecolor{ctpCrust}     {RGB} {17, 17, 27}	
+}
+% Define mocha flavor colors as the default
+\mocha
+\pagecolor{ctpBase}
+\color{ctpText}
+
+% BASIC SETTINGS
+% Symbols
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+
+%  SI Units
+\usepackage{siunitx}
+
+% Modify Links Color  
+\hypersetup{
+	% Enable highlighting links.
+	colorlinks,
+	% Change the color of links to blue.
+	linkcolor={ctpBlue},
+	% Change the color of citations to black.
+	citecolor={ctpRed},
+	% Change the color of url's to blue with some black.
+	urlcolor={ctpLavender}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           School Specific Commands                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Initiate New Counters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{lecturecounter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Helpful New Commands  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+
+\newcommand\resetcounters{
+	% Reset the counters for subsection, subsubsection and the definition
+	% all the custom environments.
+	\setcounter{subsection}{0}
+	\setcounter{subsubsection}{0}
+	\setcounter{paragraph}{0}
+	\setcounter{subparagraph}{0}
+	\setcounter{theorem}{0}
+	\setcounter{claim}{0}
+	\setcounter{corollary}{0}
+	\setcounter{lemma}{0}
+	\setcounter{exercise}{0}
+
+	\@ifclasswith\class{nocolor}{
+		\setcounter{definition}{0}
+	}{}
+}
+
+% Lecture Command
+
+\usepackage{xifthen}
+
+% EXAMPLE:
+% 1. \lesson{Oct 17 2022 Mon (08:46:48)}{Lecture Title}
+% 2. \lesson[4]{Oct 17 2022 Mon (08:46:48)}{Lecture Title}
+% 3. \lesson{Oct 17 2022 Mon (08:46:48)}{}
+% 4. \lesson[4]{Oct 17 2022 Mon (08:46:48)}{}
+% Parameters:
+% 1. (Optional) Lesson number.
+% 2. Time and date of lecture.
+% 3. Lecture Title.
+\def\@lesson{}
+\newcommand\lesson[3][\arabic{lecturecounter}]{
+	% Add 1 to the lecture counter.
+	\addtocounter{lecturecounter}{1}
+
+	% Set the section number to the lecture counter.
+	\setcounter{section}{#1}
+	\renewcommand\thesubsection{#1.\arabic{subsection}}
+
+	% Reset the counters.
+	\resetcounters
+
+	% Check if user passed the lecture title or not.
+	\ifthenelse{\isempty{#3}}{
+		\def\@lesson{Lecture \arabic{lecturecounter}}
+	}{
+		\def\@lesson{Lecture \arabic{lecturecounter}: #3}
+	}
+
+	% Display the information like the following:
+	%                                                  Oct 17 2022 Mon (08:49:10)
+	% ---------------------------------------------------------------------------
+	% Lecture 1: Lecture Title
+	\hfill\small{#2}
+	\hrule
+	\vspace*{-0.3cm}
+	\section*{\@lesson}
+	\addcontentsline{toc}{section}{\@lesson}
+}
+\usepackage{fancyhdr}
+% TODO: weird issues rendering the header.
+
+% Catppuccin Syntax Highlighting
+\usepackage{listings}
+\lstdefinestyle{catppuccinStyle}{
+    backgroundcolor=\color{ctpCrust},   
+    commentstyle=\color{ctpOverlay2},
+    keywordstyle=\color{ctpMauve},
+    numberstyle=\tiny\color{ctpPeach},
+    stringstyle=\color{ctpGreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=catppuccinStyle}
+
+\usepackage{varwidth}
+\usepackage{thmtools}
+\usepackage[most,many,breakable]{tcolorbox}
+\tcbuselibrary{theorems,skins,hooks}
+\usetikzlibrary{arrows,calc,shadows.blur}
+
+
+% Environments
+\colorlet{definition}{ctpRed}
+\colorlet{theorem}{ctpBlue}
+\colorlet{example}{ctpTeal}
+\colorlet{definition}{ctpYellow}
+\colorlet{prop}{ctpSapphire}
+\colorlet{lemma}{ctpRosewater}
+\colorlet{exercise}{ctpSky}
+
+\colorlet{definition}{ctpRed!85!black}
+\colorlet{claim}{ctpGreen!85!black}
+\colorlet{corollary}{ctpMauve!85!black}
+\colorlet{proof}{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create Environments Styles Based on Given Parameter  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfsetup{skipabove=1em,skipbelow=0em}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%  Helpful Commands  %
+%%%%%%%%%%%%%%%%%%%%%%
+
+% EXAMPLE:
+% 1. \createnewtheoremstyle{thmdefinitionbox}{}{}
+% 2. \createnewtheoremstyle{thmtheorembox}{}{}
+% 3. \createnewtheoremstyle{thmproofbox}{qed=\qedsymbol}{
+%       rightline=false, topline=false, bottomline=false
+%    }
+% Parameters:
+% 1. Theorem name.
+% 2. Any extra parameters to pass directly to declaretheoremstyle.
+% 3. Any extra parameters to pass directly to mdframed.
+\newcommand\createnewtheoremstyle[3]{
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily, bodyfont=\normalfont, #2,
+  mdframed={
+    #3,
+  },
+  ]{#1}
+}
+
+% EXAMPLE:
+% 1. \createnewcoloredtheoremstyle{thmdefinitionbox}{definition}{}{}
+% 2. \createnewcoloredtheoremstyle{thmexamplebox}{example}{}{
+%       rightline=true, leftline=true, topline=true, bottomline=true
+%     }
+% 3. \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=ctpBase}
+% Parameters:
+% 1. Theorem name.
+% 2. Color of theorem.
+% 3. Any extra parameters to pass directly to declaretheoremstyle.
+% 4. Any extra parameters to pass directly to mdframed.
+\newcommand\createnewcoloredtheoremstyle[4]{
+  \declaretheoremstyle[
+  headfont=\bfseries\sffamily\color{#2}, bodyfont=\normalfont, #3,
+  mdframed={
+	  fontcolor=ctpText,
+    linewidth=2pt,
+    rightline=false, leftline=true, topline=false, bottomline=false,
+    linecolor=#2, backgroundcolor=#2!5, #4,
+  },
+  ]{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create the Environment Styles  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+{
+  % Environments with color.
+
+  \createnewcoloredtheoremstyle{thmdefinitionbox}{definition}{}{}
+  \createnewcoloredtheoremstyle{thmtheorembox}{theorem}{}{backgroundcolor=ctpBase}
+  \createnewcoloredtheoremstyle{thmexamplebox}{example}{}{
+    rightline=true, leftline=true, topline=true, bottomline=true, backgroundcolor=ctpBase}
+  \createnewcoloredtheoremstyle{thmclaimbox}{claim}{}{}
+  \createnewcoloredtheoremstyle{thmcorollarybox}{corollary}{}{}
+  \createnewcoloredtheoremstyle{thmpropbox}{prop}{}{}
+  \createnewcoloredtheoremstyle{thmlemmabox}{lemma}{}{}
+  \createnewcoloredtheoremstyle{thmexercisebox}{exercise}{}{}
+
+  \createnewcoloredtheoremstyle{thmproofbox}{proof}{qed=\qedsymbol}{backgroundcolor=ctpBase}
+  \createnewcoloredtheoremstyle{thmexplanationbox}{example}{qed=\qedsymbol}{backgroundcolor=ctpBase}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Create the Environments  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\declaretheorem[numberwithin=section, style=thmtheorembox,     name=Theorem]{theorem}
+\declaretheorem[numbered=no,          style=thmexamplebox,     name=Example]{example}
+\declaretheorem[numberwithin=section, style=thmclaimbox,       name=Claim]{claim}
+\declaretheorem[numberwithin=section, style=thmcorollarybox,   name=Corollary]{corollary}
+\declaretheorem[numberwithin=section, style=thmpropbox,        name=Proposition]{prop}
+\declaretheorem[numberwithin=section, style=thmlemmabox,       name=Lemma]{lemma}
+\declaretheorem[numberwithin=section, style=thmexercisebox,    name=Exercise]{exercise}
+\declaretheorem[numbered=no,          style=thmproofbox,       name=Proof]{replacementproof}
+\declaretheorem[numbered=no,          style=thmexplanationbox, name=Proof]{expl}
+
+\makeatletter
+{
+  % Environments with color.
+
+  \newtcbtheorem[number within=section]{Definition}{Definition}{
+    enhanced,
+    before skip=2mm,
+    after skip=2mm,
+    colback=tcpRed!5,
+    colframe=tcpRed!80!black,
+    colbacktitle=tcpRed!75!black,
+    boxrule=0.5mm,
+    attach boxed title to top left={
+      xshift=1cm,
+      yshift*=1mm-\tcboxedtitleheight
+    },
+    varwidth boxed title*=-3cm,
+    boxed title style={
+      interior engine=empty,
+      frame code={
+        \path[fill=tcbcolback]
+        ([yshift=-1mm,xshift=-1mm]frame.north west)
+        arc[start angle=0,end angle=180,radius=1mm]
+        ([yshift=-1mm,xshift=1mm]frame.north east)
+        arc[start angle=180,end angle=0,radius=1mm];
+        \path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+        middle color=tcbcolback!80!black]
+        ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+        [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+        -- (frame.south east) -- (frame.south west)
+        -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+        [sharp corners]-- cycle;
+      },
+    },
+    fonttitle=\bfseries,
+    title={#2},
+    #1
+  }{def}
+
+  \NewDocumentEnvironment{definition}{O{}O{}}
+    {\begin{Definition}{#1}{#2}}{\end{Definition}}
+
+  \newtcolorbox{note}[1][]{%
+    enhanced jigsaw,
+    colback=gray!20!ctpBase,%
+    colframe=gray!80!black,
+    size=small,
+    boxrule=1pt,
+    title=\textbf{Note:-},
+    halign title=flush center,
+    coltitle=black,
+    breakable,
+    drop shadow=black!50!ctpBase,
+    attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},
+    minipage boxed title=1.5cm,
+    boxed title style={%
+      colback=ctpBase,
+      size=fbox,
+      boxrule=1pt,
+      boxsep=2pt,
+      underlay={%
+        \coordinate (dotA) at ($(interior.west) + (-0.5pt,0)$);
+        \coordinate (dotB) at ($(interior.east) + (0.5pt,0)$);
+        \begin{scope}
+          \clip (interior.north west) rectangle ([xshift=3ex]interior.east);
+          \filldraw [ctpBase, blur shadow={shadow opacity=60, shadow yshift=-.75ex}, rounded corners=2pt] (interior.north west) rectangle (interior.south east);
+        \end{scope}
+        \begin{scope}[gray!80!black]
+          \fill (dotA) circle (2pt);
+          \fill (dotB) circle (2pt);
+        \end{scope}
+      },
+    },
+    #1,
+  }
+
+%================================
+% REFERENCE
+%================================
+
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem[number within=section]{reference}{Reference}
+{%
+	enhanced,
+	breakable,
+	colback = myrefbg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{myreffr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = myreffr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, myreffr},
+}
+{th}
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem[number within=section]{Reference}{Reference}
+{%
+	enhanced,
+	breakable,
+	colback = myrefbg,
+	frame hidden,
+	boxrule = 0sp,
+	borderline west = {2pt}{0pt}{myreffr},
+	sharp corners,
+	detach title,
+	before upper = \tcbtitle\par\smallskip,
+	coltitle = myreffr,
+	fonttitle = \bfseries\sffamily,
+	description font = \mdseries,
+	separator sign none,
+	segmentation style={solid, myreffr},
+}
+{th}
+
+  \newtcbtheorem{Question}{Question}{enhanced,
+    breakable,
+    colback=ctpBase,
+    colframe=myblue!80!black,
+    attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+    fonttitle=\bfseries,
+    title=\textbf{Question:-},
+    boxed title size=title,
+    boxed title style={%
+      sharp corners,
+      rounded corners=northwest,
+      colback=tcbcolframe,
+      boxrule=0pt,
+    },
+    underlay boxed title={%
+      \path[fill=tcbcolframe] (title.south west)--(title.south east)
+      to[out=0, in=180] ([xshift=5mm]title.east)--
+      (title.center-|frame.east)
+      [rounded corners=\kvtcb@arc] |-
+      (frame.north) -| cycle;
+    },
+    #1
+  }{def}
+
+  \NewDocumentEnvironment{question}{O{}O{}}
+  {\begin{Question}{#1}{#2}}{\end{Question}}
+
+  \newtcolorbox{Solution}{enhanced,
+    breakable,
+    colback=ctpBase,
+    colframe=ctpGreen!80!black,
+    attach boxed title to top left={yshift*=-\tcboxedtitleheight},
+    title=\textbf{Solution:-},
+    boxed title size=title,
+    boxed title style={%
+      sharp corners,
+      rounded corners=northwest,
+      colback=tcbcolframe,
+      boxrule=0pt,
+    },
+    underlay boxed title={%
+      \path[fill=tcbcolframe] (title.south west)--(title.south east)
+      to[out=0, in=180] ([xshift=5mm]title.east)--
+      (title.center-|frame.east)
+      [rounded corners=\kvtcb@arc] |-
+      (frame.north) -| cycle;
+    },
+  }
+
+  \NewDocumentEnvironment{solution}{O{}O{}}
+  {\vspace{-10pt}\begin{Solution}{#1}{#2}}{\end{Solution}}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Edit Proof Environment  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+\newenvironment{explanation}[1][\proofname]{\vspace{-10pt}\begin{expl}}{\end{expl}}
+
+\theoremstyle{definition}
+
+\newtheorem*{notation}{Notation}
+\newtheorem*{previouslyseen}{As previously seen}
+\newtheorem*{problem}{Problem}
+\newtheorem*{observe}{Observe}
+\newtheorem*{property}{Property}
+\newtheorem*{intuition}{Intuition}
