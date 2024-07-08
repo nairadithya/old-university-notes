@@ -1,5 +1,4 @@
 % BASIC PACKAGES
-
 % Gives us multiple colors.
 \usepackage[dvipsnames,pdftex]{xcolor}
 \usepackage[tmargin=2cm,rmargin=0.5in,lmargin=0.5in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
@@ -23,8 +22,10 @@
 \usepackage{pdfpages}
 % Lets us do algorithm stuff.
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
-% Use a smiley face for our qed symbol.
+% Symbols
 \usepackage{tikzsymbols}
+% Fancy chapter headings.
+\usepackage[Lenny]{fncychap}
 
 % TIKZ Stuff 
 \usepackage[framemethod=TikZ]{mdframed}
@@ -143,37 +144,8 @@
 % 1. (Optional) Lesson number.
 % 2. Time and date of lecture.
 % 3. Lecture Title.
-\def\@lesson{}
-\newcommand\lesson[3][\arabic{lecturecounter}]{
-	% Add 1 to the lecture counter.
-	\addtocounter{lecturecounter}{1}
-
-	% Set the section number to the lecture counter.
-	\setcounter{section}{#1}
-	\renewcommand\thesubsection{#1.\arabic{subsection}}
-
-	% Reset the counters.
-	\resetcounters
-
-	% Check if user passed the lecture title or not.
-	\ifthenelse{\isempty{#3}}{
-		\def\@lesson{Lecture \arabic{lecturecounter}}
-	}{
-		\def\@lesson{Lecture \arabic{lecturecounter}: #3}
-	}
-
-	% Display the information like the following:
-	%                                                  Oct 17 2022 Mon (08:49:10)
-	% ---------------------------------------------------------------------------
-	% Lecture 1: Lecture Title
-	\hfill\small{#2}
-	\hrule
-	\vspace*{-0.3cm}
-	\section*{\@lesson}
-	\addcontentsline{toc}{section}{\@lesson}
-}
 \usepackage{fancyhdr}
-% TODO: weird issues rendering the header.
+
 
 % Catppuccin Syntax Highlighting
 \usepackage{listings}
