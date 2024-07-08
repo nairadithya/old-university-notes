@@ -1,10 +1,10 @@
-*.pdf
-*.toc
-*.aux
-*.log
-*.gz
-*.tex_build/
-_minted*/
+
+
+
+
+
+
+
 
 /.obsidian
 /Excalidraw
