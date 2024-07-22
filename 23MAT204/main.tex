@@ -1,0 +1,61 @@
+\documentclass[twoside]{report}
+\input{preamble}
+\title{\Huge{23MAT204}\\ Class Notes}
+\usepackage{svg}
+\author{\huge{Adithya Nair}}
+\date{}
+\begin{document}
+\maketitle
+\chapter{Revision Linear Algebra}
+\begin{theorem}
+	Every matrix satisfies its own characteristic matrix.
+\end{theorem}
+What this means is
+\begin{align*}
+	\lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\	
+	A^3 - 2A^2 + A -4I &= 0 \\	
+	A^2 - 2A + I - 4A^{-1} &= 0 \\
+	A^{-1} &= \frac{1}{4}[A^2 - 2A + I]
+	X &= A^{-1}b = \frac{1}{4}[A^2 - 2A + I]b
+\end{align*}
+There are some implications behind this.
+
+Here's a problem,
+generate a random 3x3 matrix, find the ranks of $(A- \lambda_1 I)$ and then $(A-\lambda_1 I)(A-\lambda_2 I$
+
+What you will see is that the rank reduces upon multiplying roots of the characteristic equation
+
+\section{Ways To Calculate Whether A Matrix Is Positive Definite}
+\begin{enumerate}
+	\item The minors are positive then negative alternating.
+	\item The eigenvalues are positive.
+\end{enumerate}
+\section{Large Eigenvalue Computation}
+Large eigenvalues are computed by using a matrix multiplication method. This method involves:
+
+\section{Specral Decomposition}
+\[
+	S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T
+\]
+
+This allows us to represent a matrix by the sum of n rank 1 matrices. This is used in square symmetric matrices.
+
+This is the basis behind Principal Component Analysis.
+\section{Singular Value Decomposition}
+For rectangular matrices.
+\[ 
+	A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T
+\]
+
+This is mainly used for getting useful properties about the matrix without needing to perform significant operations on this matrix, such as the orthogonality.
+
+	
+\begin{note}
+	The trace of $A^TA$ equal to the sum of all $a_{ij}^2$
+	The trace is the sum of all eigenvalues of $A^T A$, and For $A_{m \times n}$ that's the sum of the eigenvalues squared.
+
+	This is known as the \textbf{Frobenius Norm}
+\end{note}
+
+
+\end{document}
