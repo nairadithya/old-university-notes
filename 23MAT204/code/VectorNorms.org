@@ -1,0 +1,65 @@
+#+title: Vector Norms
+
+* Question 1
+#+begin_src octave :results output :session VectorNorm
+Q = [1 0 0;0 0.7071 -0.7071;0 0.7071 0.7071];
+u = [-5;3;9];
+display("Question 1")
+norm(u,1)
+norm(u,2)
+norm(u,3)
+norm(u,inf)
+display("Question 2")
+v = Q*u;
+norm(v,1)
+norm(v,2)
+norm(v,3)
+norm(v,inf)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Question 1
+ans = 17
+ans = 10.724
+ans = 9.5865
+ans = 9
+Question 2
+ans = 17.728
+ans = 10.724
+ans = 9.3305
+ans = 8.4852
+#+end_example
+
+* Question 2- Generate a symmetric positive definite 5x5 matrix S and find S-norm of [9,1,7,2,3]
+#+begin_src octave :results output
+A = randi([1 9], 5);
+S = A'*A;
+eig(S) # Way to check if a matrix is postive definite, the eigenvalues must be positive.
+u = [9;1;7;2;3];
+Snorm = u'*S*u
+#+end_src
+
+#+RESULTS:
+: ans =
+:
+:      3.9865
+:      4.4723
+:     33.1533
+:     56.5843
+:    551.8036
+:
+: Snorm = 62480
+* Question 3 - Find the different matrix norms of the given matrix A.
+#+begin_src octave :results output
+A = eye(10);
+SpNorm = max(svd(A))
+FrNorm = norm(svd(A),2)
+NucNorm = sum(svd(A))
+
+#+end_src
+
+#+RESULTS:
+: SpNorm = 1
+: FrNorm = 3.1623
+: NucNorm = 10

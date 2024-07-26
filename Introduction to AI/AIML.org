@@ -1,0 +1,407 @@
+#+title:Introduction To Artificial Intelligence And Machine Learning.
+
+* Notes
+** Iris Data Classification
+#+begin_src python :results output results: output
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+irisdata = pd.read_csv('iris.csv')
+
+test, train = train_test_split(irisdata, train_size=0.8, test_size=0.2)
+
+print(np.size(test))
+print(np.size(train))
+print(irisdata.describe())
+#+end_src
+
+#+RESULTS:
+: None
+
+** Data Pre-Processing
+*** Handling Missing Values (Imputation)
+When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
+Hence it is essential to handle the missing values.
+**** CREATING A DATAFRAME
+#+begin_src python :results output :results output :session Titanic
+import pandas as pd
+import numpy as np
+
+# Load the Titanic dataset
+df = pd.read_csv('titanic.csv')
+
+# Display the first few rows of the dataset
+print("First few rows of the dataset:")
+print(df.head())
+print(df.shape)
+#+end_src
+
+#+RESULTS:
+: First few rows of the dataset:
+:    PassengerId  Survived  Pclass                                               Name     Sex   Age  SibSp  Parch            Ticket     Fare Cabin Embarked
+: 0            1         0       3                            Braund, Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN        S
+: 1            2         1       1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0          PC 17599  71.2833   C85        C
+: 2            3         1       3                             Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250   NaN        S
+: 3            4         1       1       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1      0            113803  53.1000  C123        S
+: 4            5         0       3                           Allen, Mr. William Henry    male  35.0      0      0            373450   8.0500   NaN        S
+: (891, 12)
+This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
+#+begin_src python :results output :session Titanic
+
+# Identify missing values
+print("\nMissing values in each column:")
+print(df.isnull().sum())
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Missing values in each column:
+PassengerId      0
+Survived         0
+Pclass           0
+Name             0
+Sex              0
+Age            177
+SibSp            0
+Parch            0
+Ticket           0
+Fare             0
+Cabin          687
+Embarked         2
+dtype: int64
+#+end_example
+**** There are two main methods in dealing with missing values.
+1. Dropping rows with missing values.
+2. Filling the empty missing values with zeros.
+#+begin_src python :results output :session Titanic
+# Method 1: Drop rows with missing values
+df_dropped = df.dropna()
+print("\n METHOD 1 Shape of dataset after dropping rows with missing values:", df_dropped.shape)
+
+# Method 2: Fill missing values with a specific value (e.g., 0)
+df_filled_zeros = df.fillna(0)
+print("\nMETHOD 2 Missing values filled with 0:")
+print(df_filled_zeros.isnull().sum())
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+ METHOD 1 Shape of dataset after dropping rows with missing values: (183, 12)
+
+METHOD 2 Missing values filled with 0:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          0
+Embarked       0
+dtype: int64
+#+end_example
+
+This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and filling with zeros does not work here when that might affect the correctness of the prediction.
+So here we replace the values with the mean for numerical values and mode for categorical values.
+***** TODO Look into other methods of imputation
+#+begin_src python :results output :session Titanic
+# Method 3: Fill missing values with the mean (for numerical columns)
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+print("\nMETHOD 3 Missing values in 'Age' column after filling with mean:")
+print(df['Age'].isnull().sum())
+
+# Method 4: Fill missing values with the most frequent value (mode)
+df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
+print("\nMETHOD 4 Missing values in 'Embarked' column after filling with mode:")
+print(df['Embarked'].isnull().sum())
+#+end_src
+
+#+RESULTS:
+:
+: METHOD 3 Missing values in 'Age' column after filling with mean:
+: 0
+:
+: METHOD 4 Missing values in 'Embarked' column after filling with mode:
+: 0
+
+**** Forward fill and Backward Fill
+ There are two better ways to fill the rows.
+- Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
+- Backward Fill - it iterates up the given data, and fills in missing values with the last value it saw.
+#+begin_src python :results output :session Titanic
+# Method 5: Forward fill method
+df_ffill = df.fillna(method='ffill')
+print("\nMethod 5 Missing values handled using forward fill method:")
+print(df_ffill.isnull().sum())
+
+# Method 6: Backward fill method
+df_bfill = df.fillna(method='bfill')
+print("\nMethod 6 Missing values handled using backward fill method:")
+print(df_bfill.isnull().sum())
+print("*****************")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Method 5 Missing values handled using forward fill method:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          1
+Embarked       0
+dtype: int64
+
+Method 6 Missing values handled using backward fill method:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          1
+Embarked       0
+dtype: int64
+,*****************
+#+end_example
+*** Normalization
+Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
+
+Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
+
+The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
+
+**** Types Of Normalization
+- MinMaxScaler - all data points are brought to the range $[0,1]$
+- Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
+
+***** NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
+#+begin_src python :results output :session Scaler
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+# Example usage:
+data = np.array([2, 5, 8, 11, 14]).reshape(-1, 1)  # Reshape to 2D array for scaler
+
+# Initialize the MinMaxScaler
+scaler = MinMaxScaler()
+
+# Apply Min-Max normalization
+normalized_data = scaler.fit_transform(data)
+
+# Flatten the normalized data to 1D array
+normalized_data = normalized_data.flatten()
+
+print(normalized_data)
+#+end_src
+
+#+RESULTS:
+: [0.   0.25 0.5  0.75 1.  ]
+
+***** NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
+#+begin_src python :results output :session Scaler
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+
+# Example usage:
+data = np.array([2, 5, 8, 11, 14]).reshape(-1, 1)  # Reshape to 2D array for scaler
+
+# Initialize the StandardScaler
+scaler = StandardScaler()
+
+# Apply Z-score normalization
+normalized_data = scaler.fit_transform(data)
+
+# Flatten the normalized data to 1D array
+normalized_data = normalized_data.flatten()
+
+print(normalized_data)
+#+end_src
+
+#+RESULTS:
+: [-1.41421356 -0.70710678  0.          0.70710678  1.41421356]
+
+***** NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
+#+begin_src python :results output :session Scaler
+# Initialize the MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+
+# List of columns to be normalized
+columns_to_normalize = ['Age', 'Fare']
+
+# Apply Min-Max normalization
+df[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
+
+print("\nDataFrame after Min-Max normalization:")
+print(df)
+#+end_src
+
+#+RESULTS:
+
+*** SAMPLING
+**** RANDOM SAMPLING
+#+begin_src python :results output
+import random
+
+# Sample data
+population = list(range(1, 101))  # Population from 1 to 100
+sample_size = 10  # Size of the sample
+
+# Simple random sampling
+sample = random.sample(population, sample_size)
+print("Simple Random Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: Simple Random Sample: [99, 67, 71, 4, 82, 24, 29, 54, 77, 34]
+
+**** STRATIFIED SAMPLING
+#+begin_src python :results output
+import random
+
+# Sample data with strata
+strata_data = {
+    'stratum1': [1, 2, 3, 4, 5],
+    'stratum2': [6, 7, 8, 9, 10],
+}
+
+# Sample size per stratum
+sample_size_per_stratum = 2
+
+# Stratified sampling
+sample = []
+for stratum, data in strata_data.items():
+    stratum_sample = random.sample(data, sample_size_per_stratum)
+    sample.extend(stratum_sample)
+
+print("Stratified Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: Stratified Sample: [4, 2, 9, 8]
+
+**** Systematic Sampling
+#+begin_src python :results output
+# Sample data
+data = list(range(1, 101))  # Data from 1 to 100
+n = 5  # Every nth data point to be included in the sample
+
+# Systematic sampling
+sample = data[::n]
+print("Systematic Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: Systematic Sample: [1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61, 66, 71, 76, 81, 86, 91, 96]
+
+
+#+begin_src python :results output
+import random
+
+# Sample data with clusters
+clusters = {
+    'cluster1': [1, 2, 3],
+    'cluster2': [4, 5, 6],
+    'cluster3': [7, 8, 9],
+}
+
+# Number of clusters to sample
+clusters_to_sample = 2
+
+# Cluster sampling
+selected_clusters = random.sample(list(clusters.keys()), clusters_to_sample)
+print("chosen clusters ", selected_clusters)
+sample = []
+for cluster in selected_clusters:
+    sample.extend(clusters[cluster])
+
+print("Cluster Sample:", sample)
+#+end_src
+
+*** BINNING
+#+begin_src python :results output
+import pandas as pd
+
+# Assuming 'df' is your DataFrame containing the dataset
+budget_bins = [0, 10, 20, float('inf')]  # Define your budget bins
+budget_labels = ['Low Budget', 'Medium Budget', 'High Budget']  # Labels for the bins
+
+df['BudgetBin'] = pd.cut(df['Budget'], bins=budget_bins, labels=budget_labels)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :results output
+df.head(10)
+#+end_src
+
+#+RESULTS:
+#+begin_src python :results output
+
+import matplotlib.pyplot as plt
+budget_bin_counts = df['BudgetBin'].value_counts()
+
+# Plot the data as a bar chart
+plt.figure(figsize=(8, 6))
+budget_bin_counts.plot(kind='bar', color='skyblue')
+plt.title('Number of Movies in Each Budget Bin')
+plt.xlabel('Budget Bin')
+plt.ylabel('Number of Movies')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+plt.show()
+#+end_src
+
+#+RESULTS:
+
+[[file:ce9e3744fc6a3bb5507b36f5f296493e45f8052b.png]]
+
+#+begin_src python :results output
+collection_bins = [0, 20, 40, 60, float('inf')]  # Define your collection bins
+collection_labels = ['Low Collection', 'Medium Collection', 'High Collection', 'Very High Collection']  # Labels for the bins
+
+df['CollectionBin'] = pd.cut(df['BoxOfficeCollection'], bins=collection_bins, labels=collection_labels)
+df.head(10)
+#+end_src
+
+#+RESULTS:
+#+begin_src python :results output
+
+import matplotlib.pyplot as plt
+budget_bin_counts = df['CollectionBin'].value_counts()
+
+# Plot the data as a bar chart
+plt.figure(figsize=(8, 6))
+budget_bin_counts.plot(kind='bar', color='skyblue')
+plt.title('Number of Movies in Each Budget Bin')
+plt.xlabel('Budget Bin')
+plt.ylabel('Number of Movies')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+plt.show()
+#+end_src
+
+#+RESULTS:
+
+[[file:6d1b533234c55700921c51ec2564d6917a09ab42.png]]
+** Supervised Learning

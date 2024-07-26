@@ -5,7 +5,6 @@
 \author{\huge{Adithya Nair}}
 \date{}
 \begin{document}
-\chapter{Preamble}
 This is a precursor to the real class.
 
 An example of the use of modelling, in a somewhat humourous approach is through the use of a girl and boy's love story.
@@ -33,21 +32,37 @@ The model for these would work like this.
 	\frac{dH(t)}{dt} = \delta C(t) + \gamma H(t) \\
 \end{align*}
 The amount of chocolate depends on our happiness as well as the chocolates already consumed.
+\section{Course Overview}
+\begin{enumerate}
+	\item Introduction to Modelling
+	\item Bond graph modelling
+	\item Basic System Models
+\end{enumerate}
+\chapter{Introduction to Modelling}
+\section{Terminology}
+\begin{enumerate}
+	\item \textbf{Modelling} - Refers to the development of a mathematical representation of a system.
 
-Here's a more serious problem.
+	\item \textbf{Simulation} - Refers to the procedure of solving the equations that result from model development.
+	\item \textbf{Mechanics} - Study of the physics of moving and static objects 
+	\item \textbf{Dynamics} - Study of moving objects
+\end{enumerate}
 
-Modelling the COVID pandemic.
+The steps in the design of dynamic systems involve:
+\begin{itemize}
+	\item A physical system, which is represented using an engineering model
+	\item The engineering model, is represented using a bond graph technique, block diagrams or classical method.
+	\item This model is then represented using differential equations
+	\item The equations are solved using simulation software.
+\end{itemize}
 
-We can use three main variables:
+This course is mainly going to use the bond graph technique.
+\section{System}
+A system is an aggregation or assemblage of objects joined in some regular interaction or interdependence. This definition holds good for static systems, and our course focuses on dynamic systems. Systems consist of objects, with certain defined properties. These properties lead to interactions which causes a change in the system. Such objecsts of interest are known as entities, the properties of these entities are known as attributes, process that causes dchange in the system are known as activities and the complete decscription of entities attributes activities is known as the state.
 
-\begin{align*}
-	A(t) &- \text{Affected cases} \\
-	R(t) &- \text{Recovered cases} \\
-	U(t) &- \text{Non-Affected cases}\\
-\end{align*}
-\begin{align*}
-	\text{Total no. of people} &= A(t) + R(t) + U(t) \\
-\end{align*}
+The environment containing the system and surrounding it is known as the system environment. Endogenous decribes activities occuring inside the system. Exogeneous describes activities in the invironment that affect the system.
+
+A closed system is a system with no exogeneous activity. An open system is a system with exogeneous activites. If the outcomes are predictable, it's deterministic. If they are random and vary with a set probability, they are said to be stochastic. If the outcomes  are smooth, then it's said to be continuous. If the outcomes  are discontinuous, then it's said to be discrete.
 
 
 \end{document}

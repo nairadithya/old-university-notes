@@ -77,3 +77,27 @@ This will be covered in the next lab.
 >
 
 # Depth-First Search
+
+This involves traversing the nodes until an edge node is met, using a stack.
+
+The procedure follows:
+- A node is selected and pushed into the stack.
+- A random node connected to A is pushed.
+- A connected node is pushed.
+- This procedure is met until no unvisited node exists
+	- In which case the stack is full.
+	- If the stack is still not full, it implies that there are nodes which haven't been visited.
+- Now popping occurs
+- The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost elements's adjacent nodes for unvisited nodes.
+- This is done until the stack is empty
+
+```java
+class DFS {
+  DFS(int V)  {  
+    adj = new LinkedList[V];  
+    visited = new boolean[V];  
+    for (int i = 0; i < V; i++)  
+      adj[i] = new LinkedList<Integer>();  
+  }  
+}
+```

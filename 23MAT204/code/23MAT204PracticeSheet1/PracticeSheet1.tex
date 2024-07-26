@@ -1,0 +1,161 @@
+% Created 2024-07-24 Wed 23:32
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Adithya Nair}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Homework}
+\label{sec:org63d834e}
+\subsection{Practice Sheet 1}
+\label{sec:orgb74fe6e}
+\subsubsection{Question 1}
+\label{sec:orgc4b7c9a}
+\begin{verbatim}
+% 1
+D = diag([24,10,5]);
+e1 = [1;1;0];
+e2 = [1;-1;0];
+e3 = [0;0;1]
+P = [e1 e2 e3];
+A = P*D*inv(P)
+% Diagonalization of A^5
+A5 = P*D^5*inv(P)
+\end{verbatim}
+
+\phantomsection
+\label{}
+\begin{verbatim}
+e3 =
+
+   0
+   0
+   1
+
+A =
+
+   17    7    0
+    7   17    0
+    0    0    5
+
+A5 =
+
+   4.0313e+06   3.9313e+06            0
+   3.9313e+06   4.0313e+06            0
+            0            0   3.1250e+03
+
+\end{verbatim}
+\subsubsection{Question 2}
+\label{sec:orgf8e9b95}
+\begin{verbatim}
+A = randi([-3 3],5,5);
+A = A - diag(diag(A));
+eigenVal = [9;8;7;6;5];
+A = A + eye(size(A));
+
+A1 = triu(A);
+A2 = tril(A);
+
+newA = A2*A1;
+B = newA*diag(eigenVal)*inv(newA);
+\end{verbatim}
+\subsubsection{Question 3}
+\label{sec:orgb35ec1e}
+\begin{verbatim}
+A = randi([-100 100],4,4);
+A = A - diag(diag(A));
+A = A + eye(size(A));
+A1 = triu(A);
+A2 = tril(A);
+newA = A2*A1;
+det(newA);
+\end{verbatim}
+\subsubsection{Question 4}
+\label{sec:orgc6b057a}
+\begin{verbatim}
+A = randi([-9 9],7,7);
+A = A - diag(diag(A));
+A = A + eye(size(A));
+A1 = triu(A);
+A2 = tril(A);
+newA = A2*A1;
+det(newA)
+inv(newA)
+\end{verbatim}
+\subsubsection{Question 5}
+\label{sec:orge735271}
+\begin{verbatim}
+% Create matrix with det 1
+A = randi([1 100], 15,15);
+A = A - diag(diag(A));
+A = A + eye(size(A));
+A1 = triu(A);
+A2 = tril(A);
+newA = A1*A2;
+diagVec = ones(15,1);
+diagVec(end) = 3;
+S = diag(diagVec);
+M = newA*S*inv(newA);
+det(M)
+\end{verbatim}
+\subsubsection{Question 6}
+\label{sec:orgc0f73e7}
+\begin{verbatim}
+A = [-4 1 1;1 -6 7; 1 7 -9];
+P = randi(15,3);
+B = P*A*inv(P)
+P = randi(15,3);
+C = P*A*inv(P)
+\end{verbatim}
+\subsubsection{Question 7}
+\label{sec:orgfa55211}
+\begin{verbatim}
+A = randi([1 9],10,3)*randi([1 9],3,5);
+S = A*A'
+S = A'*A
+\end{verbatim}
+\subsubsection{Question 9}
+\label{sec:org64a1cf2}
+\begin{verbatim}
+A = randi([1 9],10,3)*randi([1 9],3,5);
+S = A*A' 
+S = A'*A 
+\end{verbatim}
+\subsubsection{Question 10}
+\label{sec:orgf05b500}
+\begin{verbatim}
+A = randi([1 2],4,4);
+A = A - diag(diag(A));
+A = A + eye(size(A));
+A1 = triu(A);
+A2 = triu(A);
+newA = A2*A1;
+eigVal = [1 2 3 4];
+S = diag(eigVal);
+D = newA*S*inv(newA);
+A = (D-eigVal(1)*eye(size(A)))
+B = (D-eigVal(2)*eye(size(A)))
+C = (D-eigVal(3)*eye(size(A))*(D-eigVal(4)*eye(size(A))))
+\end{verbatim}
+\end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.7.9)  19 JUL 2024 12:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2024.7.9)  25 JUL 2024 15:22
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1339,23 +1339,41 @@ Package mdframed Info: mdframed detected package amsthm
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 11.
  [2
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}] [3] (.aux/main.aux)
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}] [3]
+Package svg Info: Last page of `./svg-inkscape/l1eq1_svg-tex.pdf' is 1 on input line 117.
+ (./svg-inkscape/l1eq1_svg-tex.pdf_tex
+<./svg-inkscape/l1eq1_svg-tex.pdf, id=142, page=1, 308.03543pt x 233.24397pt>
+File: ./svg-inkscape/l1eq1_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/l1eq1_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/l1eq1_svg-tex.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 491.43513pt x 372.11603pt.
+)
+pdfTeX warning (ext4): destination with the same identifier (name{tcb@cnt@Definition.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.122 	T
+        he S-norm of a vector $\vec{x}$ is $\vec{x}^T S \vec{x}$. When S is ... [4 <./svg-inkscape/l1eq1_svg-tex.pdf>]
+Package mdframed Info: mdframed works in twoside mode on input line 169.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 169.
+ [5{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (.aux/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D0DFBC7B025AB6A4AA1A18CF5B3F07A7;1079.
+(rerunfilecheck)             Checksum: 95F348F3D01BE4DF4708D78CDA78CB96;2354.
  ) 
 Here is how much of TeX's memory you used:
- 42297 strings out of 476041
- 916099 string characters out of 5793165
- 1865388 words of memory out of 6000000
- 61995 multiletter control sequences out of 15000+600000
- 524387 words of font info for 70 fonts, out of 8000000 for 9000
+ 42415 strings out of 476041
+ 918809 string characters out of 5793165
+ 1878388 words of memory out of 6000000
+ 62086 multiletter control sequences out of 15000+600000
+ 525029 words of font info for 72 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 104i,10n,120p,493b,1690s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on .aux/main.pdf (3 pages, 132192 bytes).
+ 104i,16n,120p,493b,1692s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on .aux/main.pdf (5 pages, 198050 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 243 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 313 words of extra memory for PDF output out of 10000 (max. 10000000)
 
