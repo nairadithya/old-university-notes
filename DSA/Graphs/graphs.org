@@ -3,10 +3,6 @@
 Graphs are nodes with links to each other. These links are defined by a matrix known as an **adjacency matrix**.
 
 The best way to store such links is (under the assumption that the graphs in question are **bi-directional**) to store only the upper triangle of the adjacency matrix, while ignoring the diagonal.
-
-#+RESULTS:
-: 5
-
 * Storing Graph Data
 #+begin_src java :session Graph
 import java.util.*;
