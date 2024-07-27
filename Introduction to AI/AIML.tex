@@ -1,4 +1,4 @@
-% Created 2024-07-25 Thu 12:07
+% Created 2024-07-26 Fri 13:20
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -28,9 +28,9 @@
 \tableofcontents
 
 \section{Notes}
-\label{sec:org3c42aef}
+\label{sec:orgd99bf65}
 \subsection{Iris Data Classification}
-\label{sec:orgb1e4785}
+\label{sec:org38c2257}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -45,14 +45,14 @@ print(np.size(train))
 print(irisdata.describe())
 \end{verbatim}
 \subsection{Data Pre-Processing}
-\label{sec:org9adb0f9}
+\label{sec:orgb14d0a6}
 \subsubsection{Handling Missing Values (Imputation)}
-\label{sec:org88fe923}
+\label{sec:orgbb9d1a2}
 When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
 Hence it is essential to handle the missing values.
 \begin{enumerate}
 \item CREATING A DATAFRAME
-\label{sec:org0e09d0c}
+\label{sec:org9f2a8e9}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -74,7 +74,7 @@ print(df.isnull().sum())
 
 \end{verbatim}
 \item There are two main methods in dealing with missing values.
-\label{sec:org1074cae}
+\label{sec:org8fc0ba3}
 \begin{enumerate}
 \item Dropping rows with missing values.
 \item Filling the empty missing values with zeros.
@@ -95,7 +95,7 @@ This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and 
 So here we replace the values with the mean for numerical values and mode for categorical values.
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Look into other methods of imputation
-\label{sec:orgf0fc74a}
+\label{sec:orgd55def3}
 \begin{verbatim}
 # Method 3: Fill missing values with the mean (for numerical columns)
 df['Age'].fillna(df['Age'].mean(), inplace=True)
@@ -109,7 +109,7 @@ print(df['Embarked'].isnull().sum())
 \end{verbatim}
 \end{enumerate}
 \item Forward fill and Backward Fill
-\label{sec:orge3cdb73}
+\label{sec:org9b9e830}
 There are two better ways to fill the rows.
 \begin{itemize}
 \item Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
@@ -129,22 +129,22 @@ print("*****************")
 \end{verbatim}
 \end{enumerate}
 \subsubsection{Normalization}
-\label{sec:org3d222ff}
+\label{sec:org80f497e}
 Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
 
 Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
 
 The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
 \begin{enumerate}
-\item 2 Types Of Normalization
-\label{sec:org379bd2f}
+\item Types Of Normalization
+\label{sec:org4a01d6a}
 \begin{itemize}
 \item MinMaxScaler - all data points are brought to the range \([0,1]\)
 \item Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
 \end{itemize}
 \begin{enumerate}
 \item NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
-\label{sec:orgdfd9116}
+\label{sec:org6baf52a}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -164,7 +164,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
-\label{sec:org21ead2d}
+\label{sec:org0d79717}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -184,9 +184,10 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
-\label{sec:orgdb3291e}
+\label{sec:org9b24003}
 \begin{verbatim}
 # Initialize the MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 
 # List of columns to be normalized
@@ -201,10 +202,10 @@ print(df)
 \end{enumerate}
 \end{enumerate}
 \subsubsection{SAMPLING}
-\label{sec:org4ac245d}
+\label{sec:org19694b4}
 \begin{enumerate}
 \item RANDOM SAMPLING
-\label{sec:org0474dd5}
+\label{sec:org116888e}
 \begin{verbatim}
 import random
 
@@ -217,7 +218,7 @@ sample = random.sample(population, sample_size)
 print("Simple Random Sample:", sample)
 \end{verbatim}
 \item STRATIFIED SAMPLING
-\label{sec:org9fcd046}
+\label{sec:org326853d}
 \begin{verbatim}
 import random
 
@@ -238,21 +239,17 @@ for stratum, data in strata_data.items():
 
 print("Stratified Sample:", sample)
 \end{verbatim}
-\item Systematic Sampling \#+begin\textsubscript{src} python :results output
-\label{sec:org5aaf8bf}
-data = list(range(1, 101))  \# Data from 1 to 100
-n = 5  \# Every nth data point to be included in the sample
-
-sample = data[::n]
-print(``Systematic Sample:'', sample)
-\#+end\textsubscript{src}
-
-\phantomsection
-\label{}
+\item Systematic Sampling
+\label{sec:org11fe5b8}
 \begin{verbatim}
-None
-\end{verbatim}
+# Sample data
+data = list(range(1, 101))  # Data from 1 to 100
+n = 5  # Every nth data point to be included in the sample
 
+# Systematic sampling
+sample = data[::n]
+print("Systematic Sample:", sample)
+\end{verbatim}
 
 
 \begin{verbatim}
@@ -279,7 +276,7 @@ print("Cluster Sample:", sample)
 \end{verbatim}
 \end{enumerate}
 \subsubsection{BINNING}
-\label{sec:org8da8abe}
+\label{sec:org28726de}
 \begin{verbatim}
 import pandas as pd
 
@@ -305,9 +302,10 @@ collection_labels = ['Low Collection', 'Medium Collection', 'High Collection', '
 df['CollectionBin'] = pd.cut(df['BoxOfficeCollection'], bins=collection_bins, labels=collection_labels)
 df.head(10)
 \end{verbatim}
+
 \begin{center}
 \includegraphics[width=.9\linewidth]{6d1b533234c55700921c51ec2564d6917a09ab42.png}
 \end{center}
 \subsection{Supervised Learning}
-\label{sec:org9890fbd}
+\label{sec:org3d967c2}
 \end{document}

@@ -338,45 +338,37 @@ for cluster in selected_clusters:
 print("Cluster Sample:", sample)
 #+end_src
 
+#+RESULTS:
+: chosen clusters  ['cluster1', 'cluster3']
+: Cluster Sample: [1, 2, 3, 7, 8, 9]
+
 *** BINNING
-#+begin_src python :results output
+#+begin_src python :results output :session Bollywood
 import pandas as pd
 
-# Assuming 'df' is your DataFrame containing the dataset
+df = pd.read_csv('bollywood.csv')
 budget_bins = [0, 10, 20, float('inf')]  # Define your budget bins
 budget_labels = ['Low Budget', 'Medium Budget', 'High Budget']  # Labels for the bins
-
 df['BudgetBin'] = pd.cut(df['Budget'], bins=budget_bins, labels=budget_labels)
+print(df.head(10))
 #+end_src
 
 #+RESULTS:
+#+begin_example
+   SlNo Release Date                   MovieName ReleaseTime      Genre  Budget  BoxOfficeCollection  YoutubeViews  YoutubeLikes  YoutubeDislikes      BudgetBin
+0     1    18-Apr-14                    2 States          LW    Romance      36               104.00       8576361         26622             2527    High Budget
+1     2    04-Jan-13                Table No. 21           N  Thriller       10                12.00       1087320          1129              137     Low Budget
+2     3    18-Jul-14          Amit Sahni Ki List           N     Comedy      10                 4.00        572336           586               54     Low Budget
+3     4    04-Jan-13            Rajdhani Express           N     Drama        7                 0.35         42626            86               19     Low Budget
+4     5    04-Jul-14                Bobby Jasoos           N     Comedy      18                10.80       3113427          4512             1224  Medium Budget
+5     6    30-May-14                  Citylights          HS     Drama        7                35.00       1076591          1806               84     Low Budget
+6     7    19-Sep-14               Daawat-E-Ishq           N     Comedy      30                24.60       3905050          8315             1373    High Budget
+7     8    11-Jan-13  Matru Ki Bijlee Ka Mandola           N     Comedy      33                40.00       2435283          4326              647    High Budget
+8     9    10-Jan-14                Dedh Ishqiya          LW     Comedy      31                27.00       2333067          2436              591    High Budget
+9    10    11-Jan-13                   Gangoobai           N     Drama        2                 0.01          4354             1                1     Low Budget
+#+end_example
 
-#+begin_src python :results output
-df.head(10)
-#+end_src
-
-#+RESULTS:
-#+begin_src python :results output
-
-import matplotlib.pyplot as plt
-budget_bin_counts = df['BudgetBin'].value_counts()
-
-# Plot the data as a bar chart
-plt.figure(figsize=(8, 6))
-budget_bin_counts.plot(kind='bar', color='skyblue')
-plt.title('Number of Movies in Each Budget Bin')
-plt.xlabel('Budget Bin')
-plt.ylabel('Number of Movies')
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.tight_layout()
-plt.show()
-#+end_src
-
-#+RESULTS:
-
-[[file:ce9e3744fc6a3bb5507b36f5f296493e45f8052b.png]]
-
-#+begin_src python :results output
+#+begin_src python :results output :session Bollywood
 collection_bins = [0, 20, 40, 60, float('inf')]  # Define your collection bins
 collection_labels = ['Low Collection', 'Medium Collection', 'High Collection', 'Very High Collection']  # Labels for the bins
 
@@ -384,12 +376,9 @@ df['CollectionBin'] = pd.cut(df['BoxOfficeCollection'], bins=collection_bins, la
 df.head(10)
 #+end_src
 
-#+RESULTS:
-#+begin_src python :results output
-
+#+begin_src python :results graphics file output :file testplot.png :session Bollywood
 import matplotlib.pyplot as plt
-budget_bin_counts = df['CollectionBin'].value_counts()
-
+budget_bin_counts = df['BudgetBin'].value_counts()
 # Plot the data as a bar chart
 plt.figure(figsize=(8, 6))
 budget_bin_counts.plot(kind='bar', color='skyblue')
@@ -398,10 +387,9 @@ plt.xlabel('Budget Bin')
 plt.ylabel('Number of Movies')
 plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.tight_layout()
-plt.show()
 #+end_src
 
 #+RESULTS:
+[[file:testplot.png]]
 
-[[file:6d1b533234c55700921c51ec2564d6917a09ab42.png]]
 ** Supervised Learning

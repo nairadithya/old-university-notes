@@ -1,0 +1,143 @@
+% Created 2024-07-26 Fri 22:00
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Adithya Nair}
+\date{\today}
+\title{Graphs}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={Graphs},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+Graphs are nodes with links to each other. These links are defined by a matrix known as an \textbf{\textbf{adjacency matrix}}.
+
+The best way to store such links is (under the assumption that the graphs in question are \textbf{\textbf{bi-directional}}) to store only the upper triangle of the adjacency matrix, while ignoring the diagonal.
+\section{Storing Graph Data}
+\label{sec:org5fe5c16}
+\begin{verbatim}
+import java.util.*;
+int c = 5;
+int a[][] = new int[c][c];
+int upperTriangleSize = (c*(c-1))/2;
+int graph_data[] = new int[upperTriangleSize];
+int k = 0;
+for(int i = 0; i < c; i++){
+	for(int j = i+1;j < c;j++){
+		graph_data[k] =  a[i][j];
+		k++;
+	}
+}
+\end{verbatim}
+
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & &\ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+\section{Adjacency Lists}
+\label{sec:orgb860e43}
+This consists of a one-dimensional array, specifically of pointers.
+For an example graph,
+\begin{align*}
+&a \rightarrow b \rightarrow c \rightarrow d  \\
+&\downarrow \\
+&b \rightarrow a \rightarrow c \\
+&\downarrow \\
+&c \rightarrow a \rightarrow b \\
+&\downarrow \\
+&d \rightarrow a \rightarrow e\\
+&\downarrow \\
+&e \rightarrow d \\
+\end{align*}
+
+We have a linked list of linked lists. The problem here is that links are represented twice.
+
+This is an optimization for when graphs have very few links.
+\section{The method of traversal(visit all nodes).}
+\label{sec:org797ae5d}
+
+There are two algorithms of traversal:
+\begin{enumerate}
+\item Breadth-First Search - which involves the usage of queue
+\item Depth-First Search - which involves the usage of stack
+\end{enumerate}
+\subsection{Breadth-First Search}
+\label{sec:orge100d3c}
+Breadth-first involves selecting a root node, and choosing a neighbour node.
+
+Revising queues, they have a First-In, First Out approach, insertion at the rear and deletion at the front.
+The procedure follows:
+\begin{itemize}
+\item The queue starts by inserting any root node, say for example A.
+\item Now A is dequeued and stored in the result.
+\item Queue all neighbouring nodes of A.
+\item The first node is dequeued.
+\item Upon dequeueing, all neighbouring nodes are checked if it's in the queue. If not, they are queued in.
+\begin{itemize}
+\item Let's say B is taken, and B is connected to C, and C is already connected to A and B.
+\item A and C will not be queued.
+\end{itemize}
+\item This iterates until there are no more nodes.
+\end{itemize}
+
+Clearly, this depends on the number of edges in the graph. The maximum number of edges in a graph is \(^nC_2\).
+
+The functions required in this queue are:
+\begin{itemize}
+\item `Insert()`
+\item `Delete()`
+\item `Traverse()`
+\end{itemize}
+
+This will be covered in the next lab.
+ NOTE - This will not work for nodes which are not connected to any node in the graph.
+\section{Depth-First Search}
+\label{sec:org2b6af0a}
+
+This involves traversing the nodes until an edge node is met, using a stack.
+
+The procedure follows:
+\begin{itemize}
+\item A node is selected and pushed into the stack.
+\item A random node connected to A is pushed.
+\item A connected node is pushed.
+\item This procedure is met until no unvisited node exists
+\begin{itemize}
+\item In which case the stack is full.
+\item If the stack is still not full, it implies that there are nodes which haven't been visited.
+\end{itemize}
+\item Now popping occurs
+\item The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost elements's adjacent nodes for unvisited nodes.
+\item This is done until the stack is empty
+\end{itemize}
+
+\begin{verbatim}
+class DFS {
+  DFS(int V)  {
+    adj = new LinkedList[V];
+    visited = new boolean[V];
+    for (int i = 0; i < V; i++)
+      adj[i] = new LinkedList<Integer>();
+  }
+}
+\end{verbatim}
+\end{document}
