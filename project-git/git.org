@@ -1,0 +1,9 @@
+#+title: Git
+#+AUTHOR: Adithya Nair
+
+* Basics
+** clone, fork and download.
+- Cloning means downloading the entire repository, including the history of the entire project
+  #+begin_src shell
+git clone <repository-url>
+  #+end_src

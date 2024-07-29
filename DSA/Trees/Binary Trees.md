@@ -1,5 +1,4 @@
 A tree with at most two links from one node is known as a binary tree.
-
 ## Properties
 - Maximum number of nodes - $2^i$
 - Height is longest distance between root to leaf nodes (count the edges)

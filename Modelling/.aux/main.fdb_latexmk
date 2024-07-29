@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1721629070.98138 "main.tex" "main.pdf" "main" 1721629072.23405 0
-  ".aux/main.aux" 1721629072.04648 1286 5b6d337e1306aed27126b96d8682663d "pdflatex"
-  ".aux/main.out" 1721629072.04748 490 1047c56e2580af92c9b27e99351f5650 "pdflatex"
-  "/dev/null" 1721619920.151 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1722233872.30363 "main.tex" "main.pdf" "main" 1722233873.58529 0
+  ".aux/main.aux" 1722233873.38946 1781 b56155704f508fa306726f9461d101cd "pdflatex"
+  ".aux/main.out" 1722233873.39046 1096 49efabdcd9093e4071c27c6bdd13199a "pdflatex"
+  "/dev/null" 1722193794.247 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1714953600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -273,7 +273,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719936146.98581 4602002 62dba5fc29055c16380d7393a2adb07a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1720528679 7753279 c7b666b37be865ac13383eb3f580c99d ""
-  "main.tex" 1721629070.92648 3442 3070d18fbf92b344dd21eac3d08c8bc5 ""
+  "main.tex" 1722233871.01246 6833 3e2c081715924ba7c0d32b9d7b4efb2c ""
   "preamble.tex" 1721187350.26246 10920 93d19e56c5d708d6a069c00092dc38cc ""
   (generated)
   ".aux/main.aux"

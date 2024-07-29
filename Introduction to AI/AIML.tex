@@ -1,4 +1,4 @@
-% Created 2024-07-26 Fri 13:20
+% Created 2024-07-27 Sat 21:23
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -28,9 +28,9 @@
 \tableofcontents
 
 \section{Notes}
-\label{sec:orgd99bf65}
+\label{sec:org7986094}
 \subsection{Iris Data Classification}
-\label{sec:org38c2257}
+\label{sec:orge2c5b3b}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -45,14 +45,14 @@ print(np.size(train))
 print(irisdata.describe())
 \end{verbatim}
 \subsection{Data Pre-Processing}
-\label{sec:orgb14d0a6}
+\label{sec:org256dc8d}
 \subsubsection{Handling Missing Values (Imputation)}
-\label{sec:orgbb9d1a2}
+\label{sec:orgc3abc1f}
 When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
 Hence it is essential to handle the missing values.
 \begin{enumerate}
 \item CREATING A DATAFRAME
-\label{sec:org9f2a8e9}
+\label{sec:orgcd01ade}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -63,8 +63,8 @@ df = pd.read_csv('titanic.csv')
 # Display the first few rows of the dataset
 print("First few rows of the dataset:")
 print(df.head())
-print(df.shape)
 \end{verbatim}
+
 This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
 \begin{verbatim}
 
@@ -74,7 +74,7 @@ print(df.isnull().sum())
 
 \end{verbatim}
 \item There are two main methods in dealing with missing values.
-\label{sec:org8fc0ba3}
+\label{sec:org1ac758e}
 \begin{enumerate}
 \item Dropping rows with missing values.
 \item Filling the empty missing values with zeros.
@@ -95,7 +95,7 @@ This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and 
 So here we replace the values with the mean for numerical values and mode for categorical values.
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Look into other methods of imputation
-\label{sec:orgd55def3}
+\label{sec:orga61f248}
 \begin{verbatim}
 # Method 3: Fill missing values with the mean (for numerical columns)
 df['Age'].fillna(df['Age'].mean(), inplace=True)
@@ -109,7 +109,7 @@ print(df['Embarked'].isnull().sum())
 \end{verbatim}
 \end{enumerate}
 \item Forward fill and Backward Fill
-\label{sec:org9b9e830}
+\label{sec:orga9a7d2f}
 There are two better ways to fill the rows.
 \begin{itemize}
 \item Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
@@ -128,8 +128,54 @@ print(df_bfill.isnull().sum())
 print("*****************")
 \end{verbatim}
 \end{enumerate}
+\section{Table}
+\label{sec:orgf450ba0}
+\begin{center}
+\begin{tabular}{lr}
+Name & Marks\\
+Adithya & 100\\
+Neha & 400\\
+\end{tabular}
+\end{center}
+
+
+\phantomsection
+\label{}
+\begin{verbatim}
+
+Method 5 Missing values handled using forward fill method:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          1
+Embarked       0
+dtype: int64
+
+Method 6 Missing values handled using backward fill method:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          1
+Embarked       0
+dtype: int64
+*****************
+\end{verbatim}
 \subsubsection{Normalization}
-\label{sec:org80f497e}
+\label{sec:org11e6758}
 Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
 
 Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
@@ -137,14 +183,14 @@ Machine learning models tend to give a higher weightage to numerical attributres
 The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
 \begin{enumerate}
 \item Types Of Normalization
-\label{sec:org4a01d6a}
+\label{sec:orgd0f9d63}
 \begin{itemize}
 \item MinMaxScaler - all data points are brought to the range \([0,1]\)
 \item Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
 \end{itemize}
 \begin{enumerate}
 \item NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
-\label{sec:org6baf52a}
+\label{sec:orgf35012e}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -164,7 +210,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
-\label{sec:org0d79717}
+\label{sec:org38ba46b}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -184,7 +230,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
-\label{sec:org9b24003}
+\label{sec:org606eb4b}
 \begin{verbatim}
 # Initialize the MinMaxScaler
 from sklearn.preprocessing import MinMaxScaler
@@ -202,10 +248,11 @@ print(df)
 \end{enumerate}
 \end{enumerate}
 \subsubsection{SAMPLING}
-\label{sec:org19694b4}
+\label{sec:org5c3717b}
 \begin{enumerate}
 \item RANDOM SAMPLING
-\label{sec:org116888e}
+\label{sec:org51306e8}
+Random sampling is used for when the dataset is hella large.
 \begin{verbatim}
 import random
 
@@ -218,7 +265,7 @@ sample = random.sample(population, sample_size)
 print("Simple Random Sample:", sample)
 \end{verbatim}
 \item STRATIFIED SAMPLING
-\label{sec:org326853d}
+\label{sec:org33aa0fd}
 \begin{verbatim}
 import random
 
@@ -240,7 +287,7 @@ for stratum, data in strata_data.items():
 print("Stratified Sample:", sample)
 \end{verbatim}
 \item Systematic Sampling
-\label{sec:org11fe5b8}
+\label{sec:orgf393d96}
 \begin{verbatim}
 # Sample data
 data = list(range(1, 101))  # Data from 1 to 100
@@ -276,24 +323,16 @@ print("Cluster Sample:", sample)
 \end{verbatim}
 \end{enumerate}
 \subsubsection{BINNING}
-\label{sec:org28726de}
+\label{sec:org458f247}
 \begin{verbatim}
 import pandas as pd
 
-# Assuming 'df' is your DataFrame containing the dataset
+df = pd.read_csv('bollywood.csv')
 budget_bins = [0, 10, 20, float('inf')]  # Define your budget bins
 budget_labels = ['Low Budget', 'Medium Budget', 'High Budget']  # Labels for the bins
-
 df['BudgetBin'] = pd.cut(df['Budget'], bins=budget_bins, labels=budget_labels)
+print(df.head(10))
 \end{verbatim}
-
-\begin{verbatim}
-df.head(10)
-\end{verbatim}
-
-\begin{center}
-\includegraphics[width=.9\linewidth]{ce9e3744fc6a3bb5507b36f5f296493e45f8052b.png}
-\end{center}
 
 \begin{verbatim}
 collection_bins = [0, 20, 40, 60, float('inf')]  # Define your collection bins
@@ -303,9 +342,18 @@ df['CollectionBin'] = pd.cut(df['BoxOfficeCollection'], bins=collection_bins, la
 df.head(10)
 \end{verbatim}
 
-\begin{center}
-\includegraphics[width=.9\linewidth]{6d1b533234c55700921c51ec2564d6917a09ab42.png}
-\end{center}
+\begin{verbatim}
+import matplotlib.pyplot as plt
+budget_bin_counts = df['BudgetBin'].value_counts()
+# Plot the data as a bar chart
+plt.figure(figsize=(8, 6))
+budget_bin_counts.plot(kind='bar', color='skyblue')
+plt.title('Number of Movies in Each Budget Bin')
+plt.xlabel('Budget Bin')
+plt.ylabel('Number of Movies')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+\end{verbatim}
 \subsection{Supervised Learning}
-\label{sec:org3d967c2}
+\label{sec:org07a77de}
 \end{document}

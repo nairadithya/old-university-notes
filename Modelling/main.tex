@@ -55,7 +55,6 @@ The steps in the design of dynamic systems involve:
 	\item This model is then represented using differential equations
 	\item The equations are solved using simulation software.
 \end{itemize}
-
 This course is mainly going to use the bond graph technique.
 \section{System}
 A system is an aggregation or assemblage of objects joined in some regular interaction or interdependence. This definition holds good for static systems, and our course focuses on dynamic systems. Systems consist of objects, with certain defined properties. These properties lead to interactions which causes a change in the system. Such objecsts of interest are known as entities, the properties of these entities are known as attributes, process that causes dchange in the system are known as activities and the complete decscription of entities attributes activities is known as the state.
@@ -64,6 +63,94 @@ The environment containing the system and surrounding it is known as the system 
 
 A closed system is a system with no exogeneous activity. An open system is a system with exogeneous activites. If the outcomes are predictable, it's deterministic. If they are random and vary with a set probability, they are said to be stochastic. If the outcomes  are smooth, then it's said to be continuous. If the outcomes  are discontinuous, then it's said to be discrete.
 
+\section{Types Of Models}
+\subsection{Static Models}
+Static models represents a system at a point where it is in balance, time is not a factor.
+They include economic equilibrium models, they can be used to determine the price and quanityt in markets at a single point in time, when supply equals demand.
+They can be used in things like stress-strain analysis due to time independent changes.
+\subsection{Dynamic Models}
+Static models represents a system at a point where it is not in balance, time is a factor.
+These include:
+\begin{enumerate}
+	\item Epidemic models
+	\item Climate models
+	\item Control Systems Models
+	\item Population Dynamics
+\end{enumerate}
 
+The categorization is:
+\begin{itemize}
+	\item Physical
+		\begin{itemize}
+			\item Static - Architectural models, scale models of buildings used in architecture to test design
+			\item Dynamic - Models of human organs used in education
+		\end{itemize}
+	\item Mathematical
+		\begin{itemize}
+			\item Static 
+				\begin{itemize}
+					\item Numerical - Linear programming, static finite element analysis 
+					\item Analytical - Closed form solutions, economic equilibrium 
+				\end{itemize}
+			\item Dynamic
+				\begin{itemize}
+					\item Numerical - Numerical Integration of differential equations, time stepping methods for fluid dynamics.
+				\end{itemize}
+		\end{itemize}
+\end{itemize}
+\section{Steps Of Analytical Modelling}
+You start with:
+\begin{enumerate}
+	\item Purpose of the model
+		\begin{itemize}
+			\item Model to be developed should be decided based on intended objective. 
+		\end{itemize}
+	\item Define boundaries 
+		\begin{itemize}
+			\item System is separated from the rest of the world, by a boundary. 
+			\item Boundary may be real or imaginary.
+			\item Boundaries should be defined based on purpose.
+		\end{itemize}
+	\item Postulate a structure 
+		\begin{itemize}
+			\item Systems store, dissipate, transfer or transform energy from one form to another. 
+			\item Identify simple elements which characterize these operations on energy.
+			\item Model elements generally have two ports, sometimes more.
+			\item Represent the actual system as an interconnection of these elements.
+			\item Referred to as physical modelling.
+		\end{itemize}
+	\item Select variables of interest
+		\begin{itemize}
+			\item First step 
+			\item Assign variabls to all system attributes of interest like current, velocity, temperature etc.
+		\end{itemize}
+	\item Math description of each model element
+		\begin{itemize}
+			\item Identify the relations between variables. 
+			\item Relations may be differential ro algebraic expressions.
+		\end{itemize}
+	\item Apply relevant physical laws.
+		\begin{itemize}
+			\item The most important step.
+			\item Develop equations to describe the effects.
+			\item Physical laws describe these effects.
+		\end{itemize}
+	\item Final form of mathematical model
+		\begin{itemize}
+			\item All the equations form the final mathematical model of the system.
+		\end{itemize}
+	\item Analyse and validate model
+		\begin{itemize}
+			\item Model is never a exact representation. 
+			\item Verify accuracy
+			\item Compare results with actual results.
+		\end{itemize}
+	\item Modify model if necessary.
+		\begin{itemize}
+			\item To be done if results are not convincing
+		\end{itemize}
+\end{enumerate}
+\begin{note}
+	Project note - Search Varun Kumar R S, Naveen Kumar R. Go through their papers.
+\end{note}
 \end{document}
-

@@ -1,0 +1,223 @@
+% Created 2024-07-29 Mon 09:14
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Adithya Nair}
+\date{\today}
+\title{DSA}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={DSA},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Graphs}
+\label{sec:org8c43876}
+Graphs are nodes with links to each other. These links are defined by a matrix known as an \textbf{\textbf{adjacency matrix}}.
+
+The best way to store such links is (under the assumption that the graphs in question are \textbf{\textbf{bi-directional}}) to store only the upper triangle of the adjacency matrix, while ignoring the diagonal.
+\subsection{Storing Graph Data}
+\label{sec:org74fc579}
+\begin{verbatim}
+import java.util.*;
+int c = 5;
+int a[][] = new int[c][c];
+int upperTriangleSize = (c*(c-1))/2;
+int graph_data[] = new int[upperTriangleSize];
+int k = 0;
+for(int i = 0; i < c; i++){
+	for(int j = i+1;j < c;j++){
+		graph_data[k] =  a[i][j];
+		k++;
+	}
+}
+\end{verbatim}
+$\backslash$[
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & &\ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+$\backslash$]
+\subsection{Adjacency Lists}
+\label{sec:orgf2703f7}
+This consists of a one-dimensional array, specifically of pointers.
+For an example graph,
+\begin{align*}
+&a \rightarrow b \rightarrow c \rightarrow d  \\
+&\downarrow \\
+&b \rightarrow a \rightarrow c \\
+&\downarrow \\
+&c \rightarrow a \rightarrow b \\
+&\downarrow \\
+&d \rightarrow a \rightarrow e\\
+&\downarrow \\
+&e \rightarrow d \\
+\end{align*}
+
+We have a linked list of linked lists. The problem here is that links are represented twice.
+
+This is an optimization for when graphs have very few links.
+\subsection{The method of traversal(visit all nodes).}
+\label{sec:org0dfe080}
+
+There are two algorithms of traversal:
+\begin{enumerate}
+\item Breadth-First Search - which involves the usage of queue
+\item Depth-First Search - which involves the usage of stack
+\end{enumerate}
+\subsubsection{Breadth-First Search}
+\label{sec:org6615423}
+Breadth-first involves selecting a root node, and choosing a neighbour node.
+
+Revising queues, they have a First-In, First Out approach, insertion at the rear and deletion at the front.
+The procedure follows:
+\begin{itemize}
+\item The queue starts by inserting any root node, say for example A.
+\item Now A is dequeued and stored in the result.
+\item Queue all neighbouring nodes of A.
+\item The first node is dequeued.
+\item Upon dequeueing, all neighbouring nodes are checked if it's in the queue. If not, they are queued in.
+\begin{itemize}
+\item Let's say B is taken, and B is connected to C, and C is already connected to A and B.
+\item A and C will not be queued.
+\end{itemize}
+\item This iterates until there are no more nodes.
+\end{itemize}
+
+Clearly, this depends on the number of edges in the graph. The maximum number of edges in a graph is \(^nC_2\).
+
+The functions required in this queue are:
+\begin{itemize}
+\item `Insert()`
+\item `Delete()`
+\item `Traverse()`
+\end{itemize}
+
+This will be covered in the next lab.
+ NOTE - This will not work for nodes which are not connected to any node in the graph.
+\subsubsection{Depth-First Search}
+\label{sec:orgff90284}
+
+This involves traversing the nodes until an edge node is met, using a stack.
+
+The procedure follows:
+\begin{itemize}
+\item A node is selected and pushed into the stack.
+\item A random node connected to A is pushed.
+\item A connected node is pushed.
+\item This procedure is met until no unvisited node exists
+\begin{itemize}
+\item In which case the stack is full.
+\item If the stack is still not full, it implies that there are nodes which haven't been visited.
+\end{itemize}
+\item Now popping occurs
+\item The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost elements's adjacent nodes for unvisited nodes.
+\item This is done until the stack is empty
+\end{itemize}
+
+\begin{verbatim}
+class DFS {
+  DFS(int V)  {
+    adj = new LinkedList[V];
+    visited = new boolean[V];
+    for (int i = 0; i < V; i++)
+      adj[i] = new LinkedList<Integer>();
+  }
+}
+\end{verbatim}
+\section{Trees}
+\label{sec:org75825f6}
+A tree with at most two links from one node is known as a binary tree.
+\subsection{Properties}
+\label{sec:orgd4c9c50}
+\begin{itemize}
+\item Maximum number of nodes - \(2^i\)
+\item Height is longest distance between root to leaf nodes (count the edges)
+\item Maximum number of nodes possible till height h is \((2^0 + 2^1 + 2^2 + \cdots 2^h)\) = \(2^{h+1} -1\)
+\end{itemize}
+\subsection{Types Of Binary Trees}
+\label{sec:org5ba312c}
+\subsubsection{Full/Proper/Strict Binary Tree}
+\label{sec:org7186271}
+It is a tree where each node must contain 2 children except the leaf node.
+
+\begin{itemize}
+\item There are either two children or no children.
+\item The number of leaf nodes is equal to number of internal nodes + 1
+\item The minimum number of nodes is equal to \(2^h + 1\)
+\item Maximum number of nodes is the same as number of nodes in binary tree, \(2^{h+1} - 1\)
+\item The minimum height of the full binary tree is \(log_2(n+1) - 1\)
+\end{itemize}
+\subsubsection{Complete Binary Tree}
+\label{sec:org1bba02f}
+A binary tree where all the nodes are completely filled except the last level.
+\subsubsection{Degenerate Binary Tree}
+\label{sec:orgdd56dfa}
+Exactly like a linked list.
+\subsubsection{Balanced Binary Tree}
+\label{sec:orgda57980}
+\begin{itemize}
+\item The heights of left and right trees can have a maximum height difference of 1.
+\end{itemize}
+\subsection{Binary Search Tree}
+\label{sec:orgbc04abd}
+Value of left node must be smaller than parent, and value of right node must be greater than the parent node.
+\subsubsection{Binary Search Tree Insertion}
+\label{sec:org3e41c48}
+\begin{enumerate}
+\item Deleting Nodes
+\label{sec:orgd3e98f8}
+\begin{itemize}
+\item It works the same as a linked list operation.
+\item We use \ref{sec:org2262325} to figure out the node's value, it takes the value of its in order successor.
+\end{itemize}
+\item Binary Search Tree Traversal.
+\label{sec:orgb7505d3}
+There are three types of traversal.
+\begin{enumerate}
+\item Pre-order Traversal.
+\label{sec:org8cfcea2}
+\begin{itemize}
+\item Process the root
+\item Process left node subtree.
+\item Process right node subtree.
+\item Recursively repeat.
+\end{itemize}
+\item In order Traversal
+\label{sec:org2262325}
+\begin{itemize}
+\item Process the left subtree
+\item Process the root
+\item Process the right subtree
+\item Recursively repeat.
+\textbf{\textbf{We use in order successors to figure out the value to copy.}}
+\end{itemize}
+\item Post order Traversal
+\label{sec:org8ea064c}
+\begin{itemize}
+\item Process the left subtree
+\item Process the right subtree
+\item Process the root
+\item Recursively repeat.
+\end{itemize}
+\end{enumerate}
+\end{enumerate}
+\end{document}

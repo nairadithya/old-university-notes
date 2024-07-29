@@ -1,0 +1,27 @@
+\contentsline {chapter}{\numberline {1}Solids}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Moment Of Area}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Resisting Force And Moments From Supports}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Derivation Of The Uniaxial Formula}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Code For Uniaxial Deformation}{2}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Finding The Local Stiffness Matrix}{3}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Converting The Local Stiffness To A Global Stiffness Matrix}{3}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Main Loop Through Evaluating The Global Stiffness Matrix}{3}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Applying Boundary Conditions}{3}{subsection.1.4.4}%
+\contentsline {section}{\numberline {1.5}Deriving For Bending Deformation}{3}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Quick Reference Notes}{5}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Derivations}{5}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Deriving Stiffness Matrix}{5}{subsection.1.6.2}%
+\contentsline {section}{\numberline {1.7}Final Equation}{5}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Fluids}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Main Contents}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Terminology}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Derivation Of Equations}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Recall}{7}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Density As A Function Of Time And Position}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}External Forces On Fluid}{8}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Variation of stress across a small distance}{8}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Navier-Stokes Equation For Newtonian Isotropic Fluids}{9}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Special Flows}{9}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Computational Fluid Dynamics}{11}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1}Taylor Series}{11}{subsection.2.10.1}%
+\contentsline {section}{\numberline {2.11}For Unidirectional Flow}{12}{section.2.11}%
