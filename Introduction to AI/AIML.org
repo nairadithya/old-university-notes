@@ -417,12 +417,20 @@ This is done by researching
 - Private repos
 - Simulated data
 - Synthetic data
-*** [[Data pre-processing]]
+*** [[Pre-processing]]
 *** Selection of AI models based on the data
+- Figure out whether the problem is a regression or a classification problem.
+- Figure out the computational capacity
+- Try various models for best fit.
 *** Training and tuning the model - A train/test split or a train/validation/testing split.
+- The data is separated out into training and testing.
+- The training subset is passed onto the chosen AI model.
 - Validation is done because it prevents overfitting.
 - The model should generalize.
 *** Testing the developed model
+- Choose evaluation metrics based on the model.
+  - Regresssion can involve MSPE, MSAE, $R^2$
+- Test the data.
 *** Analysis of the results
 *** Re-iterate as needed
 *** Deploy model.
