@@ -1,19 +1,96 @@
 #+title: Git
 #+AUTHOR: Adithya Nair
-
-* The Power Of Plain Text
-* The Need For Version Control
+* Starting With Some Motivation
+# Insert Picture Of WhatsApp Message Of Code
+# Insert Picture Of Multiple "Final" Filenames.
+** The Problems It Solve
 Version control solves two main problems.
-1. You can confidently move forward in your projects, if you can
-
+1. You can confidently move forward in your projects, if you have saved states that you have annotated.
+2. You can confidently work in teams, making changes to the projects independently.
+** Usage In Industries
+* How Git Works
+#+begin_quote
+"When you do actions in Git, nearly all of them only add data to the Git database. It is hard to get the system to do anything that is not undoable or to make it erase data in any way." from Pro Git.
+#+end_quote
+** The Three States
+Git has three main states:
+1. Modified
+2. Staged
+3. Commited
+** TODO A Time Machine
+** TODO A Glossary
+*** Repository
+*** Branches
+*** Commits
+** We Will Be Using The CLI
+We will use the CLI only for the purposes of this workshop, and I highly suggest sticking with the CLI until you're familiar enough. Once you learn the CLI, you can use any GUI but you don't really learn the CLI from the GUI.
+* Installation
+** Linux
+#+begin_src shell
+sudo <package-manager> install git
+#+end_src
+** Mac
+Mac users usually have it all installed anyway. Check by typing
+#+begin_src shell
+git --version
+# If not installed
+brew install git
+#+end_src
+** Windows
+#+begin_src
+choco install git
+#+end_src
+* Setup
+** Config
+Setup your name and email. This is how git commits will be seen, so that we know who is responsible for what work clearly. (This will come in handy with git blame)
+#+begin_src shell
+git config --global user.name "Adithya Nair"
+git config --global user.email "adithyanair121@gmail.com"
+#+end_src
+Setup your editor of choice
+#+begin_src shell
+# For VS Code
+git config --global core.editor "code --wait"
+# For Emacs
+git config --global core.editor emacs
+# For NeoVim
+git config --global core.editor "nvim -f"
+#+end_src
+You might be wondering why I am adding the `--wait` to vscode, that's because it allows VS Code to wait for a signal from git. This will come in handy later.
 * Commands
+** Initialize A Repo
+#+begin_src shell
+git init
+#+end_src
 ** Download A New Repo
 - Cloning means downloading the entire repository, including the history of the entire project
   #+begin_src shell
 git clone <repository-url>
   #+end_src
+** Check The Status Of Your Repo
+#+begin_src shell
+git status
+#+end_src
+
+** Adding Files To Be Commited
+#+begin_src shell
+git add <file-name>
+#+end_src
+You cannot commit if you don't add them to the staging area, this is how you stage your changes.
+** Commit
+#+begin_src shell
+git commit -m "Message"
+#+end_src
 ** Rollback Changes
 ** Create A New Branch
 ** Merge Branches
 ** Remote Repository Sync
-**
+* Example Workflow
+* Community
+** Pull Requests
+** Discussions
+** Putting Up Issues
+* References
+- [[https://www.youtube.com/watch?v=2sjqTHE0zok][MIT Lecture on Git.]]
+- [[https://git-scm.com/book/en/v2][Pro Git, A comprehensive look into git.]]
+- [[https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html][A note about commit messages]]-
