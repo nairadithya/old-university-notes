@@ -1,4 +1,4 @@
-% Created 2024-07-27 Sat 21:23
+% Created 2024-07-29 Mon 15:40
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -27,10 +27,8 @@
 \maketitle
 \tableofcontents
 
-\section{Notes}
-\label{sec:org7986094}
-\subsection{Iris Data Classification}
-\label{sec:orge2c5b3b}
+\section{Iris Data Classification}
+\label{sec:orgb422ac4}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -44,15 +42,17 @@ print(np.size(test))
 print(np.size(train))
 print(irisdata.describe())
 \end{verbatim}
-\subsection{Data Pre-Processing}
-\label{sec:org256dc8d}
+\section{Overview}
+\label{sec:org90e8205}
+\subsection{Pre-Processing}
+\label{sec:org62836e4}
 \subsubsection{Handling Missing Values (Imputation)}
-\label{sec:orgc3abc1f}
+\label{sec:org4aa1fc9}
 When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
 Hence it is essential to handle the missing values.
 \begin{enumerate}
 \item CREATING A DATAFRAME
-\label{sec:orgcd01ade}
+\label{sec:orgeb7cdbf}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -74,7 +74,7 @@ print(df.isnull().sum())
 
 \end{verbatim}
 \item There are two main methods in dealing with missing values.
-\label{sec:org1ac758e}
+\label{sec:org5e53646}
 \begin{enumerate}
 \item Dropping rows with missing values.
 \item Filling the empty missing values with zeros.
@@ -95,7 +95,7 @@ This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and 
 So here we replace the values with the mean for numerical values and mode for categorical values.
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Look into other methods of imputation
-\label{sec:orga61f248}
+\label{sec:orga110bf5}
 \begin{verbatim}
 # Method 3: Fill missing values with the mean (for numerical columns)
 df['Age'].fillna(df['Age'].mean(), inplace=True)
@@ -109,7 +109,7 @@ print(df['Embarked'].isnull().sum())
 \end{verbatim}
 \end{enumerate}
 \item Forward fill and Backward Fill
-\label{sec:orga9a7d2f}
+\label{sec:orgb1a53d6}
 There are two better ways to fill the rows.
 \begin{itemize}
 \item Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
@@ -128,54 +128,8 @@ print(df_bfill.isnull().sum())
 print("*****************")
 \end{verbatim}
 \end{enumerate}
-\section{Table}
-\label{sec:orgf450ba0}
-\begin{center}
-\begin{tabular}{lr}
-Name & Marks\\
-Adithya & 100\\
-Neha & 400\\
-\end{tabular}
-\end{center}
-
-
-\phantomsection
-\label{}
-\begin{verbatim}
-
-Method 5 Missing values handled using forward fill method:
-PassengerId    0
-Survived       0
-Pclass         0
-Name           0
-Sex            0
-Age            0
-SibSp          0
-Parch          0
-Ticket         0
-Fare           0
-Cabin          1
-Embarked       0
-dtype: int64
-
-Method 6 Missing values handled using backward fill method:
-PassengerId    0
-Survived       0
-Pclass         0
-Name           0
-Sex            0
-Age            0
-SibSp          0
-Parch          0
-Ticket         0
-Fare           0
-Cabin          1
-Embarked       0
-dtype: int64
-*****************
-\end{verbatim}
 \subsubsection{Normalization}
-\label{sec:org11e6758}
+\label{sec:orgca5fb20}
 Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
 
 Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
@@ -183,14 +137,16 @@ Machine learning models tend to give a higher weightage to numerical attributres
 The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
 \begin{enumerate}
 \item Types Of Normalization
-\label{sec:orgd0f9d63}
+\label{sec:org34e7d9b}
 \begin{itemize}
 \item MinMaxScaler - all data points are brought to the range \([0,1]\)
 \item Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
+\item LogScaler
+\item DecimalScaler - divides the number by a power of 10 until it is lesser than 1.
 \end{itemize}
 \begin{enumerate}
 \item NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
-\label{sec:orgf35012e}
+\label{sec:org5c3ded2}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -210,7 +166,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
-\label{sec:org38ba46b}
+\label{sec:org5336bbf}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -230,7 +186,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
-\label{sec:org606eb4b}
+\label{sec:orgb376f8b}
 \begin{verbatim}
 # Initialize the MinMaxScaler
 from sklearn.preprocessing import MinMaxScaler
@@ -247,11 +203,11 @@ print(df)
 \end{verbatim}
 \end{enumerate}
 \end{enumerate}
-\subsubsection{SAMPLING}
-\label{sec:org5c3717b}
+\subsubsection{Sampling}
+\label{sec:org1899a6a}
 \begin{enumerate}
 \item RANDOM SAMPLING
-\label{sec:org51306e8}
+\label{sec:org59a9499}
 Random sampling is used for when the dataset is hella large.
 \begin{verbatim}
 import random
@@ -265,7 +221,7 @@ sample = random.sample(population, sample_size)
 print("Simple Random Sample:", sample)
 \end{verbatim}
 \item STRATIFIED SAMPLING
-\label{sec:org33aa0fd}
+\label{sec:orgf3784cd}
 \begin{verbatim}
 import random
 
@@ -287,7 +243,7 @@ for stratum, data in strata_data.items():
 print("Stratified Sample:", sample)
 \end{verbatim}
 \item Systematic Sampling
-\label{sec:orgf393d96}
+\label{sec:orgba43c8f}
 \begin{verbatim}
 # Sample data
 data = list(range(1, 101))  # Data from 1 to 100
@@ -322,8 +278,8 @@ for cluster in selected_clusters:
 print("Cluster Sample:", sample)
 \end{verbatim}
 \end{enumerate}
-\subsubsection{BINNING}
-\label{sec:org458f247}
+\subsubsection{Binning}
+\label{sec:org038f58a}
 \begin{verbatim}
 import pandas as pd
 
@@ -354,6 +310,73 @@ plt.ylabel('Number of Movies')
 plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.tight_layout()
 \end{verbatim}
-\subsection{Supervised Learning}
-\label{sec:org07a77de}
+\subsection{{\bfseries\sffamily TODO} Supervised Learning}
+\label{sec:orgd44bd0d}
+\subsection{{\bfseries\sffamily TODO} Unsupervised Learning}
+\label{sec:org5a776ae}
+\subsection{Reinforcement Learning}
+\label{sec:orgb527585}
+This is a method used in game-based systems.
+It maps:
+\begin{itemize}
+\item A set of states
+\item A set of actions
+\item A set of rewards
+\end{itemize}
+
+And tries to take actions, to achieve a goal to get the reward. It receives the reward, when it achieves the goal, and receives a penalty upon failure.
+
+These models maximise the cumulative reward.
+\subsection{Steps In Implementing An AI Model.}
+\label{sec:org9da5299}
+\subsubsection{Problem identification}
+\label{sec:org97027d0}
+This is done by researching
+\begin{itemize}
+\item Experts in the field
+\item Personal experience
+\item Literature survey
+\item Data curation
+\end{itemize}
+\subsubsection{Data Curation}
+\label{sec:orgca8d36e}
+\begin{itemize}
+\item Data collection in person
+\item Public repos
+\item Private repos
+\item Simulated data
+\item Synthetic data
+\end{itemize}
+\subsubsection{\ref{sec:org62836e4}}
+\label{sec:org4754cea}
+\subsubsection{Selection of AI models based on the data}
+\label{sec:org716de50}
+\begin{itemize}
+\item Figure out whether the problem is a regression or a classification problem.
+\item Figure out the computational capacity
+\item Try various models for best fit.
+\end{itemize}
+\subsubsection{Training and tuning the model - A train/test split or a train/validation/testing split.}
+\label{sec:org799658f}
+\begin{itemize}
+\item The data is separated out into training and testing.
+\item The training subset is passed onto the chosen AI model.
+\item Validation is done because it prevents overfitting.
+\item The model should generalize.
+\end{itemize}
+\subsubsection{Testing the developed model}
+\label{sec:orgb3cd545}
+\begin{itemize}
+\item Choose evaluation metrics based on the model.
+\begin{itemize}
+\item Regresssion can involve MSPE, MSAE, \(R^2\)
+\end{itemize}
+\item Test the data.
+\end{itemize}
+\subsubsection{Analysis of the results}
+\label{sec:org6117b8d}
+\subsubsection{Re-iterate as needed}
+\label{sec:org3ff2c10}
+\subsubsection{Deploy model.}
+\label{sec:org78e1c7f}
 \end{document}

@@ -1,9 +1,19 @@
 #+title: Git
 #+AUTHOR: Adithya Nair
 
-* Basics
-** clone, fork and download.
+* The Power Of Plain Text
+* The Need For Version Control
+Version control solves two main problems.
+1. You can confidently move forward in your projects, if you can
+
+* Commands
+** Download A New Repo
 - Cloning means downloading the entire repository, including the history of the entire project
   #+begin_src shell
 git clone <repository-url>
   #+end_src
+** Rollback Changes
+** Create A New Branch
+** Merge Branches
+** Remote Repository Sync
+**
