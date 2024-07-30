@@ -23,6 +23,7 @@ Git has three main states:
 *** Repository
 *** Branches
 *** Commits
+# Commits are a linked list.
 *** Stashing
 *** Snapshots
 ** TODO Every Repo Copy Is Self-Contained.
@@ -41,10 +42,7 @@ git --version
 brew install git
 #+end_src
 ** Windows
-# Go through the normal install procedure
-#+begin_src
-choco install git
-#+end_src
+*** TODO Add Git Installation Procedure
 * Setup
 ** Config
 Setup your name and email. This is how git commits will be seen, so that we know who is responsible for what work clearly. (This will come in handy with git blame)
@@ -83,6 +81,7 @@ git add <file-name>
 You cannot commit if you don't add them to the staging area, this is how you stage your changes.
 ** Ignore Files
 To make sure git does not track a certain file format, you can add a .gitignore file at the top of your repository. This file contains files and folders you want to ignore, in 'glob' format.
+This is useful when you have things that compile that isn't necessary to replicate.
 #+begin_src
 .gitignore
 *.out
@@ -95,11 +94,38 @@ git commit
 #+end_src
 ** View Changes
 You can use this command to see exactly what you've changed.
+#+begin_src shell
+git diff
+#+end_src
 ** Rollback Changes
 ** Create A New Branch
+#+begin_src shell
+git branch <branch-name>
+#+end_src
+** Switching To A New Branch
+#+begin_src shell
+git checkout <branch-name>
+# NOTE you can also use this, from git v2.23
+git switch <branch-name>
+#+end_src
 ** Merge Branches
+#+begin_src shell
+git checkout <branch-to-merge-to>
+git merge <branch-to-be-merged-with>
+#+end_src
+** Delete Branches
+#+begin_src shell
+git branch -d <branch-name>
+#+end_src
 ** Remote Repository Sync
+#+begin_src shell
+# To download newest changes from repo
+git pull
+# To sync local changes to remote repo
+git push
+#+end_src
 ** Stashing
+** Tagging
 * Example Workflow
 * Community
 ** Pull Requests
