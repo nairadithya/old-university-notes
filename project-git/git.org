@@ -1,4 +1,4 @@
-#+title: Git
+#+title: Git Worshop
 #+AUTHOR: Adithya Nair
 * Starting With Some Motivation
 # Insert Picture Of WhatsApp Message Of Code
@@ -135,3 +135,9 @@ git push
 - [[https://www.youtube.com/watch?v=2sjqTHE0zok][MIT Lecture on Git.]]
 - [[https://git-scm.com/book/en/v2][Pro Git, A comprehensive look into git.]]
 - [[https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html][A note about commit messages]]-
+
+
+* GITHUB
+** Github Education
+** Heatmap
+** Actions
