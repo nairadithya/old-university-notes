@@ -3,7 +3,7 @@
 * Starting With Some Motivation
 # Insert Picture Of WhatsApp Message Of Code
 # Insert Picture Of Multiple "Final" Filenames.
-** The Problems It Solve
+** The Problems Git Solves
 Version control solves two main problems.
 1. You can confidently move forward in your projects, if you have saved states that you have annotated.
 2. You can confidently work in teams, making changes to the projects independently.
@@ -13,6 +13,7 @@ Version control solves two main problems.
 "When you do actions in Git, nearly all of them only add data to the Git database. It is hard to get the system to do anything that is not undoable or to make it erase data in any way." from Pro Git.
 #+end_quote
 ** The Three States
+# Try adding into [[Commands]] section
 Git has three main states:
 1. Modified
 2. Staged
@@ -22,6 +23,9 @@ Git has three main states:
 *** Repository
 *** Branches
 *** Commits
+*** Stashing
+*** Snapshots
+** TODO Every Repo Copy Is Self-Contained.
 ** We Will Be Using The CLI
 We will use the CLI only for the purposes of this workshop, and I highly suggest sticking with the CLI until you're familiar enough. Once you learn the CLI, you can use any GUI but you don't really learn the CLI from the GUI.
 * Installation
@@ -37,6 +41,7 @@ git --version
 brew install git
 #+end_src
 ** Windows
+# Go through the normal install procedure
 #+begin_src
 choco install git
 #+end_src
@@ -56,14 +61,14 @@ git config --global core.editor emacs
 # For NeoVim
 git config --global core.editor "nvim -f"
 #+end_src
-You might be wondering why I am adding the `--wait` to vscode, that's because it allows VS Code to wait for a signal from git. This will come in handy later.
+You might be wondering why I am adding the `--wait` to vscode, that's because it allows git to wait for a signal from VS Code. This will come in handy when we're trying to use our editor of choice to write commit messages.
 * Commands
 ** Initialize A Repo
 #+begin_src shell
 git init
 #+end_src
 ** Download A New Repo
-- Cloning means downloading the entire repository, including the history of the entire project
+Cloning means downloading the entire repository, including the history of the entire project
   #+begin_src shell
 git clone <repository-url>
   #+end_src
@@ -71,20 +76,30 @@ git clone <repository-url>
 #+begin_src shell
 git status
 #+end_src
-
 ** Adding Files To Be Commited
 #+begin_src shell
 git add <file-name>
 #+end_src
 You cannot commit if you don't add them to the staging area, this is how you stage your changes.
+** Ignore Files
+To make sure git does not track a certain file format, you can add a .gitignore file at the top of your repository. This file contains files and folders you want to ignore, in 'glob' format.
+#+begin_src
+.gitignore
+*.out
+#+end_src
 ** Commit
 #+begin_src shell
 git commit -m "Message"
+# Or to write the message in your preferred editor
+git commit
 #+end_src
+** View Changes
+You can use this command to see exactly what you've changed.
 ** Rollback Changes
 ** Create A New Branch
 ** Merge Branches
 ** Remote Repository Sync
+** Stashing
 * Example Workflow
 * Community
 ** Pull Requests
