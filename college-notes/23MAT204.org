@@ -7,7 +7,8 @@
 
 Every matrix satisfies its own characteristic matrix.
 
-What this means is \[\begin{aligned}
+What this means is
+\[\begin{aligned}
     \lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\ 
     A^3 - 2A^2 + A -4I &= 0 \\  
     A^2 - 2A + I - 4A^{-1} &= 0 \\
@@ -25,16 +26,10 @@ characteristic equation
 2. The eigenvalues are positive.
 
 ** Large Eigenvalue Computation
-:PROPERTIES:
-:CUSTOM_ID: large-eigenvalue-computation
-:END:
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 
 ** Specral Decomposition
-:PROPERTIES:
-:CUSTOM_ID: specral-decomposition
-:END:
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -43,9 +38,6 @@ This is used in square symmetric matrices.
 This is the basis behind Principal Component Analysis.
 
 ** Singular Value Decomposition
-:PROPERTIES:
-:CUSTOM_ID: singular-value-decomposition
-:END:
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
