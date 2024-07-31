@@ -8,6 +8,7 @@ Version control solves two main problems.
 1. You can confidently move forward in your projects, if you have saved states that you have annotated.
 2. You can confidently work in teams, making changes to the projects independently.
 ** Usage In Industries
+** A Note
 * How Git Works
 #+begin_quote
 "When you do actions in Git, nearly all of them only add data to the Git database. It is hard to get the system to do anything that is not undoable or to make it erase data in any way." from Pro Git.
@@ -88,9 +89,10 @@ This is useful when you have things that compile that isn't necessary to replica
 #+end_src
 ** Commit
 #+begin_src shell
-git commit -m "Message"
-# Or to write the message in your preferred editor
+# Write the message in your preferred editor
 git commit
+# Write the commit message within the command
+git commit -m "Message"
 #+end_src
 ** View Changes
 You can use this command to see exactly what you've changed.
