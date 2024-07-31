@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1722147509.98503 "main.tex" "main.pdf" "main" 1722147511.55143 0
-  ".aux/main.aux" 1722147511.36205 3441 75445829a4375e66645cdc76fad36f5a "pdflatex"
-  ".aux/main.out" 1722147511.36305 2354 95f348f3d01be4df4708d78cda78cb96 "pdflatex"
-  "/dev/null" 1721963159.072 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1722406715.9775 "main.tex" "main.pdf" "main" 1722406717.56267 0
+  ".aux/main.aux" 1722406717.35363 3441 75445829a4375e66645cdc76fad36f5a "pdflatex"
+  ".aux/main.out" 1722406717.35463 2354 95f348f3d01be4df4708d78cda78cb96 "pdflatex"
+  "/dev/null" 1722193794.247 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1714953600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -293,7 +293,7 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1719936146.98581 4602002 62dba5fc29055c16380d7393a2adb07a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1720528679 7753279 c7b666b37be865ac13383eb3f580c99d ""
   "figures/l1eq1.svg" 1721897192.32186 3463 94073fbfa6fe42e28aeb3d3e60369e4d ""
-  "main.tex" 1722142870.19773 6884 19ee016dfa062e223849c898174ea4b2 ""
+  "main.tex" 1722406715.78563 6883 c3069da1b5255a1df4775777b50126a5 ""
   "preamble.tex" 1720986116.03673 10920 93d19e56c5d708d6a069c00092dc38cc ""
   "svg-inkscape/l1eq1_svg-tex.pdf" 1721897194.34885 1180 a619a73015f7e4c022526dbd2e702f90 ""
   "svg-inkscape/l1eq1_svg-tex.pdf_tex" 1721897194.34985 2625 659baa99b4a111b3c62c56b8b7939865 ""

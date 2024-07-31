@@ -1,0 +1,62 @@
+% Created 2024-07-31 Wed 08:37
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\input{preamble}
+\author{Adithya Nair}
+\date{\today}
+\title{Journal Club}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={Journal Club},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+The textbook is Terrence Tao's Analysis 1.
+\part{Real Analysis}
+\label{sec:orgbd35302}
+Real Analysis is useful for engineers and physicists. It's said to have a bad reputation, due to its rigour. This textbook offsets that by starting at the very base, the numbers themselves. It starts by defining natural numbers, then building integers, rational, real, complex and so on.
+We have the continuous medium which is expressed by the PDEs, Dynamics expressed by ODEs. Computer scientists aren't taught this,  they're taught Discrete Math.
+\chapter{Natural Numbers}
+\label{sec:org0ec79fd}
+Numbers were built to count. A system for counting was made, and that system is the number system.
+
+\begin{definition}
+A natural number is an element of the set \mathbb{N} of the set
+\[
+\mathbb{N} = \{0,1,2,3\cdots \}
+\]
+is obtained from 0 and counting forward indefinitely.
+\end{definition}
+We start with axioms to help clarify this.
+\begin{itemize}
+\item Axiom 1 : \(0 \in \mathbb{N}\)
+\item Axiom 2: If \(n \in \mathbb{N}\),, then \(n++ \in \mathbb{N}\)
+\end{itemize}
+This means that we have 0, 0++, ((0++)++)++ \ldots{}
+ We can then give these numbers  symbols for ease, 0,1,2,3\ldots{} NOTE: They do not hold any quantity as yet. They simply exist as representations of 0, 0++ and so on.
+\begin{itemize}
+\item Axiom 3: 0 is not an increment of any other natural number \(n \in \mathbb{N}\)
+\item Axiom 4: If \(n \neq m\), \(n++ \neq m++\)
+\end{itemize}
+We need to remove the rogue elements from the set, such as fractions and half-integers.
+\begin{itemize}
+\item Axiom 5: (Principle Of Mathematical Induction)
+\end{itemize}
+\end{document}

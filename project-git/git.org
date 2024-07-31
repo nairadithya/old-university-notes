@@ -43,7 +43,19 @@ git --version
 brew install git
 #+end_src
 ** Windows
-*** TODO Add Git Installation Procedure
+Download git for windows from this (WEBSITE)
+- Agree to the licence
+- Select all the options given
+- Choose your default editor, probably Visual Studio Code for most people
+- Override the default name, or keep it as master. That doesn't matter
+- Select the second option, use git from the command line and also from 3rd party software
+- Use bundled openssh
+- use the openssl library
+- Checkout Windows style, commit Unix-style line endings
+- Use MinTTY
+- Fast-forward(LOOK INTO DIFFERENCE BETWEEN REBASE AND FAST FORWARD)
+- Use Git Credential Manager, it's a 'nicer' way to talk to GitHub
+- Don't enable symbolic links
 * Setup
 ** Config
 Setup your name and email. This is how git commits will be seen, so that we know who is responsible for what work clearly. (This will come in handy with git blame)
