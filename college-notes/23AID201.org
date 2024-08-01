@@ -12,3 +12,4 @@ The textbooks to be followed is: "System Dynamics - Modeling, Simulation And Con
 What is modelling? It's a mathematical representation of a system. These representations allow us to evaluate the results of that given system. This course is focused on equipping us with the working knowledge to develop such mathematical models for our systems.
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
+You can use the main gnuplot configuration file for storing your settings. Otherwise you can create small files storing only one particular thing, like the color definitions as color.cfg and then load them with

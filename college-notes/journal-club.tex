@@ -1,13 +1,42 @@
-#+title: Journal Club
-#+author: Adithya Nair
-#+LATEX_CLASS: report
-#+LATEX_HEADER: \input{preamble}
+% Created 2024-08-01 Thu 08:16
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\input{preamble}
+\author{Adithya Nair}
+\date{\today}
+\title{Journal Club}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={Journal Club},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
 The textbook is Terrence Tao's Analysis 1.
-* Real Analysis
-** Introduction
+\part{Real Analysis}
+\label{sec:org78c27a7}
+\chapter{Introduction}
+\label{sec:orgc1d9053}
 Real Analysis is useful for engineers and physicists. It's said to have a bad reputation, due to its rigour. This textbook offsets that by starting at the very base, the numbers themselves. It starts by defining natural numbers, then building integers, rational, real, complex and so on.
 We have the continuous medium which is expressed by the PDEs, Dynamics expressed by ODEs. Computer scientists aren't taught this,  they're taught Discrete Math.
-** Natural Numbers
+\chapter{Natural Numbers}
+\label{sec:org6ef8056}
 Numbers were built to count. A system for counting was made, and that system is the number system.
 
 \begin{definition}
@@ -17,21 +46,29 @@ A natural number is an element of the set $\mathbb{N}$ of the set
 \]
 is obtained from 0 and counting forward indefinitely.
 \end{definition}
-*** Peano Axioms
+\section{Peano Axioms}
+\label{sec:orgab06525}
 We start with axioms to help clarify this.
-- Axiom 1 : $0 \in \mathbb{N}$
-- Axiom 2: If $n \in \mathbb{N}$,, then $n++ \in \mathbb{N}$
-This means that we have 0, 0++, ((0++)++)++ ...
- We can then give these numbers  symbols for ease, 0,1,2,3... NOTE: They do not hold any quantity as yet. They simply exist as representations of 0, 0++ and so on.
-- Axiom 3: 0 is not an increment of any other natural number $n \in \mathbb{N}$
-- Axiom 4: If $n \neq m$, $n++ \neq m++$
+\begin{itemize}
+\item Axiom 1 : \(0 \in \mathbb{N}\)
+\item Axiom 2: If \(n \in \mathbb{N}\),, then \(n++ \in \mathbb{N}\)
+\end{itemize}
+This means that we have 0, 0++, ((0++)++)++ \ldots{}
+ We can then give these numbers  symbols for ease, 0,1,2,3\ldots{} NOTE: They do not hold any quantity as yet. They simply exist as representations of 0, 0++ and so on.
+\begin{itemize}
+\item Axiom 3: 0 is not an increment of any other natural number \(n \in \mathbb{N}\)
+\item Axiom 4: If \(n \neq m\), \(n++ \neq m++\)
+\end{itemize}
 We need to remove the rogue elements from the set, such as fractions and half-integers.
-- Axiom 5: (Principle Of Mathematical Induction) Let $P(n)$ be any property pertaining to a natural number $n$. Suppose that $P(0)$ is true, and suppose that whenever $P(n)$ is true, $P(n++)$ is also true. Then $P(n)$ is true for every natural number.
+\begin{itemize}
+\item Axiom 5: (Principle Of Mathematical Induction) Let \(P(n)\) be any property pertaining to a natural number \(n\). Suppose that \(P(0)\) is true, and suppose that whenever \(P(n)\) is true, \(P(n++)\) is also true. Then \(P(n)\) is true for every natural number.
+\end{itemize}
 
-We then make an assumption: That the set $\mathbb{N}$ which satisfies these five axioms is called the set of natural numbers.
+We then make an assumption: That the set \(\mathbb{N}\) which satisfies these five axioms is called the set of natural numbers.
 With these 5 axioms, we can construct sequences
-*** Sequences
-For $n \in \mathbb{N}$
+\section{Sequences}
+\label{sec:org8e47123}
+For \(n \in \mathbb{N}\)
 \begin{align*}
 a_0 &= c, c \in \mathbb{N} \\
 a_1 &= f_0(a_0), \\
@@ -79,7 +116,7 @@ For
 \end{align*}
 \end{proof}
 
-Putting m = 0, we get $n+1 = n++$
+Putting m = 0, we get \(n+1 = n++\)
 \begin{definition}[Positive natural number]
 All numbers where,
 \[
@@ -102,3 +139,4 @@ Let n and m be natural numbers we say that $n$ is greater than or equal to m, an
 \end{enumerate}
 
 First 4 Exercises.
+\end{document}

@@ -30,3 +30,29 @@ timeRH = reverse(h)
 :   -2   1
 :   -3   3
 :
+
+#+begin_src octave
+clc;
+clear all;
+close all;
+% Define the original signal
+x = [1 2 3 4];
+% Define the time indices for plotting
+n = 0:length(x)-1;
+n_reversed = -fliplr(n);
+% Time-shifted versions
+x_n1 = [0 x(1:end-1)]; % Shifting right, padding with 0 at the beginning
+x_np1 = [x(2:end) 0]; % Shifting left, padding with 0 at the end
+x_neg_n = fliplr(x); % Reversing the sequence
+x_neg_np1 = [fliplr(x(2:end)) 0]; % x[-n+1]
+% Plotting
+subplot(2,2,1); stem(n, x); title('x[n]');
+subplot(2,2,2); stem(n, x_n1); title('x[n-1]');
+subplot(2,2,3); stem(n, x_np1); title('x[n+1]');
+subplot(2,2,4); stem(n_reversed, x_neg_n); title('x[-n]');
+% Plot x[-n+1] separately due to different time axis
+figure;
+stem(n_reversed+1, x_neg_np1); title('x[-n+1]');
+#+end_src
+
+#+RESULTS:
