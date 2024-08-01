@@ -11,3 +11,6 @@ This course is mainly going to focus on *Manipulators*. These machines are used 
 ** Overview
 
 * Unit 1
+** Glossary
+1. Actuator - Does work upon receiving voltage
+2. Encoder - Sensor that measures raw angle data.

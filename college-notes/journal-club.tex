@@ -1,4 +1,4 @@
-% Created 2024-08-01 Thu 08:16
+% Created 2024-08-01 Thu 08:22
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -30,13 +30,13 @@
 
 The textbook is Terrence Tao's Analysis 1.
 \part{Real Analysis}
-\label{sec:org78c27a7}
+\label{sec:org2d681a1}
 \chapter{Introduction}
-\label{sec:orgc1d9053}
+\label{sec:org6b5a14b}
 Real Analysis is useful for engineers and physicists. It's said to have a bad reputation, due to its rigour. This textbook offsets that by starting at the very base, the numbers themselves. It starts by defining natural numbers, then building integers, rational, real, complex and so on.
 We have the continuous medium which is expressed by the PDEs, Dynamics expressed by ODEs. Computer scientists aren't taught this,  they're taught Discrete Math.
 \chapter{Natural Numbers}
-\label{sec:org6ef8056}
+\label{sec:org7b59bc5}
 Numbers were built to count. A system for counting was made, and that system is the number system.
 
 \begin{definition}
@@ -47,7 +47,7 @@ A natural number is an element of the set $\mathbb{N}$ of the set
 is obtained from 0 and counting forward indefinitely.
 \end{definition}
 \section{Peano Axioms}
-\label{sec:orgab06525}
+\label{sec:org029d0ac}
 We start with axioms to help clarify this.
 \begin{itemize}
 \item Axiom 1 : \(0 \in \mathbb{N}\)
@@ -67,7 +67,7 @@ We need to remove the rogue elements from the set, such as fractions and half-in
 We then make an assumption: That the set \(\mathbb{N}\) which satisfies these five axioms is called the set of natural numbers.
 With these 5 axioms, we can construct sequences
 \section{Sequences}
-\label{sec:org8e47123}
+\label{sec:orgab8ec9f}
 For \(n \in \mathbb{N}\)
 \begin{align*}
 a_0 &= c, c \in \mathbb{N} \\
@@ -96,9 +96,9 @@ For any natural number $n + 0=n$
 \end{lemma}
 \begin{proof}
 \begin{align*}
-n = 0, 0 + 0 = 0 \\
-n+0 = n \\
-(n++) + 0 = (n+0)++ = n++ \\
+n &= 0, 0 + 0 = 0 \\
+n+0 &= n \\
+(n++) + 0 &= (n+0)++ = n++ \\
 \end{align*}
 \end{proof}
 \begin{lemma}
@@ -108,11 +108,12 @@ n + (m++) = (n+m)++
 \end{lemma}
 \begin{proof}
 \begin{align*}
-n = 0, 0 + m++ = (0+m)++ \\
+n &= 0, \\
+0 + m++ = (0+m)++ \\
 For
-(n++) + (m++) = ((n++)+m)++ \\
-=(n+(m++))++ \\
-=((n+m)++))++ \\
+(n++) + (m++) &= ((n++)+m)++ \\
+&=(n+(m++))++ \\
+&=((n+m)++))++ \\
 \end{align*}
 \end{proof}
 
@@ -125,7 +126,7 @@ n \neq 0, n \in \mathbb{N}
 \end{definition}
 
 \begin{lemma}HOMEWORK
-For every a, there exists a b such that $b++ = a$
+For every $a$, there exists a $b$ such that $b++ = a$
 \end{lemma}
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$

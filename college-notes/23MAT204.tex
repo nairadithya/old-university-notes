@@ -1,9 +1,37 @@
-#+TITLE: 23MAT204
-#+AUTHOR: Adithya Nair
-#+LATEX_HEADER: \input{preamble}
-#+LATEX_CLASS: report
-* Mathematics
-** Revision Linear Algebra
+% Created 2024-08-01 Thu 09:50
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\input{preamble}
+\author{Adithya Nair}
+\date{\today}
+\title{23MAT204}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={23MAT204},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\part{Mathematics}
+\label{sec:orgd3dc384}
+\chapter{Revision Linear Algebra}
+\label{sec:org7a8d2fb}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -20,24 +48,26 @@ problem, generate a random 3x3 matrix, find the ranks of
 
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
-
-*** Ways To Calculate Whether A Matrix Is Positive Definite
-1. The minors are positive then negative alternating.
-2. The eigenvalues are positive.
-
-*** Large Eigenvalue Computation
+\section{Ways To Calculate Whether A Matrix Is Positive Definite}
+\label{sec:orgadba4e9}
+\begin{enumerate}
+\item The minors are positive then negative alternating.
+\item The eigenvalues are positive.
+\end{enumerate}
+\section{Large Eigenvalue Computation}
+\label{sec:orgede652c}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
-
-*** Specral Decomposition
+\section{Specral Decomposition}
+\label{sec:orgf31d23a}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
 This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
-
-*** Singular Value Decomposition
+\section{Singular Value Decomposition}
+\label{sec:org11dab2d}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -45,7 +75,7 @@ This is mainly used for getting useful properties about the matrix
 without needing to perform significant operations on this matrix, such
 as the orthogonality.
 
-Singular values are the eigenvalues of a matrix which are *non-zero*
+Singular values are the eigenvalues of a matrix which are \textbf{non-zero}
 
 So a rectangular matrix \(m \times n\) would have \(AA^T\) which is
 \(m \times m\) and \(A^TA\) which is \(n \times n\). The number of
@@ -55,23 +85,17 @@ The trace of \(A^TA\) equal to the sum of all \(a_{ij}^2\) The trace is
 the sum of all eigenvalues of \(A^T A\), and For \(A_{m \times n}\)
 that's the sum of the eigenvalues squared.
 
-This is known as the *Frobenius Norm*
+This is known as the \textbf{Frobenius Norm}
 
 This method can also be used to generate orthonormal bases for the 4
 Fundamental Subspaces
-
-*** The Geometry of SVD
-:PROPERTIES:
-:CUSTOM_ID: the-geometry-of-svd
-:END:
-Since we have an orthogonal matrix, diagonal and orthogonal matrix...
+\section{The Geometry of SVD}
+\label{the-geometry-of-svd}
+Since we have an orthogonal matrix, diagonal and orthogonal matrix\ldots{}
 It's a rotation step followed by a stretching step, finally ended by
 another rotation step.
-
-*** Polar Decomposition
-:PROPERTIES:
-:CUSTOM_ID: polar-decomposition
-:END:
+\section{Polar Decomposition}
+\label{polar-decomposition}
 This decomposition is a special case of the Singular Value
 Decomposition. Where you decompose the elements into the polar form with
 an orthogonal matrix and a positive semi-definite matrix.
@@ -90,22 +114,16 @@ Here S is the scaling matrix, and Q is the orthogonal matrix.
 Although my assumptions might be wrong, this might be a way to generate
 rotation matrices for higher-dimension spaces. Might be useful in
 exploring the semantic spaces of LLMs.
-
-*** Principal Component Analysis
-:PROPERTIES:
-:CUSTOM_ID: principal-component-analysis
-:END:
+\section{Principal Component Analysis}
+\label{principal-component-analysis}
 Why do we use normalization while working with data? We use
 normalization to ensure that the units are eliminated while working with
-that given data. *This normalization is done by subtracting by the
-average and divide by the standard deviation.*
+that given data. \textbf{This normalization is done by subtracting by the
+average and divide by the standard deviation.}
 
 Matrix where the row and columns sums are equal.
-
-*** Norms Of Vectors And Matrices
-:PROPERTIES:
-:CUSTOM_ID: norms-of-vectors-and-matrices
-:END:
+\section{Norms Of Vectors And Matrices}
+\label{norms-of-vectors-and-matrices}
 Norms are a way to measure the size of a vector/matrix. The norm of a
 vector which calculates the magnitude is known as the \(L^2\) norm or
 the Euclidean norm \(\|v\|_2\). This number gives us the length of the
@@ -124,16 +142,17 @@ The \(L_\infty\) norm would be
 \([|u_1|^\infty + |u_2|^\infty + \cdots + |u_n|^\infty]^{\frac{1}{\infty}}\).
 This returns the maximum vector component of the vector.
 
-Let's take the equation, \(\|v\|_1 = 1\) \[\begin{aligned}
-    x + y &= 1 \\
-    x - y &= 1 \\
-    - x + y &= 1 \\
+Let's take the equation, \(\|v\|_1 = 1\) $\backslash$[\begin{aligned}
+    x + y \&= 1 \\
+    x - y \&= 1 \\
+\begin{itemize}
+\item x + y \&= 1 \\
+\end{itemize}
     -x - y = 1 \\
-\end{aligned}\]
+\end{aligned}$\backslash$]
 
-#+caption: We find 4 lines to satisfy these conditions.
-<<fig:l1eq1>>
-[[./figures/l1eq1]]
+\label{fig:l1eq1}
+\url{./figures/l1eq1}
 
 The S-norm of a vector \(\vec{x}\) is \(\vec{x}^T S \vec{x}\). When S is
 a symmetric positive definite matrix, this S-norm is known as the energy
@@ -141,17 +160,17 @@ of vector \(\vec{v}\)
 
 There are three types of Matrix norms:
 
-1. Spectral Norm
+\begin{enumerate}
+\item Spectral Norm
 
-2. Frobenius Norm =
-   \(\sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}\)
+\item Frobenius Norm =
+\(\sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}\)
 
-3. Nuclear Norm
-
-**** Spectral Norm
-:PROPERTIES:
-:CUSTOM_ID: spectral-norm
-:END:
+\item Nuclear Norm
+\end{enumerate}
+\begin{enumerate}
+\item Spectral Norm
+\label{spectral-norm}
 We know that the vector norm for a vector \(\vec{x}\) is nothing but
 \(\vec{x}^T \vec{x}\). We take this property.
 
@@ -160,47 +179,43 @@ We know that the vector norm for a vector \(\vec{x}\) is nothing but
               &= Max \frac{x^TA^TAx}{x^Tx} \\
               &= Max \{\lambda_i(S)\} = \lambda_1 = \sigma_1^2
 \end{aligned}\]
-
-**** Frobenius Norm
-:PROPERTIES:
-:CUSTOM_ID: frobenius-norm
-:END:
+\item Frobenius Norm
+\label{frobenius-norm}
 The Frobenius norm for a matrix M, \(\begin{bmatrix}
     a_{11} & a_{12}\\
 a_{21} & a_{22} \\
 \end{bmatrix}\) is the equation
 \(\sqrt{a_{11}^2 + a_{12}^2 + a_{21}^2 + a_{22}^2}\)
-
-**** Nuclear Norm
-:PROPERTIES:
-:CUSTOM_ID: nuclear-norm
-:END:
+\item Nuclear Norm
+\label{nuclear-norm}
 The nuclear norm is the sum of the singular values of a matrix A.
 
 For an identity matrix,
 
-- The Spectral Norm is 1
+\begin{itemize}
+\item The Spectral Norm is 1
 
-- The Frobenius Norm is \(\sqrt{n}\)
+\item The Frobenius Norm is \(\sqrt{n}\)
 
-- The Nuclear Norm is \({n}\)
+\item The Nuclear Norm is \({n}\)
+\end{itemize}
 
 For an orthogonal matrix,
 
-- The Spectral Norm is 1
+\begin{itemize}
+\item The Spectral Norm is 1
 
-- The Frobenius Norm is \(\sqrt{n}\)
+\item The Frobenius Norm is \(\sqrt{n}\)
 
-- The Nuclear Norm is \({n}\)
-
-*** Best Low Rank Matrix
-:PROPERTIES:
-:CUSTOM_ID: best-low-rank-matrix
-:END:
+\item The Nuclear Norm is \({n}\)
+\end{itemize}
+\end{enumerate}
+\section{Best Low Rank Matrix}
+\label{best-low-rank-matrix}
 We say that a matrix is the best approximation of another matrix, based
 on the Frobenius Norm.. For a singular value decomposition
 \(A = U\Sigma V^T\), if we assume that the singular values are arranged
-in descending order... We can select the singular value range where the
+in descending order\ldots{} We can select the singular value range where the
 values are significant contributors to the final matrix.
 
 We can then reduce the size of \(U, \Sigma\) and \(V^T\) into a smaller
@@ -214,11 +229,14 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 kkkk
-
-* PCA IEEE Report
-** References
-- https://arxiv.org/pdf/2403.15112
-- https://arxiv.org/pdf/2402.15527
-- https://medium.com/@anabelenmanjavacas/dimensionality-reduction-and-pca-23dbd7d6f367
-- https://ieeexplore.ieee.org/document/10511242
-** What is PCA?
+\part{PCA IEEE Report}
+\label{sec:orgb66a649}
+\chapter{References}
+\label{sec:org4d75048}
+\begin{itemize}
+\item \url{https://arxiv.org/pdf/2403.15112}
+\item \url{https://arxiv.org/pdf/2402.15527}
+\item \url{https://medium.com/@anabelenmanjavacas/dimensionality-reduction-and-pca-23dbd7d6f367}
+\item \url{https://ieeexplore.ieee.org/document/10511242}
+\end{itemize}
+\end{document}

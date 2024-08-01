@@ -1,6 +1,8 @@
 #+title:Introduction To Artificial Intelligence And Machine Learning.
+#+AUTHOR: Adithya Nair
 
 * Iris Data Classification
+
 #+begin_src python :results output results: output
 import pandas as pd
 import numpy as np
@@ -16,7 +18,6 @@ print(irisdata.describe())
 #+end_src
 
 #+RESULTS:
-: None
 
 * Overview
 ** Pre-Processing
@@ -29,7 +30,7 @@ import pandas as pd
 import numpy as np
 
 # Load the Titanic dataset
-df = pd.read_csv('titanic.csv')
+df = pd.read_csv('code/titanic.csv')
 
 # Display the first few rows of the dataset
 print("First few rows of the dataset:")
@@ -258,8 +259,10 @@ print(df)
 #+end_src
 
 *** Sampling
+Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
+Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
 **** RANDOM SAMPLING
-Random sampling is used for when the dataset is hella large.
+Random sampling is used for when the dataset is large.
 #+begin_src python :results output
 import random
 
@@ -274,7 +277,10 @@ print("Simple Random Sample:", sample)
 
 #+RESULTS:
 : Simple Random Sample: [99, 67, 71, 4, 82, 24, 29, 54, 77, 34]
-
+**** Oversampling
+In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
+***** Oversampling using SMOTE
+It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
 **** STRATIFIED SAMPLING
 #+begin_src python :results output
 import random
@@ -286,7 +292,7 @@ strata_data = {
 }
 
 # Sample size per stratum
-sample_size_per_stratum = 2
+sample_size_per_stratum = 3
 
 # Stratified sampling
 sample = []
@@ -298,7 +304,7 @@ print("Stratified Sample:", sample)
 #+end_src
 
 #+RESULTS:
-: Stratified Sample: [4, 2, 9, 8]
+: Stratified Sample: [1, 2, 5, 8, 7, 10]
 
 **** Systematic Sampling
 #+begin_src python :results output
@@ -342,6 +348,12 @@ print("Cluster Sample:", sample)
 : chosen clusters  ['cluster1', 'cluster3']
 : Cluster Sample: [1, 2, 3, 7, 8, 9]
 
+**** Undersampling
+Undersampling reduces the number of instances in the majority classes to bring it down and hence more or less balance the minority class.
+
+Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
+
+We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don't have a control over the number of instances that has to be reduced.
 *** Binning
 #+begin_src python :results output :session Bollywood
 import pandas as pd
@@ -354,19 +366,6 @@ print(df.head(10))
 #+end_src
 
 #+RESULTS:
-#+begin_example
-   SlNo Release Date                   MovieName ReleaseTime      Genre  Budget  BoxOfficeCollection  YoutubeViews  YoutubeLikes  YoutubeDislikes      BudgetBin
-0     1    18-Apr-14                    2 States          LW    Romance      36               104.00       8576361         26622             2527    High Budget
-1     2    04-Jan-13                Table No. 21           N  Thriller       10                12.00       1087320          1129              137     Low Budget
-2     3    18-Jul-14          Amit Sahni Ki List           N     Comedy      10                 4.00        572336           586               54     Low Budget
-3     4    04-Jan-13            Rajdhani Express           N     Drama        7                 0.35         42626            86               19     Low Budget
-4     5    04-Jul-14                Bobby Jasoos           N     Comedy      18                10.80       3113427          4512             1224  Medium Budget
-5     6    30-May-14                  Citylights          HS     Drama        7                35.00       1076591          1806               84     Low Budget
-6     7    19-Sep-14               Daawat-E-Ishq           N     Comedy      30                24.60       3905050          8315             1373    High Budget
-7     8    11-Jan-13  Matru Ki Bijlee Ka Mandola           N     Comedy      33                40.00       2435283          4326              647    High Budget
-8     9    10-Jan-14                Dedh Ishqiya          LW     Comedy      31                27.00       2333067          2436              591    High Budget
-9    10    11-Jan-13                   Gangoobai           N     Drama        2                 0.01          4354             1                1     Low Budget
-#+end_example
 
 #+begin_src python :results output :session Bollywood
 collection_bins = [0, 20, 40, 60, float('inf')]  # Define your collection bins
@@ -391,6 +390,14 @@ plt.tight_layout()
 
 #+RESULTS:
 [[file:testplot.png]]
+
+*** Data Imbalance
+We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
+***** TODO Find what vintage means in churn prediction.
+**** One Hot Encoding
+This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+**** Logistic Regression
+This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
 
 ** TODO Supervised Learning
 ** TODO Unsupervised Learning
@@ -434,3 +441,51 @@ This is done by researching
 *** Analysis of the results
 *** Re-iterate as needed
 *** Deploy model.
+** Questions
+*** Read The Dataset Into A Dataframe And Identify The Number Of Rows And Columns
+#+begin_src python :results output :session wine-quality
+import pandas as pd
+
+df = pd.read_csv('code/winequality-red.csv')
+print(df)
+print(df.shape())
+#+end_src
+
+#+RESULTS:
+#+begin_example
+      fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  free sulfur dioxide  total sulfur dioxide  density    pH  sulphates  alcohol  quality
+0               7.4             0.700         0.00             1.9      0.076                 11.0                  34.0  0.99780  3.51       0.56      9.4        5
+1               7.8             0.880         0.00             2.6      0.098                 25.0                  67.0  0.99680  3.20       0.68      9.8        5
+2               7.8             0.760         0.04             2.3      0.092                 15.0                  54.0  0.99700  3.26       0.65      9.8        5
+3              11.2             0.280         0.56             1.9      0.075                 17.0                  60.0  0.99800  3.16       0.58      9.8        6
+4               7.4             0.700         0.00             1.9      0.076                 11.0                  34.0  0.99780  3.51       0.56      9.4        5
+...             ...               ...          ...             ...        ...                  ...                   ...      ...   ...        ...      ...      ...
+1594            6.2             0.600         0.08             2.0      0.090                 32.0                  44.0  0.99490  3.45       0.58     10.5        5
+1595            5.9             0.550         0.10             2.2      0.062                 39.0                  51.0  0.99512  3.52       0.76     11.2        6
+1596            6.3             0.510         0.13             2.3      0.076                 29.0                  40.0  0.99574  3.42       0.75     11.0        6
+1597            5.9             0.645         0.12             2.0      0.075                 32.0                  44.0  0.99547  3.57       0.71     10.2        5
+1598            6.0             0.310         0.47             3.6      0.067                 18.0                  42.0  0.99549  3.39       0.66     11.0        6
+
+[1599 rows x 12 columns]
+#+end_example
+
+*** Find The Number Of Unique Values In The Column 'Quality' Which Can Be Treated As The Target Class
+`value_counts()` is a function that tallies up the count of each individual item.
+#+begin_src python :results output :session wine-quality
+unique = df['quality'].value_counts())
+#+end_src
+
+#+RESULTS:
+
+*** Plot A Bar Graph To Map The Frequency Of Each Unique Class In The Target Column
+#+begin_src python :results output :session wine-quality
+import matplotlib.pyplot as plt
+plt.figure(figsize=(8, 6))
+unique.plot(kind='bar', color='skyblue')
+
+#+end_src
+
+#+RESULTS:
+
+*** Split Data In A 70/30 ratio and apply SVM and ADABoost Classifier To Predict The Overall Average F-Measure For The Multi-Class Classification Problem.
+*** Apply Z-Score Normalization On All The Numerical Features And Redo Step 4

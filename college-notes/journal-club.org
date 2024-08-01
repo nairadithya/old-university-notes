@@ -59,9 +59,9 @@ For any natural number $n + 0=n$
 \end{lemma}
 \begin{proof}
 \begin{align*}
-n = 0, 0 + 0 = 0 \\
-n+0 = n \\
-(n++) + 0 = (n+0)++ = n++ \\
+n &= 0, 0 + 0 = 0 \\
+n+0 &= n \\
+(n++) + 0 &= (n+0)++ = n++ \\
 \end{align*}
 \end{proof}
 \begin{lemma}
@@ -71,11 +71,12 @@ n + (m++) = (n+m)++
 \end{lemma}
 \begin{proof}
 \begin{align*}
-n = 0, 0 + m++ = (0+m)++ \\
+n &= 0, \\
+0 + m++ = (0+m)++ \\
 For
-(n++) + (m++) = ((n++)+m)++ \\
-=(n+(m++))++ \\
-=((n+m)++))++ \\
+(n++) + (m++) &= ((n++)+m)++ \\
+&=(n+(m++))++ \\
+&=((n+m)++))++ \\
 \end{align*}
 \end{proof}
 
@@ -88,7 +89,7 @@ n \neq 0, n \in \mathbb{N}
 \end{definition}
 
 \begin{lemma}HOMEWORK
-For every a, there exists a b such that $b++ = a$
+For every $a$, there exists a $b$ such that $b++ = a$
 \end{lemma}
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$

@@ -1,0 +1,293 @@
+#+begin_src python :session data-balancing :results output
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from collections import Counter
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session data-balancing :results output
+df = pd.read_csv('code/churn_prediction.csv')
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session data-balancing :results output
+df.head()
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session data-balancing :results output
+#Convert Gender from categorical to numerical values
+dict_gender = {'Male': 1, 'Female':0}
+df.replace({'gender': dict_gender}, inplace = True)
+
+# Replace with -1 for missing gender
+df['gender'] = df['gender'].fillna(-1)
+
+# Replacing missing values
+df['dependents'] = df['dependents'].fillna(0)
+df['occupation'] = df['occupation'].fillna('self_employed')
+df['city'] = df['city'].fillna(1020)
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :session data-balancing :results output
+##ONE HOT ENCODING
+# Convert occupation to one hot encoded features
+df = pd.concat([df,pd.get_dummies(df['occupation'],prefix = str('occupation'),prefix_sep='_')],axis = 1)
+#+end_src
+
+#+begin_src python :session data-balancing :results output
+#+end_src
+
+#+begin_src python :session data-balancing :results output
+df.head()
+#+end_src
+
+#+RESULTS:
+: {"type":"dataframe","variable_name":"df"}
+#+begin_src python :session data-balancing :results output
+
+x = df.drop(['churn','customer_id', 'occupation', 'last_transaction'], axis=1)
+y = df['churn']
+###understand class imbalance
+value_counts = df['churn'].value_counts()
+print("Unique values and their frequencies in 'target':")
+print(value_counts)
+class_counts = df['churn'].value_counts()
+# Plot a pie chart
+import matplotlib.pyplot as plt
+plt.figure(figsize=(8, 8))
+plt.pie(class_counts, labels=class_counts.index, autopct='%1.1f%%', startangle=140)
+plt.title('Churn Class Distribution')
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.show()
+
+
+
+# Splitting the data into train and test
+X_train,X_test,y_train,y_test=train_test_split(x, y, train_size=0.8, stratify = y, random_state=100)
+#+end_src
+
+#+begin_example
+Unique values and their frequencies in 'target':
+churn
+0    23122
+1     5260
+Name: count, dtype: int64
+#+end_example
+
+[[file:ee9a95ce86f36265b67a7388c2da37b4d41fe1ed.png]]
+
+#+begin_src python :session data-balancing :results output
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+#+end_src
+
+Classification on Imbalanced Data
+
+#+begin_src python :session data-balancing :results output
+# Create a logistic regression model
+model = LogisticRegression()
+
+# Fit the model on the training data
+model.fit(X_train, y_train)
+
+# Make predictions on the test data
+y_pred = model.predict(X_test)
+
+# Generate a classification report
+report = classification_report(y_test, y_pred)
+
+print(report)
+#+end_src
+
+#+begin_example
+              precision    recall  f1-score   support
+
+           0       0.83      0.99      0.90      4625
+           1       0.79      0.08      0.15      1052
+
+    accuracy                           0.83      5677
+   macro avg       0.81      0.54      0.53      5677
+weighted avg       0.82      0.83      0.76      5677
+
+#+end_example
+
+#+begin_example
+/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+#+end_example
+
+Oversampling Using SMOTE
+
+#+begin_src python :session data-balancing :results output
+from imblearn.over_sampling import SMOTE
+
+counter = Counter(y_train)
+print('Before',counter)
+b# oversampling the train dataset using SMOTE
+smt = SMOTE()
+##smt = SMOTE(sampling_strategy=0.7)
+
+X_train_sm, y_train_sm = smt.fit_resample(X_train, y_train)
+
+counter = Counter(y_train_sm)
+print('After',counter)
+#+end_src
+
+#+begin_example
+Before Counter({0: 18497, 1: 4208})
+After Counter({0: 18497, 1: 18497})
+#+end_example
+
+#+begin_src python :session data-balancing :results output
+model = LogisticRegression()
+model.fit(X_train_sm, y_train_sm)
+y_pred = model.predict(X_test)
+report = classification_report(y_test, y_pred)
+print(report)
+#+end_src
+
+#+begin_example
+              precision    recall  f1-score   support
+
+           0       0.92      0.84      0.88      4625
+           1       0.49      0.67      0.57      1052
+
+    accuracy                           0.81      5677
+   macro avg       0.70      0.76      0.72      5677
+weighted avg       0.84      0.81      0.82      5677
+
+#+end_example
+
+#+begin_example
+/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+#+end_example
+
+* *UNDERSAMPLING USING Tomek*
+:PROPERTIES:
+:CUSTOM_ID: undersampling-using-tomek
+:END:
+
+#+begin_src python :session data-balancing :results output
+from imblearn.under_sampling import TomekLinks
+
+counter = Counter(y_train)
+print('Before', counter)
+
+# Undersampling the train dataset using Tomek Links
+tl = TomekLinks()
+X_train_tl, y_train_tl = tl.fit_resample(X_train, y_train)
+
+counter = Counter(y_train_tl)
+print('After', counter)
+#+end_src
+
+#+begin_example
+Before Counter({0: 18497, 1: 4208})
+After Counter({0: 17610, 1: 4208})
+#+end_example
+
+#+begin_src python :session data-balancing :results output
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+
+model = LogisticRegression()
+model.fit(X_train_tl, y_train_tl)
+y_pred = model.predict(X_test)
+report = classification_report(y_test, y_pred)
+print(report)
+#+end_src
+
+#+begin_example
+              precision    recall  f1-score   support
+
+           0       0.83      0.99      0.90      4625
+           1       0.75      0.10      0.18      1052
+
+    accuracy                           0.83      5677
+   macro avg       0.79      0.55      0.54      5677
+weighted avg       0.82      0.83      0.77      5677
+
+#+end_example
+
+#+begin_example
+/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+#+end_example
+
+*RandomUndersampler*
+
+#+begin_src python :session data-balancing :results output
+from imblearn.under_sampling import RandomUnderSampler
+counter = Counter(y_train)
+print('Before', counter)
+#rus = RandomUnderSampler()
+rus = RandomUnderSampler(sampling_strategy=0.8)
+X_train_rus, y_train_rus = rus.fit_resample(X_train, y_train)
+counter = Counter(y_train_rus)
+print('After', counter)
+#+end_src
+
+#+begin_example
+Before Counter({0: 18497, 1: 4208})
+After Counter({0: 5260, 1: 4208})
+#+end_example
+
+#+begin_src python :session data-balancing :results output
+model = LogisticRegression()
+model.fit(X_train_rus, y_train_rus)
+y_pred = model.predict(X_test)
+report = classification_report(y_test, y_pred)
+print(report)
+#+end_src
+
+#+RESULTS:
+
+#+begin_example
+              precision    recall  f1-score   support
+
+           0       0.88      0.93      0.90      4625
+           1       0.58      0.45      0.51      1052
+
+    accuracy                           0.84      5677
+   macro avg       0.73      0.69      0.70      5677
+weighted avg       0.83      0.84      0.83      5677
+
+#+end_example
+
+#+begin_example
+/usr/local/lib/python3.10/dist-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+#+end_example
+
