@@ -1,0 +1,69 @@
+% Created 2024-08-03 Sat 09:37
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\input{preamble}
+\author{Adithya Nair}
+\date{\today}
+\title{Introduction To Robotics}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={Introduction To Robotics},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\part{Unit 1}
+\label{sec:orgd5f6551}
+\chapter{Introduction}
+\label{sec:orgfc8a5a4}
+This course is mainly going to focus on \textbf{Manipulators}. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
+\chapter{Syllabus}
+\label{sec:org1777933}
+\begin{itemize}
+\item Overview Of Robotics
+\item Kinematics Of Simple Robotic Systems
+\item Dynamics And Control Of Simple Robotic Systems
+\end{itemize}
+\chapter{Glossary}
+\label{sec:org4cc6d5c}
+\begin{enumerate}
+\item Actuator - Does work upon receiving voltage
+\item Encoder - Sensor that measures raw angle data.
+\end{enumerate}
+
+
+Software for robotics - \textbf{v-rep}, MATLAB
+This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
+\chapter{Degree Of Freedom}
+\label{sec:orgf50f734}
+The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
+
+The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
+Localization - Finding the position and orientation of an object in 3-dimensional space.
+
+We call a system 'fully actuated' when there are as many actuators as there are degrees of freedom.
+$$\text{No. of controlling inputs} < \text{No. of degrees of freedom}$$
+Underactuated systems contain lesser actuators than the number of degrees of freedom
+$$\text{No. of controlling inputs} = \text{No. of degrees of freedom}$$
+
+Redundant systems contain more actuators than the number of degrees of freedom
+$$\text{No. of controlling inputs} >\text{ No. of degrees of freedom}$$
+\chapter{``}
+\label{sec:org170a40a}
+\end{document}
