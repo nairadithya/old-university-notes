@@ -1,4 +1,4 @@
-% Created 2024-08-03 Sat 09:37
+% Created 2024-08-05 Mon 11:04
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -28,20 +28,22 @@
 \maketitle
 \tableofcontents
 
-\part{Unit 1}
-\label{sec:orgd5f6551}
-\chapter{Introduction}
-\label{sec:orgfc8a5a4}
+\part{Robotics}
+\label{sec:org8a4fe2b}
+\chapter{Unit 1}
+\label{sec:org6517a73}
+\section{Introduction}
+\label{sec:org2967295}
 This course is mainly going to focus on \textbf{Manipulators}. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
-\chapter{Syllabus}
-\label{sec:org1777933}
+\section{Syllabus}
+\label{sec:org8be1727}
 \begin{itemize}
 \item Overview Of Robotics
 \item Kinematics Of Simple Robotic Systems
 \item Dynamics And Control Of Simple Robotic Systems
 \end{itemize}
-\chapter{Glossary}
-\label{sec:org4cc6d5c}
+\section{Glossary}
+\label{sec:org6e4bcca}
 \begin{enumerate}
 \item Actuator - Does work upon receiving voltage
 \item Encoder - Sensor that measures raw angle data.
@@ -50,8 +52,8 @@ This course is mainly going to focus on \textbf{Manipulators}. These machines ar
 
 Software for robotics - \textbf{v-rep}, MATLAB
 This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
-\chapter{Degree Of Freedom}
-\label{sec:orgf50f734}
+\section{Degree Of Freedom}
+\label{sec:org1a97b53}
 The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
 
 The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
@@ -64,6 +66,36 @@ $$\text{No. of controlling inputs} = \text{No. of degrees of freedom}$$
 
 Redundant systems contain more actuators than the number of degrees of freedom
 $$\text{No. of controlling inputs} >\text{ No. of degrees of freedom}$$
-\chapter{``}
-\label{sec:org170a40a}
+\section{Kinematic Pair}
+\label{sec:org72915d7}
+Linkages are the basic elements of all mechanisms and robots. Links are rigid body member with nodes, and joints are connection between links at nodes. Allows relative motion between links.
+\section{Robotic Manipulator}
+\label{sec:org0c80cb8}
+\begin{itemize}
+\item Why study kinematics and dynamics of robotic manipulator
+\begin{itemize}
+\item To manipulate an object in space
+\item Understand the workspace and limitations of a robotic manipulator
+\item Understand and estimate contact force between end-effector and object being manipulated.
+\end{itemize}
+\end{itemize}
+\section{Pose of a rigid body}
+\label{sec:org240df11}
+A rigid body is completely defined in space by its position and orientation with respect to a reference.
+
+We use the terminology `Inertial reference frame' to mean an observer where Newton's laws of physics apply. We use the terminology 'Inertial reference frame' to mean an observer where Newton's laws of physics apply and the frame itself does not accelerate. Generally the base of the robotic manipulator is treated as the inertial reference frame
+
+We use unit vectors \(\hat{x},\hat{y},\hat{z}\) to describe the basis vectors. For the orientation of the rigid body, since they lie in 3d space, we must define new basis vectors to define the orientation, \(\hat{x'}, \hat{y'}, \hat{z'}\)
+
+$$
+\hat{x'} = x'_x \hat{x} + x'_y\hat{y} + x'_z\hat{z}
+$$
+
+$$
+\hat{y'} = y'_x \hat{x} + y'_y\hat{y} + y'_z\hat{z}
+$$
+
+$$
+\hat{z'} = z'_x \hat{x} + z'_y\hat{y} + z'_z\hat{z}
+$$
 \end{document}

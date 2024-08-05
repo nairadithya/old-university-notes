@@ -222,3 +222,4 @@ kkkk
 - https://medium.com/@anabelenmanjavacas/dimensionality-reduction-and-pca-23dbd7d6f367
 - https://ieeexplore.ieee.org/document/10511242
 ** What is PCA?
+In a nutshell, what Principal Component Analysis does is reduce the dimensionality of a set of data points by linearly projecting them onto a lower-dimensional space where the reconstruction error is as minimal as possible.

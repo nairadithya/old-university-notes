@@ -2,15 +2,60 @@
 #+author: Adithya Nair
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
-* Introduction
+* Robotics
+** Unit 1
+*** Introduction
 This course is mainly going to focus on *Manipulators*. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
-** Syllabus
+*** Syllabus
 - Overview Of Robotics
 - Kinematics Of Simple Robotic Systems
 - Dynamics And Control Of Simple Robotic Systems
-** Overview
-
-* Unit 1
-** Glossary
+*** Glossary
 1. Actuator - Does work upon receiving voltage
 2. Encoder - Sensor that measures raw angle data.
+
+
+Software for robotics - *v-rep*, MATLAB
+This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
+
+*** Degree Of Freedom
+The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
+
+The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
+Localization - Finding the position and orientation of an object in 3-dimensional space.
+
+We call a system 'fully actuated' when there are as many actuators as there are degrees of freedom.
+$$\text{No. of controlling inputs} < \text{No. of degrees of freedom}$$
+Underactuated systems contain lesser actuators than the number of degrees of freedom
+$$\text{No. of controlling inputs} = \text{No. of degrees of freedom}$$
+
+Redundant systems contain more actuators than the number of degrees of freedom
+$$\text{No. of controlling inputs} >\text{ No. of degrees of freedom}$$
+
+*** Kinematic Pair
+Linkages are the basic elements of all mechanisms and robots. Links are rigid body member with nodes, and joints are connection between links at nodes. Allows relative motion between links.
+
+*** Robotic Manipulator
+- Why study kinematics and dynamics of robotic manipulator
+  - To manipulate an object in space
+  - Understand the workspace and limitations of a robotic manipulator
+  - Understand and estimate contact force between end-effector and object being manipulated.
+
+*** Pose of a rigid body
+A rigid body is completely defined in space by its position and orientation with respect to a reference.
+
+We use the terminology `Inertial reference frame' to mean an observer where Newton's laws of physics apply. We use the terminology 'Inertial reference frame' to mean an observer where Newton's laws of physics apply and the frame itself does not accelerate. Generally the base of the robotic manipulator is treated as the inertial reference frame
+
+We use unit vectors $\hat{x},\hat{y},\hat{z}$ to describe the basis vectors. For the orientation of the rigid body, since they lie in 3d space, we must define new basis vectors to define the orientation, $\hat{x'}, \hat{y'}, \hat{z'}$
+
+$$
+\hat{x'} = x'_x \hat{x} + x'_y\hat{y} + x'_z\hat{z}
+$$
+
+$$
+\hat{y'} = y'_x \hat{x} + y'_y\hat{y} + y'_z\hat{z}
+$$
+
+$$
+\hat{z'} = z'_x \hat{x} + z'_y\hat{y} + z'_z\hat{z}
+$$

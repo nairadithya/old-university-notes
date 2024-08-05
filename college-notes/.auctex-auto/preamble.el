@@ -4,7 +4,7 @@
  "preamble"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("xcolor" "dvipsnames" "pdftex") ("import" "") ("geometry" "tmargin=2cm" "rmargin=0.5in" "lmargin=0.5in" "margin=0.85in" "bmargin=2cm" "footskip=.2in") ("cantarell" "") ("hyperref" "") ("graphicx" "") ("float" "") ("multicol" "") ("amsmath" "") ("amsfonts" "") ("mathtools" "") ("amsthm" "") ("amssymb" "") ("cancel" "") ("caption" "") ("pdfpages" "") ("algorithm2e" "ruled" "vlined" "linesnumbered") ("tikzsymbols" "") ("fncychap" "Sonny") ("mdframed" "framemethod=TikZ") ("tikz" "") ("tikz-cd" "") ("siunitx" "") ("fancyhdr" "") ("listings" "") ("varwidth" "") ("thmtools" "") ("tcolorbox" "most" "many" "breakable")))
+                     '(("xcolor" "dvipsnames" "pdftex") ("import" "") ("geometry" "tmargin=2cm" "rmargin=0.5in" "lmargin=0.5in" "margin=0.85in" "bmargin=2cm" "footskip=.2in") ("cantarell" "") ("hyperref" "") ("graphicx" "") ("float" "") ("multicol" "") ("amsmath" "") ("amsfonts" "") ("mathtools" "") ("amsthm" "") ("amssymb" "") ("cancel" "") ("caption" "") ("pdfpages" "") ("algorithm2e" "ruled" "vlined" "linesnumbered") ("tikzsymbols" "") ("fncychap" "Lenny") ("mdframed" "framemethod=TikZ") ("tikz" "") ("tikz-cd" "") ("siunitx" "") ("fancyhdr" "") ("listings" "") ("varwidth" "") ("thmtools" "") ("tcolorbox" "most" "many" "breakable")))
    (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")

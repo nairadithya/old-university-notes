@@ -1,4 +1,4 @@
-% Created 2024-07-31 Wed 12:19
+% Created 2024-08-05 Mon 11:16
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -28,8 +28,10 @@
 \maketitle
 \tableofcontents
 
-\part{Course Overview}
-\label{sec:org99ef384}
+\part{Notes}
+\label{sec:orgf6da297}
+\chapter{Course Overview}
+\label{sec:org1285dcc}
 \begin{enumerate}
 \item Introduction to Modelling
 \item Bond graph modelling
@@ -41,4 +43,20 @@ The textbooks to be followed is: ``System Dynamics - Modeling, Simulation And Co
 What is modelling? It's a mathematical representation of a system. These representations allow us to evaluate the results of that given system. This course is focused on equipping us with the working knowledge to develop such mathematical models for our systems.
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
+
+You can use the main gnuplot configuration file for storing your settings. Otherwise you can create small files storing only one particular thing, like the color definitions as color.cfg and then load them with
+\chapter{Unit 1}
+\label{sec:orgc3eaf94}
+\section{What Is Modelling?}
+\label{sec:org02760a4}
+\begin{itemize}
+\item Model - Models of the systems are simplified, abstracted constructs used to predict their behaviour.
+\item Mathematical Modelling - Predicts only a certain aspect of the behaviour
+\end{itemize}
+\section{Uses Of Modelling}
+\label{sec:org9b928cb}
+Modelling consists of input variables \(U\), which performs certain operations on a dynamic system \(S\), with state variables \(X\) to give some output variables \(U\).
+Analysis means that given an input for the present, and the system itself.
+
+We can predict the outputs for the future. To exert some form of control, the system \(S\) are used. Another term used is identification, identification means that you already \(U\), and \(Y\). We know the inputs and the outputs, and we map \(U\) to \(Y\) with the system \(S\). We \textbf{identify} the system that would map the inputs to the outputs.
 \end{document}
