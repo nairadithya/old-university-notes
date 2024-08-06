@@ -213,9 +213,10 @@ Let \(A = U\Sigma V^T\) where
 Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
-kkkk
+** Multivariable Optimization
 
-* PCA IEEE Report
+We minimize $f(x_1,x_2,\cdots,x_3)$
+* PCA IEEE Password
 ** References
 - https://arxiv.org/pdf/2403.15112
 - https://arxiv.org/pdf/2402.15527

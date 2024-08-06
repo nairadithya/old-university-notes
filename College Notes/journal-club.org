@@ -88,18 +88,17 @@ n \neq 0, n \in \mathbb{N}
 \]
 \end{definition}
 
-\begin{lemma}HOMEWORK
+\begin{lemma}
 For every $a$, there exists a $b$ such that $b++ = a$
 \end{lemma}
+
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$
 \end{definition}
-
-\begin{enumerate}
-\item $a \geq a$
-\item $a \geq b, b \geq c \implies a \geq c$
-\item $a \geq b, \& b \geq a \implies a = b$
-\item $a > b \& a + c > b + c$
-\end{enumerate}
-
-First 4 Exercises.
+*** Multiplication
+#+begin_definition
+Let $m$ be a natural number. To multiply zero to $m$, we define $0 \times m := 0$. Now suppose inductively that we have defined how to multiply $n$ to $m$. Then we can multiply $n++$ to $m$ by defining $(n++) \times m := (n \times m) + m$
+#+end_definition
+#+begin_lemma
+Prove that multiplication is commutative
+#+end_lemma

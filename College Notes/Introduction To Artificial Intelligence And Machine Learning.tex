@@ -1,4 +1,4 @@
-% Created 2024-08-01 Thu 08:58
+% Created 2024-08-05 Mon 12:17
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -28,7 +28,8 @@
 \tableofcontents
 
 \section{Iris Data Classification}
-\label{sec:org904b1c0}
+\label{sec:orgd82b19e}
+
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -43,22 +44,22 @@ print(np.size(train))
 print(irisdata.describe())
 \end{verbatim}
 \section{Overview}
-\label{sec:org658f859}
+\label{sec:org1bde102}
 \subsection{Pre-Processing}
-\label{sec:org1045d1c}
+\label{sec:orga347d3b}
 \subsubsection{Handling Missing Values (Imputation)}
-\label{sec:org0667dd8}
+\label{sec:org6272904}
 When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
 Hence it is essential to handle the missing values.
 \begin{enumerate}
 \item CREATING A DATAFRAME
-\label{sec:orgdf6c87a}
+\label{sec:org9b75e56}
 \begin{verbatim}
 import pandas as pd
 import numpy as np
 
 # Load the Titanic dataset
-df = pd.read_csv('titanic.csv')
+df = pd.read_csv('code/titanic.csv')
 
 # Display the first few rows of the dataset
 print("First few rows of the dataset:")
@@ -74,7 +75,7 @@ print(df.isnull().sum())
 
 \end{verbatim}
 \item There are two main methods in dealing with missing values.
-\label{sec:orge056c94}
+\label{sec:org59a8874}
 \begin{enumerate}
 \item Dropping rows with missing values.
 \item Filling the empty missing values with zeros.
@@ -95,7 +96,7 @@ This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and 
 So here we replace the values with the mean for numerical values and mode for categorical values.
 \begin{enumerate}
 \item {\bfseries\sffamily TODO} Look into other methods of imputation
-\label{sec:org5f6e55c}
+\label{sec:org5ed2d52}
 \begin{verbatim}
 # Method 3: Fill missing values with the mean (for numerical columns)
 df['Age'].fillna(df['Age'].mean(), inplace=True)
@@ -109,7 +110,7 @@ print(df['Embarked'].isnull().sum())
 \end{verbatim}
 \end{enumerate}
 \item Forward fill and Backward Fill
-\label{sec:org68613db}
+\label{sec:org0408ab7}
 There are two better ways to fill the rows.
 \begin{itemize}
 \item Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
@@ -129,7 +130,7 @@ print("*****************")
 \end{verbatim}
 \end{enumerate}
 \subsubsection{Normalization}
-\label{sec:orgdfcb1ec}
+\label{sec:org79104be}
 Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
 
 Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
@@ -137,7 +138,7 @@ Machine learning models tend to give a higher weightage to numerical attributres
 The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
 \begin{enumerate}
 \item Types Of Normalization
-\label{sec:org7f1a999}
+\label{sec:orgb387899}
 \begin{itemize}
 \item MinMaxScaler - all data points are brought to the range \([0,1]\)
 \item Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
@@ -146,7 +147,7 @@ The solution is to normalize. Normalization reduces a given numerical feature in
 \end{itemize}
 \begin{enumerate}
 \item NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
-\label{sec:org2b3ee3f}
+\label{sec:org3cdcc11}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -166,7 +167,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
-\label{sec:org3d7bf44}
+\label{sec:org00467f8}
 \begin{verbatim}
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -186,7 +187,7 @@ normalized_data = normalized_data.flatten()
 print(normalized_data)
 \end{verbatim}
 \item NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
-\label{sec:org92a0c2d}
+\label{sec:orgfd11f75}
 \begin{verbatim}
 # Initialize the MinMaxScaler
 from sklearn.preprocessing import MinMaxScaler
@@ -204,11 +205,13 @@ print(df)
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Sampling}
-\label{sec:org3dfbba4}
+\label{sec:org64a3ed1}
+Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
+Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
 \begin{enumerate}
 \item RANDOM SAMPLING
-\label{sec:orge5f758e}
-Random sampling is used for when the dataset is hella large.
+\label{sec:org2205d86}
+Random sampling is used for when the dataset is large.
 \begin{verbatim}
 import random
 
@@ -220,8 +223,16 @@ sample_size = 10  # Size of the sample
 sample = random.sample(population, sample_size)
 print("Simple Random Sample:", sample)
 \end{verbatim}
+\item Oversampling
+\label{sec:orgdb6bb17}
+In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
+\begin{enumerate}
+\item Oversampling using SMOTE
+\label{sec:orga037daf}
+It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
+\end{enumerate}
 \item STRATIFIED SAMPLING
-\label{sec:org240fe96}
+\label{sec:org6d2a498}
 \begin{verbatim}
 import random
 
@@ -232,7 +243,7 @@ strata_data = {
 }
 
 # Sample size per stratum
-sample_size_per_stratum = 2
+sample_size_per_stratum = 3
 
 # Stratified sampling
 sample = []
@@ -243,7 +254,7 @@ for stratum, data in strata_data.items():
 print("Stratified Sample:", sample)
 \end{verbatim}
 \item Systematic Sampling
-\label{sec:org92c81d7}
+\label{sec:org94b123e}
 \begin{verbatim}
 # Sample data
 data = list(range(1, 101))  # Data from 1 to 100
@@ -277,9 +288,16 @@ for cluster in selected_clusters:
 
 print("Cluster Sample:", sample)
 \end{verbatim}
+\item Undersampling
+\label{sec:orge869d0f}
+Undersampling reduces the number of instances in the majority classes to bring it down and hence more or less balance the minority class.
+
+Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
+
+We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don't have a control over the number of instances that has to be reduced.
 \end{enumerate}
 \subsubsection{Binning}
-\label{sec:orga06653f}
+\label{sec:orgf336574}
 \begin{verbatim}
 import pandas as pd
 
@@ -310,12 +328,26 @@ plt.ylabel('Number of Movies')
 plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
 plt.tight_layout()
 \end{verbatim}
+\subsubsection{Data Imbalance}
+\label{sec:org01b9858}
+We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
+\begin{enumerate}
+\item {\bfseries\sffamily TODO} Find what vintage means in churn prediction.
+\label{sec:orged2036c}
+\end{enumerate}
+\item One Hot Encoding
+\label{sec:org9f36eaf}
+This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+\item Logistic Regression
+\label{sec:orgbdd30e5}
+This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
+\end{enumerate}
 \subsection{{\bfseries\sffamily TODO} Supervised Learning}
-\label{sec:orgf7a6c4f}
+\label{sec:orgde1f519}
 \subsection{{\bfseries\sffamily TODO} Unsupervised Learning}
-\label{sec:orgf3b0bf5}
+\label{sec:org3c01354}
 \subsection{Reinforcement Learning}
-\label{sec:org6eab576}
+\label{sec:orgf8cc972}
 This is a method used in game-based systems.
 It maps:
 \begin{itemize}
@@ -328,9 +360,9 @@ And tries to take actions, to achieve a goal to get the reward. It receives the 
 
 These models maximise the cumulative reward.
 \subsection{Steps In Implementing An AI Model.}
-\label{sec:org7738dc2}
+\label{sec:orgda1d053}
 \subsubsection{Problem identification}
-\label{sec:org15fcfd4}
+\label{sec:orgc579aec}
 This is done by researching
 \begin{itemize}
 \item Experts in the field
@@ -339,7 +371,7 @@ This is done by researching
 \item Data curation
 \end{itemize}
 \subsubsection{Data Curation}
-\label{sec:org58bc5f8}
+\label{sec:org713e265}
 \begin{itemize}
 \item Data collection in person
 \item Public repos
@@ -347,17 +379,17 @@ This is done by researching
 \item Simulated data
 \item Synthetic data
 \end{itemize}
-\subsubsection{\ref{sec:org1045d1c}}
-\label{sec:orga009cda}
+\subsubsection{\ref{sec:orga347d3b}}
+\label{sec:org209225a}
 \subsubsection{Selection of AI models based on the data}
-\label{sec:org482227b}
+\label{sec:orgb64486c}
 \begin{itemize}
 \item Figure out whether the problem is a regression or a classification problem.
 \item Figure out the computational capacity
 \item Try various models for best fit.
 \end{itemize}
 \subsubsection{Training and tuning the model - A train/test split or a train/validation/testing split.}
-\label{sec:org9fe0ba1}
+\label{sec:orgc53fad5}
 \begin{itemize}
 \item The data is separated out into training and testing.
 \item The training subset is passed onto the chosen AI model.
@@ -365,7 +397,7 @@ This is done by researching
 \item The model should generalize.
 \end{itemize}
 \subsubsection{Testing the developed model}
-\label{sec:org0ebb906}
+\label{sec:org91e8c20}
 \begin{itemize}
 \item Choose evaluation metrics based on the model.
 \begin{itemize}
@@ -374,17 +406,71 @@ This is done by researching
 \item Test the data.
 \end{itemize}
 \subsubsection{Analysis of the results}
-\label{sec:org1f9fe31}
+\label{sec:org17fff8e}
 \subsubsection{Re-iterate as needed}
-\label{sec:orgf4de405}
+\label{sec:org4fb3303}
 \subsubsection{Deploy model.}
-\label{sec:orgf1c4700}
-\section{Data Imbalance}
-\label{sec:orgd729b7d}
-We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
-\subsubsection{{\bfseries\sffamily TODO} Find what vintage means in churn prediction.}
-\label{sec:orgcc28a08}
-\subsection{One Hot Encoding}
-\label{sec:orgda58a3a}
-This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+\label{sec:org0d841a2}
+\subsection{Questions}
+\label{sec:orgb27d6aa}
+\subsubsection{Read The Dataset Into A Dataframe And Identify The Number Of Rows And Columns}
+\label{sec:org8eba5cd}
+\begin{verbatim}
+import pandas as pd
+
+df = pd.read_csv('code/winequality-red.csv')
+print(df)
+print(df.shape())
+\end{verbatim}
+\subsubsection{Find The Number Of Unique Values In The Column 'Quality' Which Can Be Treated As The Target Class}
+\label{sec:orgdb68ba7}
+`value\textsubscript{counts}()` is a function that tallies up the count of each individual item.
+\begin{verbatim}
+unique = df['quality'].value_counts())
+\end{verbatim}
+\subsubsection{Plot A Bar Graph To Map The Frequency Of Each Unique Class In The Target Column}
+\label{sec:org6429e7a}
+\begin{verbatim}
+import matplotlib.pyplot as plt
+plt.figure(figsize=(8, 6))
+unique.plot(kind='bar', color='skyblue')
+
+\end{verbatim}
+\subsubsection{Split Data In A 70/30 ratio and apply SVM and ADABoost Classifier To Predict The Overall Average F-Measure For The Multi-Class Classification Problem.}
+\label{sec:org067270b}
+\subsubsection{Apply Z-Score Normalization On All The Numerical Features And Redo Step 4}
+\label{sec:org588edd8}
+\section{Evaluation Metrics For Classification}
+\label{sec:org8996090}
+This will cover how to evaluate the results of our classification problems.
+\subsection{No Free Lunch Theorem}
+\label{sec:org0ab0317}
+The no free lunch theorem in machine learning states that it conveys the idea that there is no universally superior algorithm that performs better than all others across all possible problem domains or datasets. What this means is that there is no one-size-fits-all solution. The datasets pose unique challenges that different models excel better for different models.
+\subsection{Why do we need evaluation metrics?}
+\label{sec:orgc9192c7}
+\begin{itemize}
+\item Evaluation metrics allow you to assess your model's performance, monitor your ML in production and customize your model to fit your business needs.
+\item Our goal is to create and select a modelw hich gives high accuracy out of an unseen sample.
+\end{itemize}
+\subsection{Types Of Classification Metrics}
+\label{sec:org3dacd50}
+\subsubsection{Classification Accuracy}
+\label{sec:org4d31984}
+\[Accuracy = \frac{\text{No. of correct predictions}}{\text{Total no. of predictions}}\]
+The problem with this is that it cannot tell the difference between the classes. The metric might deceive you, especially with unbalanced datasets.
+\subsubsection{Confusion Matrix}
+\label{sec:orgcd237a8}
+A matrix which documents the model's predictions against the actual value.
+\begin{itemize}
+\item True positive - when the model's class and the actual class are the same.
+\item False Positive - when the model's class incorrectly predicts the class, type-1 error
+\item False Negative - when the model does not correctly recognize the class. type-2 errors.
+\item True Negative - the model correctly predicts that the instance does not belong to that class.
+\end{itemize}
+\subsubsection{Precision}
+\label{sec:org1df9ab3}
+Precision's formula
+\[
+\text{Precision} = \frac{\text{True Positive}}{\text{True Positive + False Positive}
+\]
 \end{document}

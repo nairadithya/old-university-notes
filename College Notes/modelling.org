@@ -1,4 +1,4 @@
-#+TITLE: Modelling, Simulation And Analysis.
+#+TITLE: Modelling, Simulation And Analysis Notes
 #+AUTHOR: Adithya Nair
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
@@ -24,3 +24,12 @@ Modelling consists of input variables $U$, which performs certain operations on 
 Analysis means that given an input for the present, and the system itself.
 
 We can predict the outputs for the future. To exert some form of control, the system $S$ are used. Another term used is identification, identification means that you already $U$, and $Y$. We know the inputs and the outputs, and we map $U$ to $Y$ with the system $S$. We *identify* the system that would map the inputs to the outputs. This is done by experimenting and figuring out what mapping works best to generate the outputs from the inputs. The way to tell whether a model is good is to see if it is consistent with large sets of input and outputs.
+*** Types Of Modelling
+Principle of superposition - it means that there's a linear correlation of the inputs to the outputs.
+| Linear         | Principle of superposition applies                         | linear differential equations.                         |
+| Distributed    | Dependent variables are functions of space and time        | partial differential equations                         |
+| Lumped         | Dependent variables are independent of spatial coordinates | ordinary differential equations                        |
+| Time - varying | Model parameters vary in time                              | differential equations with time-varying coefficients. |
+| Stationary     | Model parameters are constant in time                      | differential equations with constant coefficients      |
+| Continuous     | Dependent variables over continuous range                  | differential equations                                 |
+| Discrete       | dependent variables defined only for distinct values       | time-difference equations                              |

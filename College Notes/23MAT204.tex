@@ -1,4 +1,4 @@
-% Created 2024-08-01 Thu 09:50
+% Created 2024-08-06 Tue 15:47
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:orgd3dc384}
+\label{sec:orga3a67f7}
 \chapter{Revision Linear Algebra}
-\label{sec:org7a8d2fb}
+\label{sec:orgb79fdf4}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -49,17 +49,17 @@ problem, generate a random 3x3 matrix, find the ranks of
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:orgadba4e9}
+\label{sec:orgc0d9a74}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:orgede652c}
+\label{sec:org232a1fa}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:orgf31d23a}
+\label{sec:orge2eb8f7}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +67,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:org11dab2d}
+\label{sec:org51126a8}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -228,15 +228,21 @@ Let \(A = U\Sigma V^T\) where
 Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
-kkkk
+\chapter{Multivariable Optimization}
+\label{sec:org7802645}
+
+We minimize \(f(x_1,x_2,\cdots,x_3)\)
 \part{PCA IEEE Report}
-\label{sec:orgb66a649}
+\label{sec:org878429a}
 \chapter{References}
-\label{sec:org4d75048}
+\label{sec:org36dfa8f}
 \begin{itemize}
 \item \url{https://arxiv.org/pdf/2403.15112}
 \item \url{https://arxiv.org/pdf/2402.15527}
 \item \url{https://medium.com/@anabelenmanjavacas/dimensionality-reduction-and-pca-23dbd7d6f367}
 \item \url{https://ieeexplore.ieee.org/document/10511242}
 \end{itemize}
+\chapter{What is PCA?}
+\label{sec:org4cfca64}
+In a nutshell, what Principal Component Analysis does is reduce the dimensionality of a set of data points by linearly projecting them onto a lower-dimensional space where the reconstruction error is as minimal as possible.
 \end{document}

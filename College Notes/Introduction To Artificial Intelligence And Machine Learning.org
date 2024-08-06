@@ -489,3 +489,48 @@ unique.plot(kind='bar', color='skyblue')
 
 *** Split Data In A 70/30 ratio and apply SVM and ADABoost Classifier To Predict The Overall Average F-Measure For The Multi-Class Classification Problem.
 *** Apply Z-Score Normalization On All The Numerical Features And Redo Step 4
+
+* Evaluation Metrics For Classification
+This will cover how to evaluate the results of our classification problems.
+** No Free Lunch Theorem
+The no free lunch theorem in machine learning states that it conveys the idea that there is no universally superior algorithm that performs better than all others across all possible problem domains or datasets. What this means is that there is no one-size-fits-all solution. The datasets pose unique challenges that different models excel better for different models.
+** Why do we need evaluation metrics?
+- Evaluation metrics allow you to assess your model's performance, monitor your ML in production and customize your model to fit your business needs.
+- Our goal is to create and select a modelw hich gives high accuracy out of an unseen sample.
+** Types Of Classification Metrics
+*** Classification Accuracy
+\[Accuracy = \frac{\text{No. of correct predictions}}{\text{Total no. of predictions}}\]
+The problem with this is that it cannot tell the difference between the classes. The metric might deceive you, especially with unbalanced datasets.
+*** Confusion Matrix
+A matrix which documents the model's predictions against the actual value.
+- True positive - when the model's class and the actual class are the same.
+- False Positive - when the model's class incorrectly predicts the class, type-1 error
+- False Negative - when the model does not correctly recognize the class. type-2 errors.
+- True Negative - the model correctly predicts that the instance does not belong to that class.
+*** Precision
+Precision's formula
+\[
+\text{Precision} = \frac{\text{True Positive}}{\text{True Positive + False Positive}
+\]
+*** Recall
+Recall is the ratio of true positives to all the positives in your dataset.
+
+\[\text{Recall} = \frac{TP}{TP + FN}\]
+This is good when you want to make sure your model correctly classifies the positive samples.
+*** F1-score
+F1-score is the harmonic mean of precision and recall
+
+\[
+F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+\]
+*** Specificity And Sensitivity
+$$
+Specificity = \frac{TN}{TN+FP}
+$$
+$$
+Sensitivity = \frac{TP}{TP+ FN}
+$$
+
+Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
+*** ROC Curve - Receiver Operating Characteristic Curve
+The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.

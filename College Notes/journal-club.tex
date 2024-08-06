@@ -1,4 +1,4 @@
-% Created 2024-08-01 Thu 08:22
+% Created 2024-08-05 Mon 16:06
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -30,13 +30,13 @@
 
 The textbook is Terrence Tao's Analysis 1.
 \part{Real Analysis}
-\label{sec:org2d681a1}
+\label{sec:org7592ac8}
 \chapter{Introduction}
-\label{sec:org6b5a14b}
+\label{sec:orgc3c5fc8}
 Real Analysis is useful for engineers and physicists. It's said to have a bad reputation, due to its rigour. This textbook offsets that by starting at the very base, the numbers themselves. It starts by defining natural numbers, then building integers, rational, real, complex and so on.
 We have the continuous medium which is expressed by the PDEs, Dynamics expressed by ODEs. Computer scientists aren't taught this,  they're taught Discrete Math.
 \chapter{Natural Numbers}
-\label{sec:org7b59bc5}
+\label{sec:org4b91870}
 Numbers were built to count. A system for counting was made, and that system is the number system.
 
 \begin{definition}
@@ -47,7 +47,7 @@ A natural number is an element of the set $\mathbb{N}$ of the set
 is obtained from 0 and counting forward indefinitely.
 \end{definition}
 \section{Peano Axioms}
-\label{sec:org029d0ac}
+\label{sec:orgb725a59}
 We start with axioms to help clarify this.
 \begin{itemize}
 \item Axiom 1 : \(0 \in \mathbb{N}\)
@@ -67,7 +67,7 @@ We need to remove the rogue elements from the set, such as fractions and half-in
 We then make an assumption: That the set \(\mathbb{N}\) which satisfies these five axioms is called the set of natural numbers.
 With these 5 axioms, we can construct sequences
 \section{Sequences}
-\label{sec:orgab8ec9f}
+\label{sec:org0e82e1c}
 For \(n \in \mathbb{N}\)
 \begin{align*}
 a_0 &= c, c \in \mathbb{N} \\
@@ -125,19 +125,16 @@ n \neq 0, n \in \mathbb{N}
 \]
 \end{definition}
 
-\begin{lemma}HOMEWORK
+\begin{lemma}
 For every $a$, there exists a $b$ such that $b++ = a$
 \end{lemma}
+
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$
 \end{definition}
-
-\begin{enumerate}
-\item $a \geq a$
-\item $a \geq b, b \geq c \implies a \geq c$
-\item $a \geq b, \& b \geq a \implies a = b$
-\item $a > b \& a + c > b + c$
-\end{enumerate}
-
-First 4 Exercises.
+\section{Multiplication}
+\label{sec:orgf28d9ee}
+\begin{definition}
+Let \(m\) be a natural number. To multiply zero to \(m\), we define \(0 \times m := 0\). Now suppose inductively that we have defined how to multiply \(n\) to \(m\). Then we can multiply \(n++\) to \(m\) by defining \((n++) \times m := (n \times m) + m\)
+\end{definition}
 \end{document}
