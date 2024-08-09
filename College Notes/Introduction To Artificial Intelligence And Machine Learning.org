@@ -192,6 +192,10 @@ The solution is to normalize. Normalization reduces a given numerical feature in
 
 **** Types Of Normalization
 - MinMaxScaler - all data points are brought to the range $[0,1]$
+
+  $$
+  x_{new} = \frac{x_{old} - x_{min}}{x_{max} - x_{min}}
+  $$
 - Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
 - LogScaler
 - DecimalScaler - divides the number by a power of 10 until it is lesser than 1.
@@ -349,11 +353,6 @@ print("Cluster Sample:", sample)
 : Cluster Sample: [1, 2, 3, 7, 8, 9]
 
 **** Undersampling
-Undersampling reduces the number of instances in the majority classes to bring it down and hence more or less balance the minority class.
-
-Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
-
-We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don't have a control over the number of instances that has to be reduced.
 *** Binning
 #+begin_src python :results output :session Bollywood
 import pandas as pd
@@ -399,8 +398,6 @@ This is used when we have categorical values spread into boolean values for thei
 **** Logistic Regression
 This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
 
-** TODO Supervised Learning
-** TODO Unsupervised Learning
 ** Reinforcement Learning
 This is a method used in game-based systems.
 It maps:
@@ -412,35 +409,6 @@ And tries to take actions, to achieve a goal to get the reward. It receives the 
 
 These models maximise the cumulative reward.
 ** Steps In Implementing An AI Model.
-*** Problem identification
-This is done by researching
-- Experts in the field
-- Personal experience
-- Literature survey
-- Data curation
-*** Data Curation
-- Data collection in person
-- Public repos
-- Private repos
-- Simulated data
-- Synthetic data
-*** [[Pre-processing]]
-*** Selection of AI models based on the data
-- Figure out whether the problem is a regression or a classification problem.
-- Figure out the computational capacity
-- Try various models for best fit.
-*** Training and tuning the model - A train/test split or a train/validation/testing split.
-- The data is separated out into training and testing.
-- The training subset is passed onto the chosen AI model.
-- Validation is done because it prevents overfitting.
-- The model should generalize.
-*** Testing the developed model
-- Choose evaluation metrics based on the model.
-  - Regresssion can involve MSPE, MSAE, $R^2$
-- Test the data.
-*** Analysis of the results
-*** Re-iterate as needed
-*** Deploy model.
 ** Questions
 *** Read The Dataset Into A Dataframe And Identify The Number Of Rows And Columns
 #+begin_src python :results output :session wine-quality
@@ -534,3 +502,128 @@ $$
 Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
 *** ROC Curve - Receiver Operating Characteristic Curve
 The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
+
+* Overview
+** Types Of Machine Learning
+*** Supervised Learning
+Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
+**** Regression
+Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
+To find the error, we add up the square of the distance of the data points to the closest point on the curve and that gives us the *mean-squared error.*
+Neural networks, support vector regressor, linear regression
+*** Unsupervised Learning
+Models that learn about a dataset without labels.
+This includes
+**** Clustering
+Grouping of data points to automatically create classes for them
+**** Finding outliers
+Done using SVM, Autoencoders
+**** Dimensionality reduction
+Done using Principal Component Analysis.
+*** Reinforcement Learning
+Reinforcement Learning involves giving a model:
+- A set of states
+- A set of actions
+- A set of rewards
+- A goal: taking actions to change the state to receive the reward.
+
+  This type of model doesn't get any data, it explores the environment to gather data.
+*** Deep Learning
+Deep learning is a subset of ML.
+It involves the use of neural networks, which consist of nodes and statistical relationships between nodes to model the way our mind works.
+
+One layer gives us approximate predictions, adding additional layers refines the model's capability. A "Deep" neural network is a network with more than 3 layers.
+** Some Terms Used
+- Regression - Continuous numbers as output
+- Classification - Discrete classes as output
+- Binary classification - two classes treated differently.
+- Overfitting - Good performance on the training data, poor generalization to other
+  Solvable by:
+  - Cross-validation
+  - Data augmentation
+  - Feature selection
+  - Ensemble techniques
+- Underfitting - Poor performance on the training data and poor generalization to other data(test data).
+  - qualitatively or quantitatively poor data.
+  - Bad algorithm for the job
+  - Remedy is to add more features
+- Multi-class classification - Multiple classes treated differently.
+** Steps In Implementing An AI Model
+*** Problem identification
+This is done by researching
+- Experts in the field
+- Personal experience
+- Literature survey
+- Data curation
+*** Data Curation
+- Data collection in person
+- Public repos
+- Private repos
+- Simulated data
+- Synthetic data
+*** [[Pre-processing]]
+*** Selection of AI models based on the data
+- Figure out whether the problem is a regression or a classification problem.
+- Figure out the computational capacity
+- Try various models for best fit.
+*** Training and tuning the model - A train/test split or a train/validation/testing split.
+- The data is separated out into training and testing.
+- The training subset is passed onto the chosen AI model.
+- Validation is done because it prevents overfitting.
+- The model should generalize.
+*** Testing the developed model
+- Choose evaluation metrics based on the model.
+  - Regresssion can involve MSPE, MSAE, $R^2$
+- Test the data.
+*** Analysis of the results
+*** Re-iterate as needed
+*** Deploy model.
+** AI Use Cases
+*** Image Classification
+Convolutional Neural Networks
+*** Text Classification
+Naive Bayes, Support Vector Machines
+*** Handwriting Recognition
+Convolutoinal Neural Networks
+Long Short-Term Memory Networks
+
+* Data Pre-Processing
+** Missing Values
+There are several methods for dealing with missing values or 'data imputation'
+*** Drop rows with missing values
+`df.dropna()`
+*** Fill missing values with specific value (0)
+`df.fillna(0)`
+*** Fill missing values with the mean (for numerical columns)
+`df['Age'].fillna(df['Age'].mean())
+*** Fill missing values with the mode (for classes)
+*** Forward fill
+*** Backward fill
+** Normalization
+*** Min-Max
+*** Z-Score
+** Binning
+Binning is the process of converting a continuous value, into classes.
+** Sampling
+*** Random Sampling
+*** Stratified Sampling
+*** Systematic Sampling
+*** Cluster Sampling
+** One Hot Encoding
+This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+** Data Balancing
+*** Oversampling using SMOTE
+It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
+*** Undersampling Using TOMEK
+Undersampling reduces the number of instances in the majority classes to bring it down and hence more or less balance the minority class.
+
+Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
+
+We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don't have a control over the number of instances that has to be reduced.
+** Data Splitting
+*** Train-Test-Split: Hold Out Method.
+The data is divided into 70-30 or 80-20
+*** K-Fold Cross Validation
+This is a resampling technique.
+Dataset is split into $k$ sets of almost equal sizes. The first set is selected as the test set and the model is trained on the remaining $k-1$ sets. The test error rate is then calculated after fitting the model to the test data.
+In the second iteration, the $2^{nd}$ set is selected as a test set and the remaining $k-1$ sets are used to train the data and the error is calculated. This process continues for all the k sets.

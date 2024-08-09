@@ -1,4 +1,4 @@
-% Created 2024-08-06 Tue 15:47
+% Created 2024-08-07 Wed 14:25
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:orga3a67f7}
+\label{sec:orgac843b6}
 \chapter{Revision Linear Algebra}
-\label{sec:orgb79fdf4}
+\label{sec:org3a09d56}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -49,17 +49,17 @@ problem, generate a random 3x3 matrix, find the ranks of
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:orgc0d9a74}
+\label{sec:orgca87648}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:org232a1fa}
+\label{sec:orgd6beb98}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:orge2eb8f7}
+\label{sec:org10751f4}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +67,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:org51126a8}
+\label{sec:org5d6d048}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -228,14 +228,56 @@ Let \(A = U\Sigma V^T\) where
 Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
-\chapter{Multivariable Optimization}
-\label{sec:org7802645}
+\chapter{Multi variable Optimization}
+\label{sec:org3707ecf}
 
-We minimize \(f(x_1,x_2,\cdots,x_3)\)
+We minimize \(f(x_1,x_2,\cdots,x_3)\).
+\section{Contour Curves}
+\label{sec:org6936f20}
+\section{Multi variable Calculus}
+\label{sec:orgdd5c609}
+The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
+
+\begin{align*}
+f(x,y) = x^3 + y^3 + 2x^2 + 4y^2 + 6 \\
+\frac{\partial f}{\partial x} = 3x^2 + 4x \\
+\frac{\partial^2 f}{\partial x} = 6x + 4 \\
+\frac{\partial f}{\partial y} = 3y^2 + 8y\\
+\frac{\partial f}{\partial y\partial x} = 0\\
+\frac{\partial^2 f}{\partial y} = 6y + 8\\
+x = 0,\frac{-4}{3} \\
+y = 0,\frac{-8}{3} \\
+\end{align*}
+\section{Newton's Method}
+\label{sec:orge24e97b}
+Newton's Method is a numerical method to find a minimum of a function.
+
+Iterative formula:
+
+\[
+x_{n+1} = x_n - \frac{f'(x_n)}{f''(x_n)}
+\]
+
+Find the minimum of \(f(x) = x^2 + \frac{54}{x}\) using Newton's method.
+
+Newton's method can be practically done for all functions by evaluating the first and second derivatives numerically and then apply the formula
+
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \text{to find root of $f(x)$ = 0}$$
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \text{to find minimum of $f(x)$(root of $f'(x) = 0)}$$
+
+Evaluation of first and second derivatives numerically:
+
+$$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
+$$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
+\section{How solution to a linear system can be found as a solution of an optimization problem.}
+\label{sec:orge539c3f}
+Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
+
+Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
 \part{PCA IEEE Report}
-\label{sec:org878429a}
+\label{sec:orgbc75ea3}
 \chapter{References}
-\label{sec:org36dfa8f}
+\label{sec:orgcd1ccd8}
 \begin{itemize}
 \item \url{https://arxiv.org/pdf/2403.15112}
 \item \url{https://arxiv.org/pdf/2402.15527}
@@ -243,6 +285,6 @@ We minimize \(f(x_1,x_2,\cdots,x_3)\)
 \item \url{https://ieeexplore.ieee.org/document/10511242}
 \end{itemize}
 \chapter{What is PCA?}
-\label{sec:org4cfca64}
+\label{sec:orgd664699}
 In a nutshell, what Principal Component Analysis does is reduce the dimensionality of a set of data points by linearly projecting them onto a lower-dimensional space where the reconstruction error is as minimal as possible.
 \end{document}

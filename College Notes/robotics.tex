@@ -1,4 +1,4 @@
-% Created 2024-08-05 Mon 11:04
+% Created 2024-08-08 Thu 12:46
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,21 +29,21 @@
 \tableofcontents
 
 \part{Robotics}
-\label{sec:org8a4fe2b}
+\label{sec:org8c6ea8f}
 \chapter{Unit 1}
-\label{sec:org6517a73}
+\label{sec:org1cacdb2}
 \section{Introduction}
-\label{sec:org2967295}
+\label{sec:orgc0908ec}
 This course is mainly going to focus on \textbf{Manipulators}. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
 \section{Syllabus}
-\label{sec:org8be1727}
+\label{sec:orgd2cdaa2}
 \begin{itemize}
 \item Overview Of Robotics
 \item Kinematics Of Simple Robotic Systems
 \item Dynamics And Control Of Simple Robotic Systems
 \end{itemize}
 \section{Glossary}
-\label{sec:org6e4bcca}
+\label{sec:org76b9174}
 \begin{enumerate}
 \item Actuator - Does work upon receiving voltage
 \item Encoder - Sensor that measures raw angle data.
@@ -53,7 +53,7 @@ This course is mainly going to focus on \textbf{Manipulators}. These machines ar
 Software for robotics - \textbf{v-rep}, MATLAB
 This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
 \section{Degree Of Freedom}
-\label{sec:org1a97b53}
+\label{sec:orgdb136e2}
 The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
 
 The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
@@ -67,10 +67,10 @@ $$\text{No. of controlling inputs} = \text{No. of degrees of freedom}$$
 Redundant systems contain more actuators than the number of degrees of freedom
 $$\text{No. of controlling inputs} >\text{ No. of degrees of freedom}$$
 \section{Kinematic Pair}
-\label{sec:org72915d7}
+\label{sec:org97b1a89}
 Linkages are the basic elements of all mechanisms and robots. Links are rigid body member with nodes, and joints are connection between links at nodes. Allows relative motion between links.
 \section{Robotic Manipulator}
-\label{sec:org0c80cb8}
+\label{sec:org07f4da5}
 \begin{itemize}
 \item Why study kinematics and dynamics of robotic manipulator
 \begin{itemize}
@@ -80,7 +80,7 @@ Linkages are the basic elements of all mechanisms and robots. Links are rigid bo
 \end{itemize}
 \end{itemize}
 \section{Pose of a rigid body}
-\label{sec:org240df11}
+\label{sec:org74d4634}
 A rigid body is completely defined in space by its position and orientation with respect to a reference.
 
 We use the terminology `Inertial reference frame' to mean an observer where Newton's laws of physics apply. We use the terminology 'Inertial reference frame' to mean an observer where Newton's laws of physics apply and the frame itself does not accelerate. Generally the base of the robotic manipulator is treated as the inertial reference frame
@@ -98,4 +98,88 @@ $$
 $$
 \hat{z'} = z'_x \hat{x} + z'_y\hat{y} + z'_z\hat{z}
 $$
+\begin{enumerate}
+\item When the frame is translationally different from the original frame.
+\label{sec:org26e3ffa}
+$$
+\vec{^AP} = \vec{^BP} + \vec{^AP}_{B org}
+$$
+Where \(^A\vec{P}\) is the position vector of P with respect to A, \(\vec{^BP}\) is the position vector of P with respect to B, and \(\vec{^AP}_{B org}\) is the vector of A to B.
+\item When the frame is oriented differently from the original frame.
+\label{sec:orgeb50c9e}
+Generating a rotation matrix \(^B_AR\) to rotate vectors from a frame B to A. Where A and B are reference frames, with B being oriented differently than A.
+
+$$ \begin{bmatrix} \hat{X_b} \cdot \hat{X_a} & \hat{Y_b} \cdot \hat{X_a} & \hat{Z_b} \cdot \hat{X_a} \\ \hat{X_b} \cdot \hat{Y_a} & \hat{Y_b} \cdot \hat{Y_a} & \hat{Z_b} \cdot \hat{Y_a} \\ \hat{X_b} \cdot \hat{Z_a} & \hat{Y_b} \cdot \hat{Z_a} & \hat{Z_b} \cdot \hat{Z_a} \\ \end{bmatrix}$$
+
+We can simply the matrix into 3 column vectors, with the notation \(^AX_B\) which means B with respect to A
+
+$$\begin{bmatrix}\hat{^AX_B} & \hat{^AY_b} & \hat{^AZ_B}\end{bmatrix}$$
+\item When the frame is both translationally and oriented different from the original frame
+\label{sec:orge4c2f70}
+$$ ^A\vec{P} = ^A_B R ^B\vec{P} + ^A\vec{P}_{B org}$$
+\end{enumerate}
+\section{System Nomenclature}
+\label{sec:org47f296a}
+\begin{definition}
+A dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
+\end{definition}
+\begin{definition}
+The state of a dynamic system is the smallest set of variables(called state variables) such that the knowledge of these variables at \(t=t_0\), together with the knowledge of the input for \(t\geq t_0\), completely determines the behaviour of the system for any time \(t \ge t_0\). The number of state variables is the same as the number of inital conditions needed to completely solve the system models
+\end{definition}
+\begin{definition}
+If n state variables are needed to completely describe the behaviour of a given system, then the \(n\) state variables can be considered the components of a vector \(X\). Such a vector is called a state vector.
+\end{definition}
+
+\begin{definition}
+The state space is the  \(n\) -dimensional space whose coordinate axes consist of the \(x_1\) axis, \(x_2 axis\) where \(x_1, \cdots , x_n\)
+\end{definition}
+
+Suppose you started observing your model at point \(t_0\). You can read any point in the state space and immediately figure out exactly how the system was behaving at any given point.
+
+
+Input Variables: \(U_{n\times1} = [U_1, U_2, \cdots, U_r]^T\)
+State Variables: \(X_{n\times1} = [X_1, X_2, \cdots, X_r]^T\)
+Output Variables: \(Y_{n\times1} = [Y_1, Y_2, \cdots, Y_r]^T\)
+
+We can write the derivatives of the state variables as functions of the inputs and the state variables and time.
+
+We can then write these functions as one vector.
+
+\[
+\dot{X}(t) = F(U,x,t)
+\]
+
+We can similarly write the derivatives of the outputs as functions of the inputs and state variables.
+
+\[
+\dot{Y}(t) = G(U,X,t)
+\]
+
+We write the states' derivative as a linear combination, which can then be written as a matrix.
+
+$$ \dot{X}(t) = \begin{bmatrix} a_{11} & a_{21} & \cdots & a_{1n} \\ \vdots & \ddots & & \vdots \\ a_{n1} & a_{n1} & \cdots & a_{nn} \\ \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \begin{bmatrix} b_{11} & b_{21} & \cdots & b_{1n} \\ \vdots & \ddots & & \vdots \\ b_{n1} & b_{n1} & \cdots & b_{nn} \\ \end{bmatrix} \begin{bmatrix} u_1 \\ \vdots \\ u_n \end{bmatrix}$$
+We get the equation,
+
+$$\dot{X}(t) = A_{n \times n} X_{n \times 1} + B_{n \times r} U_{r \times 1}$$
+
+A is the `state' matrix, and B is the `input' matrix
+
+Similarly we can write,
+$$\dot{Y}(t) = C_{m \times n}X_{n \times 1} + D_{m \times r}U_{r \times 1}$$
+
+We apply the Laplace transform to convert integrals and derivatives into algebraic operations.
+
+
+$$U(t) \rightarrow G(s) \rightarrow Y(t)$$
+We get the transfer function \(G(s)\) by the formula
+$$G(s) = \frac{Y(s)}{U(s)}$$
+
+So we can get our outputs, by
+
+$$Y(s) = G(s)U(s)$$
+\begin{definition}
+A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
+\end{definition}
+\section{Modeling Of Dynamical Systems.}
+\label{sec:orgbd10935}
 \end{document}

@@ -95,6 +95,24 @@ For every $a$, there exists a $b$ such that $b++ = a$
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$
 \end{definition}
+
+*** Strong Induction
+#+begin_theorem
+Let $m_0$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \geq m_0$, we have the following implication: if $P(m')$ is true for all natural numbers $m_0 \leq m' < m$, then $P(m)$ is also true.(In particular this means that $P(m_0$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \geq m_0$.
+#+end_theorem
+#+begin_proof
+For a property $Q(n)$, which is the property that $P(m')$ is true for $m_0 \leq m' < n$, then $P(n)$ is true.
+
+For $Q(0)$,
+$0$ is either lesser than or equal to $m_0$.
+
+When $0$ is lesser than $m_0$,
+
+This is vacuously true.
+
+When $0 = m_0$,
+#+end_proof
+
 *** Multiplication
 #+begin_definition
 Let $m$ be a natural number. To multiply zero to $m$, we define $0 \times m := 0$. Now suppose inductively that we have defined how to multiply $n$ to $m$. Then we can multiply $n++$ to $m$ by defining $(n++) \times m := (n \times m) + m$
@@ -102,3 +120,16 @@ Let $m$ be a natural number. To multiply zero to $m$, we define $0 \times m := 0
 #+begin_lemma
 Prove that multiplication is commutative
 #+end_lemma
+
+
+*** Exercise
+**** Prove the identity $(a+b)^2 = a^2 + 2ab + b^2$
+**** (Euclid's division lemma)
+**** Backward Induction
+$m \in \mathbb{N}, P(m), P(m++) \implies P(m)$, Suppose $P(n)$ is true, then $P(m) \forall m \le n$
+For the base case, n = 0,
+P(0) \implies P(0), so it's true.
+
+For the inductive step, supposing $Q(n)$ is true
+
+For $Q(n++)$,

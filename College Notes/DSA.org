@@ -1,4 +1,4 @@
-#+title: DSA
+#+title: Advanced Data Structures And Algorithm Analysis
 #+author: Adithya Nair
 * Graphs
 Graphs are nodes with links to each other. These links are defined by a matrix known as an **adjacency matrix**.
@@ -88,7 +88,7 @@ The procedure follows:
   - In which case the stack is full.
   - If the stack is still not full, it implies that there are nodes which haven't been visited.
 - Now popping occurs
-- The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost elements's adjacent nodes for unvisited nodes.
+- The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost element's adjacent nodes for unvisited nodes.
 - This is done until the stack is empty
 
 #+begin_src java
@@ -147,3 +147,49 @@ There are three types of traversal.
 - Process the right subtree
 - Process the root
 - Recursively repeat.
+* Heap
+** Types Of Heap
+There are two types of heap:
+*** Min Heap
+The value of the root node is less than or equal to  its children
+*** Max Heap
+The value of the root node is more than or equal to its children
+** Definition
+A heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
+A heap is typically represented as an array, the array representation for a tree, is for each node
+A parent node is represented by $\frac{i}{2} - 1$, the left child node is $2*i + 1$ and the right child node is $2*i + 2$
+
+Heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
+** Insertion
+The process of insertion involves:
+- Adding a node to the leftmost child node available.
+- Comparing the node's value with the parent node
+  - If current node's value is $i$, we have $\frac{(i-1)/2}$
+- If the comparison yields the result that the definition of heap does not hold, then the values of the parent node and the child node are swapped.
+- Repeat until the comparison holds.
+
+#+begin_src java
+// i is the variable holding the last position
+// k is the value we are trying to add to the heap.
+void insert(A,i,k){
+i = i + 1;
+a[i] = k;
+while(i > 0){
+    if(a[(i-1)/2] > a[i]){
+        t = a[i];
+        a[i] = a[(i-1)/2];
+        a[(i-1)/2] = t;
+    }
+    else
+        return;
+    }
+  #+end_src
+** Deletion
+- Deletion can only happen at the root node.
+- This deletion takes place when you're trying to perform 'heap sort'.
+
+#+begin_src java
+int k = a[0];
+#+end_src
+** TODO Write a Java Program To Implement And Insert Elements Into A Heap The array = [80,100,30,20,70,15,19]
+Write a program which can automatically arrange itself into a heap

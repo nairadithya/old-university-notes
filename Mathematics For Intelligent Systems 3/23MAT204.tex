@@ -33,12 +33,12 @@
 Every matrix satisfies its own characteristic matrix.
 
 What this means is \[\begin{aligned}
-    \lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\ 
-    A^3 - 2A^2 + A -4I &= 0 \\  
-    A^2 - 2A + I - 4A^{-1} &= 0 \\
-    A^{-1} &= \frac{1}{4}[A^2 - 2A + I]
-    X &= A^{-1}b = \frac{1}{4}[A^2 - 2A + I]b
-\end{aligned}\] There are some implications behind this. Here's a
+		\lambda^3 - 2\lambda^2 + \lambda -4 & = 0                                    \\
+		A^3 - 2A^2 + A -4I                  & = 0                                    \\
+		A^2 - 2A + I - 4A^{-1}              & = 0                                    \\
+		A^{-1}                              & = \frac{1}{4}[A^2 - 2A + I]
+		X                                   & = A^{-1}b = \frac{1}{4}[A^2 - 2A + I]b
+	\end{aligned}\] There are some implications behind this. Here's a
 problem, generate a random 3x3 matrix, find the ranks of
 \((A- \lambda_1 I)\) and then \((A-\lambda_1 I)(A-\lambda_2 I\)
 
@@ -47,9 +47,9 @@ characteristic equation
 \subsection{Ways To Calculate Whether A Matrix Is Positive Definite}
 \label{ways-to-calculate-whether-a-matrix-is-positive-definite}
 \begin{enumerate}
-\item The minors are positive then negative alternating.
+	\item The minors are positive then negative alternating.
 
-\item The eigenvalues are positive.
+	\item The eigenvalues are positive.
 \end{enumerate}
 \subsection{Large Eigenvalue Computation}
 \label{large-eigenvalue-computation}
@@ -100,11 +100,11 @@ an orthogonal matrix and a positive semi-definite matrix.
 For 2D, \[\vec{x} = r(\cos(\theta) + sin(\theta))\]
 
 \[\begin{aligned}
-    A &= U \Sigma V^T \\ 
-      &= U(V^TV) \Sigma V^T \\
-      &= (UV^T)(V\Sigma V^T)\\
-      &= Q \times S \\
-\end{aligned}\]
+		A & = U \Sigma V^T        \\
+		  & = U(V^TV) \Sigma V^T  \\
+		  & = (UV^T)(V\Sigma V^T) \\
+		  & = Q \times S          \\
+	\end{aligned}\]
 
 Here S is the scaling matrix, and Q is the orthogonal matrix.
 
@@ -116,7 +116,7 @@ exploring the semantic spaces of LLMs.
 Why do we use normalization while working with data? We use
 normalization to ensure that the units are eliminated while working with
 that given data. \textbf{This normalization is done by subtracting by the
-average and divide by the standard deviation.}
+	average and divide by the standard deviation.}
 
 Matrix where the row and columns sums are equal.
 \subsection{Norms Of Vectors And Matrices}
@@ -139,14 +139,16 @@ The \(L_\infty\) norm would be
 \([|u_1|^\infty + |u_2|^\infty + \cdots + |u_n|^\infty]^{\frac{1}{\infty}}\).
 This returns the maximum vector component of the vector.
 
-Let's take the equation, \(\|v\|_1 = 1\) $\backslash$[\begin{aligned}
-    x + y \&= 1 \\
-    x - y \&= 1 \\
-\begin{itemize}
-\item x + y \&= 1 \\
-\end{itemize}
-    -x - y = 1 \\
-\end{aligned}$\backslash$]
+Let's take the equation, \(\|v\|_1 = 1\)
+
+\[
+	\begin{aligned}
+		x + y & = 1 \\
+		x - y & = 1 \\
+		x + y = 1   \\
+		-x - y = 1  \\
+	\end{aligned}
+\]
 
 \label{fig:l1eq1}
 \url{./figures/l1eq1}
@@ -158,12 +160,12 @@ of vector \(\vec{v}\)
 There are three types of Matrix norms:
 
 \begin{enumerate}
-\item Spectral Norm
+	\item Spectral Norm
 
-\item Frobenius Norm =
-\(\sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}\)
+	\item Frobenius Norm =
+	      \(\sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}\)
 
-\item Nuclear Norm
+	\item Nuclear Norm
 \end{enumerate}
 \subsubsection{Spectral Norm}
 \label{spectral-norm}
@@ -171,15 +173,15 @@ We know that the vector norm for a vector \(\vec{x}\) is nothing but
 \(\vec{x}^T \vec{x}\). We take this property.
 
 \[\begin{aligned}
-    Max \|A\|_2^2 &= Max \frac{\|Ax\|_2^2}{\|x\|_2^2} \\
-              &= Max \frac{x^TA^TAx}{x^Tx} \\
-              &= Max \{\lambda_i(S)\} = \lambda_1 = \sigma_1^2
-\end{aligned}\]
+		Max \|A\|_2^2 & = Max \frac{\|Ax\|_2^2}{\|x\|_2^2}              \\
+		              & = Max \frac{x^TA^TAx}{x^Tx}                     \\
+		              & = Max \{\lambda_i(S)\} = \lambda_1 = \sigma_1^2
+	\end{aligned}\]
 \subsubsection{Frobenius Norm}
 \label{frobenius-norm}
 The Frobenius norm for a matrix M, \(\begin{bmatrix}
-    a_{11} & a_{12}\\
-a_{21} & a_{22} \\
+	a_{11} & a_{12} \\
+	a_{21} & a_{22} \\
 \end{bmatrix}\) is the equation
 \(\sqrt{a_{11}^2 + a_{12}^2 + a_{21}^2 + a_{22}^2}\)
 \subsubsection{Nuclear Norm}
@@ -189,21 +191,21 @@ The nuclear norm is the sum of the singular values of a matrix A.
 For an identity matrix,
 
 \begin{itemize}
-\item The Spectral Norm is 1
+	\item The Spectral Norm is 1
 
-\item The Frobenius Norm is \(\sqrt{n}\)
+	\item The Frobenius Norm is \(\sqrt{n}\)
 
-\item The Nuclear Norm is \({n}\)
+	\item The Nuclear Norm is \({n}\)
 \end{itemize}
 
 For an orthogonal matrix,
 
 \begin{itemize}
-\item The Spectral Norm is 1
+	\item The Spectral Norm is 1
 
-\item The Frobenius Norm is \(\sqrt{n}\)
+	\item The Frobenius Norm is \(\sqrt{n}\)
 
-\item The Nuclear Norm is \({n}\)
+	\item The Nuclear Norm is \({n}\)
 \end{itemize}
 \subsection{Best Low Rank Matrix}
 \label{best-low-rank-matrix}

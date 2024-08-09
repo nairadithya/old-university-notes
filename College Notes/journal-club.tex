@@ -1,4 +1,4 @@
-% Created 2024-08-05 Mon 16:06
+% Created 2024-08-08 Thu 12:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -30,13 +30,13 @@
 
 The textbook is Terrence Tao's Analysis 1.
 \part{Real Analysis}
-\label{sec:org7592ac8}
+\label{sec:org9f4b0d2}
 \chapter{Introduction}
-\label{sec:orgc3c5fc8}
+\label{sec:org2a1d722}
 Real Analysis is useful for engineers and physicists. It's said to have a bad reputation, due to its rigour. This textbook offsets that by starting at the very base, the numbers themselves. It starts by defining natural numbers, then building integers, rational, real, complex and so on.
 We have the continuous medium which is expressed by the PDEs, Dynamics expressed by ODEs. Computer scientists aren't taught this,  they're taught Discrete Math.
 \chapter{Natural Numbers}
-\label{sec:org4b91870}
+\label{sec:orga907f63}
 Numbers were built to count. A system for counting was made, and that system is the number system.
 
 \begin{definition}
@@ -47,7 +47,7 @@ A natural number is an element of the set $\mathbb{N}$ of the set
 is obtained from 0 and counting forward indefinitely.
 \end{definition}
 \section{Peano Axioms}
-\label{sec:orgb725a59}
+\label{sec:orgf350534}
 We start with axioms to help clarify this.
 \begin{itemize}
 \item Axiom 1 : \(0 \in \mathbb{N}\)
@@ -67,7 +67,7 @@ We need to remove the rogue elements from the set, such as fractions and half-in
 We then make an assumption: That the set \(\mathbb{N}\) which satisfies these five axioms is called the set of natural numbers.
 With these 5 axioms, we can construct sequences
 \section{Sequences}
-\label{sec:org0e82e1c}
+\label{sec:org022f2bb}
 For \(n \in \mathbb{N}\)
 \begin{align*}
 a_0 &= c, c \in \mathbb{N} \\
@@ -132,9 +132,31 @@ For every $a$, there exists a $b$ such that $b++ = a$
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$
 \end{definition}
+\section{Strong Induction}
+\label{sec:orge725f7a}
+\begin{theorem}
+Let \(m_0\) be a natural number, and let \(P(m)\) be a property pertaining to an arbitrary natural number \(m\). Suppose that for each \(m \geq m_0\), we have the following implication: if \(P(m')\) is true for all natural numbers \(m_0 \leq m' < m\), then \(P(m)\) is also true.(In particular this means that \(P(m_0\) is true, since in this case the hypothesis is vacuous.) Then we can conclude that \(P(m)\) is true for all natural numbers \(m \geq m_0\).
+\end{theorem}
+\begin{proof}
+For a property \(Q(n)\), which is the property that \(P(m')\) is true for \(m_0 \leq m' < n\), then \(P(n)\) is true.
+
+\begin{centering}
+For $Q(0)$,
+$0$ is either lesser than or equal to $m_0$.
+
+When $0$ is lesser than $m_0$,
+
+This is vacuously true.
+
+When $0 = m_0$,
+\end{centering}
+\end{proof}
 \section{Multiplication}
-\label{sec:orgf28d9ee}
+\label{sec:org002004e}
 \begin{definition}
 Let \(m\) be a natural number. To multiply zero to \(m\), we define \(0 \times m := 0\). Now suppose inductively that we have defined how to multiply \(n\) to \(m\). Then we can multiply \(n++\) to \(m\) by defining \((n++) \times m := (n \times m) + m\)
 \end{definition}
+\begin{lemma}
+Prove that multiplication is commutative
+\end{lemma}
 \end{document}

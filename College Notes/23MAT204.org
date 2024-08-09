@@ -213,10 +213,83 @@ Let \(A = U\Sigma V^T\) where
 Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
-** Multivariable Optimization
+** Multi variable Optimization
 
-We minimize $f(x_1,x_2,\cdots,x_3)$
-* PCA IEEE Password
+We minimize $f(x_1,x_2,\cdots,x_3)$.
+*** Contour Curves
+*** Multi variable Calculus
+The points where $\nabla f = \vec{0}$ are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
+
+\begin{align*}
+f(x,y) = x^3 + y^3 + 2x^2 + 4y^2 + 6 \\
+\frac{\partial f}{\partial x} = 3x^2 + 4x \\
+\frac{\partial^2 f}{\partial x} = 6x + 4 \\
+\frac{\partial f}{\partial y} = 3y^2 + 8y\\
+\frac{\partial f}{\partial y\partial x} = 0\\
+\frac{\partial^2 f}{\partial y} = 6y + 8\\
+x = 0,\frac{-4}{3} \\
+y = 0,\frac{-8}{3} \\
+\end{align*}
+*** Newton's Method
+Newton's Method is a numerical method to find a minimum of a function.
+
+Iterative formula:
+
+\[
+x_{n+1} = x_n - \frac{f'(x_n)}{f''(x_n)}
+\]
+
+Find the minimum of $f(x) = x^2 + \frac{54}{x}$ using Newton's method.
+
+Newton's method can be practically done for all functions by evaluating the first and second derivatives numerically and then apply the formula
+
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \text{to find root of $f(x)$ = 0}$$
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \text{to find minimum of $f(x)$(root of $f'(x) = 0)}$$
+
+Evaluation of first and second derivatives numerically:
+
+$$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
+$$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
+
+*** How solution to a linear system can be found as a solution of an optimization problem.
+Find an objective function whose solution is specified as $\vec{x} : A\vec{x} = b$
+
+Take for example, $\frac{1}{2}x^T A x - b^T x + c$, $x \in R^n, A = A^T$
+
+*** Numerical Algorithm Of Gauss-Jacobi Method
+
+Input A = [a_{ij}], X0 = x^{(0)}, tolerance TOL, maximum number of iterations N,
+
+
+Programmattically doing so,
+
+$Ax = b$
+
+We separate A,
+A = D - L - U
+
+$$(D-L-U)x = b$$
+$$(Dx= b + (L+U)x$$
+$$(x= D^{-1}b + D^{-1}(L+U)x$$
+
+$$x^{(k)} = Tx^{x^{(k-1)}} + c$$
+
+* Practie Sheet 3
+** Contour Plots, Hessian
+#+begin_src octave :results output
+#+end_src
+
+#+RESULTS:
+: ans =
+:
+:    100     1
+:
+: ans =
+:
+:    100     1
+:
+
+* PCA IEEE Report
 ** References
 - https://arxiv.org/pdf/2403.15112
 - https://arxiv.org/pdf/2402.15527

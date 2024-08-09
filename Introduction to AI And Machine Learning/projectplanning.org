@@ -1,7 +1,0 @@
-#+title: Projectplanning
-* Possible Ideas
-** Face Recognition
-** Sentiment Analysis
-** Stock Market Prediction/Analysis
-** Generative Adversarial Networks(Image Generation)
-** Weather Prediction
