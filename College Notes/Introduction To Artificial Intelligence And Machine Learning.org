@@ -18,7 +18,6 @@ print(irisdata.describe())
 #+end_src
 
 #+RESULTS:
-
 * Overview
 ** Pre-Processing
 *** Handling Missing Values (Imputation)
@@ -48,7 +47,6 @@ print(df.head())
 
 This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
 #+begin_src python :results output :session Titanic
-
 # Identify missing values
 print("\nMissing values in each column:")
 print(df.isnull().sum())

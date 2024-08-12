@@ -1,4 +1,4 @@
-% Created 2024-08-07 Wed 14:25
+% Created 2024-08-12 Mon 08:49
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:orgac843b6}
+\label{sec:org5aafc3a}
 \chapter{Revision Linear Algebra}
-\label{sec:org3a09d56}
+\label{sec:org330dd67}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -49,17 +49,17 @@ problem, generate a random 3x3 matrix, find the ranks of
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:orgca87648}
+\label{sec:org338f586}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:orgd6beb98}
+\label{sec:org988501e}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:org10751f4}
+\label{sec:org6fd7a72}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +67,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:org5d6d048}
+\label{sec:org4d0d4cc}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -229,13 +229,13 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 \chapter{Multi variable Optimization}
-\label{sec:org3707ecf}
+\label{sec:orgeb3f66d}
 
 We minimize \(f(x_1,x_2,\cdots,x_3)\).
 \section{Contour Curves}
-\label{sec:org6936f20}
+\label{sec:org500feb4}
 \section{Multi variable Calculus}
-\label{sec:orgdd5c609}
+\label{sec:org05d250d}
 The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
 
 \begin{align*}
@@ -249,7 +249,7 @@ x = 0,\frac{-4}{3} \\
 y = 0,\frac{-8}{3} \\
 \end{align*}
 \section{Newton's Method}
-\label{sec:orge24e97b}
+\label{sec:org4da40f7}
 Newton's Method is a numerical method to find a minimum of a function.
 
 Iterative formula:
@@ -270,21 +270,144 @@ Evaluation of first and second derivatives numerically:
 $$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
 $$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
 \section{How solution to a linear system can be found as a solution of an optimization problem.}
-\label{sec:orge539c3f}
+\label{sec:org91f00e8}
 Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
 
 Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
-\part{PCA IEEE Report}
-\label{sec:orgbc75ea3}
-\chapter{References}
-\label{sec:orgcd1ccd8}
+\section{Numerical Algorithm Of Gauss-Jacobi Method}
+\label{sec:org8c2f6a2}
+
+Input A = [a\textsubscript{ij}], X0 = x\textsuperscript{(0)}, tolerance TOL, maximum number of iterations,
+
+\(Ax = b\)
+
+We separate A,
+A = D - L - U
+
+$$(D-L-U)x = b$$
+$$(Dx= b + (L+U)x$$
+$$(x= D^{-1}b + D^{-1}(L+U)x$$
+
+$$x^{(k)} = Tx^{x^{(k-1)}} + c$$
+
+
+The code to implement the method:
+\begin{verbatim}
+A = [5,-2,3;-3,9,1;2,-1,-7];
+b = [-1;2;3];
+
+n = 100; % No. of iterations
+D = diag(diag(A));
+L = -tril(A,-1);
+U = -triu(A,1);
+
+X = zeros(size(A)(1),n);
+T = inv(D)*(L+U);
+c = inv(D)*b;
+format long
+
+for i = 2:n
+  X(:,i) = T*X(:,i-1) + c;
+  if(X(:,i) == X(:,i-1))
+    display("The iteration it converges at:")
+    i-1
+    break;
+  end
+end
+\end{verbatim}
+\section{Gauss-Siedel Iteration Method}
+\label{sec:orgd14f403}
+The iterative method is somewhat similar to <Gauss-Jacobi method>.
+
+The only difference is that the new values are computed by already existing new values.
+
+\begin{verbatim}
+A = [5,-2,3;-3,9,1;2,-1,-7];
+b = [-1;2;3];
+
+n = 100; % No. of iterations
+D = diag(diag(A));
+L = -tril(A,-1);
+U = -triu(A,1);
+
+X = zeros(size(A)(1),n);
+T = inv(D-L)*U;
+c = inv(D-L)*b;
+
+for i = 2:n
+  X(:,i) = T*X(:,i-1) + c;
+  if(X(:,i) == X(:,i-1))
+    display("The iteration it converges at:")
+    i-1
+    break;
+  end
+end
+\end{verbatim}
+
+$$(D-L)x^{k} = Ux^{k-1} + b$$
+$$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
+
+If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
+\chapter{Unidirectional/Line search}
+\label{sec:org5ce430e}
+For a given function,
+
+Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
+
+How to perform uni-directional search:
 \begin{itemize}
-\item \url{https://arxiv.org/pdf/2403.15112}
-\item \url{https://arxiv.org/pdf/2402.15527}
-\item \url{https://medium.com/@anabelenmanjavacas/dimensionality-reduction-and-pca-23dbd7d6f367}
-\item \url{https://ieeexplore.ieee.org/document/10511242}
+\item Write the parametric representation of the line search, $$\vec{s}(t) = \vec{a} + t\vec{b}$$
+\item Write the function in terms of \(t\), \(f(\vec{s}(t))\). this is a single variable function.
+\item Find the minimum of \(f(\vec{s}(t))\), \(t^*\)
+\item Obtain the solution for unidirectional search by substituting \(t^*\) in \(\vec{s}(t)\)
 \end{itemize}
-\chapter{What is PCA?}
-\label{sec:orgd664699}
-In a nutshell, what Principal Component Analysis does is reduce the dimensionality of a set of data points by linearly projecting them onto a lower-dimensional space where the reconstruction error is as minimal as possible.
+\part{Overview}
+\label{sec:orgd36496f}
+\chapter{Calculating Eigenvalues and Eigenvectors}
+\label{sec:org169ae98}
+\chapter{Norms Of Vectors}
+\label{sec:org38b4dfc}
+\section{\(L_n\) norm}
+\label{sec:org7e380dc}
+The \(L_n\) norm of a vector \(x_{m \times 1}\) is,
+
+$$L_n =\sqrt[n]{x_1^n + x_2^n + \cdots + x_m^n}$$
+
+\(L_\infty = max{|x_1|, |x_2|, \cdots , |x_n|}\)
+\section{S-norm}
+\label{sec:orgc0ba30c}
+Where S is a symmetric positive matrix
+
+\(\|v\|_s = v^T S v\)
+\chapter{Norms Of Matrices}
+\label{sec:orgda19af4}
+\section{Spectral Norm}
+\label{sec:org82cbdc8}
+It is the maximum of the ratio,
+
+$$\frac{\|Ax\|}{\|x\|}$$
+
+The maximum is \(\sigma_1\) at the vector \(x=v_1\)
+\section{Frobenius Norm}
+\label{sec:org9fc26ee}
+
+$$\|A\|_F = \sqrt{\Sigma_i \Sigma_j a_{ij}^2}$$
+
+It's the same as the vector norm of the vector of singular values of \(A\)
+\section{Nuclear Norm}
+\label{sec:orgc0b8b0b}
+
+$$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
+\chapter{Optimization}
+\label{sec:org568379c}
+\section{Types Of Optimization Problems}
+\label{sec:org2b3b031}
+\begin{enumerate}
+\item Single variable and multi variable
+\item Constrained and unconstrained
+\item Linear and nonlinear
+\item Continuous and discrete
+\item Single-objective and multi-objective
+\item Stochastic and deterministic
+\end{enumerate}
 \end{document}

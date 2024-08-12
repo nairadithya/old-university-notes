@@ -75,6 +75,16 @@ We can simply the matrix into 3 column vectors, with the notation $^AX_B$ which 
 $$\begin{bmatrix}\hat{^AX_B} & \hat{^AY_b} & \hat{^AZ_B}\end{bmatrix}$$
 **** When the frame is both translationally and oriented different from the original frame
 $$ ^A\vec{P} = ^A_B R ^B\vec{P} + ^A\vec{P}_{B org}$$
+To simplify the equations, we write.
+
+$$^A\vec{P} = _B^AT ^BP$$
+Where T becomes
+$$^A_BT = \begin{bmatrix}^A_BR_{3 \times 3} & ^AP_{B org} \\ 0_{1 \times 3} 1_{1 \times 1}\end{bmatrix}$$
+
+This T is the homogeneous transformation matrix.
+
+The Rotation Matrix belongs to a category of matrices called $SO(3)$
+
 *** System Nomenclature
 #+begin_definition :options [Dynamical System]
 	A dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
@@ -139,3 +149,11 @@ A block diagram of a system is a pictorial representation of the functions perfo
 
 
 *** Modeling Of Dynamical Systems.
+#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
+| Sede      | Max cites | H-index |
+|-----------+-----------+---------|
+| Chile     |    257.72 |   21.39 |
+| Leeds     |    165.77 |   19.68 |
+| Sao Paolo |     71.00 |   11.50 |
+| Stockholm |    134.19 |   14.33 |
+| Morelia   |    257.56 |   17.67 |

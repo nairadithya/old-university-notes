@@ -258,10 +258,7 @@ Take for example, $\frac{1}{2}x^T A x - b^T x + c$, $x \in R^n, A = A^T$
 
 *** Numerical Algorithm Of Gauss-Jacobi Method
 
-Input A = [a_{ij}], X0 = x^{(0)}, tolerance TOL, maximum number of iterations N,
-
-
-Programmattically doing so,
+Input A = [a_{ij}], X0 = x^{(0)}, tolerance TOL, maximum number of iterations,
 
 $Ax = b$
 
@@ -274,26 +271,119 @@ $$(x= D^{-1}b + D^{-1}(L+U)x$$
 
 $$x^{(k)} = Tx^{x^{(k-1)}} + c$$
 
-* Practie Sheet 3
-** Contour Plots, Hessian
+
+The code to implement the method:
 #+begin_src octave :results output
+A = [5,-2,3;-3,9,1;2,-1,-7];
+b = [-1;2;3];
+
+n = 100; % No. of iterations
+D = diag(diag(A));
+L = -tril(A,-1);
+U = -triu(A,1);
+
+X = zeros(size(A)(1),n);
+T = inv(D)*(L+U);
+c = inv(D)*b;
+format long
+
+for i = 2:n
+  X(:,i) = T*X(:,i-1) + c;
+  if(X(:,i) == X(:,i-1))
+    display("The iteration it converges at:")
+    i-1
+    break;
+  end
+end
 #+end_src
 
 #+RESULTS:
-: ans =
-:
-:    100     1
-:
-: ans =
-:
-:    100     1
-:
+: The iteration it converges at:
+: ans = 30
 
-* PCA IEEE Report
-** References
-- https://arxiv.org/pdf/2403.15112
-- https://arxiv.org/pdf/2402.15527
-- https://medium.com/@anabelenmanjavacas/dimensionality-reduction-and-pca-23dbd7d6f367
-- https://ieeexplore.ieee.org/document/10511242
-** What is PCA?
-In a nutshell, what Principal Component Analysis does is reduce the dimensionality of a set of data points by linearly projecting them onto a lower-dimensional space where the reconstruction error is as minimal as possible.
+*** Gauss-Siedel Iteration Method
+The iterative method is somewhat similar to <Gauss-Jacobi method>.
+
+The only difference is that the new values are computed by already existing new values.
+
+#+begin_src octave :results output
+A = [5,-2,3;-3,9,1;2,-1,-7];
+b = [-1;2;3];
+
+n = 100; % No. of iterations
+D = diag(diag(A));
+L = -tril(A,-1);
+U = -triu(A,1);
+
+X = zeros(size(A)(1),n);
+T = inv(D-L)*U;
+c = inv(D-L)*b;
+
+for i = 2:n
+  X(:,i) = T*X(:,i-1) + c;
+  if(X(:,i) == X(:,i-1))
+    display("The iteration it converges at:")
+    i-1
+    break;
+  end
+end
+#+end_src
+
+#+RESULTS:
+: The iteration it converges at:
+: ans = 19
+
+$$(D-L)x^{k} = Ux^{k-1} + b$$
+$$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
+
+If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
+
+** Unidirectional/Line search
+For a given function,
+
+Find the minima of $f(x) = (x-1)^2 + (y-2)^2$ starting from $(0,0)$ along the direction of x-axis.
+
+How to perform uni-directional search:
+- Write the parametric representation of the line search, $$\vec{s}(t) = \vec{a} + t\vec{b}$$
+- Write the function in terms of $t$, $f(\vec{s}(t))$. this is a single variable function.
+- Find the minimum of $f(\vec{s}(t))$, $t^*$
+- Obtain the solution for unidirectional search by substituting $t^*$ in $\vec{s}(t)$
+
+  Find the minimum of the function $f(x) = (x-2)^2 - y$, starting from the point $(-1,0)$ along $(1,1)^T$
+
+* Overview
+** Calculating Eigenvalues and Eigenvectors
+** Norms Of Vectors
+*** $L_n$ norm
+The $L_n$ norm of a vector $x_{m \times 1}$ is,
+
+$$L_n =\sqrt[n]{x_1^n + x_2^n + \cdots + x_m^n}$$
+
+$L_\infty = max{|x_1|, |x_2|, \cdots , |x_n|}$
+*** S-norm
+Where S is a symmetric positive matrix
+
+$\|v\|_s = v^T S v$
+** Norms Of Matrices
+*** Spectral Norm
+It is the maximum of the ratio,
+
+$$\frac{\|Ax\|}{\|x\|}$$
+
+The maximum is $\sigma_1$ at the vector $x=v_1$
+*** Frobenius Norm
+
+$$\|A\|_F = \sqrt{\Sigma_i \Sigma_j a_{ij}^2}$$
+
+It's the same as the vector norm of the vector of singular values of $A$
+*** Nuclear Norm
+
+$$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
+** Optimization
+*** Types Of Optimization Problems
+1. Single variable and multi variable
+2. Constrained and unconstrained
+3. Linear and nonlinear
+4. Continuous and discrete
+5. Single-objective and multi-objective
+6. Stochastic and deterministic

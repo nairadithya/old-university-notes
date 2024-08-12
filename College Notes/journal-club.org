@@ -2,8 +2,8 @@
 #+author: Adithya Nair
 #+LATEX_CLASS: report
 #+LATEX_HEADER: \input{preamble}
-The textbook is Terrence Tao's Analysis 1.
 * Real Analysis
+TEXTBOOK: [[file:~/University-Latex-Notes/Journal Club/Analysis I - Tao.pdf][Analysis 1 by Terence Tao]]
 ** Introduction
 Real Analysis is useful for engineers and physicists. It's said to have a bad reputation, due to its rigour. This textbook offsets that by starting at the very base, the numbers themselves. It starts by defining natural numbers, then building integers, rational, real, complex and so on.
 We have the continuous medium which is expressed by the PDEs, Dynamics expressed by ODEs. Computer scientists aren't taught this,  they're taught Discrete Math.
@@ -130,6 +130,4 @@ $m \in \mathbb{N}, P(m), P(m++) \implies P(m)$, Suppose $P(n)$ is true, then $P(
 For the base case, n = 0,
 P(0) \implies P(0), so it's true.
 
-For the inductive step, supposing $Q(n)$ is true
-
-For $Q(n++)$,
+For the inductive step, supposing $Q(n)$ is true,

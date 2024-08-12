@@ -1,4 +1,7 @@
-# ipconfig/ifconfig(Linux)
+# Commands
+
+## ipconfig/ifconfig(Linux)
+
 Command gives us information about the connectivity of the machine.
 
 ```stdout
@@ -23,7 +26,7 @@ wlp0s20f3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 The IPV4 address is `172.31.22.159` and `fe80::3403:9d68:6492:9455`.
 
-Every IP address has two parts. The host and the network. 
+Every IP address has two parts. The host and the network.
 
 - ipv4 - 32bit
 - ipv6 - 128bit
@@ -31,11 +34,15 @@ Every IP address has two parts. The host and the network.
 The network component is `172.31`.
 
 ## Subnet Mask
+
 It isolates the network component. Using binary.
+
 ## Default gateway
+
 The default gateway is the 'door' for a network, it's an interface which facilitates the transfer of packets outside the network.
 
 In Linux, can be accessed by:
+
 ```bash
 ip r
 ```
@@ -44,7 +51,7 @@ ip r
 
 It is used to send a packet to test the network.
 
-```bash 
+```bash
 ping
 ```
 
@@ -67,17 +74,22 @@ Returns the IP address of the website given, by requesting from the DNS server.
 traceroote <website>
 ```
 
-# netstat
+## netstat
+
 ```sh
 netstat
 ```
+
 returns active statistics about network`
-# hostname
+
+## hostname
+
 ```sh
 hostname
 ```
 
 ## ARP
+
 Short for address resolution protocol.
 
 It maintains a table with your IP address and your MAC address.

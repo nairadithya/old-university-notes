@@ -1,4 +1,4 @@
-% Created 2024-08-08 Thu 12:46
+% Created 2024-08-12 Mon 09:47
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,21 +29,21 @@
 \tableofcontents
 
 \part{Robotics}
-\label{sec:org8c6ea8f}
+\label{sec:orgdfbeb95}
 \chapter{Unit 1}
-\label{sec:org1cacdb2}
+\label{sec:orgfeae7b3}
 \section{Introduction}
-\label{sec:orgc0908ec}
+\label{sec:org1278026}
 This course is mainly going to focus on \textbf{Manipulators}. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
 \section{Syllabus}
-\label{sec:orgd2cdaa2}
+\label{sec:orge018168}
 \begin{itemize}
 \item Overview Of Robotics
 \item Kinematics Of Simple Robotic Systems
 \item Dynamics And Control Of Simple Robotic Systems
 \end{itemize}
 \section{Glossary}
-\label{sec:org76b9174}
+\label{sec:orgecb0e28}
 \begin{enumerate}
 \item Actuator - Does work upon receiving voltage
 \item Encoder - Sensor that measures raw angle data.
@@ -53,7 +53,7 @@ This course is mainly going to focus on \textbf{Manipulators}. These machines ar
 Software for robotics - \textbf{v-rep}, MATLAB
 This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
 \section{Degree Of Freedom}
-\label{sec:orgdb136e2}
+\label{sec:orgc113499}
 The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
 
 The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
@@ -67,10 +67,10 @@ $$\text{No. of controlling inputs} = \text{No. of degrees of freedom}$$
 Redundant systems contain more actuators than the number of degrees of freedom
 $$\text{No. of controlling inputs} >\text{ No. of degrees of freedom}$$
 \section{Kinematic Pair}
-\label{sec:org97b1a89}
+\label{sec:orge85a726}
 Linkages are the basic elements of all mechanisms and robots. Links are rigid body member with nodes, and joints are connection between links at nodes. Allows relative motion between links.
 \section{Robotic Manipulator}
-\label{sec:org07f4da5}
+\label{sec:orgc120e75}
 \begin{itemize}
 \item Why study kinematics and dynamics of robotic manipulator
 \begin{itemize}
@@ -80,7 +80,7 @@ Linkages are the basic elements of all mechanisms and robots. Links are rigid bo
 \end{itemize}
 \end{itemize}
 \section{Pose of a rigid body}
-\label{sec:org74d4634}
+\label{sec:orga23bd9f}
 A rigid body is completely defined in space by its position and orientation with respect to a reference.
 
 We use the terminology `Inertial reference frame' to mean an observer where Newton's laws of physics apply. We use the terminology 'Inertial reference frame' to mean an observer where Newton's laws of physics apply and the frame itself does not accelerate. Generally the base of the robotic manipulator is treated as the inertial reference frame
@@ -100,13 +100,13 @@ $$
 $$
 \begin{enumerate}
 \item When the frame is translationally different from the original frame.
-\label{sec:org26e3ffa}
+\label{sec:org9797e46}
 $$
 \vec{^AP} = \vec{^BP} + \vec{^AP}_{B org}
 $$
 Where \(^A\vec{P}\) is the position vector of P with respect to A, \(\vec{^BP}\) is the position vector of P with respect to B, and \(\vec{^AP}_{B org}\) is the vector of A to B.
 \item When the frame is oriented differently from the original frame.
-\label{sec:orgeb50c9e}
+\label{sec:org06bc0e4}
 Generating a rotation matrix \(^B_AR\) to rotate vectors from a frame B to A. Where A and B are reference frames, with B being oriented differently than A.
 
 $$ \begin{bmatrix} \hat{X_b} \cdot \hat{X_a} & \hat{Y_b} \cdot \hat{X_a} & \hat{Z_b} \cdot \hat{X_a} \\ \hat{X_b} \cdot \hat{Y_a} & \hat{Y_b} \cdot \hat{Y_a} & \hat{Z_b} \cdot \hat{Y_a} \\ \hat{X_b} \cdot \hat{Z_a} & \hat{Y_b} \cdot \hat{Z_a} & \hat{Z_b} \cdot \hat{Z_a} \\ \end{bmatrix}$$
@@ -115,11 +115,20 @@ We can simply the matrix into 3 column vectors, with the notation \(^AX_B\) whic
 
 $$\begin{bmatrix}\hat{^AX_B} & \hat{^AY_b} & \hat{^AZ_B}\end{bmatrix}$$
 \item When the frame is both translationally and oriented different from the original frame
-\label{sec:orge4c2f70}
+\label{sec:orgc2d2ce6}
 $$ ^A\vec{P} = ^A_B R ^B\vec{P} + ^A\vec{P}_{B org}$$
+To simplify the equations, we write.
+
+$$^A\vec{P} = _B^AT ^BP$$
+Where T becomes,
+$$^A_BT = \begin{bmatrix}^A_BR_{3 \times 3} & ^AP_{B org} \\ 0_{1 \times 3} 1_{1 \times 1}\end{bmatrix}$$
+
+This T is the homogeneous transformation matrix.
+
+The Rotation Matrix belogns to a category of matrices called \(SO(3)\)
 \end{enumerate}
 \section{System Nomenclature}
-\label{sec:org47f296a}
+\label{sec:orgb618686}
 \begin{definition}
 A dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
 \end{definition}
@@ -181,5 +190,5 @@ $$Y(s) = G(s)U(s)$$
 A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
 \end{definition}
 \section{Modeling Of Dynamical Systems.}
-\label{sec:orgbd10935}
+\label{sec:org20b0abc}
 \end{document}

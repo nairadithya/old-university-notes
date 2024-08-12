@@ -3,6 +3,9 @@
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
 * Notes
+Textbooks:
+- [[file:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf][Modern Control Engineering, Katsuhiko Ogata]]
+- [[file:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Dean C. Karnopp, Donald L. Margolis, Ronald C. Rosenberg(auth.) - System Dynamics_ Modeling, Simulation, and Control of Mechatronic Systems, Fifth Edition (2012).pdf][System Dynamics - Modelling, Simulation And Control Systems]]
 ** Course Overview
 1. Introduction to Modelling
 2. Bond graph modelling
@@ -14,7 +17,6 @@ What is modelling? It's a mathematical representation of a system. These represe
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
 
-You can use the main gnuplot configuration file for storing your settings. Otherwise you can create small files storing only one particular thing, like the color definitions as color.cfg and then load them with
 ** Unit 1
 *** What Is Modelling?
  - Model - Models of the systems are simplified, abstracted constructs used to predict their behaviour.
@@ -24,12 +26,81 @@ Modelling consists of input variables $U$, which performs certain operations on 
 Analysis means that given an input for the present, and the system itself.
 
 We can predict the outputs for the future. To exert some form of control, the system $S$ are used. Another term used is identification, identification means that you already $U$, and $Y$. We know the inputs and the outputs, and we map $U$ to $Y$ with the system $S$. We *identify* the system that would map the inputs to the outputs. This is done by experimenting and figuring out what mapping works best to generate the outputs from the inputs. The way to tell whether a model is good is to see if it is consistent with large sets of input and outputs.
-*** Types Of Modelling
+*** Types Of Modeling
 Principle of superposition - it means that there's a linear correlation of the inputs to the outputs.
-| Linear         | Principle of superposition applies                         | linear differential equations.                         |
-| Distributed    | Dependent variables are functions of space and time        | partial differential equations                         |
-| Lumped         | Dependent variables are independent of spatial coordinates | ordinary differential equations                        |
-| Time - varying | Model parameters vary in time                              | differential equations with time-varying coefficients. |
-| Stationary     | Model parameters are constant in time                      | differential equations with constant coefficients      |
-| Continuous     | Dependent variables over continuous range                  | differential equations                                 |
-| Discrete       | dependent variables defined only for distinct values       | time-difference equations                              |
+|----------------+------------------------------------------------------------+--------------------------------------------------------|
+| Type Of System | Description                                                | Differential Equations                                 |
+|----------------+------------------------------------------------------------+--------------------------------------------------------|
+| Linear         | Principle of superposition applies                         | Linear differential equations.                         |
+| Distributed    | Dependent variables are functions of space and time        | Partial differential equations                         |
+| Lumped         | Dependent variables are independent of spatial coordinates | Ordinary differential equations                        |
+| Time - varying | Model parameters vary in time                              | Differential equations with time-varying coefficients. |
+| Stationary     | Model parameters are constant in time                      | Differential equations with constant coefficients      |
+| Continuous     | Dependent variables over continuous range                  | Differential equations                                 |
+| Discrete       | dependent variables defined only for distinct values       | Time-difference equations                              |
+|----------------+------------------------------------------------------------+--------------------------------------------------------|
+
+*** System Nomenclature
+#+begin_Definition :options [Dynamical System]
+	A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
+#+end_Definition
+#+begin_Definition options
+The state of a Dynamic system is the smallest set of variables(called state variables) such that the knowledge of these variables at $t=t_0$, together with the knowledge of the input for $t\geq t_0$, completely determines the behaviour of the system for any time $t \ge t_0$. The number of state variables is the same as the number of inital conditions needed to completely solve the system models
+#+end_definition
+#+begin_definition options
+If n state variables are needed to completely describe the behaviour of a given system, then the $n$ state variables can be considered the components of a vector $X$. Such a vector is called a state vector.
+#+end_definition
+
+#+begin_definition options
+The state space is the  $n$ -dimensional space whose coordinate axes consist of the $x_1$ axis, $x_2 axis$ where $x_1, \cdots , x_n$
+#+end_definition
+
+Suppose you started observing your model at point $t_0$. You can read any point in the state space and immediately figure out exactly how the system was behaving at any given point.
+
+
+Input Variables: $U_{n\times1} = [U_1, U_2, \cdots, U_r]^T$
+State Variables: $X_{n\times1} = [X_1, X_2, \cdots, X_r]^T$
+Output Variables: $Y_{n\times1} = [Y_1, Y_2, \cdots, Y_r]^T$
+
+We can write the derivatives of the state variables as functions of the inputs and the state variables and time.
+
+We can then write these functions as one vector.
+
+\[
+\dot{X}(t) = F(U,x,t)
+\]
+
+We can similarly write the derivatives of the outputs as functions of the inputs and state variables.
+
+\[
+\dot{Y}(t) = G(U,X,t)
+\]
+
+We write the states' derivative as a linear combination, which can then be written as a matrix.
+
+$$ \dot{X}(t) = \begin{bmatrix} a_{11} & a_{21} & \cdots & a_{1n} \\ \vdots & \ddots & & \vdots \\ a_{n1} & a_{n1} & \cdots & a_{nn} \\ \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \begin{bmatrix} b_{11} & b_{21} & \cdots & b_{1n} \\ \vdots & \ddots & & \vdots \\ b_{n1} & b_{n1} & \cdots & b_{nn} \\ \end{bmatrix} \begin{bmatrix} u_1 \\ \vdots \\ u_n \end{bmatrix}$$
+We get the equation,
+
+$$\dot{X}(t) = A_{n \times n} X_{n \times 1} + B_{n \times r} U_{r \times 1}$$
+
+A is the `state' matrix, and B is the `input' matrix
+
+Similarly we can write,
+$$\dot{Y}(t) = C_{m \times n}X_{n \times 1} + D_{m \times r}U_{r \times 1}$$
+
+We apply the Laplace transform to convert integrals and derivatives into algebraic operations.
+
+
+$$U(t) \rightarrow G(s) \rightarrow Y(t)$$
+We get the transfer function $G(s)$ by the formula
+$$G(s) = \frac{Y(s)}{U(s)}$$
+
+So we can get our outputs, by
+
+$$Y(s) = G(s)U(s)$$
+#+begin_definition options
+A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
+#+end_definition
+
+
+*** Modeling Of Dynamical Systems.
