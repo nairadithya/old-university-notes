@@ -1,4 +1,4 @@
-% Created 2024-08-12 Mon 08:49
+% Created 2024-08-12 Mon 19:01
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:org5aafc3a}
+\label{sec:org9d19e89}
 \chapter{Revision Linear Algebra}
-\label{sec:org330dd67}
+\label{sec:org05c6dda}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -49,17 +49,17 @@ problem, generate a random 3x3 matrix, find the ranks of
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:org338f586}
+\label{sec:orgb14ec48}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:org988501e}
+\label{sec:orge7066b3}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:org6fd7a72}
+\label{sec:orgd0bdb75}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +67,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:org4d0d4cc}
+\label{sec:org24d87bd}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -229,13 +229,13 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 \chapter{Multi variable Optimization}
-\label{sec:orgeb3f66d}
+\label{sec:org311f53a}
 
 We minimize \(f(x_1,x_2,\cdots,x_3)\).
 \section{Contour Curves}
-\label{sec:org500feb4}
+\label{sec:org1ac12e5}
 \section{Multi variable Calculus}
-\label{sec:org05d250d}
+\label{sec:org42ee2a4}
 The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
 
 \begin{align*}
@@ -249,7 +249,7 @@ x = 0,\frac{-4}{3} \\
 y = 0,\frac{-8}{3} \\
 \end{align*}
 \section{Newton's Method}
-\label{sec:org4da40f7}
+\label{sec:org9a802e7}
 Newton's Method is a numerical method to find a minimum of a function.
 
 Iterative formula:
@@ -270,12 +270,12 @@ Evaluation of first and second derivatives numerically:
 $$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
 $$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
 \section{How solution to a linear system can be found as a solution of an optimization problem.}
-\label{sec:org91f00e8}
+\label{sec:orgf88ffbf}
 Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
 
 Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
 \section{Numerical Algorithm Of Gauss-Jacobi Method}
-\label{sec:org8c2f6a2}
+\label{sec:org2ad58db}
 
 Input A = [a\textsubscript{ij}], X0 = x\textsuperscript{(0)}, tolerance TOL, maximum number of iterations,
 
@@ -309,14 +309,13 @@ format long
 for i = 2:n
   X(:,i) = T*X(:,i-1) + c;
   if(X(:,i) == X(:,i-1))
-    display("The iteration it converges at:")
     i-1
     break;
   end
 end
 \end{verbatim}
 \section{Gauss-Siedel Iteration Method}
-\label{sec:orgd14f403}
+\label{sec:orgdae86ed}
 The iterative method is somewhat similar to <Gauss-Jacobi method>.
 
 The only difference is that the new values are computed by already existing new values.
@@ -349,7 +348,7 @@ $$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
 
 If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
 \chapter{Unidirectional/Line search}
-\label{sec:org5ce430e}
+\label{sec:orgcccffa8}
 For a given function,
 
 Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
@@ -360,48 +359,50 @@ How to perform uni-directional search:
 \item Write the function in terms of \(t\), \(f(\vec{s}(t))\). this is a single variable function.
 \item Find the minimum of \(f(\vec{s}(t))\), \(t^*\)
 \item Obtain the solution for unidirectional search by substituting \(t^*\) in \(\vec{s}(t)\)
+
+Find the minimum of the function \(f(x) = (x-2)^2 - y\), starting from the point \((-1,0)\) along \((1,1)^T\)
 \end{itemize}
 \part{Overview}
-\label{sec:orgd36496f}
+\label{sec:org1caffe2}
 \chapter{Calculating Eigenvalues and Eigenvectors}
-\label{sec:org169ae98}
+\label{sec:orgd8c768b}
 \chapter{Norms Of Vectors}
-\label{sec:org38b4dfc}
+\label{sec:org87c198d}
 \section{\(L_n\) norm}
-\label{sec:org7e380dc}
+\label{sec:org97a6278}
 The \(L_n\) norm of a vector \(x_{m \times 1}\) is,
 
 $$L_n =\sqrt[n]{x_1^n + x_2^n + \cdots + x_m^n}$$
 
 \(L_\infty = max{|x_1|, |x_2|, \cdots , |x_n|}\)
 \section{S-norm}
-\label{sec:orgc0ba30c}
+\label{sec:org5319015}
 Where S is a symmetric positive matrix
 
 \(\|v\|_s = v^T S v\)
 \chapter{Norms Of Matrices}
-\label{sec:orgda19af4}
+\label{sec:org6811dab}
 \section{Spectral Norm}
-\label{sec:org82cbdc8}
+\label{sec:orgf80cf6e}
 It is the maximum of the ratio,
 
 $$\frac{\|Ax\|}{\|x\|}$$
 
 The maximum is \(\sigma_1\) at the vector \(x=v_1\)
 \section{Frobenius Norm}
-\label{sec:org9fc26ee}
+\label{sec:org3d8a440}
 
 $$\|A\|_F = \sqrt{\Sigma_i \Sigma_j a_{ij}^2}$$
 
 It's the same as the vector norm of the vector of singular values of \(A\)
 \section{Nuclear Norm}
-\label{sec:orgc0b8b0b}
+\label{sec:orgf9cb1a0}
 
 $$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
 \chapter{Optimization}
-\label{sec:org568379c}
+\label{sec:org0f8dbe8}
 \section{Types Of Optimization Problems}
-\label{sec:org2b3b031}
+\label{sec:org18971cc}
 \begin{enumerate}
 \item Single variable and multi variable
 \item Constrained and unconstrained

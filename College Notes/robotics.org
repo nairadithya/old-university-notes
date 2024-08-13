@@ -83,77 +83,13 @@ $$^A_BT = \begin{bmatrix}^A_BR_{3 \times 3} & ^AP_{B org} \\ 0_{1 \times 3} 1_{1
 
 This T is the homogeneous transformation matrix.
 
-The Rotation Matrix belongs to a category of matrices called $SO(3)$
-
-*** System Nomenclature
-#+begin_definition :options [Dynamical System]
-	A dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
-#+end_definition
-#+begin_definition options
-The state of a dynamic system is the smallest set of variables(called state variables) such that the knowledge of these variables at $t=t_0$, together with the knowledge of the input for $t\geq t_0$, completely determines the behaviour of the system for any time $t \ge t_0$. The number of state variables is the same as the number of inital conditions needed to completely solve the system models
-#+end_definition
-#+begin_definition options
-If n state variables are needed to completely describe the behaviour of a given system, then the $n$ state variables can be considered the components of a vector $X$. Such a vector is called a state vector.
-#+end_definition
-
-#+begin_definition options
-The state space is the  $n$ -dimensional space whose coordinate axes consist of the $x_1$ axis, $x_2 axis$ where $x_1, \cdots , x_n$
-#+end_definition
-
-Suppose you started observing your model at point $t_0$. You can read any point in the state space and immediately figure out exactly how the system was behaving at any given point.
-
-
-Input Variables: $U_{n\times1} = [U_1, U_2, \cdots, U_r]^T$
-State Variables: $X_{n\times1} = [X_1, X_2, \cdots, X_r]^T$
-Output Variables: $Y_{n\times1} = [Y_1, Y_2, \cdots, Y_r]^T$
-
-We can write the derivatives of the state variables as functions of the inputs and the state variables and time.
-
-We can then write these functions as one vector.
-
-\[
-\dot{X}(t) = F(U,x,t)
-\]
-
-We can similarly write the derivatives of the outputs as functions of the inputs and state variables.
-
-\[
-\dot{Y}(t) = G(U,X,t)
-\]
-
-We write the states' derivative as a linear combination, which can then be written as a matrix.
-
-$$ \dot{X}(t) = \begin{bmatrix} a_{11} & a_{21} & \cdots & a_{1n} \\ \vdots & \ddots & & \vdots \\ a_{n1} & a_{n1} & \cdots & a_{nn} \\ \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \begin{bmatrix} b_{11} & b_{21} & \cdots & b_{1n} \\ \vdots & \ddots & & \vdots \\ b_{n1} & b_{n1} & \cdots & b_{nn} \\ \end{bmatrix} \begin{bmatrix} u_1 \\ \vdots \\ u_n \end{bmatrix}$$
-We get the equation,
-
-$$\dot{X}(t) = A_{n \times n} X_{n \times 1} + B_{n \times r} U_{r \times 1}$$
-
-A is the `state' matrix, and B is the `input' matrix
-
-Similarly we can write,
-$$\dot{Y}(t) = C_{m \times n}X_{n \times 1} + D_{m \times r}U_{r \times 1}$$
-
-We apply the Laplace transform to convert integrals and derivatives into algebraic operations.
-
-
-$$U(t) \rightarrow G(s) \rightarrow Y(t)$$
-We get the transfer function $G(s)$ by the formula
-$$G(s) = \frac{Y(s)}{U(s)}$$
-
-So we can get our outputs, by
-
-$$Y(s) = G(s)U(s)$$
-#+begin_definition options
-A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
-#+end_definition
-
-
-*** Modeling Of Dynamical Systems.
-#+PLOT: title:"Citas" ind:1 deps:(3) type:2d with:histograms set:"yrange [0:]"
-| Sede      | Max cites | H-index |
-|-----------+-----------+---------|
-| Chile     |    257.72 |   21.39 |
-| Leeds     |    165.77 |   19.68 |
-| Sao Paolo |     71.00 |   11.50 |
-| Stockholm |    134.19 |   14.33 |
-| Morelia   |    257.56 |   17.67 |
+The Rotation Matrix belongs to a category of matrices called $SO(3)$(Special Orthogonal Matrices)
+*** Denavit Hartenberg Parameters
+These parameters are used to assign the same co-ordinate frames while dealing with robotic manipulators to ensure that the entire scientific community are working under the same conventions.
+- Number the link sequentially from $0$ to $n$. Giving us $n+1$ links.
+- Number the joints sequentially from $1$ to $n$, Giving us $n$ joints.
+- Number of co-ordinate frames: $n+1$
+- The $Z_i$ axis is aligned with the $(i+1)^th$ joint axis.
+- $X_i$ is defined along the common normal between the $Z_i$ and $Z_{i-1}$ axis.(Common normal is the line which is perpendicular to both of these axes.)
+- $Y_i$ is obtained via cross product between $Z_i$ and $X_i$ axis.
+- The origin is placed at this point of intersection of $x_i$, $y_i$ and $z_i$

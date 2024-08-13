@@ -102,5 +102,5 @@ $$Y(s) = G(s)U(s)$$
 A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
 #+end_definition
 
-
 *** Modeling Of Dynamical Systems.
+Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force $f$. The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass $m$ and a moment of inertia $I$ relative to its mass center at point C.

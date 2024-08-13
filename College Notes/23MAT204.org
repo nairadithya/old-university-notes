@@ -285,12 +285,10 @@ U = -triu(A,1);
 X = zeros(size(A)(1),n);
 T = inv(D)*(L+U);
 c = inv(D)*b;
-format long
 
 for i = 2:n
   X(:,i) = T*X(:,i-1) + c;
   if(X(:,i) == X(:,i-1))
-    display("The iteration it converges at:")
     i-1
     break;
   end
@@ -298,7 +296,6 @@ end
 #+end_src
 
 #+RESULTS:
-: The iteration it converges at:
 : ans = 30
 
 *** Gauss-Siedel Iteration Method
@@ -381,9 +378,10 @@ It's the same as the vector norm of the vector of singular values of $A$
 $$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
 ** Optimization
 *** Types Of Optimization Problems
-1. Single variable and multi variable
+Single variable and multi variable
 2. Constrained and unconstrained
 3. Linear and nonlinear
 4. Continuous and discrete
-5. Single-objective and multi-objective
-6. Stochastic and deterministic
+5. oadsfijdsoifjdsoifj
+6. Single-objective and multi-objective
+7. Stochastic and deterministic

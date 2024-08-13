@@ -582,7 +582,7 @@ Convolutional Neural Networks
 *** Text Classification
 Naive Bayes, Support Vector Machines
 *** Handwriting Recognition
-Convolutoinal Neural Networks
+Convolution Neural Networks
 Long Short-Term Memory Networks
 
 * Data Pre-Processing
