@@ -93,3 +93,15 @@ These parameters are used to assign the same co-ordinate frames while dealing wi
 - $X_i$ is defined along the common normal between the $Z_i$ and $Z_{i-1}$ axis.(Common normal is the line which is perpendicular to both of these axes.)
 - $Y_i$ is obtained via cross product between $Z_i$ and $X_i$ axis.
 - The origin is placed at this point of intersection of $x_i$, $y_i$ and $z_i$
+- We define $H_i$(which is the point of intersection of the common normal of the next axis with the current axis.), and 4 new terms:
+  - $a_i$ - Offset distance between two adjacent joint axes(The distance between $O_i$ and $H_{i-1}$)
+  - $d_i$ - Distance between $H_{i-1}$ and $O_{i-1}$
+  - $\alpha_i$ Angle between $Z_i$ and $Z_{i-1}$ when viewed from $X_i$, this is also known as the twist angle.
+  - $\theta_i$ Angle between $X_i$ and $X_{i-1}$ when viewed from $Z_i$,
+
+For a 3R Planar serial chain manipulator:
+|             | a_i | d_i | $\alpha_{i}$ | \theta_i |
+|-------------+-----+-----+---------+-----|
+| Joint i = 1 | L_1 |   0 |       0 | \theta_1 |
+| Joint i = 2 | L_2 |   0 |       0 | \theta_2 |
+| Joint i = 3 | L_3 |   0 |       0 | \theta_3 |

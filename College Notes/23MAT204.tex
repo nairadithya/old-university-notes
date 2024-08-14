@@ -1,4 +1,4 @@
-% Created 2024-08-12 Mon 19:01
+% Created 2024-08-14 Wed 10:04
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:org9d19e89}
+\label{sec:org4e20e1f}
 \chapter{Revision Linear Algebra}
-\label{sec:org05c6dda}
+\label{sec:orgc1ae2f7}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -49,17 +49,17 @@ problem, generate a random 3x3 matrix, find the ranks of
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:orgb14ec48}
+\label{sec:org573a8f7}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:orge7066b3}
+\label{sec:org40dc9f5}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:orgd0bdb75}
+\label{sec:org4827070}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +67,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:org24d87bd}
+\label{sec:org624eec1}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -229,13 +229,13 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 \chapter{Multi variable Optimization}
-\label{sec:org311f53a}
+\label{sec:orge962b6a}
 
 We minimize \(f(x_1,x_2,\cdots,x_3)\).
 \section{Contour Curves}
-\label{sec:org1ac12e5}
+\label{sec:orgc052ec5}
 \section{Multi variable Calculus}
-\label{sec:org42ee2a4}
+\label{sec:org022cd49}
 The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
 
 \begin{align*}
@@ -249,7 +249,7 @@ x = 0,\frac{-4}{3} \\
 y = 0,\frac{-8}{3} \\
 \end{align*}
 \section{Newton's Method}
-\label{sec:org9a802e7}
+\label{sec:org831ea67}
 Newton's Method is a numerical method to find a minimum of a function.
 
 Iterative formula:
@@ -270,12 +270,12 @@ Evaluation of first and second derivatives numerically:
 $$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
 $$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
 \section{How solution to a linear system can be found as a solution of an optimization problem.}
-\label{sec:orgf88ffbf}
+\label{sec:org0236fcb}
 Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
 
 Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
 \section{Numerical Algorithm Of Gauss-Jacobi Method}
-\label{sec:org2ad58db}
+\label{sec:org87f1b4a}
 
 Input A = [a\textsubscript{ij}], X0 = x\textsuperscript{(0)}, tolerance TOL, maximum number of iterations,
 
@@ -304,7 +304,6 @@ U = -triu(A,1);
 X = zeros(size(A)(1),n);
 T = inv(D)*(L+U);
 c = inv(D)*b;
-format long
 
 for i = 2:n
   X(:,i) = T*X(:,i-1) + c;
@@ -315,7 +314,7 @@ for i = 2:n
 end
 \end{verbatim}
 \section{Gauss-Siedel Iteration Method}
-\label{sec:orgdae86ed}
+\label{sec:orga416e52}
 The iterative method is somewhat similar to <Gauss-Jacobi method>.
 
 The only difference is that the new values are computed by already existing new values.
@@ -348,7 +347,7 @@ $$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
 
 If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
 \chapter{Unidirectional/Line search}
-\label{sec:orgcccffa8}
+\label{sec:orgb4fe9d8}
 For a given function,
 
 Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
@@ -362,52 +361,55 @@ How to perform uni-directional search:
 
 Find the minimum of the function \(f(x) = (x-2)^2 - y\), starting from the point \((-1,0)\) along \((1,1)^T\)
 \end{itemize}
+\chapter{Euler's Method}
+\label{sec:orgd512bf0}
 \part{Overview}
-\label{sec:org1caffe2}
+\label{sec:orgd491e4c}
 \chapter{Calculating Eigenvalues and Eigenvectors}
-\label{sec:orgd8c768b}
+\label{sec:orgb59f3c8}
 \chapter{Norms Of Vectors}
-\label{sec:org87c198d}
+\label{sec:orgfa8034c}
 \section{\(L_n\) norm}
-\label{sec:org97a6278}
+\label{sec:org770f822}
 The \(L_n\) norm of a vector \(x_{m \times 1}\) is,
 
 $$L_n =\sqrt[n]{x_1^n + x_2^n + \cdots + x_m^n}$$
 
 \(L_\infty = max{|x_1|, |x_2|, \cdots , |x_n|}\)
 \section{S-norm}
-\label{sec:org5319015}
+\label{sec:org84889a6}
 Where S is a symmetric positive matrix
 
 \(\|v\|_s = v^T S v\)
 \chapter{Norms Of Matrices}
-\label{sec:org6811dab}
+\label{sec:org9a70394}
 \section{Spectral Norm}
-\label{sec:orgf80cf6e}
+\label{sec:orge084b8e}
 It is the maximum of the ratio,
 
 $$\frac{\|Ax\|}{\|x\|}$$
 
 The maximum is \(\sigma_1\) at the vector \(x=v_1\)
 \section{Frobenius Norm}
-\label{sec:org3d8a440}
+\label{sec:org51a0c7d}
 
 $$\|A\|_F = \sqrt{\Sigma_i \Sigma_j a_{ij}^2}$$
 
 It's the same as the vector norm of the vector of singular values of \(A\)
 \section{Nuclear Norm}
-\label{sec:orgf9cb1a0}
+\label{sec:orgd0a6427}
 
 $$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
 \chapter{Optimization}
-\label{sec:org0f8dbe8}
+\label{sec:org0274185}
 \section{Types Of Optimization Problems}
-\label{sec:org18971cc}
+\label{sec:orgfc85aa1}
+Single variable and multi variable
 \begin{enumerate}
-\item Single variable and multi variable
 \item Constrained and unconstrained
 \item Linear and nonlinear
 \item Continuous and discrete
+\item oadsfijdsoifjdsoifj
 \item Single-objective and multi-objective
 \item Stochastic and deterministic
 \end{enumerate}

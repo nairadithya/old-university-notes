@@ -24,10 +24,9 @@ We start with axioms to help clarify this.
 We then make an assumption: That the set $\mathbb{N}$ which satisfies these five axioms is called the set of natural numbers.
 With these 5 axioms, we can construct sequences
 *** Recursive Definitions
-#+ATTR_LATEX: :options [Recursive Definitions]
-#+BEGIN_prop
+\begin{prop}[Recursive Definitions]
 Suppose for each natural number $n$, we have some function $f_n:\mathbb{N} \rightarrow \mathbb{N}$ from the natural numbers to the natural numbers. Then we can assign a unique natural number $a_n$ to each natural number $n$, such that $a_0 = c$ and $a_{n++} = f_n(a_n)$ for each natural number $n$.
-#+END_prop
+\end{prop}
 *** Addition
 \begin{definition}[Addition Of Natural Numbers]
 Let n be a natural number. $(n \in N)$. To add zero to m, we define $0+m:=m$ Now suppose inductively that we have defined how to add $n$ to $m$. Then we can add $n++$ to $m$ by defining($n++$) + m := (n+m)++
@@ -200,16 +199,177 @@ All numbers where,
 n \neq 0, n \in \mathbb{N}
 \]
 \end{definition}
+\begin{prop}
+If $a$ is a positive natural number and $b$ is a natural number, then $a+b$ is positive.
+\end{prop}
+\begin{proof}
+Inducting over b,
 
+For $b$ = 0,
+\begin{align*}
+a+0 = a
+\end{align*}
+This proves the base case, since we know a is positive.
+
+Now, suppose inductively, that $(a+b)$ is positive.
+
+For $(a+(n++))$,
+\begin{align*}
+a+(n++) = (a+n)++
+\end{align*}
+We know from Axiom 3 that $n++ \neq 0$. Thus we close the inductive loop.
+\end{proof}
 \begin{lemma}
-For every $a$, there exists a $b$ such that $b++ = a$
+For every $a$, there exists a unique $b$ such that $b++ = a$
 \end{lemma}
+\begin{proof}
+Proof by contradiction,
+Suppose that there are two different increments, $m++$, $n++$ that equal to $a$,
 
+We have,
+\begin{align*}
+m++ &= a \\
+n++ &= a
+\end{align*}
+
+Then we can say,
+\begin{align*}
+m++ &= n++ \\
+m + 1 &= n+1 \\
+m &= n &\text{(By Cancellation Law)}
+\end{align*}
+
+But we said that m and n are different numbers which increment to $a$.
+
+Therefore, we can conclude that there is only one number $b$ which increments to $a$
+\end{proof}
+*** Order
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$
 \end{definition}
+\begin{prop}[Basic properties of order for natural numbers]
+Let $a,b,c$ be natural numbers then
+\begin{enumerate}
+\item (Order is reflexive) $a \geq a$
+\item (Order is transitive) If $a \geq b$ and $b \geq c$, then $a \geq c$
+\item (Order is antisymmetric) If $a \geq b$ and $b \geq a$ then $a=b$
+\item (Addition preserves order) $a \geq b$ if and only if $a+c \geq b+c$
+\item $a<b$ if and only if $a++ \leq b$
+\item $a<b$ if and only if $b= a+d$ for some positive number d.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\begin{enumerate}
+\item Proving order is reflexive, $a \geq a$
 
-*** Strong Induction
+We know that,
+
+$a = a + 0$
+
+From the definition of order,
+We can write that $a \geq b$ when $a = b + d$ where $d \in \mathbb{N}$
+
+Thus $a \geq a$.
+
+\item Proving order is transitive, $a \geq b$ and $b \geq c$ then $a \geq c$
+
+We write,
+
+\begin{align*}
+a &= b + d \\
+b &= c + e \\
+a &= c + e + d
+\end{align*}
+We can say that since $(e+d) \in \mathbb{N}$
+
+We define $f := (e+d)$
+Where $f \in \mathbb{N}$
+\begin{align*}
+a &= c + (f)
+\end{align*}
+
+Thus we can say,
+$$\text{If } a \geq b, b \geq c \text{ then } a \geq c$$
+
+\item Proving order is antisymmetric, If $a \geq b$ and $b \geq a$ then $a=b$
+We can say,
+\begin{align*}
+a = b + d \\
+b = a + e \\
+\end{align*}
+Where $d,e \in \mathbb{N}$
+
+\begin{align*}
+a = (a + e) + d\\
+b = (b + d) + e \\
+\end{align*}
+
+Then we can write,
+\begin{align*}
+a = a + (e + d)\\
+b = b + (d + e) \\
+\end{align*}
+
+Then we can say that $(e+d)$ and $(d+e)$ are 0.
+
+We know that if $a + b = 0$ then $a,b = 0$
+
+Thus $d$ and $e$ are 0.
+\begin{align*}
+a = b + d \\
+a = b
+\end{align*}
+\item Proving addition preserves order, $a \geq b$ if and only if $a + c \geq b + c$
+Proving $a \geq b$ if $a + c \geq b + C$
+
+Where $d \in \mathbb{N}$
+\begin{align*}
+a + c &= b + c + d & &\text{By definition} \\
+a + c &= (b+d) + c & \\
+a &= (b+d) & &\text{By cancellation law}\\
+a &\geq b
+\end{align*}
+Proving $a + c \geq b +c$ if $a \geq b$
+
+We know,
+\begin{align*}
+a = b + d \\
+\end{align*}
+Where $d \in \mathbb{N}$
+
+We write a+c using what we know from above,
+\begin{align*}
+a + c &= b + d + c \\
+a + c &= b + c + d \\
+(a + c) &= (b + c) + d \\
+a + c &\geq b + c
+\end{align*}
+
+\item Proving $a < b$ if and only if $a++ \leq b$
+Proving $a < b$ if $a++ \leq b$
+
+We can write,
+\begin{align*}
+a++ &= b + d &\text{Where $d \in \mathbb{N}$} \\
+a++ + d &= b  \\
+a + (d++) &= b \\
+\end{align*}
+Since from Axiom 3, we know that 0 is not an increment of any natural number, $(d++ \neq 0)$
+Therefore,
+\begin{align*}
+a &< b
+\end{align*}
+\item Proving $a < b$ if and only if $b =a+d$ for some positive number d
+
+\end{enumerate}
+\end{proof}
+\begin{prop}[Trichotomy of order for natural numbers]
+Let $a$ and $b$ be natural numbers. Then exactly one of the following statements is true: $a<b, a=b or a>b$
+\end{prop}
+\begin{proof}
+\end{proof}
+*** Special Forms Of Induction
+**** Strong Induction
 #+begin_theorem
 Let $m_0$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \geq m_0$, we have the following implication: if $P(m')$ is true for all natural numbers $m_0 \leq m' < m$, then $P(m)$ is also true.(In particular this means that $P(m_0$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \geq m_0$.
 #+end_theorem
@@ -225,8 +385,8 @@ This is vacuously true.
 
 When $0 = m_0$,
 #+end_proof
-
-*** Induction Starting From The Base Case n
+**** Backward Induction
+**** Induction Starting From The Base Case n
 #+BEGIN_proposition
 Let n be a natural number, and let P(m) be a property pertaining to the natural numbers such that whenever P(m) is true, P(m++) is true. Show that if P(n) is true, then P(m) is true for all m ≥ n. (This principle is sometimes referred to as the principle of induction starting from the base case n.)
 #+END_proposition
@@ -258,4 +418,3 @@ For the inductive step, supposing $Q(n)$ is true,
 ***** Cancellation Law
 ***** Associativity
 ***** If a<b, and c is positive then ac<bc
-

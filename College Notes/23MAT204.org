@@ -347,7 +347,7 @@ How to perform uni-directional search:
 - Obtain the solution for unidirectional search by substituting $t^*$ in $\vec{s}(t)$
 
   Find the minimum of the function $f(x) = (x-2)^2 - y$, starting from the point $(-1,0)$ along $(1,1)^T$
-
+** Euler's Method
 * Overview
 ** Calculating Eigenvalues and Eigenvectors
 ** Norms Of Vectors

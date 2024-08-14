@@ -1,4 +1,4 @@
-% Created 2024-08-12 Mon 11:18
+% Created 2024-08-14 Wed 09:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,14 +29,14 @@
 \tableofcontents
 
 \part{Notes}
-\label{sec:org34bebc9}
+\label{sec:org7904e79}
 Textbooks:
 \begin{itemize}
 \item \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf}{Modern Control Engineering, Katsuhiko Ogata}
 \item \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Dean C. Karnopp, Donald L. Margolis, Ronald C. Rosenberg(auth.) - System Dynamics\_ Modeling, Simulation, and Control of Mechatronic Systems, Fifth Edition (2012).pdf}{System Dynamics - Modelling, Simulation And Control Systems}
 \end{itemize}
 \chapter{Course Overview}
-\label{sec:org0b790cd}
+\label{sec:org6ead423}
 \begin{enumerate}
 \item Introduction to Modelling
 \item Bond graph modelling
@@ -49,45 +49,45 @@ What is modelling? It's a mathematical representation of a system. These represe
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
 \chapter{Unit 1}
-\label{sec:orge7fcebd}
+\label{sec:org74a4e3b}
 \section{What Is Modelling?}
-\label{sec:orgab03cc3}
+\label{sec:org5082c8e}
 \begin{itemize}
 \item Model - Models of the systems are simplified, abstracted constructs used to predict their behaviour.
 \item Mathematical Modelling - Predicts only a certain aspect of the behaviour
 \end{itemize}
 \section{Uses Of Modelling}
-\label{sec:org4f18332}
+\label{sec:orgb1a6f99}
 Modelling consists of input variables \(U\), which performs certain operations on a dynamic system \(S\), with state variables \(X\) to give some output variables \(U\).
 Analysis means that given an input for the present, and the system itself.
 
 We can predict the outputs for the future. To exert some form of control, the system \(S\) are used. Another term used is identification, identification means that you already \(U\), and \(Y\). We know the inputs and the outputs, and we map \(U\) to \(Y\) with the system \(S\). We \textbf{identify} the system that would map the inputs to the outputs. This is done by experimenting and figuring out what mapping works best to generate the outputs from the inputs. The way to tell whether a model is good is to see if it is consistent with large sets of input and outputs.
-\section{Types Of Modelling}
-\label{sec:org00a4b0e}
+\section{Types Of Modeling}
+\label{sec:org057c7fc}
 Principle of superposition - it means that there's a linear correlation of the inputs to the outputs.
 \begin{center}
 \begin{tabular}{lll}
 \hline
 Type Of System & Description & Differential Equations\\
 \hline
-Linear & Principle of superposition applies & linear differential equations.\\
-Distributed & Dependent variables are functions of space and time & partial differential equations\\
-Lumped & Dependent variables are independent of spatial coordinates & ordinary differential equations\\
-Time - varying & Model parameters vary in time & differential equations with time-varying coefficients.\\
-Stationary & Model parameters are constant in time & differential equations with constant coefficients\\
-Continuous & Dependent variables over continuous range & differential equations\\
-Discrete & dependent variables defined only for distinct values & time-difference equations\\
+Linear & Principle of superposition applies & Linear differential equations.\\
+Distributed & Dependent variables are functions of space and time & Partial differential equations\\
+Lumped & Dependent variables are independent of spatial coordinates & Ordinary differential equations\\
+Time - varying & Model parameters vary in time & Differential equations with time-varying coefficients.\\
+Stationary & Model parameters are constant in time & Differential equations with constant coefficients\\
+Continuous & Dependent variables over continuous range & Differential equations\\
+Discrete & dependent variables defined only for distinct values & Time-difference equations\\
 \hline
 \end{tabular}
 \end{center}
 \section{System Nomenclature}
-\label{sec:orgab3300b}
-\begin{definition}
-A dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
-\end{definition}
-\begin{definition}
-The state of a dynamic system is the smallest set of variables(called state variables) such that the knowledge of these variables at \(t=t_0\), together with the knowledge of the input for \(t\geq t_0\), completely determines the behaviour of the system for any time \(t \ge t_0\). The number of state variables is the same as the number of inital conditions needed to completely solve the system models
-\end{definition}
+\label{sec:orge083689}
+\begin{Definition}
+A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
+\end{Definition}
+\begin{Definition}
+The state of a Dynamic system is the smallest set of variables(called state variables) such that the knowledge of these variables at \(t=t_0\), together with the knowledge of the input for \(t\geq t_0\), completely determines the behaviour of the system for any time \(t \ge t_0\). The number of state variables is the same as the number of inital conditions needed to completely solve the system models
+\end{Definition}
 \begin{definition}
 If n state variables are needed to completely describe the behaviour of a given system, then the \(n\) state variables can be considered the components of a vector \(X\). Such a vector is called a state vector.
 \end{definition}
@@ -143,5 +143,7 @@ $$Y(s) = G(s)U(s)$$
 A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
 \end{definition}
 \section{Modeling Of Dynamical Systems.}
-\label{sec:org4e0a2de}
+\label{sec:org814c1db}
+Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force \(f\). The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass \(m\) and a moment of inertia \(I\) relative to its mass center at point C.
+\href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf}{Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf: Page 78 Systems example}
 \end{document}
