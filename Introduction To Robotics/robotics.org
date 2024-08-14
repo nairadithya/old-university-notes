@@ -1,9 +1,0 @@
-#+title: Introduction To Robotics
-#+author: Adithya Nair
-
-* Introduction
-This course is mainly going to focus on *Manipulators*. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
-** Syllabus
-- Overview Of Robotics
-- Kinematics Of Simple Robotic Systems
-- Dynamics And Control Of Simple Robotic Systems
