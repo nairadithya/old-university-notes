@@ -104,3 +104,4 @@ A block diagram of a system is a pictorial representation of the functions perfo
 
 *** Modeling Of Dynamical Systems.
 Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force $f$. The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass $m$ and a moment of inertia $I$ relative to its mass center at point C.
+[[pdf:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf::78++0.00][Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf: Page 78 Systems example]]
