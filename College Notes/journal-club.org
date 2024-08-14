@@ -319,6 +319,27 @@ Thus $d$ and $e$ are 0.
 a = b + d \\
 a = b
 \end{align*}
+\item Proving $a < b$ if and only if $b =a+d$ for some positive number d
+If $b = a+d$ where $d$ is a positive natural number, $d \neq 0$
+
+Which means that $b \neq a + 0$ or $b \neq a$
+
+This means that b is strictly greater than a
+
+If $a<b$ then $a \geq b$ and $a \neq b$
+
+So if $a \geq b$
+Then,
+\begin{align*}
+a = b + d \\
+\end{align*}
+But,
+\begin{align*}
+a \neq b \\
+a \neq b + 0 \\
+d \neq 0
+\end{align*}
+Thus d cannot be 0. $d$ can only be a positive natural number.
 \item Proving addition preserves order, $a \geq b$ if and only if $a + c \geq b + c$
 Proving $a \geq b$ if $a + c \geq b + C$
 
@@ -359,7 +380,6 @@ Therefore,
 \begin{align*}
 a &< b
 \end{align*}
-\item Proving $a < b$ if and only if $b =a+d$ for some positive number d
 
 \end{enumerate}
 \end{proof}
@@ -367,24 +387,65 @@ a &< b
 Let $a$ and $b$ be natural numbers. Then exactly one of the following statements is true: $a<b, a=b or a>b$
 \end{prop}
 \begin{proof}
+First we show that no more than one of the statements is true.
+If $a<b$ then $a \neq b$ by definition. If $a>b$ then $a \neq b$ by definition. If $a>b$ and $a<b$ then $a=b$, which we proved earlier.
+
+Now to show that exactly one of these statements are true.
+We induct on a,
+
+When a = 0,
+We know that,
+\begin{align*}
+&b &= 0 + b &(\forall b \in \mathbb{N})\\
+&b &\geq 0
+\end{align*}
+
+Suppose inductively that exactly one of the above statements are true for a and b.
+For a++,
+We take each statement. First for $a>b$
+\begin{align*}
+a &> b \\
+a &= b + d \\
+(a++) &= (b + d)++ \\
+(a++) &= b + d++ \\
+(a++) &> b &\text{If $d \in \mathbb{N}$ then $d++ \in \mathbb{N}$}
+\end{align*}
+For $a=b$
+\begin{align*}
+a &= b \\
+(a++) &= (b)++ \\
+(a++) &= b + 1 \\
+a &> b \\
+\end{align*}
+For $a<b$
+\begin{align*}
+a &<b\\
+a + d = b \\
+(a + d)++ = b++ \\
+(a++) + d = b++ \\
+(a++) + d = b + 1 \\
+\end{align*}
+We have two cases,
+If $d = 1$,
+Then by cancellation law
+$$ a++ = b $$
+If $d \neq 1$
+Then
+$$a++ < b$$
+
+But never both, which concludes the inductive loop.
 \end{proof}
 *** Special Forms Of Induction
-**** Strong Induction
-#+begin_theorem
+\begin{theorem}[Strong Principle Of Induction]
 Let $m_0$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \geq m_0$, we have the following implication: if $P(m')$ is true for all natural numbers $m_0 \leq m' < m$, then $P(m)$ is also true.(In particular this means that $P(m_0$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \geq m_0$.
-#+end_theorem
-#+begin_proof
+\end{theorem}
+\begin{proof}
 For a property $Q(n)$, which is the property that $P(m')$ is true for $m_0 \leq m' < n$, then $P(n)$ is true.
 
-For $Q(0)$,
-$0$ is either lesser than or equal to $m_0$.
+For $Q(0)$, we can say that the statement is vacuous since the conditions are not satisfied for both when $m_{0} = 0$ and when $m_{0} <0$
 
-When $0$ is lesser than $m_0$,
-
-This is vacuously true.
-
-When $0 = m_0$,
-#+end_proof
+Suppose inductively that $Q(n)$ is true.
+\end{proof}
 **** Backward Induction
 **** Induction Starting From The Base Case n
 #+BEGIN_proposition

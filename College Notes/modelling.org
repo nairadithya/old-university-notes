@@ -105,3 +105,51 @@ A block diagram of a system is a pictorial representation of the functions perfo
 *** Modeling Of Dynamical Systems.
 Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force $f$. The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass $m$ and a moment of inertia $I$ relative to its mass center at point C.
 [[pdf:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf::78++0.00][Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf: Page 78 Systems example]]
+
+*** Bond Graph Modelling
+What we did earlier is a classical approach to modelling. We find  the differential equations and generate matrix equations with inputs, state variables and output.
+
+What we do here is,
+\begin{align*}
+\text{Physical} &\text{System} \\
+&\downarrow \\
+\text{Engineering} &\text{Model} \\
+&\downarrow \\
+\text{Bond} &\text{Graphs} \\
+&\downarrow \\
+\text{Software generated} &\text{differential equations} \\
+&\downarrow \\
+\text{Simulation} &\text{Language} \\
+&\downarrow \\
+\text{Out}&\text{put}
+\end{align*}
+
+*** Generalized Variables
+- Power Variables
+ - Effort $e(t)$
+ - Flow $f(t)$
+Power = $e(t) \times f(t)$
+- Energy variables
+  - Momentum $p(t)$
+  - Displacement $q(t)$
+$p(t) = \int e(t) dt$
+$q(t) = \int f(t) dt$
+
+
+|----------------+--------------------+------------------|
+|                | Effort             | Flow             |
+|----------------+--------------------+------------------|
+| Electrical     | Voltage            | Current          |
+| Translational  | Force              | Velocity         |
+| Rotational     | Torque             | Angular velocity |
+| Hydraulic      | Pressure           | Volumetric Flow  |
+| Chemical       | Chemical Potential | Molar Flow       |
+| Thermodynamics | Temperature        | Entropy Flow     |
+|----------------+--------------------+------------------|
+
+**** Bond Graphs
+A bond graph is a labelled directed graph, each link has an assigned orientation.
+
+
+**** Multiports
+Places at which subsystems can be interconnected, power can flow through ports between subsystems.

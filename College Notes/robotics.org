@@ -105,3 +105,5 @@ For a 3R Planar serial chain manipulator:
 | Joint i = 1 | L_1 |   0 |       0 | \theta_1 |
 | Joint i = 2 | L_2 |   0 |       0 | \theta_2 |
 | Joint i = 3 | L_3 |   0 |       0 | \theta_3 |
+*** Bond Graph Modelling
+What we did earlier is a classical approach to modelling.
