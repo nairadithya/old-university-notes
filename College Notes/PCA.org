@@ -26,3 +26,5 @@ How do we determine the direction of maximal variance. We can determine the indi
 
 * References
 [[https:www.youtube.com/watch?v=FgakZw6K1QQ&t=574s][StatQuest]]
+
+in
