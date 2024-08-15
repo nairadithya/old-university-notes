@@ -2,10 +2,9 @@
 #+AUTHOR: Adithya Nair
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
+#+EXPORT_FILE_NAME: exports/journal-club.pdf
+
 * Notes
-Textbooks:
-- [[file:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf][Modern Control Engineering, Katsuhiko Ogata]]
-- [[file:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Dean C. Karnopp, Donald L. Margolis, Ronald C. Rosenberg(auth.) - System Dynamics_ Modeling, Simulation, and Control of Mechatronic Systems, Fifth Edition (2012).pdf][System Dynamics - Modelling, Simulation And Control Systems]]
 ** Course Overview
 1. Introduction to Modelling
 2. Bond graph modelling
@@ -39,7 +38,6 @@ Principle of superposition - it means that there's a linear correlation of the i
 | Continuous     | Dependent variables over continuous range                  | Differential equations                                 |
 | Discrete       | dependent variables defined only for distinct values       | Time-difference equations                              |
 |----------------+------------------------------------------------------------+--------------------------------------------------------|
-
 *** System Nomenclature
 #+begin_Definition :options [Dynamical System]
 	A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.

@@ -2,6 +2,7 @@
 #+AUTHOR: Adithya Nair
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
+#+EXPORT_FILE_NAME: exports/23MAT204.pdf
 * Mathematics
 ** Revision Linear Algebra
 

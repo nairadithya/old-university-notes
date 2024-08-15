@@ -127,7 +127,7 @@ Exactly like a linked list.
 ** Binary Search Tree
 Value of left node must be smaller than parent, and value of right node must be greater than the parent node.
 *** Binary Search Tree Insertion
-**** Deleting Nodes
+*** Binary Search Tree Deletion
 - It works the same as a linked list operation.
 - We use [[In order Traversal]] to figure out the node's value, it takes the value of its in order successor.
 **** Binary Search Tree Traversal.

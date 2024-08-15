@@ -1,8 +1,8 @@
 #+title: 23MAT204 PCA Assignment
 #+AUTHOR: Adithya Nair
+#+EXPORT_FILE_NAME: exports/PCA.pdf
 
 * PCA IEEE Report
- [[pdf:~/University-Latex-Notes/Mathematics For Intelligent Systems 3/oca/LectureNotes-PCA.pdf::1-9][Stanford Notes]]
 ** References
 - https://arxiv.org/pdf/2403.15112
 - https://arxiv.org/pdf/2402.15527
@@ -18,9 +18,11 @@ Principal Component Analysis is a method by which data points with a higher dime
 
 Focus on just the one point $x$ and its projection x_{\|}. $d$ is the distance of $x$ from the origin, $r$ is the distance of x from $x_{\|}$ in the subspace, and $v$ is the distance of $x_{\|}$
 
-
 ** Covariance Matrix
 How do we determine the direction of maximal variance. We can determine the individual component variances. For a given vector $x=(x_1, x_2)^T$, then the variances of the first and second component can be written as $C_{11} := \langle x_1 x_1\rangle$ ,$C_{22} := \langle x_2 x_2\rangle$, (the angle brackets indicate 'averaging' over all data points)
 
 * Questions
 ** Why Covariance specifically?
+
+* References
+[[https:www.youtube.com/watch?v=FgakZw6K1QQ&t=574s][StatQuest]]

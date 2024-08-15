@@ -1,11 +1,38 @@
-#+title: Journal Club
-#+author: Adithya Nair
-#+LATEX_CLASS: report
-#+LATEX_HEADER: \input{preamble}
-#+EXPORT_FILE_NAME: exports/journal-club.pdf
-* Real Analysis
-TEXTBOOK: [[file:~/University-Latex-Notes/Journal Club/Analysis I - Tao.pdf][Analysis 1 by Terence Tao]]
-** Natural Numbers
+% Created 2024-08-15 Thu 14:01
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\input{preamble}
+\author{Adithya Nair}
+\date{\today}
+\title{Journal Club}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={Journal Club},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.8)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\part{Real Analysis}
+\label{sec:orgae93cc1}
+TEXTBOOK: \href{file:///home/adithya/University-Latex-Notes/Journal Club/Analysis I - Tao.pdf}{Analysis 1 by Terence Tao}
+\chapter{Natural Numbers}
+\label{sec:orga691ace}
 Numbers were built to count. A system for counting was made, and that system is the number system.
 \begin{definition}
 A natural number is an element of the set $\mathbb{N}$ of the set
@@ -14,21 +41,26 @@ A natural number is an element of the set $\mathbb{N}$ of the set
 \]
 is obtained from 0 and counting forward indefinitely.
 \end{definition}
-*** Peano Axioms
+\section{Peano Axioms}
+\label{sec:org01a0b60}
 We start with axioms to help clarify this.
-- Axiom 1 : $0 \in \mathbb{N}$
-- Axiom 2: If $n \in \mathbb{N}$,, then $n++ \in \mathbb{N}$
-- Axiom 3: 0 is not an increment of any other natural number $n \in \mathbb{N}$
-- Axiom 4: If $n \neq m$, $n++ \neq m++$
-- Axiom 5: (Principle Of Mathematical Induction) Let $P(n)$ be any property pertaining to a natural number $n$. Suppose that $P(0)$ is true, and suppose that whenever $P(n)$ is true, $P(n++)$ is also true. Then $P(n)$ is true for every natural number.
+\begin{itemize}
+\item Axiom 1 : \(0 \in \mathbb{N}\)
+\item Axiom 2: If \(n \in \mathbb{N}\),, then \(n++ \in \mathbb{N}\)
+\item Axiom 3: 0 is not an increment of any other natural number \(n \in \mathbb{N}\)
+\item Axiom 4: If \(n \neq m\), \(n++ \neq m++\)
+\item Axiom 5: (Principle Of Mathematical Induction) Let \(P(n)\) be any property pertaining to a natural number \(n\). Suppose that \(P(0)\) is true, and suppose that whenever \(P(n)\) is true, \(P(n++)\) is also true. Then \(P(n)\) is true for every natural number.
+\end{itemize}
 
-We then make an assumption: That the set $\mathbb{N}$ which satisfies these five axioms is called the set of natural numbers.
+We then make an assumption: That the set \(\mathbb{N}\) which satisfies these five axioms is called the set of natural numbers.
 With these 5 axioms, we can construct sequences
-*** Recursive Definitions
+\section{Recursive Definitions}
+\label{sec:orgf61f33f}
 \begin{prop}[Recursive Definitions]
 Suppose for each natural number $n$, we have some function $f_n:\mathbb{N} \rightarrow \mathbb{N}$ from the natural numbers to the natural numbers. Then we can assign a unique natural number $a_n$ to each natural number $n$, such that $a_0 = c$ and $a_{n++} = f_n(a_n)$ for each natural number $n$.
 \end{prop}
-*** Addition
+\section{Addition}
+\label{sec:org37a7405}
 \begin{definition}[Addition Of Natural Numbers]
 Let n be a natural number. $(n \in N)$. To add zero to m, we define $0+m:=m$ Now suppose inductively that we have defined how to add $n$ to $m$. Then we can add $n++$ to $m$ by defining($n++$) + m := (n+m)++
 \end{definition}
@@ -78,7 +110,7 @@ For $n=(n++)$,
 \end{align*}
 \end{proof}
 
-Putting m = 0, we get $n+1 = n++$
+Putting m = 0, we get \(n+1 = n++\)
 
 \begin{prop}[Addition is commutative]
 For any natural numbers $n$ and $m$, $n+m=m+n$
@@ -244,7 +276,8 @@ But we said that m and n are different numbers which increment to $a$.
 
 Therefore, we can conclude that there is only one number $b$ which increments to $a$
 \end{proof}
-*** Order
+\section{Order}
+\label{sec:org0ac146a}
 \begin{definition}[Order]
 Let n and m be natural numbers we say that $n$ is greater than or equal to m, and write $n \geq m$ iff we have $n = m + a$ for some natural number $a$. We say that $n > m$ when $n \geq m$ and $n \neq m$
 \end{definition}
@@ -435,7 +468,8 @@ Then
 $$a++ < b$$
 But never both, which concludes the inductive loop.
 \end{proof}
-*** Special Forms Of Induction
+\section{Special Forms Of Induction}
+\label{sec:org2854698}
 \begin{theorem}[Strong Principle Of Induction]
 Let $m_0$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \geq m_0$, we have the following implication: if $P(m')$ is true for all natural numbers $m_0 \leq m' < m$, then $P(m)$ is also true.(In particular this means that $P(m_0$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \geq m_0$.
 \end{theorem}
@@ -447,39 +481,58 @@ For $Q(0)$, we can say that the statement is vacuous since the conditions are no
 Suppose inductively that $Q(n)$ is true.
 Then
 \end{proof}
-**** Backward Induction
-**** Induction Starting From The Base Case n
-#+BEGIN_proposition
+\begin{enumerate}
+\item Backward Induction
+\label{sec:orge7972fb}
+\item Induction Starting From The Base Case n
+\label{sec:org0ed0f11}
+\begin{proposition}
 Let n be a natural number, and let P(m) be a property pertaining to the natural numbers such that whenever P(m) is true, P(m++) is true. Show that if P(n) is true, then P(m) is true for all m ≥ n. (This principle is sometimes referred to as the principle of induction starting from the base case n.)
-#+END_proposition
-#+BEGIN_proof
-Take a property $P(n)$, $m \geq n$
+\end{proposition}
+\begin{proof}
+Take a property \(P(n)\), \(m \geq n\)
 
-Inducting over $n$,
-#+END_proof
-*** Multiplication
+Inducting over \(n\),
+\end{proof}
+\end{enumerate}
+\section{Multiplication}
+\label{sec:org89f429c}
 \begin{definition}[Multiplication]
 Let $m$ be a natural number. To multiply zero to $m$, we define $0 \times m := 0$. Now suppose inductively that we have defined how to multiply $n$ to $m$. Then we can multiply $n++$ to $m$ by defining $(n++) \times m := (n \times m) + m$
 \end{definition}
-We can say $0 \times m = 0$, $1 \times m = 0 + m$, $2 \times m= 0 + m + m$ and so on.
+We can say \(0 \times m = 0\), \(1 \times m = 0 + m\), \(2 \times m= 0 + m + m\) and so on.
 \begin{lemma}
 Prove that multiplication is commutative
 \end{lemma}
 
-For simplicity we now write $a \times b$ as $ab$
-
-*** Exercise
-**** Prove the identity $(a+b)^2 = a^2 + 2ab + b^2$
-**** (Euclid's division lemma)
-**** Backward Induction
-$m \in \mathbb{N}, P(m), P(m++) \implies P(m)$, Suppose $P(n)$ is true, then $P(m) \forall m \le n$
+For simplicity we now write \(a \times b\) as \(ab\)
+\section{Exercise}
+\label{sec:orgaf469ba}
+\begin{enumerate}
+\item Prove the identity \((a+b)^2 = a^2 + 2ab + b^2\)
+\label{sec:org5dc47ae}
+\item (Euclid's division lemma)
+\label{sec:org87d7819}
+\item Backward Induction
+\label{sec:org013fa44}
+\(m \in \mathbb{N}, P(m), P(m++) \implies P(m)\), Suppose \(P(n)\) is true, then \(P(m) \forall m \le n\)
 For the base case, n = 0,
 P(0) \implies P(0), so it's true.
 
-For the inductive step, supposing $Q(n)$ is true,
-**** Strong induction
-**** Distributive Law
-**** Multiplication
-***** Cancellation Law
-***** Associativity
-***** If a<b, and c is positive then ac<bc
+For the inductive step, supposing \(Q(n)\) is true,
+\item Strong induction
+\label{sec:org2ebef49}
+\item Distributive Law
+\label{sec:orga4ea9c6}
+\item Multiplication
+\label{sec:orgf7e0207}
+\begin{enumerate}
+\item Cancellation Law
+\label{sec:orgde2ad85}
+\item Associativity
+\label{sec:org18aac3b}
+\item If a<b, and c is positive then ac<bc
+\label{sec:org91523ea}
+\end{enumerate}
+\end{enumerate}
+\end{document}
