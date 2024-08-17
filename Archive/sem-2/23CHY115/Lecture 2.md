@@ -17,13 +17,15 @@ Repeating the same experiment, but with waves.
 - $Intensity \propto Amplitude$
 - $P(z) \propto (h-h_0)$
 - When one slit is closed, the graph of P(z) to height  is similar to the first setup with bullets.
-- Someething to note is, that the units of measurement for these two setups so far are that they are different.
+- [ ] Something to note is, that the units of measurement for these two setups so far are that they are different.
 - When both slits are open, the graph of the P(z) to the y-axis is an oscillating graph that gradually increases until the point of intersection of the two slits on the second screen near the centre.
 ---
 ## A Study Of Electrons
+
 >"There are about 12 or 15 people who understand Relativity, but there is no one who understands quantum mechanics" - Prof. Feynman
 
 ---
+
 >[!faq] Reference - A bird's eye view of physics.
 >Character Of Physical Law - Feynman, 1944
 

@@ -8,6 +8,7 @@
   - [[#what-is-pca][What is PCA?]]
   - [[#problem-statement][Problem Statement]]
   - [[#projection-and-reconstruction-error][Projection And Reconstruction Error]]
+  - [[#reconstruction-error-and-variance][Reconstruction Error And Variance]]
   - [[#covariance][Covariance]]
   - [[#covariance-matrix][Covariance Matrix]]
   - [[#pca-by-diagonalizing-the-covariance-matrix][PCA By Diagonalizing The Covariance Matrix]]
@@ -50,14 +51,22 @@ Where $n$ is the number of data points. Since we're dealing with vectors, we can
 $$\text{Reconstruction Error} = \Sigma_{i = 1}^{n} \Sigma_{j=1}^{m}(x_{j} - x_{||_{j}})^{2}$$
 
 Where $m$ is the dimensionality of the data points.
+** Reconstruction Error And Variance
 ** Covariance
 Covariance is a statistical tool that can define the behavior of two random data points. If a pair of data points has a positive covariance, then the data points 'vary' with each other or change in the same direction. If they have a negative covariance, then the data points don't 'change' in the same direction.
 
 ** Covariance Matrix
 How do we determine the direction of maximal variance. We can determine the individual component variances. For a given vector $$x=(x_1, x_2)^T$$, then the variances of the first and second component can be written as $$C_{11} := \langle x_1 x_1\rangle$$ ,$$C_{22} := \langle x_2 x_2\rangle$$, (the angle brackets indicate 'averaging' over all data points)
 
-A large positive value of $C_{12}$
+A relatively large value of $C_{11}$ then the entire set of data points varies closely to the $[1,0]^T$ unit vector. Similarly, for $C_{22}$, the data points varies most along the $[0,1]^T$ direction the most.
+
+In other words, the covariance matrix contains the direction of maximum variance. This is what we need to make sure the reconstruction error is minimal as shown earlier.
 ** PCA By Diagonalizing The Covariance Matrix
+
+To find the direction with which the data points vary most in, we take the covariance matrix and find the axis along which it is most varying. The question might arise, how do we go about doing this for when the axis of variation isn't obvious? We diagonalize the covariance matrix which gives us diagonal elements. The element with the largest value corresponds to the direction that the data varies most in.
+
+Diagonalization is done by finding the eigenvalues and eigenvectors of the matrix. The eigenvector corresponding to the largest eigenvalue is the direction which our data must be projected on to yield the least amount of reconstruction error.
+
 
 * References
 - https://arxiv.org/pdf/2403.15112
