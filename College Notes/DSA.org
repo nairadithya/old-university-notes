@@ -1,15 +1,15 @@
 #+title: Advanced Data Structures And Algorithm Analysis
 #+author: Adithya Nair
-* Graphs
-[[https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/][Geeks For Geeks Article]]
+* Table Of Contents :toc:
+- [[#dsa-notes][DSA Notes]]
+  - [[#graphs][Graphs]]
+  - [[#trees][Trees]]
+  - [[#heap][Heap]]
 
-The best way to store such links is (under the assumption that the graphs in question are **bi-directional**) to store only the upper triangle of the adjacency matrix, while ignoring the diagonal.
-
-Graphs are nodes with links to each other.
-
-
-** Representations Of A Graph
-*** Adjacency Matrix
+* DSA Notes
+** Graphs
+*** Representations Of A Graph
+**** Adjacency Matrix
 
 Adjacency matrices are matrices which can be used to represent the connections that nodes have to each other. This is done by making a matrix of size $n$ for $n$ nodes. And the following rules exist for generating the matrix.
 
@@ -24,10 +24,10 @@ a_{n1} & a_{n2} & \cdots & a_{nn} \\
 \end{bmatrix}
 
 As a consequence of this, undirected graphs(graphs where the links represent connection rather than direction) are represented with a symmetric matrix.
-*** Adjacency Lists
+**** Adjacency Lists
 Adjacency lists are an alternative representation of graphs. If a graph has $n$ nodes, then the list has $n$ elements. The list adjList is then made with the following rules.
 
-**adjList[i] contains all the nodes which are connected to vertex $i$
+*adjList[i] contains all the nodes which are connected to vertex $i$, in the order in which they are connected.*
 
 For an example graph,
 \begin{align*}
@@ -46,13 +46,17 @@ We have a linked list of linked lists. The problem here is that links are repres
 
 This is an optimization for when graphs have very few links.
 
-** The method of traversal(visit all nodes).
+*** Insertion Of Nodes/Edges In A Graph
+*** Deletion Of Nodes/Edges In A Graph
 
+***
+
+*** Traversal(visit all nodes).
 There are two algorithms of traversal:
 1. Breadth-First Search - which involves the usage of queue
 2. Depth-First Search - which involves the usage of stack
 
-*** Breadth-First Search
+**** Breadth-First Search
 Breadth-first involves selecting a root node, and choosing a neighbour node.
 
 Revising queues, they have a First-In, First Out approach, insertion at the rear and deletion at the front.
@@ -76,7 +80,7 @@ The functions required in this queue are:
 This will be covered in the next lab.
  NOTE - This will not work for nodes which are not connected to any node in the graph.
 
-*** Depth-First Search
+**** Depth-First Search
 
 This involves traversing the nodes until an edge node is met, using a stack.
 
@@ -101,14 +105,14 @@ class DFS {
   }
 }
 #+end_src
-* Trees
+** Trees
 A tree with at most two links from one node is known as a binary tree.
-** Properties
+*** Properties
 - Maximum number of nodes - $2^i$
 - Height is longest distance between root to leaf nodes (count the edges)
 - Maximum number of nodes possible till height h is $(2^0 + 2^1 + 2^2 + \cdots 2^h)$ = $2^{h+1} -1$
-** Types Of Binary Trees
-*** Full/Proper/Strict Binary Tree
+*** Types Of Binary Trees
+**** Full/Proper/Strict Binary Tree
 It is a tree where each node must contain 2 children except the leaf node.
 
 - There are either two children or no children.
@@ -116,38 +120,38 @@ It is a tree where each node must contain 2 children except the leaf node.
 - The minimum number of nodes is equal to $2^h + 1$
 - Maximum number of nodes is the same as number of nodes in binary tree, $2^{h+1} - 1$
 - The minimum height of the full binary tree is $log_2(n+1) - 1$
-*** Complete Binary Tree
+**** Complete Binary Tree
 A binary tree where all the nodes are completely filled except the last level.
 
-*** Degenerate Binary Tree
+**** Degenerate Binary Tree
 Exactly like a linked list.
-*** Balanced Binary Tree
+**** Balanced Binary Tree
 - The heights of left and right trees can have a maximum height difference of 1.
-** Binary Search Tree
+*** Binary Search Tree
 Value of left node must be smaller than parent, and value of right node must be greater than the parent node.
-*** Binary Search Tree Insertion
-*** Binary Search Tree Deletion
+**** Binary Search Tree Insertion
+**** Binary Search Tree Deletion
 - It works the same as a linked list operation.
 - We use [[In order Traversal]] to figure out the node's value, it takes the value of its in order successor.
-**** Binary Search Tree Traversal.
+***** Binary Search Tree Traversal.
 There are three types of traversal.
-***** Pre-order Traversal.
+****** Pre-order Traversal.
 - Process the root
 - Process left node subtree.
 - Process right node subtree.
 - Recursively repeat.
-***** In order Traversal
+****** In order Traversal
 - Process the left subtree
 - Process the root
 - Process the right subtree
 - Recursively repeat.
   **We use in order successors to figure out the value to copy.**
-***** Post order Traversal
+****** Post order Traversal
 - Process the left subtree
 - Process the right subtree
 - Process the root
 - Recursively repeat.
-** AVL Trees(Height balanced binary tree)
+*** AVL Trees(Height balanced binary tree)
 What this solves is the fact that we have a series of insertions that are 'skinny'. An AVL tree is balanced, the height is as minimal as possible.
 
 Each node is given a balancing factor, $= h_L-h_R$
@@ -161,21 +165,21 @@ There are 4 insertions that can be performed, also known as 'rotations':
 The first letter is the sub-tree, and the second letter is the child node.
 
 All 4 rotations are capable of causing an imbalance.
-* Heap
+** Heap
 Heap is a data structure with a complete binary tree. This tree is mainly used for creating an efficient sorting algorithm.
-** Types Of Heap
+*** Types Of Heap
 There are two types of heap:
-*** Min Heap
+**** Min Heap
 The value of the root node is less than or equal to  its children
-*** Max Heap
+**** Max Heap
 The value of the root node is more than or equal to its children
-** Definition
+*** Definition
 A heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
 A heap is typically represented as an array, the array representation for a tree, is for each node
 A parent node is represented by $\frac{i}{2} - 1$, the left child node is $2*i + 1$ and the right child node is $2*i + 2$
 
 Heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
-** Insertion
+*** Insertion
 The process of insertion involves:
 - Adding a node to the leftmost child node available.
 - Comparing the node's value with the parent node
@@ -199,7 +203,7 @@ while(i > 0){
         return;
     }
   #+end_src
-** Deletion
+*** Deletion
 - Deletion can only happen at the root node.
 - This deletion takes place when you're trying to perform 'heap sort'.
 
@@ -214,6 +218,6 @@ a[n] = k;
 n = n-1;
 
 #+end_src
-** TODO Write a Java Program To Implement And Insert Elements Into A Heap The array = [80,100,30,20,70,15,19]
+*** TODO Write a Java Program To Implement And Insert Elements Into A Heap The array = [80,100,30,20,70,15,19]
 
 Write a program which can automatically arrange itself into a

@@ -439,13 +439,15 @@ But never both, which concludes the inductive loop.
 \begin{prop}[Strong Principle Of Induction]
 Let $m_0$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \geq m_0$, we have the following implication: if $P(m')$ is true for all natural numbers $m_0 \leq m' < m$, then $P(m)$ is also true.(In particular this means that $P(m_0$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \geq m_0$.
 \end{prop}
-\begin{}
-For a property $Q(n)$, which is the property that $P(m')$ is true for $m_0 \leq m' < n$, then $P(n)$ is true... Then it is true $\forall m \geq m_0$
+\begin{proof}
+For a property $Q(n)$, which is the property that $P(m')$ is true for $m_0 \leq m < n$, then $P(n)$ is true... Then it is true $\forall m \geq m_0$
 
 For $Q(0)$, we can say that the statement is vacuous since the conditions are not satisfied for both when $m_{0} = 0$ and when $m_{0} <0$
 
 Suppose inductively that $Q(n)$ is true.
-Then
+Which means that
+
+Then for Q(n++)
 \end{proof}
 \begin{prop}[Backward Induction]
 Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m++)$ is true, then $P(m)$. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural numbers $m \leq n$.
