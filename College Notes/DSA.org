@@ -1,25 +1,20 @@
 #+title: Advanced Data Structures And Algorithm Analysis
 #+author: Adithya Nair
-
 * Graphs
-Graphs are nodes with links to each other. These links are defined by a matrix known as an **adjacency matrix**.
+[[https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/][Geeks For Geeks Article]]
 
 The best way to store such links is (under the assumption that the graphs in question are **bi-directional**) to store only the upper triangle of the adjacency matrix, while ignoring the diagonal.
-** Storing Graph Data
-#+begin_src java :session Graph
-import java.util.*;
-int c = 5;
-int a[][] = new int[c][c];
-int upperTriangleSize = (c*(c-1))/2;
-int graph_data[] = new int[upperTriangleSize];
-int k = 0;
-for(int i = 0; i < c; i++){
-	for(int j = i+1;j < c;j++){
-		graph_data[k] =  a[i][j];
-		k++;
-	}
-}
-#+end_src
+
+Graphs are nodes with links to each other.
+
+
+** Representations Of A Graph
+*** Adjacency Matrix
+
+Adjacency matrices are matrices which can be used to represent the connections that nodes have to each other. This is done by making a matrix of size $n$ for $n$ nodes. And the following rules exist for generating the matrix.
+
+1. If there is a link from node $i$ to node $j$ then the element $A_{ij}$ for the adjacency matrix $A$ is 1.
+2. If there is no link, then the element is zero.
 
 \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -28,8 +23,12 @@ a_{21} & a_{22} & \cdots & a_{2n} \\
 a_{n1} & a_{n2} & \cdots & a_{nn} \\
 \end{bmatrix}
 
-** Adjacency Lists
-This consists of a one-dimensional array, specifically of pointers.
+As a consequence of this, undirected graphs(graphs where the links represent connection rather than direction) are represented with a symmetric matrix.
+*** Adjacency Lists
+Adjacency lists are an alternative representation of graphs. If a graph has $n$ nodes, then the list has $n$ elements. The list adjList is then made with the following rules.
+
+**adjList[i] contains all the nodes which are connected to vertex $i$
+
 For an example graph,
 \begin{align*}
 &a \rightarrow b \rightarrow c \rightarrow d  \\
