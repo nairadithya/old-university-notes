@@ -263,7 +263,3 @@ C =
     0    0    0    4
 
 #+end_example
-
-* Schedule
-** TODO 23MAT204
-SCHEDULED: <2024-07-24 Wed 08:10-10:40>

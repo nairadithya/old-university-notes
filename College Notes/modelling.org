@@ -38,6 +38,12 @@ Principle of superposition - it means that there's a linear correlation of the i
 | Continuous     | Dependent variables over continuous range                  | Differential equations                                 |
 | Discrete       | dependent variables defined only for distinct values       | Time-difference equations                              |
 |----------------+------------------------------------------------------------+--------------------------------------------------------|
+
+
+| Name    | Age |
+| Adithya |  12 |
+| Anil    | 14  |
+
 *** System Nomenclature
 #+begin_Definition :options [Dynamical System]
 	A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.

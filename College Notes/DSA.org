@@ -46,11 +46,6 @@ We have a linked list of linked lists. The problem here is that links are repres
 
 This is an optimization for when graphs have very few links.
 
-*** Insertion Of Nodes/Edges In A Graph
-*** Deletion Of Nodes/Edges In A Graph
-
-***
-
 *** Traversal(visit all nodes).
 There are two algorithms of traversal:
 1. Breadth-First Search - which involves the usage of queue
@@ -76,12 +71,12 @@ The functions required in this queue are:
 - `Insert()`
 - `Delete()`
 - `Traverse()`
+#+begin_src java
+#+end_src
 
-This will be covered in the next lab.
- NOTE - This will not work for nodes which are not connected to any node in the graph.
+#+RESULTS:
 
 **** Depth-First Search
-
 This involves traversing the nodes until an edge node is met, using a stack.
 
 The procedure follows:
