@@ -501,6 +501,7 @@ Specificity focuses on correctly identifying negatives, while sensitivity focuse
 *** ROC Curve - Receiver Operating Characteristic Curve
 The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
 
+* Project
 * Overview
 ** Types Of Machine Learning
 *** Supervised Learning

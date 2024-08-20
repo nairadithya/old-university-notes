@@ -1,6 +1,7 @@
 #+TITLE: Modelling, Simulation And Analysis Notes
 #+AUTHOR: Adithya Nair
 #+LATEX_HEADER: \input{preamble}
+#+LATEX_HEADER: \usepackage{bondgraphs}
 #+LATEX_CLASS: report
 #+EXPORT_FILE_NAME: exports/journal-club.pdf
 
@@ -139,7 +140,6 @@ Power = $e(t) \times f(t)$
 $p(t) = \int e(t) dt$
 $q(t) = \int f(t) dt$
 
-
 |----------------+--------------------+------------------|
 |                | Effort             | Flow             |
 |----------------+--------------------+------------------|
@@ -154,6 +154,6 @@ $q(t) = \int f(t) dt$
 **** Bond Graphs
 A bond graph is a labelled directed graph, each link has an assigned orientation.
 
-
 **** Multiports
 Places at which subsystems can be interconnected, power can flow through ports between subsystems.
+

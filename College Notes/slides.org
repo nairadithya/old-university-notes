@@ -1,0 +1,20 @@
+#+title: Slides
+#+author: Adithya Nair
+
+* Slide 1
+- point 3
+- point 2
+- poitn 1
+* Slide 2
+1. Point 1
+2. Point 3
+3. Point 2
+
+* Slide 3
+
+|---------+-----|
+| Name    | Age |
+|---------+-----|
+| GK      |  19 |
+| Adithya | 19  |
+|---------+-----|

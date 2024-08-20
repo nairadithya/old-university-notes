@@ -100,10 +100,27 @@ These parameters are used to assign the same co-ordinate frames while dealing wi
   - $\theta_i$ Angle between $X_i$ and $X_{i-1}$ when viewed from $Z_i$,
 
 For a 3R Planar serial chain manipulator:
+
+|-------------+-----+-----+---------+-----|
 |             | a_i | d_i | $\alpha_{i}$ | \theta_i |
 |-------------+-----+-----+---------+-----|
 | Joint i = 1 | L_1 |   0 |       0 | \theta_1 |
 | Joint i = 2 | L_2 |   0 |       0 | \theta_2 |
 | Joint i = 3 | L_3 |   0 |       0 | \theta_3 |
-*** Bond Graph Modelling
-What we did earlier is a classical approach to modelling.
+|-------------+-----+-----+---------+-----|
+*** Rotation Matrix
+We have three reference frames, with a common origin. With the notation we have setup we can say, $\{0\},\{1\},\{2\}$ can be defined for a point $P$
+
+\begin{align*}
+^0P = ^0_1R ^1P \\
+^0P = ^0_2R ^2P \\
+^1P = ^1_2R ^2P \\
+^0_2R = ^0_1R _2^1R
+\end{align*}
+*** Derivation Using DH Parameters
+These 4 parameters can be expressed by,
+
+$$^{i-1}A_i = T(z,d)T(z,\Theta),T(x, \alpha), T(x, a)$$
+*** Skew Symmetric Matrix
+
+A matrix such that $A = -A^T$

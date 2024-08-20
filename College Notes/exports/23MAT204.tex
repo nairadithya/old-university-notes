@@ -1,4 +1,4 @@
-% Created 2024-08-18 Sun 09:53
+% Created 2024-08-19 Mon 09:01
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:orgb07d2f5}
+\label{sec:orge1ed255}
 \chapter{Revision Linear Algebra}
-\label{sec:orgce265df}
+\label{sec:org21451a9}
 
 Every matrix satisfies its own characteristic matrix.
 
@@ -42,24 +42,23 @@ What this means is
     A^2 - 2A + I - 4A^{-1} &= 0 \\
     A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\
     X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b
-\end{aligned}\] There are some implications behind this. Here's a
-problem, generate a random 3x3 matrix, find the ranks of
+\end{aligned}\] There are some implications behind this. Here's a problem, generate a random 3x3 matrix, find the ranks of
 \((A- \lambda_1 I)\) and then \((A-\lambda_1 I)(A-\lambda_2 I\)
 
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:orga87040c}
+\label{sec:org64c253b}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:org318ca59}
+\label{sec:org185a769}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:org9cd488c}
+\label{sec:orgdbafc14}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +66,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:org0a0a49f}
+\label{sec:org127bbc7}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -229,13 +228,13 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 \chapter{Multi variable Optimization}
-\label{sec:orgab95e67}
+\label{sec:org2f0c7b9}
 
 We minimize \(f(x_1,x_2,\cdots,x_3)\).
 \section{Contour Curves}
-\label{sec:org43295ad}
+\label{sec:org0624fdf}
 \section{Multi variable Calculus}
-\label{sec:org17d301f}
+\label{sec:org7920df8}
 The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
 
 \begin{align*}
@@ -249,7 +248,7 @@ x = 0,\frac{-4}{3} \\
 y = 0,\frac{-8}{3} \\
 \end{align*}
 \section{Newton's Method}
-\label{sec:orgfe43c3b}
+\label{sec:org1f7eecd}
 Newton's Method is a numerical method to find a minimum of a function.
 
 Iterative formula:
@@ -270,12 +269,12 @@ Evaluation of first and second derivatives numerically:
 $$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
 $$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
 \section{How solution to a linear system can be found as a solution of an optimization problem.}
-\label{sec:orgf96e5cb}
+\label{sec:org0fa55ca}
 Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
 
 Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
 \section{Numerical Algorithm Of Gauss-Jacobi Method}
-\label{sec:org619ae60}
+\label{sec:org018980c}
 
 Input A = [a\textsubscript{ij}], X0 = x\textsuperscript{(0)}, tolerance TOL, maximum number of iterations,
 
@@ -314,7 +313,7 @@ for i = 2:n
 end
 \end{verbatim}
 \section{Gauss-Siedel Iteration Method}
-\label{sec:org4655ec5}
+\label{sec:org31d1a11}
 The iterative method is somewhat similar to <Gauss-Jacobi method>.
 
 The only difference is that the new values are computed by already existing new values.
@@ -346,8 +345,8 @@ $$(D-L)x^{k} = Ux^{k-1} + b$$
 $$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
 
 If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
-\chapter{Unidirectional/Line search}
-\label{sec:org2b9409a}
+\section{Unidirectional/Line search}
+\label{sec:orgf05d0c7}
 For a given function,
 
 Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
@@ -361,55 +360,83 @@ How to perform uni-directional search:
 
 Find the minimum of the function \(f(x) = (x-2)^2 - y\), starting from the point \((-1,0)\) along \((1,1)^T\)
 \end{itemize}
-\chapter{Euler's Method}
-\label{sec:org43d415d}
+\section{Directions Of Change}
+\label{sec:org54fac2b}
+A direction given by the vector \$x\textsuperscript{(k)}\} is a descent direction only if the function value decreases along that direction from the point, \(x^{(k)}\), when
+$$\nabla f(x^{(k)}\cdot d < 0$$
+
+A direction given by the vector \$x\textsuperscript{(k)}\} is an ascent direction only if the function value increases along that direction from the point, \(x^{(k)}\), when
+$$\nabla f(x^{(k)}\cdot d > 0$$
+
+Question: Check whether the given function have a descent direction \(x = (2,-1)\) along the given directions \(d_1\) and \(d_2\)
+$$f = 2x_1^{2} + x_2^2-2x_1x_2 + 2x_1^3 + x_2^4$$
+\section{Directions Of Descent/Ascent In Numerical Algorithms.}
+\label{sec:org58ef8bf}
+In any numerical algorithm to find the optimum of an unconstrained problem, the iterative formula used is:
+$$x^{k+1} = x^k + \alpha^kd^k$$
+Where \(\alpha^k\) is the step length in step k and \(d^k\) is the direction of descent in step k, if it's a minimization problem or a direction of ascent if it's a maximization problem.
+
+Newton's Method: \(x_{k+1} = x_k -(H(x_k)^{-1}\nabla f(x_k))\)
+Gradient DEscent - \(x_{k+1} = x_k + \alpha_kd_k\) where \(d_k = - \nabla f(x_k)\) and \(\alpha =\) using line search
+
+A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
+\section{Steepest Descent}
+\label{sec:org138aebc}
+A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
+
+A direction along which the function decreases rapidly from a point is given by the negative of the gradient of the function at that point
+
+The iterative formula of method of steepest descent is:
+
+$$x^{k+1} = x^k + \alpha^k d^k$$
+
+The descent direction \(d^k\) is along the steepest descent direction, \(d^k = - \nabla f(x^k\). The step length \(\alpha^k\) is obtained by performing a unidirectional search from \(x^k\) along the direction \(d^k\), by minimizing,
 \part{Overview}
-\label{sec:org7a4b9cb}
+\label{sec:org2e9473a}
 \chapter{Calculating Eigenvalues and Eigenvectors}
-\label{sec:org105709d}
+\label{sec:orgd59299b}
 \chapter{Norms Of Vectors}
-\label{sec:orgd0f0880}
+\label{sec:orgaafd938}
 \section{\(L_n\) norm}
-\label{sec:org4c3fb4d}
+\label{sec:orgd8fef4a}
 The \(L_n\) norm of a vector \(x_{m \times 1}\) is,
 
 $$L_n =\sqrt[n]{x_1^n + x_2^n + \cdots + x_m^n}$$
 
 \(L_\infty = max{|x_1|, |x_2|, \cdots , |x_n|}\)
 \section{S-norm}
-\label{sec:org99de82f}
+\label{sec:org18dee0d}
 Where S is a symmetric positive matrix
 
 \(\|v\|_s = v^T S v\)
 \chapter{Norms Of Matrices}
-\label{sec:orgc10a471}
+\label{sec:org07554c0}
 \section{Spectral Norm}
-\label{sec:orgb67607e}
+\label{sec:orgea28d2e}
 It is the maximum of the ratio,
 
 $$\frac{\|Ax\|}{\|x\|}$$
 
 The maximum is \(\sigma_1\) at the vector \(x=v_1\)
 \section{Frobenius Norm}
-\label{sec:org5145e70}
+\label{sec:org3f2f6ea}
 
 $$\|A\|_F = \sqrt{\Sigma_i \Sigma_j a_{ij}^2}$$
 
 It's the same as the vector norm of the vector of singular values of \(A\)
 \section{Nuclear Norm}
-\label{sec:org9b60fb6}
+\label{sec:orgf323c08}
 
 $$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
 \chapter{Optimization}
-\label{sec:org63a9021}
+\label{sec:orgebbccb4}
 \section{Types Of Optimization Problems}
-\label{sec:org34433ea}
+\label{sec:org8f2ff2e}
 Single variable and multi variable
 \begin{enumerate}
 \item Constrained and unconstrained
 \item Linear and nonlinear
 \item Continuous and discrete
-\item oadsfijdsoifjdsoifj
 \item Single-objective and multi-objective
 \item Stochastic and deterministic
 \end{enumerate}

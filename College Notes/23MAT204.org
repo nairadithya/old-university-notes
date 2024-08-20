@@ -15,8 +15,7 @@ What this means is
     A^2 - 2A + I - 4A^{-1} &= 0 \\
     A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\
     X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b
-\end{aligned}\] There are some implications behind this. Here's a
-problem, generate a random 3x3 matrix, find the ranks of
+\end{aligned}\] There are some implications behind this. Here's a problem, generate a random 3x3 matrix, find the ranks of
 \((A- \lambda_1 I)\) and then \((A-\lambda_1 I)(A-\lambda_2 I\)
 
 What you will see is that the rank reduces upon multiplying roots of the
@@ -336,7 +335,7 @@ $$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
 
 If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
 
-** Unidirectional/Line search
+*** Unidirectional/Line search
 For a given function,
 
 Find the minima of $f(x) = (x-1)^2 + (y-2)^2$ starting from $(0,0)$ along the direction of x-axis.
@@ -348,7 +347,38 @@ How to perform uni-directional search:
 - Obtain the solution for unidirectional search by substituting $t^*$ in $\vec{s}(t)$
 
   Find the minimum of the function $f(x) = (x-2)^2 - y$, starting from the point $(-1,0)$ along $(1,1)^T$
-** Euler's Method
+
+*** Directions Of Change
+A direction given by the vector $x^{(k)}} is a descent direction only if the function value decreases along that direction from the point, $x^{(k)}$, when
+$$\nabla f(x^{(k)}\cdot d < 0$$
+
+A direction given by the vector $x^{(k)}} is an ascent direction only if the function value increases along that direction from the point, $x^{(k)}$, when
+$$\nabla f(x^{(k)}\cdot d > 0$$
+
+Question: Check whether the given function have a descent direction $x = (2,-1)$ along the given directions $d_1$ and $d_2$
+$$f = 2x_1^{2} + x_2^2-2x_1x_2 + 2x_1^3 + x_2^4$$
+
+*** Directions Of Descent/Ascent In Numerical Algorithms.
+In any numerical algorithm to find the optimum of an unconstrained problem, the iterative formula used is:
+$$x^{k+1} = x^k + \alpha^kd^k$$
+Where $\alpha^k$ is the step length in step k and $d^k$ is the direction of descent in step k, if it's a minimization problem or a direction of ascent if it's a maximization problem.
+
+Newton's Method: $x_{k+1} = x_k -(H(x_k)^{-1}\nabla f(x_k))$
+Gradient DEscent - $x_{k+1} = x_k + \alpha_kd_k$ where $d_k = - \nabla f(x_k)$ and $\alpha =$ using line search
+
+A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
+
+*** Steepest Descent
+A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
+
+A direction along which the function decreases rapidly from a point is given by the negative of the gradient of the function at that point
+
+The iterative formula of method of steepest descent is:
+
+$$x^{k+1} = x^k + \alpha^k d^k$$
+
+The descent direction $d^k$ is along the steepest descent direction, $d^k = - \nabla f(x^k$. The step length $\alpha^k$ is obtained by performing a unidirectional search from $x^k$ along the direction $d^k$, by minimizing,
+
 * Overview
 ** Calculating Eigenvalues and Eigenvectors
 ** Norms Of Vectors
@@ -380,9 +410,8 @@ $$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
 ** Optimization
 *** Types Of Optimization Problems
 Single variable and multi variable
-2. Constrained and unconstrained
-3. Linear and nonlinear
-4. Continuous and discrete
-5. oadsfijdsoifjdsoifj
-6. Single-objective and multi-objective
-7. Stochastic and deterministic
+1. Constrained and unconstrained
+2. Linear and nonlinear
+3. Continuous and discrete
+4. Single-objective and multi-objective
+5. Stochastic and deterministic
