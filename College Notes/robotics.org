@@ -124,3 +124,101 @@ $$^{i-1}A_i = T(z,d)T(z,\Theta),T(x, \alpha), T(x, a)$$
 *** Skew Symmetric Matrix
 
 A matrix such that $A = -A^T$
+
+So this means that,
+
+$$S + S^{T}=0$$
+
+$$\vec{a} = a_x \hat{i} + \vec{a_y} \hat{j} \vec{a_z} \hat{k}$$
+
+We define a matrix function,
+
+$$S(\vec{a}) = \begin{bmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & - a_x \\
+-a_y & a_x 0
+\end{bmatrix}
+$$
+
+So we can say for the basis vectors
+
+$$S(\hat{i}) = \begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & -1 \\
+0 & 1 & 0
+\end{bmatrix}
+$$
+$$S(\hat{j}) = \begin{bmatrix}
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+-1 & 0 & 0dt&i0
+\end{bmatrix}
+$$
+$$S(\hat{k}) = \begin{bmatrix}
+0 & -1 & 0 \\
+1 & 0 & 0  \\
+0 & 0 & 0
+\end{bmatrix}
+$$
+
+Multiplying the matrix function's output with a vector is the same as doing a cross product with those two vectors.
+$$S (\vec{a}) P = \vec{a} \times \vec{p} $$
+This matrix operation also has linearity in operations.
+$$S (\alpha\vec{a} + \beta \vec{b}) P = \alpha S(\vec{a}) +  \beta S(\vec{b}) $$
+When multiplied with a rotation matrix.
+$$^a_bR S(\vec{a})^a_bR^T = S(^a_bR \vec{a})$$
+
+We know that,
+\begin{align*}
+R R^T &= I \\
+R(\theta) R^t(\theta) &= I \\
+\text{Taking the derivative} \\
+\frac{d R(\theta)}{d \theta} R^T(\theta) + R(\theta) \frac{d R^{T}(\theta)}{d \theta} &= 0 \\
+\frac{d R(\theta)}{d \theta} R^T(\theta) + R(\theta) \left( \frac{d R^{T}(\theta)}{d \theta} \right)^{T}&= 0 \\
+\end{align*}
+
+What this means is that the term $\frac{d R(\theta)}{d \theta} R^T (\theta)$ is a skew-symmetric matrix.
+
+This means that the the term can be written as $S$,
+
+$$S = \frac{d R(\theta)}{d \theta} R^T (\theta)$$
+
+In other words, S becomes an operator on $R$ to give us the derivative.
+
+$$S(\hat{k})R(\theta) = \frac{d R(\theta)}{d\theta}$$
+
+Taking both sides with respect to time,
+
+$$ \frac{d R(\theta)}{d \theta} \frac{d \theta}{dt} = \dot{\theta} S(\hat{k})R(\theta) $$
+In other words,
+$$\dot{R} = S(\dot{\theta}\hat{k})R(\theta)$$
+
+So we have,
+$$\dot{R} = S(\vec{\omega})R(\theta)$$
+
+$$S(\vec{\omega}) = \begin{bmatrix}
+0 & -\omega_z & \omega_y \\
+\omega_z & 0 & -\omega_x \\
+\omega_y & \omega_{x} & 0
+\end{bmatrix}$$
+
+$$\Omega = \begin{bmatrix}
+0 & -\omega_z & \omega_y \\
+\omega_z & 0 & -\omega_x \\
+\omega_y & \omega_{x} & 0
+\end{bmatrix}$$
+
+\begin{align*}
+^0P = ^0_1R ^1P \\
+^0P = R ^1P \\
+^0 \dot{P} = \dot{R} ^1P + R^1 \dot{P} \\
+^0 \dot{P} = S(\vec{\omega}) R ^1P \\
+^0 \dot{P} = \omega \times R ^1 \vec{p} \\
+^0 \dot{P} = \omega \times R ^1 \vec{p} \\
+\vec{v} = \vec{\omega} \times \vec{r}
+\end{align*}
+
+** Questions
+1. Generate reference frames - X - red, y - green, z - blue
+* TODO Reference: JJ Craig, Introduction to Robotics: Mechanics And control, Pearson Publishing
+* TODO Create the rotation matrix using roll pitch and yaw, from either projection or euler angle.

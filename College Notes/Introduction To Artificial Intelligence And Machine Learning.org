@@ -109,7 +109,7 @@ dtype: int64
 
 This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and filling with zeros does not work here when that might affect the correctness of the prediction.
 So here we replace the values with the mean for numerical values and mode for categorical values.
-***** TODO Look into other methods of imputation
+***** Look into other methods of imputation
 #+begin_src python :results output :session Titanic
 # Method 3: Fill missing values with the mean (for numerical columns)
 df['Age'].fillna(df['Age'].mean(), inplace=True)
@@ -390,7 +390,7 @@ plt.tight_layout()
 
 *** Data Imbalance
 We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
-***** TODO Find what vintage means in churn prediction.
+***** Find what vintage means in churn prediction.
 **** One Hot Encoding
 This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
 **** Logistic Regression

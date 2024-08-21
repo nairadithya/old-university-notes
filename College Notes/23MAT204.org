@@ -214,7 +214,6 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 ** Multi variable Optimization
-
 We minimize $f(x_1,x_2,\cdots,x_3)$.
 *** Contour Curves
 *** Multi variable Calculus
@@ -319,7 +318,7 @@ c = inv(D-L)*b;
 for i = 2:n
   X(:,i) = T*X(:,i-1) + c;
   if(X(:,i) == X(:,i-1))
-    display("The iteration it converges at:")
+    display("The iteration converges at:")
     i-1
     break;
   end
@@ -327,7 +326,7 @@ end
 #+end_src
 
 #+RESULTS:
-: The iteration it converges at:
+: The iteration converges at:
 : ans = 19
 
 $$(D-L)x^{k} = Ux^{k-1} + b$$
@@ -379,39 +378,20 @@ $$x^{k+1} = x^k + \alpha^k d^k$$
 
 The descent direction $d^k$ is along the steepest descent direction, $d^k = - \nabla f(x^k$. The step length $\alpha^k$ is obtained by performing a unidirectional search from $x^k$ along the direction $d^k$, by minimizing,
 
-* Overview
-** Calculating Eigenvalues and Eigenvectors
-** Norms Of Vectors
-*** $L_n$ norm
-The $L_n$ norm of a vector $x_{m \times 1}$ is,
+This method produces successive directions that are perpendicular to each other.
 
-$$L_n =\sqrt[n]{x_1^n + x_2^n + \cdots + x_m^n}$$
+Near the minima, during line search the convergence is very slow.
 
-$L_\infty = max{|x_1|, |x_2|, \cdots , |x_n|}$
-*** S-norm
-Where S is a symmetric positive matrix
 
-$\|v\|_s = v^T S v$
-** Norms Of Matrices
-*** Spectral Norm
-It is the maximum of the ratio,
+*** Numerical Method
+To implement this programmatically, we can write...
+For $Ax=b$, we can convert this to an equivalent optimization problem.
+$$f(x) = \frac{1}{2}x^TAx + - b^Tx + c$$
 
-$$\frac{\|Ax\|}{\|x\|}$$
+We have a linear system of equations, which we can be solved by $Ax=b$
 
-The maximum is $\sigma_1$ at the vector $x=v_1$
-*** Frobenius Norm
+We can write $g_0 = Ax_{0} - b$
 
-$$\|A\|_F = \sqrt{\Sigma_i \Sigma_j a_{ij}^2}$$
+#+begin_src octave
 
-It's the same as the vector norm of the vector of singular values of $A$
-*** Nuclear Norm
-
-$$\|A\|_N = \sigma_1 + \sigma_2 + \cdots + \sigma_r$$
-** Optimization
-*** Types Of Optimization Problems
-Single variable and multi variable
-1. Constrained and unconstrained
-2. Linear and nonlinear
-3. Continuous and discrete
-4. Single-objective and multi-objective
-5. Stochastic and deterministic
+#+end_src

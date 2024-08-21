@@ -455,11 +455,11 @@ Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natu
 \begin{prop}[Induction starting from the base case $n$]
 Let n be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever P(m) is true, P(m++) is true. Show that if P(n) is true, then P(m) is true for all m ≥ n. (This principle is sometimes referred to as the principle of induction starting from the base case n.)
 \end{prop}
-#+BEGIN_proof
+\begin{proof}
 Take a property $P(n)$, $m \geq n$
 
 Inducting over $n$,
-#+END_proof
+\end{proof}
 *** Multiplication
 \begin{definition}[Multiplication]
 Let $m$ be a natural number. To multiply zero to $m$, we define $0 \times m := 0$. Now suppose inductively that we have defined how to multiply $n$ to $m$. Then we can multiply $n++$ to $m$ by defining $(n++) \times m := (n \times m) + m$
@@ -468,9 +468,60 @@ We can say $0 \times m = 0$, $1 \times m = 0 + m$, $2 \times m= 0 + m + m$ and s
 \begin{lemma}
 Prove that multiplication is commutative
 \end{lemma}
+\begin{proof}
+We use the way we proved that addition is commutative as a blueprint.
+There are two things we need to prove first.
+\begin{enumerate}
+        \item For any natural number, $n$, $n \times 0 = 0$
+        \item For any natural numbers, $n$ and $m$, $n \times (m++) = (n \times m) + m$
+\end{enumerate}
+
+First we prove,
+For any natural number, $n$, $n \times 0 = n$
+We induct over $n$,
+For $n = 0$,
+$$0 \times 0 = 0$$
+
+Which is true from the definition
+
+Now suppose inductively, that $n \times 0 = 0$,
+For $(n++) \times 0$,
+From the definition we can write this as,
+\begin{align*}
+(n++) \times 0 &= (n \times 0) + 0 \\
+\text{We know that $n \times 0 = 0$}
+(n++) \times 0 &= 0 + 0 \\
+(n++) \times 0 &= 0
+\end{align*}
+Therefore, $$n \times 0 = n$$
+
+Now we prove,
+For any natural numbers, $n$ and $m$, $n \times (m++) = (n \times m) + m$
+We induct over $n$, (keeping $m$ fixed)
+
+For $n = 0$,
+We know from the definition for multiplication with zero that,
+\begin{align*}
+0 \times (m++) = 0 \\
+\text{We also know that} \\
+(m++) \times 0 &= (m \times 0 ) + 0 \\
+(m++) \times 0 &= 0 \\
+(m++) \times 0 = 0 \times (m++) &= (0 \times m) + m
+\end{align*}
+
+Suppose inductively that $n \times (m++) = (n \times m) + m$
+For $n = (n++)$
+To prove $(n++) \times (m++) = ((n++) \times m) + m$,
+
+\begin{align*}
+(n++) \times (m++) &= (n \times (m++)) + m++ \\
+\text{We can rewrite RHS using the inductive hypothesis} \\
+(n++) \times (m++) &= ((n \times m) + m) + m++\\
+
+\end{align*}
+\end{proof}
 
 For simplicity we now write $a \times b$ as $ab$
-
 *** Exercise
 **** Prove the identity $(a+b)^2 = a^2 + 2ab + b^2$
 **** (Euclid's division lemma)

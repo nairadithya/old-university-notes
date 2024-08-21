@@ -1,4 +1,4 @@
-% Created 2024-08-19 Mon 11:21
+% Created 2024-08-21 Wed 13:41
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -30,9 +30,9 @@
 \tableofcontents
 
 \part{Notes}
-\label{sec:orga9528fc}
+\label{sec:org0714af0}
 \chapter{Course Overview}
-\label{sec:org7e336be}
+\label{sec:orge4496a8}
 \begin{enumerate}
 \item Introduction to Modelling
 \item Bond graph modelling
@@ -45,21 +45,21 @@ What is modelling? It's a mathematical representation of a system. These represe
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
 \chapter{Unit 1}
-\label{sec:org335b2c8}
+\label{sec:orga2df814}
 \section{What Is Modelling?}
-\label{sec:org8b5dac9}
+\label{sec:org8a8fc7c}
 \begin{itemize}
 \item Model - Models of the systems are simplified, abstracted constructs used to predict their behaviour.
 \item Mathematical Modelling - Predicts only a certain aspect of the behaviour
 \end{itemize}
 \section{Uses Of Modelling}
-\label{sec:org677fb55}
+\label{sec:orgc2fb272}
 Modelling consists of input variables \(U\), which performs certain operations on a dynamic system \(S\), with state variables \(X\) to give some output variables \(U\).
 Analysis means that given an input for the present, and the system itself.
 
 We can predict the outputs for the future. To exert some form of control, the system \(S\) are used. Another term used is identification, identification means that you already \(U\), and \(Y\). We know the inputs and the outputs, and we map \(U\) to \(Y\) with the system \(S\). We \textbf{identify} the system that would map the inputs to the outputs. This is done by experimenting and figuring out what mapping works best to generate the outputs from the inputs. The way to tell whether a model is good is to see if it is consistent with large sets of input and outputs.
 \section{Types Of Modeling}
-\label{sec:org1aa1cb1}
+\label{sec:orgf72bcff}
 Principle of superposition - it means that there's a linear correlation of the inputs to the outputs.
 \begin{center}
 \begin{tabular}{lll}
@@ -86,7 +86,7 @@ Anil & 14\\
 \end{tabular}
 \end{center}
 \section{System Nomenclature}
-\label{sec:org91ec1f1}
+\label{sec:orgdcb6e23}
 \begin{Definition}
 A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
 \end{Definition}
@@ -148,11 +148,11 @@ $$Y(s) = G(s)U(s)$$
 A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
 \end{definition}
 \section{Modeling Of Dynamical Systems.}
-\label{sec:orgcf5c721}
+\label{sec:org71e3278}
 Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force \(f\). The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass \(m\) and a moment of inertia \(I\) relative to its mass center at point C.
 \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf}{Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf: Page 78 Systems example}
 \section{Bond Graph Modelling}
-\label{sec:org6c35f60}
+\label{sec:org4a3bec7}
 What we did earlier is a classical approach to modelling. We find  the differential equations and generate matrix equations with inputs, state variables and output.
 
 What we do here is,
@@ -170,7 +170,7 @@ What we do here is,
 \text{Out}&\text{put}
 \end{align*}
 \section{Generalized Variables}
-\label{sec:org9ca5f0f}
+\label{sec:org0b381c2}
 \begin{itemize}
 \item Power Variables
 \begin{itemize}
@@ -205,18 +205,51 @@ Thermodynamics & Temperature & Entropy Flow\\
 \end{center}
 \begin{enumerate}
 \item Bond Graphs
-\label{sec:orgfd4cc29}
+\label{sec:org09d3aea}
 A bond graph is a labelled directed graph, each link has an assigned orientation.
 \item Multiports
-\label{sec:org8b5b4a2}
+\label{sec:orgc12cc4b}
 Places at which subsystems can be interconnected, power can flow through ports between subsystems.
 
-\begin{bondgraph}
-\begin{centering}
-\node (Se) {Se};
-\node[right=1 of Se] (R) {R};
-\draw (Se) edge (R);
-\end{centering}
-\end{bondgraph}
+\begin{verbatim}
+global m b k;
+m = 1;
+b =  1; %Damping constant
+k = 1; % Spring constant
+
+tspan = [0 10];
+IC = [0 0];
+
+[time, X_state] = ode45(@f,tspan , IC);
+
+function x_dot = f(t,X)
+  global m b k
+  u = sin(t);
+  x_dot = [X(2);-(b/m)*X(2) - (k/m)*X(1) + (u/m)];
+end
+figure('units', 'normalized', 'outerposition', [0 0 1 1])
+subplot(2,2,1)
+grid on;
+xlabel('Time(s)')
+ylabel('Displacement')
+plot(time, X_state(:,1))
+
+subplot(2,2,3)
+grid on;
+xlabel('Time(s)')
+ylabel('Velocity')
+plot(time, X_state(:,2))
+
+
+subplot(2,2,[2 4])
+grid on;
+xlabel('Displacement(m)')
+ylabel('Velocity(m/s)')
+plot(X_state(:,1), X_state(:,2))
+s output
+\end{verbatim}
+
+REFERENCE
+\href{https://ocw.mit.edu/courses/2-141-modeling-and-simulation-of-dynamic-systems-fall-2006/71ca8916669d0aa6839ce780db9f5288\_bond\_graph\_intro.pdf}{MIT COURSE NOTES ON BOND GRAPH MODELLING}
 \end{enumerate}
 \end{document}

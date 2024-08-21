@@ -63,7 +63,6 @@ A rotation of two complex sinusoidal signals in opposite directions to each othe
 $$|V \cdot V^*| = |V|^2 = V_I^2 + V_q^2$$
 
 It is a combination of two complex signals.
-** Nyquist Period
 * Lab
 ** Sampling Theorem
 #+begin_src octave :results output

@@ -3,7 +3,7 @@
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_HEADER: \usepackage{bondgraphs}
 #+LATEX_CLASS: report
-#+EXPORT_FILE_NAME: exports/journal-club.pdf
+#+EXPORT_FILE_NAME: exports/modelling, simulation and analysis.pdf
 
 * Notes
 ** Course Overview
@@ -43,7 +43,7 @@ Principle of superposition - it means that there's a linear correlation of the i
 
 | Name    | Age |
 | Adithya |  12 |
-| Anil    | 14  |
+| Anil    |  14 |
 
 *** System Nomenclature
 #+begin_Definition :options [Dynamical System]
@@ -80,7 +80,6 @@ We can similarly write the derivatives of the outputs as functions of the inputs
 \[
 \dot{Y}(t) = G(U,X,t)
 \]
-
 We write the states' derivative as a linear combination, which can then be written as a matrix.
 
 $$ \dot{X}(t) = \begin{bmatrix} a_{11} & a_{21} & \cdots & a_{1n} \\ \vdots & \ddots & & \vdots \\ a_{n1} & a_{n1} & \cdots & a_{nn} \\ \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \begin{bmatrix} b_{11} & b_{21} & \cdots & b_{1n} \\ \vdots & \ddots & & \vdots \\ b_{n1} & b_{n1} & \cdots & b_{nn} \\ \end{bmatrix} \begin{bmatrix} u_1 \\ \vdots \\ u_n \end{bmatrix}$$
@@ -157,3 +156,45 @@ A bond graph is a labelled directed graph, each link has an assigned orientation
 **** Multiports
 Places at which subsystems can be interconnected, power can flow through ports between subsystems.
 
+#+begin_src octave
+global m b k;
+m = 1;
+b =  1; %Damping constant
+k = 1; % Spring constant
+
+tspan = [0 10];
+IC = [0 0];
+
+[time, X_state] = ode45(@f,tspan , IC);
+
+function x_dot = f(t,X)
+  global m b k
+  u = sin(t);
+  x_dot = [X(2);-(b/m)*X(2) - (k/m)*X(1) + (u/m)];
+end
+figure('units', 'normalized', 'outerposition', [0 0 1 1])
+subplot(2,2,1)
+grid on;
+xlabel('Time(s)')
+ylabel('Displacement')
+plot(time, X_state(:,1))
+
+subplot(2,2,3)
+grid on;
+xlabel('Time(s)')
+ylabel('Velocity')
+plot(time, X_state(:,2))
+
+
+subplot(2,2,[2 4])
+grid on;
+xlabel('Displacement(m)')
+ylabel('Velocity(m/s)')
+plot(X_state(:,1), X_state(:,2))
+s output
+#+end_src
+
+#+RESULTS:
+
+REFERENCE
+[[https://ocw.mit.edu/courses/2-141-modeling-and-simulation-of-dynamic-systems-fall-2006/71ca8916669d0aa6839ce780db9f5288_bond_graph_intro.pdf][MIT COURSE NOTES ON BOND GRAPH MODELLING]]
