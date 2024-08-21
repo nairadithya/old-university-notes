@@ -382,7 +382,6 @@ This method produces successive directions that are perpendicular to each other.
 
 Near the minima, during line search the convergence is very slow.
 
-
 *** Numerical Method
 To implement this programmatically, we can write...
 For $Ax=b$, we can convert this to an equivalent optimization problem.
@@ -391,7 +390,3 @@ $$f(x) = \frac{1}{2}x^TAx + - b^Tx + c$$
 We have a linear system of equations, which we can be solved by $Ax=b$
 
 We can write $g_0 = Ax_{0} - b$
-
-#+begin_src octave
-
-#+end_src

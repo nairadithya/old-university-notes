@@ -537,3 +537,23 @@ For the inductive step, supposing $Q(n)$ is true,
 ***** Cancellation Law
 ***** Associativity
 ***** If a<b, and c is positive then ac<bc
+** Set Theory
+We define first what a set is:
+
+\begin{definition}[Sets]
+We define set A to be any unordered collection of objects. If $x$ is an object, we say that x is an element of A or $x \in A$ if x lies in the collection. Otherwise $x \in A$
+\end{definition}
+
+We start with some axioms:
+\begin{enumerate}
+        \item (Sets are objects) If $A$ is a set, then $A$ is also an object. In particular given two sets $A$ and $B$, it is meaningful to ask whether A is also an element of B.
+        \item (Equality of sets) Two sets A and B are equal, A = B, iff every element of A is an element of B. A = B, if and only if every element of $x$ of A also belongs to B, and every element $y$ of B belongs to A.
+        \item (Empty set) There exists a set $\emptyset$ known as the empty set, which contains no elements. $x \notin \emptyset$
+\begin{lemma}[Single choice]
+        Let $A$ be a non-empty set. Then there exists an object $x$ such that $x \in A$
+\end{lemma}
+\begin{proof}
+Proving by contradiction,
+Suppose there is no object $x$ that belongs to A. For all $x$, we have $x \notin A$. We know from Axiom 3, that $x \notin \emptyset$
+\end{proof}
+\end{enumerate}
