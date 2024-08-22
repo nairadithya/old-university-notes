@@ -217,8 +217,10 @@ $$\Omega = \begin{bmatrix}
 ^0 \dot{P} = \omega \times R ^1 \vec{p} \\
 \vec{v} = \vec{\omega} \times \vec{r}
 \end{align*}
+** Unit 2 - Kinematics Of Robotic Manipulators
+*** Forward And Inverse Kinematics
+Forward kinematics is the use of the joint space to get to the task space.
+Inverse Kinematics is the use of the task space to get to the joint space.
 
-** Questions
-1. Generate reference frames - X - red, y - green, z - blue
+Workspace - The space of all points that the end effector can reach.
 * TODO Reference: JJ Craig, Introduction to Robotics: Mechanics And control, Pearson Publishing
-* TODO Create the rotation matrix using roll pitch and yaw, from either projection or euler angle.

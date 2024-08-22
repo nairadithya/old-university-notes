@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-22 Thu 09:45 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introduction To Artificial Intelligence And Machine Learning.</title>
+<meta name="author" content="Adithya Nair" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Introduction To Artificial Intelligence And Machine Learning.</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf599566">1. Iris Data Classification</a></li>
+<li><a href="#orgdeeee12">2. Overview</a>
+<ul>
+<li><a href="#org1a6e5e9">2.1. Pre-Processing</a>
+<ul>
+<li><a href="#org20e5814">2.1.1. Handling Missing Values (Imputation)</a></li>
+<li><a href="#org2cf1778">2.1.2. Normalization</a></li>
+<li><a href="#org0506f0e">2.1.3. Sampling</a></li>
+<li><a href="#orge51393a">2.1.4. Binning</a></li>
+<li><a href="#org9720c82">2.1.5. Data Imbalance</a></li>
+</ul>
+</li>
+<li><a href="#org348ebc5">2.2. Reinforcement Learning</a></li>
+<li><a href="#org03a9822">2.3. Steps In Implementing An AI Model.</a></li>
+<li><a href="#orgda0bb69">2.4. Questions</a>
+<ul>
+<li><a href="#org6e9ccfa">2.4.1. Read The Dataset Into A Dataframe And Identify The Number Of Rows And Columns</a></li>
+<li><a href="#org2780355">2.4.2. Find The Number Of Unique Values In The Column &rsquo;Quality&rsquo; Which Can Be Treated As The Target Class</a></li>
+<li><a href="#orgf5c8762">2.4.3. Plot A Bar Graph To Map The Frequency Of Each Unique Class In The Target Column</a></li>
+<li><a href="#org2ce2af2">2.4.4. Split Data In A 70/30 ratio and apply SVM and ADABoost Classifier To Predict The Overall Average F-Measure For The Multi-Class Classification Problem.</a></li>
+<li><a href="#org935e033">2.4.5. Apply Z-Score Normalization On All The Numerical Features And Redo Step 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4636529">3. Evaluation Metrics For Classification</a>
+<ul>
+<li><a href="#org6222b2a">3.1. No Free Lunch Theorem</a></li>
+<li><a href="#orgb20f786">3.2. Why do we need evaluation metrics?</a></li>
+<li><a href="#orge12098c">3.3. Types Of Classification Metrics</a>
+<ul>
+<li><a href="#org254c8a4">3.3.1. Classification Accuracy</a></li>
+<li><a href="#orgc7917dc">3.3.2. Confusion Matrix</a></li>
+<li><a href="#org4a548dd">3.3.3. Precision</a></li>
+<li><a href="#org8dd4f27">3.3.4. Recall</a></li>
+<li><a href="#org977c601">3.3.5. F1-score</a></li>
+<li><a href="#org7a42f47">3.3.6. Specificity And Sensitivity</a></li>
+<li><a href="#org5855fb9">3.3.7. ROC Curve - Receiver Operating Characteristic Curve</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org56a7fc5">4. Project</a></li>
+<li><a href="#orge6da2c6">5. Overview</a>
+<ul>
+<li><a href="#org3a01474">5.1. Types Of Machine Learning</a>
+<ul>
+<li><a href="#orgccbb3ca">5.1.1. Supervised Learning</a></li>
+<li><a href="#org3a0bb5e">5.1.2. Unsupervised Learning</a></li>
+<li><a href="#orgd34bbb8">5.1.3. Reinforcement Learning</a></li>
+<li><a href="#org4ca456c">5.1.4. Deep Learning</a></li>
+</ul>
+</li>
+<li><a href="#orgaf55b5e">5.2. Some Terms Used</a></li>
+<li><a href="#org6217785">5.3. Steps In Implementing An AI Model</a>
+<ul>
+<li><a href="#orgd7ec5f9">5.3.1. Problem identification</a></li>
+<li><a href="#org9b53bb4">5.3.2. Data Curation</a></li>
+<li><a href="#orga11d2f4">5.3.3. Pre-processing</a></li>
+<li><a href="#org38244d9">5.3.4. Selection of AI models based on the data</a></li>
+<li><a href="#orgbe4af93">5.3.5. Training and tuning the model - A train/test split or a train/validation/testing split.</a></li>
+<li><a href="#org51a365f">5.3.6. Testing the developed model</a></li>
+<li><a href="#org50e33c7">5.3.7. Analysis of the results</a></li>
+<li><a href="#org0db81fc">5.3.8. Re-iterate as needed</a></li>
+<li><a href="#org69b4fb4">5.3.9. Deploy model.</a></li>
+</ul>
+</li>
+<li><a href="#orga822fda">5.4. AI Use Cases</a>
+<ul>
+<li><a href="#org9c8cdbe">5.4.1. Image Classification</a></li>
+<li><a href="#org0e5366d">5.4.2. Text Classification</a></li>
+<li><a href="#org8b964aa">5.4.3. Handwriting Recognition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6ab9c40">6. Data Pre-Processing</a>
+<ul>
+<li><a href="#org09e998d">6.1. Missing Values</a>
+<ul>
+<li><a href="#org29bca47">6.1.1. Drop rows with missing values</a></li>
+<li><a href="#org758b719">6.1.2. Fill missing values with specific value (0)</a></li>
+<li><a href="#org849def5">6.1.3. Fill missing values with the mean (for numerical columns)</a></li>
+<li><a href="#orgd059316">6.1.4. Fill missing values with the mode (for classes)</a></li>
+<li><a href="#org918d2d9">6.1.5. Forward fill</a></li>
+<li><a href="#orga1ac2fc">6.1.6. Backward fill</a></li>
+</ul>
+</li>
+<li><a href="#orgb9e6fe1">6.2. Normalization</a>
+<ul>
+<li><a href="#org319de6d">6.2.1. Min-Max</a></li>
+<li><a href="#orgdbef4d4">6.2.2. Z-Score</a></li>
+</ul>
+</li>
+<li><a href="#org22b08bd">6.3. Binning</a></li>
+<li><a href="#orgb91052e">6.4. Sampling</a>
+<ul>
+<li><a href="#org08cbe81">6.4.1. Random Sampling</a></li>
+<li><a href="#org2c1e71d">6.4.2. Stratified Sampling</a></li>
+<li><a href="#org41563b0">6.4.3. Systematic Sampling</a></li>
+<li><a href="#org396994f">6.4.4. Cluster Sampling</a></li>
+</ul>
+</li>
+<li><a href="#orgbaea7c3">6.5. One Hot Encoding</a></li>
+<li><a href="#orga643d36">6.6. Data Balancing</a>
+<ul>
+<li><a href="#orgf7b7ca1">6.6.1. Oversampling using SMOTE</a></li>
+<li><a href="#org4711ce9">6.6.2. Undersampling Using TOMEK</a></li>
+</ul>
+</li>
+<li><a href="#orgbf382d7">6.7. Data Splitting</a>
+<ul>
+<li><a href="#org9220726">6.7.1. Train-Test-Split: Hold Out Method.</a></li>
+<li><a href="#org90c8a2c">6.7.2. K-Fold Cross Validation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org46c2f38">7. Naive Bayes Classifier</a>
+<ul>
+<li><a href="#orgc4251e3">7.1. Conditional Independence</a></li>
+<li><a href="#orgf0f45f4">7.2. Bayes Theorem</a></li>
+<li><a href="#org8f46b39">7.3. o-probability problem</a></li>
+<li><a href="#org8f1ffe4">7.4. Types Of Classifiers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf599566" class="outline-2">
+<h2 id="orgf599566"><span class="section-number-2">1.</span> Iris Data Classification</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> pandas <span class="org-keyword">as</span> pd
+<span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">from</span> sklearn.model_selection <span class="org-keyword">import</span> train_test_split
+
+<span class="org-variable-name">irisdata</span> <span class="org-operator">=</span> pd.read_csv(<span class="org-string">'iris.csv'</span>)
+
+<span class="org-variable-name">test</span>, <span class="org-variable-name">train</span> <span class="org-operator">=</span> train_test_split(irisdata, train_size<span class="org-operator">=</span><span class="org-highlight-numbers-number">0.8</span>, test_size<span class="org-operator">=</span><span class="org-highlight-numbers-number">0.2</span>)
+
+<span class="org-builtin">print</span>(np.size(test))
+<span class="org-builtin">print</span>(np.size(train))
+<span class="org-builtin">print</span>(irisdata.describe())
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdeeee12" class="outline-2">
+<h2 id="orgdeeee12"><span class="section-number-2">2.</span> Overview</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org1a6e5e9" class="outline-3">
+<h3 id="org1a6e5e9"><span class="section-number-3">2.1.</span> Pre-Processing</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org20e5814" class="outline-4">
+<h4 id="org20e5814"><span class="section-number-4">2.1.1.</span> Handling Missing Values (Imputation)</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
+Hence it is essential to handle the missing values.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgdaf087b"></a>CREATING A DATAFRAME<br />
+<div class="outline-text-5" id="text-2-1-1-1">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> pandas <span class="org-keyword">as</span> pd
+<span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Load the Titanic dataset</span>
+<span class="org-variable-name">df</span> <span class="org-operator">=</span> pd.read_csv(<span class="org-string">'code/titanic.csv'</span>)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Display the first few rows of the dataset</span>
+<span class="org-builtin">print</span>(<span class="org-string">"First few rows of the dataset:"</span>)
+<span class="org-builtin">print</span>(df.head())
+</pre>
+</div>
+
+<p>
+This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">Identify missing values</span>
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">Missing values in each column:"</span>)
+<span class="org-builtin">print</span>(df.isnull().<span class="org-builtin">sum</span>())
+
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org3cd74f6"></a>There are two main methods in dealing with missing values.<br />
+<div class="outline-text-5" id="text-2-1-1-2">
+<ol class="org-ol">
+<li>Dropping rows with missing values.</li>
+<li>Filling the empty missing values with zeros.</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">Method 1: Drop rows with missing values</span>
+<span class="org-variable-name">df_dropped</span> <span class="org-operator">=</span> df.dropna()
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string"> METHOD 1 Shape of dataset after dropping rows with missing values:"</span>, df_dropped.shape)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Method 2: Fill missing values with a specific value (e.g., 0)</span>
+<span class="org-variable-name">df_filled_zeros</span> <span class="org-operator">=</span> df.fillna(<span class="org-highlight-numbers-number">0</span>)
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">METHOD 2 Missing values filled with 0:"</span>)
+<span class="org-builtin">print</span>(df_filled_zeros.isnull().<span class="org-builtin">sum</span>())
+
+</pre>
+</div>
+
+<p>
+This isn&rsquo;t exactly ideal. Deleting the rows loses too  much of the dataset, and filling with zeros does not work here when that might affect the correctness of the prediction.
+So here we replace the values with the mean for numerical values and mode for categorical values.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgd1fad09"></a>Look into other methods of imputation<br />
+<div class="outline-text-6" id="text-2-1-1-2-1">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">Method 3: Fill missing values with the mean (for numerical columns)</span>
+df[<span class="org-string">'Age'</span>].fillna(df[<span class="org-string">'Age'</span>].mean(), inplace<span class="org-operator">=</span><span class="org-constant">True</span>)
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">METHOD 3 Missing values in 'Age' column after filling with mean:"</span>)
+<span class="org-builtin">print</span>(df[<span class="org-string">'Age'</span>].isnull().<span class="org-builtin">sum</span>())
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Method 4: Fill missing values with the most frequent value (mode)</span>
+df[<span class="org-string">'Embarked'</span>].fillna(df[<span class="org-string">'Embarked'</span>].mode()[<span class="org-highlight-numbers-number">0</span>], inplace<span class="org-operator">=</span><span class="org-constant">True</span>)
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">METHOD 4 Missing values in 'Embarked' column after filling with mode:"</span>)
+<span class="org-builtin">print</span>(df[<span class="org-string">'Embarked'</span>].isnull().<span class="org-builtin">sum</span>())
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org1e0fbb9"></a>Forward fill and Backward Fill<br />
+<div class="outline-text-5" id="text-2-1-1-3">
+<p>
+There are two better ways to fill the rows.
+</p>
+<ul class="org-ul">
+<li>Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.</li>
+<li>Backward Fill - it iterates up the given data, and fills in missing values with the last value it saw.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">Method 5: Forward fill method</span>
+<span class="org-variable-name">df_ffill</span> <span class="org-operator">=</span> df.fillna(method<span class="org-operator">=</span><span class="org-string">'ffill'</span>)
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">Method 5 Missing values handled using forward fill method:"</span>)
+<span class="org-builtin">print</span>(df_ffill.isnull().<span class="org-builtin">sum</span>())
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Method 6: Backward fill method</span>
+<span class="org-variable-name">df_bfill</span> <span class="org-operator">=</span> df.fillna(method<span class="org-operator">=</span><span class="org-string">'bfill'</span>)
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">Method 6 Missing values handled using backward fill method:"</span>)
+<span class="org-builtin">print</span>(df_bfill.isnull().<span class="org-builtin">sum</span>())
+<span class="org-builtin">print</span>(<span class="org-string">"*****************"</span>)
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org2cf1778" class="outline-4">
+<h4 id="org2cf1778"><span class="section-number-4">2.1.2.</span> Normalization</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
+</p>
+
+<p>
+Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
+</p>
+
+<p>
+The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgdc7c19c"></a>Types Of Normalization<br />
+<div class="outline-text-5" id="text-2-1-2-1">
+<ul class="org-ul">
+<li><p>
+MinMaxScaler - all data points are brought to the range \([0,1]\)
+</p>
+
+<p>
+\[
+  x_{new} = \frac{x_{old} - x_{min}}{x_{max} - x_{min}}
+  \]
+</p></li>
+<li>Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.</li>
+<li>LogScaler</li>
+<li>DecimalScaler - divides the number by a power of 10 until it is lesser than 1.</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgf4b3a91"></a>NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION<br />
+<div class="outline-text-6" id="text-2-1-2-1-1">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">from</span> sklearn.preprocessing <span class="org-keyword">import</span> MinMaxScaler
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Example usage:</span>
+<span class="org-variable-name">data</span> <span class="org-operator">=</span> np.array([<span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">5</span>, <span class="org-highlight-numbers-number">8</span>, <span class="org-highlight-numbers-number">11</span>, <span class="org-highlight-numbers-number">14</span>]).reshape(<span class="org-operator">-</span><span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">1</span>)  <span class="org-comment-delimiter"># </span><span class="org-comment">Reshape to 2D array for scaler</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Initialize the MinMaxScaler</span>
+<span class="org-variable-name">scaler</span> <span class="org-operator">=</span> MinMaxScaler()
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Apply Min-Max normalization</span>
+<span class="org-variable-name">normalized_data</span> <span class="org-operator">=</span> scaler.fit_transform(data)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Flatten the normalized data to 1D array</span>
+<span class="org-variable-name">normalized_data</span> <span class="org-operator">=</span> normalized_data.flatten()
+
+<span class="org-builtin">print</span>(normalized_data)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org5959132"></a>NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION<br />
+<div class="outline-text-6" id="text-2-1-2-1-2">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">from</span> sklearn.preprocessing <span class="org-keyword">import</span> StandardScaler
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Example usage:</span>
+<span class="org-variable-name">data</span> <span class="org-operator">=</span> np.array([<span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">5</span>, <span class="org-highlight-numbers-number">8</span>, <span class="org-highlight-numbers-number">11</span>, <span class="org-highlight-numbers-number">14</span>]).reshape(<span class="org-operator">-</span><span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">1</span>)  <span class="org-comment-delimiter"># </span><span class="org-comment">Reshape to 2D array for scaler</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Initialize the StandardScaler</span>
+<span class="org-variable-name">scaler</span> <span class="org-operator">=</span> StandardScaler()
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Apply Z-score normalization</span>
+<span class="org-variable-name">normalized_data</span> <span class="org-operator">=</span> scaler.fit_transform(data)
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Flatten the normalized data to 1D array</span>
+<span class="org-variable-name">normalized_data</span> <span class="org-operator">=</span> normalized_data.flatten()
+
+<span class="org-builtin">print</span>(normalized_data)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd20a7a5"></a>NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME<br />
+<div class="outline-text-6" id="text-2-1-2-1-3">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">Initialize the MinMaxScaler</span>
+<span class="org-keyword">from</span> sklearn.preprocessing <span class="org-keyword">import</span> MinMaxScaler
+<span class="org-variable-name">scaler</span> <span class="org-operator">=</span> MinMaxScaler()
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">List of columns to be normalized</span>
+<span class="org-variable-name">columns_to_normalize</span> <span class="org-operator">=</span> [<span class="org-string">'Age'</span>, <span class="org-string">'Fare'</span>]
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Apply Min-Max normalization</span>
+<span class="org-variable-name">df</span>[columns_to_normalize] <span class="org-operator">=</span> scaler.fit_transform(df[columns_to_normalize])
+
+<span class="org-builtin">print</span>(<span class="org-string">"</span><span class="org-constant">\n</span><span class="org-string">DataFrame after Min-Max normalization:"</span>)
+<span class="org-builtin">print</span>(df)
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org0506f0e" class="outline-4">
+<h4 id="org0506f0e"><span class="section-number-4">2.1.3.</span> Sampling</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
+Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgc7de698"></a>RANDOM SAMPLING<br />
+<div class="outline-text-5" id="text-2-1-3-1">
+<p>
+Random sampling is used for when the dataset is large.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> random
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Sample data</span>
+<span class="org-variable-name">population</span> <span class="org-operator">=</span> <span class="org-builtin">list</span>(<span class="org-builtin">range</span>(<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">101</span>))  <span class="org-comment-delimiter"># </span><span class="org-comment">Population from 1 to 100</span>
+<span class="org-variable-name">sample_size</span> <span class="org-operator">=</span> <span class="org-highlight-numbers-number">10</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">Size of the sample</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Simple random sampling</span>
+<span class="org-variable-name">sample</span> <span class="org-operator">=</span> random.sample(population, sample_size)
+<span class="org-builtin">print</span>(<span class="org-string">"Simple Random Sample:"</span>, sample)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd8e23b6"></a>Oversampling<br />
+<div class="outline-text-5" id="text-2-1-3-2">
+<p>
+In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org8a141be"></a>Oversampling using SMOTE<br />
+<div class="outline-text-6" id="text-2-1-3-2-1">
+<p>
+It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
+</p>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="org953216c"></a>STRATIFIED SAMPLING<br />
+<div class="outline-text-5" id="text-2-1-3-3">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> random
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Sample data with strata</span>
+<span class="org-variable-name">strata_data</span> <span class="org-operator">=</span> {
+    <span class="org-string">'stratum1'</span>: [<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>, <span class="org-highlight-numbers-number">4</span>, <span class="org-highlight-numbers-number">5</span>],
+    <span class="org-string">'stratum2'</span>: [<span class="org-highlight-numbers-number">6</span>, <span class="org-highlight-numbers-number">7</span>, <span class="org-highlight-numbers-number">8</span>, <span class="org-highlight-numbers-number">9</span>, <span class="org-highlight-numbers-number">10</span>],
+}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Sample size per stratum</span>
+<span class="org-variable-name">sample_size_per_stratum</span> <span class="org-operator">=</span> <span class="org-highlight-numbers-number">3</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Stratified sampling</span>
+<span class="org-variable-name">sample</span> <span class="org-operator">=</span> []
+<span class="org-keyword">for</span> stratum, data <span class="org-keyword">in</span> strata_data.items():
+    <span class="org-variable-name">stratum_sample</span> <span class="org-operator">=</span> random.sample(data, sample_size_per_stratum)
+    sample.extend(stratum_sample)
+
+<span class="org-builtin">print</span>(<span class="org-string">"Stratified Sample:"</span>, sample)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org4ba767b"></a>Systematic Sampling<br />
+<div class="outline-text-5" id="text-2-1-3-4">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-comment-delimiter"># </span><span class="org-comment">Sample data</span>
+<span class="org-variable-name">data</span> <span class="org-operator">=</span> <span class="org-builtin">list</span>(<span class="org-builtin">range</span>(<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">101</span>))  <span class="org-comment-delimiter"># </span><span class="org-comment">Data from 1 to 100</span>
+<span class="org-variable-name">n</span> <span class="org-operator">=</span> <span class="org-highlight-numbers-number">5</span>  <span class="org-comment-delimiter"># </span><span class="org-comment">Every nth data point to be included in the sample</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Systematic sampling</span>
+<span class="org-variable-name">sample</span> <span class="org-operator">=</span> data[::n]
+<span class="org-builtin">print</span>(<span class="org-string">"Systematic Sample:"</span>, sample)
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> random
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Sample data with clusters</span>
+<span class="org-variable-name">clusters</span> <span class="org-operator">=</span> {
+    <span class="org-string">'cluster1'</span>: [<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>],
+    <span class="org-string">'cluster2'</span>: [<span class="org-highlight-numbers-number">4</span>, <span class="org-highlight-numbers-number">5</span>, <span class="org-highlight-numbers-number">6</span>],
+    <span class="org-string">'cluster3'</span>: [<span class="org-highlight-numbers-number">7</span>, <span class="org-highlight-numbers-number">8</span>, <span class="org-highlight-numbers-number">9</span>],
+}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Number of clusters to sample</span>
+<span class="org-variable-name">clusters_to_sample</span> <span class="org-operator">=</span> <span class="org-highlight-numbers-number">2</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Cluster sampling</span>
+<span class="org-variable-name">selected_clusters</span> <span class="org-operator">=</span> random.sample(<span class="org-builtin">list</span>(clusters.keys()), clusters_to_sample)
+<span class="org-builtin">print</span>(<span class="org-string">"chosen clusters "</span>, selected_clusters)
+<span class="org-variable-name">sample</span> <span class="org-operator">=</span> []
+<span class="org-keyword">for</span> cluster <span class="org-keyword">in</span> selected_clusters:
+    sample.extend(clusters[cluster])
+
+<span class="org-builtin">print</span>(<span class="org-string">"Cluster Sample:"</span>, sample)
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org8063b78"></a>Undersampling<br /></li>
+</ol>
+</div>
+<div id="outline-container-orge51393a" class="outline-4">
+<h4 id="orge51393a"><span class="section-number-4">2.1.4.</span> Binning</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> pandas <span class="org-keyword">as</span> pd
+
+<span class="org-variable-name">df</span> <span class="org-operator">=</span> pd.read_csv(<span class="org-string">'bollywood.csv'</span>)
+<span class="org-variable-name">budget_bins</span> <span class="org-operator">=</span> [<span class="org-highlight-numbers-number">0</span>, <span class="org-highlight-numbers-number">10</span>, <span class="org-highlight-numbers-number">20</span>, <span class="org-builtin">float</span>(<span class="org-string">'inf'</span>)]  <span class="org-comment-delimiter"># </span><span class="org-comment">Define your budget bins</span>
+<span class="org-variable-name">budget_labels</span> <span class="org-operator">=</span> [<span class="org-string">'Low Budget'</span>, <span class="org-string">'Medium Budget'</span>, <span class="org-string">'High Budget'</span>]  <span class="org-comment-delimiter"># </span><span class="org-comment">Labels for the bins</span>
+<span class="org-variable-name">df</span>[<span class="org-string">'BudgetBin'</span>] <span class="org-operator">=</span> pd.cut(df[<span class="org-string">'Budget'</span>], bins<span class="org-operator">=</span>budget_bins, labels<span class="org-operator">=</span>budget_labels)
+<span class="org-builtin">print</span>(df.head(<span class="org-highlight-numbers-number">10</span>))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">collection_bins</span> <span class="org-operator">=</span> [<span class="org-highlight-numbers-number">0</span>, <span class="org-highlight-numbers-number">20</span>, <span class="org-highlight-numbers-number">40</span>, <span class="org-highlight-numbers-number">60</span>, <span class="org-builtin">float</span>(<span class="org-string">'inf'</span>)]  <span class="org-comment-delimiter"># </span><span class="org-comment">Define your collection bins</span>
+<span class="org-variable-name">collection_labels</span> <span class="org-operator">=</span> [<span class="org-string">'Low Collection'</span>, <span class="org-string">'Medium Collection'</span>, <span class="org-string">'High Collection'</span>, <span class="org-string">'Very High Collection'</span>]  <span class="org-comment-delimiter"># </span><span class="org-comment">Labels for the bins</span>
+
+<span class="org-variable-name">df</span>[<span class="org-string">'CollectionBin'</span>] <span class="org-operator">=</span> pd.cut(df[<span class="org-string">'BoxOfficeCollection'</span>], bins<span class="org-operator">=</span>collection_bins, labels<span class="org-operator">=</span>collection_labels)
+df.head(<span class="org-highlight-numbers-number">10</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> matplotlib.pyplot <span class="org-keyword">as</span> plt
+<span class="org-variable-name">budget_bin_counts</span> <span class="org-operator">=</span> df[<span class="org-string">'BudgetBin'</span>].value_counts()
+<span class="org-comment-delimiter"># </span><span class="org-comment">Plot the data as a bar chart</span>
+plt.figure(figsize<span class="org-operator">=</span>(<span class="org-highlight-numbers-number">8</span>, <span class="org-highlight-numbers-number">6</span>))
+budget_bin_counts.plot(kind<span class="org-operator">=</span><span class="org-string">'bar'</span>, color<span class="org-operator">=</span><span class="org-string">'skyblue'</span>)
+plt.title(<span class="org-string">'Number of Movies in Each Budget Bin'</span>)
+plt.xlabel(<span class="org-string">'Budget Bin'</span>)
+plt.ylabel(<span class="org-string">'Number of Movies'</span>)
+plt.xticks(rotation<span class="org-operator">=</span><span class="org-highlight-numbers-number">45</span>)  <span class="org-comment-delimiter"># </span><span class="org-comment">Rotate x-axis labels for better readability</span>
+plt.tight_layout()
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9720c82" class="outline-4">
+<h4 id="org9720c82"><span class="section-number-4">2.1.5.</span> Data Imbalance</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<p>
+We&rsquo;re doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org628301d"></a>Find what vintage means in churn prediction.<br /></li>
+</ol>
+<li><a id="org3d41f53"></a>One Hot Encoding<br />
+<div class="outline-text-5" id="text-2-1-5-1">
+<p>
+This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+</p>
+</div>
+</li>
+<li><a id="orgae7c230"></a>Logistic Regression<br />
+<div class="outline-text-5" id="text-2-1-5-2">
+<p>
+This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org348ebc5" class="outline-3">
+<h3 id="org348ebc5"><span class="section-number-3">2.2.</span> Reinforcement Learning</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+This is a method used in game-based systems.
+It maps:
+</p>
+<ul class="org-ul">
+<li>A set of states</li>
+<li>A set of actions</li>
+<li>A set of rewards</li>
+</ul>
+
+<p>
+And tries to take actions, to achieve a goal to get the reward. It receives the reward, when it achieves the goal, and receives a penalty upon failure.
+</p>
+
+<p>
+These models maximise the cumulative reward.
+</p>
+</div>
+</div>
+<div id="outline-container-org03a9822" class="outline-3">
+<h3 id="org03a9822"><span class="section-number-3">2.3.</span> Steps In Implementing An AI Model.</h3>
+</div>
+<div id="outline-container-orgda0bb69" class="outline-3">
+<h3 id="orgda0bb69"><span class="section-number-3">2.4.</span> Questions</h3>
+<div class="outline-text-3" id="text-2-4">
+</div>
+<div id="outline-container-org6e9ccfa" class="outline-4">
+<h4 id="org6e9ccfa"><span class="section-number-4">2.4.1.</span> Read The Dataset Into A Dataframe And Identify The Number Of Rows And Columns</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> pandas <span class="org-keyword">as</span> pd
+
+<span class="org-variable-name">df</span> <span class="org-operator">=</span> pd.read_csv(<span class="org-string">'code/winequality-red.csv'</span>)
+<span class="org-builtin">print</span>(df)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2780355" class="outline-4">
+<h4 id="org2780355"><span class="section-number-4">2.4.2.</span> Find The Number Of Unique Values In The Column &rsquo;Quality&rsquo; Which Can Be Treated As The Target Class</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+`value<sub>counts</sub>()` is a function that tallies up the count of each individual item.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">unique</span> <span class="org-operator">=</span> df[<span class="org-string">'quality'</span>].value_counts())
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf5c8762" class="outline-4">
+<h4 id="orgf5c8762"><span class="section-number-4">2.4.3.</span> Plot A Bar Graph To Map The Frequency Of Each Unique Class In The Target Column</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> matplotlib.pyplot <span class="org-keyword">as</span> plt
+plt.figure(figsize<span class="org-operator">=</span>(<span class="org-highlight-numbers-number">8</span>, <span class="org-highlight-numbers-number">6</span>))
+unique.plot(kind<span class="org-operator">=</span><span class="org-string">'bar'</span>, color<span class="org-operator">=</span><span class="org-string">'skyblue'</span>)
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2ce2af2" class="outline-4">
+<h4 id="org2ce2af2"><span class="section-number-4">2.4.4.</span> Split Data In A 70/30 ratio and apply SVM and ADABoost Classifier To Predict The Overall Average F-Measure For The Multi-Class Classification Problem.</h4>
+</div>
+<div id="outline-container-org935e033" class="outline-4">
+<h4 id="org935e033"><span class="section-number-4">2.4.5.</span> Apply Z-Score Normalization On All The Numerical Features And Redo Step 4</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org4636529" class="outline-2">
+<h2 id="org4636529"><span class="section-number-2">3.</span> Evaluation Metrics For Classification</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+This will cover how to evaluate the results of our classification problems.
+</p>
+</div>
+<div id="outline-container-org6222b2a" class="outline-3">
+<h3 id="org6222b2a"><span class="section-number-3">3.1.</span> No Free Lunch Theorem</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+The no free lunch theorem in machine learning states that it conveys the idea that there is no universally superior algorithm that performs better than all others across all possible problem domains or datasets. What this means is that there is no one-size-fits-all solution. The datasets pose unique challenges that different models excel better for different models.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb20f786" class="outline-3">
+<h3 id="orgb20f786"><span class="section-number-3">3.2.</span> Why do we need evaluation metrics?</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>Evaluation metrics allow you to assess your model&rsquo;s performance, monitor your ML in production and customize your model to fit your business needs.</li>
+<li>Our goal is to create and select a modelw hich gives high accuracy out of an unseen sample.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge12098c" class="outline-3">
+<h3 id="orge12098c"><span class="section-number-3">3.3.</span> Types Of Classification Metrics</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org254c8a4" class="outline-4">
+<h4 id="org254c8a4"><span class="section-number-4">3.3.1.</span> Classification Accuracy</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+\[Accuracy = \frac{\text{No. of correct predictions}}{\text{Total no. of predictions}}\]
+The problem with this is that it cannot tell the difference between the classes. The metric might deceive you, especially with unbalanced datasets.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc7917dc" class="outline-4">
+<h4 id="orgc7917dc"><span class="section-number-4">3.3.2.</span> Confusion Matrix</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+A matrix which documents the model&rsquo;s predictions against the actual value.
+</p>
+<ul class="org-ul">
+<li>True positive - when the model&rsquo;s class and the actual class are the same.</li>
+<li>False Positive - when the model&rsquo;s class incorrectly predicts the class, type-1 error</li>
+<li>False Negative - when the model does not correctly recognize the class. type-2 errors.</li>
+<li>True Negative - the model correctly predicts that the instance does not belong to that class.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4a548dd" class="outline-4">
+<h4 id="org4a548dd"><span class="section-number-4">3.3.3.</span> Precision</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+Precision&rsquo;s formula
+\[
+\text{Precision} = \frac{\text{True Positive}}{\text{True Positive + False Positive}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org8dd4f27" class="outline-4">
+<h4 id="org8dd4f27"><span class="section-number-4">3.3.4.</span> Recall</h4>
+<div class="outline-text-4" id="text-3-3-4">
+<p>
+Recall is the ratio of true positives to all the positives in your dataset.
+</p>
+
+<p>
+\[\text{Recall} = \frac{TP}{TP + FN}\]
+This is good when you want to make sure your model correctly classifies the positive samples.
+</p>
+</div>
+</div>
+<div id="outline-container-org977c601" class="outline-4">
+<h4 id="org977c601"><span class="section-number-4">3.3.5.</span> F1-score</h4>
+<div class="outline-text-4" id="text-3-3-5">
+<p>
+F1-score is the harmonic mean of precision and recall
+</p>
+
+<p>
+\[
+F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-org7a42f47" class="outline-4">
+<h4 id="org7a42f47"><span class="section-number-4">3.3.6.</span> Specificity And Sensitivity</h4>
+<div class="outline-text-4" id="text-3-3-6">
+<p>
+\[
+Specificity = \frac{TN}{TN+FP}
+\]
+\[
+Sensitivity = \frac{TP}{TP+ FN}
+\]
+</p>
+
+<p>
+Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
+</p>
+</div>
+</div>
+<div id="outline-container-org5855fb9" class="outline-4">
+<h4 id="org5855fb9"><span class="section-number-4">3.3.7.</span> ROC Curve - Receiver Operating Characteristic Curve</h4>
+<div class="outline-text-4" id="text-3-3-7">
+<p>
+The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org56a7fc5" class="outline-2">
+<h2 id="org56a7fc5"><span class="section-number-2">4.</span> Project</h2>
+</div>
+<div id="outline-container-orge6da2c6" class="outline-2">
+<h2 id="orge6da2c6"><span class="section-number-2">5.</span> Overview</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org3a01474" class="outline-3">
+<h3 id="org3a01474"><span class="section-number-3">5.1.</span> Types Of Machine Learning</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-orgccbb3ca" class="outline-4">
+<h4 id="orgccbb3ca"><span class="section-number-4">5.1.1.</span> Supervised Learning</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org0495abf"></a>Regression<br />
+<div class="outline-text-5" id="text-5-1-1-1">
+<p>
+Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
+To find the error, we add up the square of the distance of the data points to the closest point on the curve and that gives us the <b>mean-squared error.</b>
+Neural networks, support vector regressor, linear regression
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org3a0bb5e" class="outline-4">
+<h4 id="org3a0bb5e"><span class="section-number-4">5.1.2.</span> Unsupervised Learning</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+Models that learn about a dataset without labels.
+This includes
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org2878e5e"></a>Clustering<br />
+<div class="outline-text-5" id="text-5-1-2-1">
+<p>
+Grouping of data points to automatically create classes for them
+</p>
+</div>
+</li>
+<li><a id="org978fde2"></a>Finding outliers<br />
+<div class="outline-text-5" id="text-5-1-2-2">
+<p>
+Done using SVM, Autoencoders
+</p>
+</div>
+</li>
+<li><a id="orgc10f7b2"></a>Dimensionality reduction<br />
+<div class="outline-text-5" id="text-5-1-2-3">
+<p>
+Done using Principal Component Analysis.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgd34bbb8" class="outline-4">
+<h4 id="orgd34bbb8"><span class="section-number-4">5.1.3.</span> Reinforcement Learning</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<p>
+Reinforcement Learning involves giving a model:
+</p>
+<ul class="org-ul">
+<li>A set of states</li>
+<li>A set of actions</li>
+<li>A set of rewards</li>
+<li><p>
+A goal: taking actions to change the state to receive the reward.
+</p>
+
+<p>
+This type of model doesn&rsquo;t get any data, it explores the environment to gather data.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4ca456c" class="outline-4">
+<h4 id="org4ca456c"><span class="section-number-4">5.1.4.</span> Deep Learning</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<p>
+Deep learning is a subset of ML.
+It involves the use of neural networks, which consist of nodes and statistical relationships between nodes to model the way our mind works.
+</p>
+
+<p>
+One layer gives us approximate predictions, adding additional layers refines the model&rsquo;s capability. A &ldquo;Deep&rdquo; neural network is a network with more than 3 layers.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf55b5e" class="outline-3">
+<h3 id="orgaf55b5e"><span class="section-number-3">5.2.</span> Some Terms Used</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>Regression - Continuous numbers as output</li>
+<li>Classification - Discrete classes as output</li>
+<li>Binary classification - two classes treated differently.</li>
+<li>Overfitting - Good performance on the training data, poor generalization to other
+Solvable by:
+<ul class="org-ul">
+<li>Cross-validation</li>
+<li>Data augmentation</li>
+<li>Feature selection</li>
+<li>Ensemble techniques</li>
+</ul></li>
+<li>Underfitting - Poor performance on the training data and poor generalization to other data(test data).
+<ul class="org-ul">
+<li>qualitatively or quantitatively poor data.</li>
+<li>Bad algorithm for the job</li>
+<li>Remedy is to add more features</li>
+</ul></li>
+<li>Multi-class classification - Multiple classes treated differently.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6217785" class="outline-3">
+<h3 id="org6217785"><span class="section-number-3">5.3.</span> Steps In Implementing An AI Model</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-orgd7ec5f9" class="outline-4">
+<h4 id="orgd7ec5f9"><span class="section-number-4">5.3.1.</span> Problem identification</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+This is done by researching
+</p>
+<ul class="org-ul">
+<li>Experts in the field</li>
+<li>Personal experience</li>
+<li>Literature survey</li>
+<li>Data curation</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9b53bb4" class="outline-4">
+<h4 id="org9b53bb4"><span class="section-number-4">5.3.2.</span> Data Curation</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<ul class="org-ul">
+<li>Data collection in person</li>
+<li>Public repos</li>
+<li>Private repos</li>
+<li>Simulated data</li>
+<li>Synthetic data</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga11d2f4" class="outline-4">
+<h4 id="orga11d2f4"><span class="section-number-4">5.3.3.</span> <a href="#org1a6e5e9">2.1</a></h4>
+</div>
+<div id="outline-container-org38244d9" class="outline-4">
+<h4 id="org38244d9"><span class="section-number-4">5.3.4.</span> Selection of AI models based on the data</h4>
+<div class="outline-text-4" id="text-5-3-4">
+<ul class="org-ul">
+<li>Figure out whether the problem is a regression or a classification problem.</li>
+<li>Figure out the computational capacity</li>
+<li>Try various models for best fit.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbe4af93" class="outline-4">
+<h4 id="orgbe4af93"><span class="section-number-4">5.3.5.</span> Training and tuning the model - A train/test split or a train/validation/testing split.</h4>
+<div class="outline-text-4" id="text-5-3-5">
+<ul class="org-ul">
+<li>The data is separated out into training and testing.</li>
+<li>The training subset is passed onto the chosen AI model.</li>
+<li>Validation is done because it prevents overfitting.</li>
+<li>The model should generalize.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org51a365f" class="outline-4">
+<h4 id="org51a365f"><span class="section-number-4">5.3.6.</span> Testing the developed model</h4>
+<div class="outline-text-4" id="text-5-3-6">
+<ul class="org-ul">
+<li>Choose evaluation metrics based on the model.
+<ul class="org-ul">
+<li>Regresssion can involve MSPE, MSAE, \(R^2\)</li>
+</ul></li>
+<li>Test the data.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org50e33c7" class="outline-4">
+<h4 id="org50e33c7"><span class="section-number-4">5.3.7.</span> Analysis of the results</h4>
+</div>
+<div id="outline-container-org0db81fc" class="outline-4">
+<h4 id="org0db81fc"><span class="section-number-4">5.3.8.</span> Re-iterate as needed</h4>
+</div>
+<div id="outline-container-org69b4fb4" class="outline-4">
+<h4 id="org69b4fb4"><span class="section-number-4">5.3.9.</span> Deploy model.</h4>
+</div>
+</div>
+<div id="outline-container-orga822fda" class="outline-3">
+<h3 id="orga822fda"><span class="section-number-3">5.4.</span> AI Use Cases</h3>
+<div class="outline-text-3" id="text-5-4">
+</div>
+<div id="outline-container-org9c8cdbe" class="outline-4">
+<h4 id="org9c8cdbe"><span class="section-number-4">5.4.1.</span> Image Classification</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<p>
+Convolutional Neural Networks
+</p>
+</div>
+</div>
+<div id="outline-container-org0e5366d" class="outline-4">
+<h4 id="org0e5366d"><span class="section-number-4">5.4.2.</span> Text Classification</h4>
+<div class="outline-text-4" id="text-5-4-2">
+<p>
+Naive Bayes, Support Vector Machines
+</p>
+</div>
+</div>
+<div id="outline-container-org8b964aa" class="outline-4">
+<h4 id="org8b964aa"><span class="section-number-4">5.4.3.</span> Handwriting Recognition</h4>
+<div class="outline-text-4" id="text-5-4-3">
+<p>
+Convolution Neural Networks
+Long Short-Term Memory Networks
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6ab9c40" class="outline-2">
+<h2 id="org6ab9c40"><span class="section-number-2">6.</span> Data Pre-Processing</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org09e998d" class="outline-3">
+<h3 id="org09e998d"><span class="section-number-3">6.1.</span> Missing Values</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+There are several methods for dealing with missing values or &rsquo;data imputation&rsquo;
+</p>
+</div>
+<div id="outline-container-org29bca47" class="outline-4">
+<h4 id="org29bca47"><span class="section-number-4">6.1.1.</span> Drop rows with missing values</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+`df.dropna()`
+</p>
+</div>
+</div>
+<div id="outline-container-org758b719" class="outline-4">
+<h4 id="org758b719"><span class="section-number-4">6.1.2.</span> Fill missing values with specific value (0)</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+`df.fillna(0)`
+</p>
+</div>
+</div>
+<div id="outline-container-org849def5" class="outline-4">
+<h4 id="org849def5"><span class="section-number-4">6.1.3.</span> Fill missing values with the mean (for numerical columns)</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+`df[&rsquo;Age&rsquo;].fillna(df[&rsquo;Age&rsquo;].mean())
+</p>
+</div>
+</div>
+<div id="outline-container-orgd059316" class="outline-4">
+<h4 id="orgd059316"><span class="section-number-4">6.1.4.</span> Fill missing values with the mode (for classes)</h4>
+</div>
+<div id="outline-container-org918d2d9" class="outline-4">
+<h4 id="org918d2d9"><span class="section-number-4">6.1.5.</span> Forward fill</h4>
+</div>
+<div id="outline-container-orga1ac2fc" class="outline-4">
+<h4 id="orga1ac2fc"><span class="section-number-4">6.1.6.</span> Backward fill</h4>
+</div>
+</div>
+<div id="outline-container-orgb9e6fe1" class="outline-3">
+<h3 id="orgb9e6fe1"><span class="section-number-3">6.2.</span> Normalization</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-org319de6d" class="outline-4">
+<h4 id="org319de6d"><span class="section-number-4">6.2.1.</span> Min-Max</h4>
+</div>
+<div id="outline-container-orgdbef4d4" class="outline-4">
+<h4 id="orgdbef4d4"><span class="section-number-4">6.2.2.</span> Z-Score</h4>
+</div>
+</div>
+<div id="outline-container-org22b08bd" class="outline-3">
+<h3 id="org22b08bd"><span class="section-number-3">6.3.</span> Binning</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Binning is the process of converting a continuous value, into classes.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb91052e" class="outline-3">
+<h3 id="orgb91052e"><span class="section-number-3">6.4.</span> Sampling</h3>
+<div class="outline-text-3" id="text-6-4">
+</div>
+<div id="outline-container-org08cbe81" class="outline-4">
+<h4 id="org08cbe81"><span class="section-number-4">6.4.1.</span> Random Sampling</h4>
+</div>
+<div id="outline-container-org2c1e71d" class="outline-4">
+<h4 id="org2c1e71d"><span class="section-number-4">6.4.2.</span> Stratified Sampling</h4>
+</div>
+<div id="outline-container-org41563b0" class="outline-4">
+<h4 id="org41563b0"><span class="section-number-4">6.4.3.</span> Systematic Sampling</h4>
+</div>
+<div id="outline-container-org396994f" class="outline-4">
+<h4 id="org396994f"><span class="section-number-4">6.4.4.</span> Cluster Sampling</h4>
+</div>
+</div>
+<div id="outline-container-orgbaea7c3" class="outline-3">
+<h3 id="orgbaea7c3"><span class="section-number-3">6.5.</span> One Hot Encoding</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+</p>
+</div>
+</div>
+<div id="outline-container-orga643d36" class="outline-3">
+<h3 id="orga643d36"><span class="section-number-3">6.6.</span> Data Balancing</h3>
+<div class="outline-text-3" id="text-6-6">
+</div>
+<div id="outline-container-orgf7b7ca1" class="outline-4">
+<h4 id="orgf7b7ca1"><span class="section-number-4">6.6.1.</span> Oversampling using SMOTE</h4>
+<div class="outline-text-4" id="text-6-6-1">
+<p>
+It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
+</p>
+</div>
+</div>
+<div id="outline-container-org4711ce9" class="outline-4">
+<h4 id="org4711ce9"><span class="section-number-4">6.6.2.</span> Undersampling Using TOMEK</h4>
+<div class="outline-text-4" id="text-6-6-2">
+<p>
+Undersampling reduces the number of instances in the majority classes to bring it down and hence more or less balance the minority class.
+</p>
+
+<p>
+Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
+</p>
+
+<p>
+We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don&rsquo;t have a control over the number of instances that has to be reduced.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbf382d7" class="outline-3">
+<h3 id="orgbf382d7"><span class="section-number-3">6.7.</span> Data Splitting</h3>
+<div class="outline-text-3" id="text-6-7">
+</div>
+<div id="outline-container-org9220726" class="outline-4">
+<h4 id="org9220726"><span class="section-number-4">6.7.1.</span> Train-Test-Split: Hold Out Method.</h4>
+<div class="outline-text-4" id="text-6-7-1">
+<p>
+The data is divided into 70-30 or 80-20
+</p>
+</div>
+</div>
+<div id="outline-container-org90c8a2c" class="outline-4">
+<h4 id="org90c8a2c"><span class="section-number-4">6.7.2.</span> K-Fold Cross Validation</h4>
+<div class="outline-text-4" id="text-6-7-2">
+<p>
+This is a resampling technique.
+Dataset is split into \(k\) sets of almost equal sizes. The first set is selected as the test set and the model is trained on the remaining \(k-1\) sets. The test error rate is then calculated after fitting the model to the test data.
+In the second iteration, the \(2^{nd}\) set is selected as a test set and the remaining \(k-1\) sets are used to train the data and the error is calculated. This process continues for all the k sets.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org46c2f38" class="outline-2">
+<h2 id="org46c2f38"><span class="section-number-2">7.</span> Naive Bayes Classifier</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+This is a probabilistic classifier.
+</p>
+</div>
+<div id="outline-container-orgc4251e3" class="outline-3">
+<h3 id="orgc4251e3"><span class="section-number-3">7.1.</span> Conditional Independence</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Conditional independence is a requirement for the naive bayes classifier. The dataset must not have any features which have a correlation to each other.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf0f45f4" class="outline-3">
+<h3 id="orgf0f45f4"><span class="section-number-3">7.2.</span> Bayes Theorem</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+Given conditional probability,
+</p>
+
+<p>
+\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]
+</p>
+
+<p>
+\[P(A|B) = \frac{P(B|A) P (A)}{P(B)}\]
+</p>
+
+<p>
+What we&rsquo;re doing here is using this theorem, to find the hypothesis given a set of data which is the <b>most</b> probable.
+</p>
+
+<p>
+We take the dataset&rsquo;s columns and figure out the conditional probability of a given class, and returning the <b>most probable</b>
+</p>
+</div>
+</div>
+<div id="outline-container-org8f46b39" class="outline-3">
+<h3 id="org8f46b39"><span class="section-number-3">7.3.</span> o-probability problem</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+There is a problem that might arise while calculating the probability of a given class.
+We can have cases where there are conditions which are 0, the conditional relations result in a probability of 0. The remedy to fix this is <b>Laplacian Correction</b>, which is adding 1 to the numerator
+</p>
+</div>
+</div>
+<div id="outline-container-org8f1ffe4" class="outline-3">
+<h3 id="org8f1ffe4"><span class="section-number-3">7.4.</span> Types Of Classifiers</h3>
+<div class="outline-text-3" id="text-7-4">
+<ol class="org-ol">
+<li>Gaussian Naive Bayes - Assumes that the features have a normal Gaussian distribution, good for continuous data.</li>
+<li>Multinomial Naive Bayes - Multiple classes.</li>
+<li>Bernoulli Naive Bayes - Assumes that the features follow a Bernoulli distribution(binary)</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adithya Nair</p>
+<p class="date">Created: 2024-08-22 Thu 09:45</p>
+</div>
+</body>
+</html>

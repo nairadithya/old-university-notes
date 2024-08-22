@@ -1,2 +1,8 @@
 /Introduction To Computer Networks/pt/
 *.tex
+/Introduction to AI And Machine Learning/notebooks/.ipynb_checkpoints/
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk

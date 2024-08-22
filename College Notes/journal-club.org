@@ -522,21 +522,6 @@ To prove $(n++) \times (m++) = ((n++) \times m) + m$,
 \end{proof}
 
 For simplicity we now write $a \times b$ as $ab$
-*** Exercise
-**** Prove the identity $(a+b)^2 = a^2 + 2ab + b^2$
-**** (Euclid's division lemma)
-**** Backward Induction
-$m \in \mathbb{N}, P(m), P(m++) \implies P(m)$, Suppose $P(n)$ is true, then $P(m) \forall m \le n$
-For the base case, n = 0,
-P(0) \implies P(0), so it's true.
-
-For the inductive step, supposing $Q(n)$ is true,
-**** Strong induction
-**** Distributive Law
-**** Multiplication
-***** Cancellation Law
-***** Associativity
-***** If a<b, and c is positive then ac<bc
 ** Set Theory
 We define first what a set is:
 
@@ -546,7 +531,8 @@ We define set A to be any unordered collection of objects. If $x$ is an object, 
 
 We start with some axioms:
 \begin{enumerate}
-        \item (Sets are objects) If $A$ is a set, then $A$ is also an object. In particular given two sets $A$ and $B$, it is meaningful to ask whether A is also an element of B.
+        \item (Sets are objects) If $A$ is a set, then $A$ is also an object.
+A side track about "Pure Set Theory" - This theory states that everything in the mathematical universe is a set. We can write 0 as {} or an empty set, 1 can be written as {0} and 2 as {0,1} and so on. Terence Tao argues that they are the 'cardinalities of the set.'
         \item (Equality of sets) Two sets A and B are equal, A = B, iff every element of A is an element of B. A = B, if and only if every element of $x$ of A also belongs to B, and every element $y$ of B belongs to A.
         \item (Empty set) There exists a set $\emptyset$ known as the empty set, which contains no elements. $x \notin \emptyset$
 \begin{lemma}[Single choice]
@@ -555,5 +541,24 @@ We start with some axioms:
 \begin{proof}
 Proving by contradiction,
 Suppose there is no object $x$ that belongs to A. For all $x$, we have $x \notin A$. We know from Axiom 3, that $x \notin \emptyset$
+
+For the statement,
+$$ x \in A \leftrightarrow x \in \emptyset $$
+
+Is false both ways, which gives us the result true, which is a contradiction.
+
+Thus we also prove that $\emptyset$ is unique.
+\end{proof}
+\item (Pairwise Union) $A \cup B = \{x : x \in A or x \in B\}$
+\begin{lemma}
+$A \upsilon (B \upsilon C) = (A u B) \upsilon C$
+\end{lemma}
+\begin{proof}
+Taking the left hand side,
+We have $x \in A$ or $x \in (B \upsilon C)$. If we look to the right hand side, we have $x \in (A \upsilon B)$ or $ x \in C$
+If we break the statement down further.
+We have $x \in A$ or $x \in B$ or $x \in C$, and  on the right $x \in A$ or $x \in B$ or $x\in C$
+
+The two statements are equivalent.
 \end{proof}
 \end{enumerate}
