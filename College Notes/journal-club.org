@@ -535,6 +535,16 @@ We start with some axioms:
 A side track about "Pure Set Theory" - This theory states that everything in the mathematical universe is a set. We can write 0 as {} or an empty set, 1 can be written as {0} and 2 as {0,1} and so on. Terence Tao argues that they are the 'cardinalities of the set.'
         \item (Equality of sets) Two sets A and B are equal, A = B, iff every element of A is an element of B. A = B, if and only if every element of $x$ of A also belongs to B, and every element $y$ of B belongs to A.
         \item (Empty set) There exists a set $\emptyset$ known as the empty set, which contains no elements. $x \notin \emptyset$
+\begin{prop}[Partial Order]
+If A \subseteq B, B \subseteq C \Rightarrow A \subseteq C
+\end{prop}
+\begin{proof}
+If $x \in A$, then $x \in B$,
+If $x \in B$, then $x \in C$,
+Then $x \in A$, then $x \in C$
+
+Thus, $A \subseteq C$
+\end{proof}
 \begin{lemma}[Single choice]
         Let $A$ be a non-empty set. Then there exists an object $x$ such that $x \in A$
 \end{lemma}
@@ -549,16 +559,37 @@ Is false both ways, which gives us the result true, which is a contradiction.
 
 Thus we also prove that $\emptyset$ is unique.
 \end{proof}
-\item (Pairwise Union) $A \cup B = \{x : x \in A or x \in B\}$
+\item (Pairwise Union) $A \cup B = \{x : x \in A \text{or} x \in B\}$
 \begin{lemma}
-$A \upsilon (B \upsilon C) = (A u B) \upsilon C$
+$A \cup (B \cup C) = (A \cup B) \cup C$
 \end{lemma}
 \begin{proof}
 Taking the left hand side,
-We have $x \in A$ or $x \in (B \upsilon C)$. If we look to the right hand side, we have $x \in (A \upsilon B)$ or $ x \in C$
+We have $x \in A$ or $x \in (B \cup C)$. If we look to the right hand side, we have $x \in (A \cup B)$ or $ x \in C$
 If we break the statement down further.
 We have $x \in A$ or $x \in B$ or $x \in C$, and  on the right $x \in A$ or $x \in B$ or $x\in C$
 
 The two statements are equivalent.
 \end{proof}
+\item (Axiom Of Specification) A, $x \in A$, let P(x) be a property pertaining to $x$. Then there exists a set called $\{x \in A, P(x) \text{is true}\}$ whose elements are precisely the elements $x$ in A for which $P(x)$ is true.
+\item (Replacement) Let A be a set, for any object $x \in A$, and any object $y$, suppose we have a statement $P(x,y)$ pertaining to $x$ and $y$, such that for each $x \in A$ there is at most one $y$ for which $P(x,y)$ is true. Then there exists a set $\{y : P(x,y)$ is true for some $x \in A\}$
+\item (Infinity) There exists a set $\mathbb{N}$, whose elements are called natural numbers, as well as an object $0$ in $\mathbb{N}$, and an object $n++$ assigned to every natural number $n \in \mathbb{N}$ such that the Peano axioms hold.
+
+\item \textbf{Russel's Paradox} (Axiom Of Universal Specification) Suppose for every $x$ we have a property $P(x)$ pertaining to $x$, Then there exists a set $\{x : P(x)$ is true$\}$ such that for every object $y$:
+
+$$ y \in \{ x : P(x) is true \} \Leftrightarrow P(y) \text{is true.}$$
+
+There is an issue, let's say we have a set, where the property of the objects is that they themselves are sets.
+
+Let's say we look at one of these sets,
+
+\begin{align*}
+\Omega &= \{ x: P(x) is true\} \\
+&= \{x : x \notin x \}
+\end{align*}
+
+\item (Regularity) If A is a  non-empty set, then there is at least one element $x$ of A which is either not a set or disjoint from A.
 \end{enumerate}
+\begin{definition}[Intersection Of Sets]
+$$A \cap B = \{x: x \in A \text{ and } x \in B \}$$
+\end{definition}

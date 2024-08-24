@@ -1,5 +1,6 @@
 #+title:Introduction To Artificial Intelligence And Machine Learning.
 #+AUTHOR: Adithya Nair
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
 * Iris Data Classification
 
@@ -414,7 +415,6 @@ import pandas as pd
 
 df = pd.read_csv('code/winequality-red.csv')
 print(df)
-print(df.shape())
 #+end_src
 
 #+RESULTS:
@@ -585,7 +585,6 @@ Naive Bayes, Support Vector Machines
 *** Handwriting Recognition
 Convolution Neural Networks
 Long Short-Term Memory Networks
-
 * Data Pre-Processing
 ** Missing Values
 There are several methods for dealing with missing values or 'data imputation'
@@ -619,6 +618,7 @@ Undersampling reduces the number of instances in the majority classes to bring i
 Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
 
 We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don't have a control over the number of instances that has to be reduced.
+
 ** Data Splitting
 *** Train-Test-Split: Hold Out Method.
 The data is divided into 70-30 or 80-20
@@ -626,3 +626,24 @@ The data is divided into 70-30 or 80-20
 This is a resampling technique.
 Dataset is split into $k$ sets of almost equal sizes. The first set is selected as the test set and the model is trained on the remaining $k-1$ sets. The test error rate is then calculated after fitting the model to the test data.
 In the second iteration, the $2^{nd}$ set is selected as a test set and the remaining $k-1$ sets are used to train the data and the error is calculated. This process continues for all the k sets.
+* Naive Bayes Classifier
+This is a probabilistic classifier.
+** Conditional Independence
+Conditional independence is a requirement for the naive bayes classifier. The dataset must not have any features which have a correlation to each other.
+** Bayes Theorem
+Given conditional probability,
+
+$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+
+$$P(A|B) = \frac{P(B|A) P (A)}{P(B)}$$
+
+What we're doing here is using this theorem, to find the hypothesis given a set of data which is the *most* probable.
+
+We take the dataset's columns and figure out the conditional probability of a given class, and returning the *most probable*
+** o-probability problem
+There is a problem that might arise while calculating the probability of a given class.
+We can have cases where there are conditions which are 0, the conditional relations result in a probability of 0. The remedy to fix this is *Laplacian Correction*, which is adding 1 to the numerator
+** Types Of Classifiers
+1. Gaussian Naive Bayes - Assumes that the features have a normal Gaussian distribution, good for continuous data.
+2. Multinomial Naive Bayes - Multiple classes.
+3. Bernoulli Naive Bayes - Assumes that the features follow a Bernoulli distribution(binary)
