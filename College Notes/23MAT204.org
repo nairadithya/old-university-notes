@@ -390,3 +390,10 @@ $$f(x) = \frac{1}{2}x^TAx + - b^Tx + c$$
 We have a linear system of equations, which we can be solved by $Ax=b$
 
 We can write $g_0 = Ax_{0} - b$
+
+*** Conjugate Gradient Descent
+The problem with normal gradient descent is that there is no way to predict when the function converges. There's a method that can reliably find the convergence in a predictable fashion. That's the conjugate gradient method.
+
+First we must understnand the conjugate direction
+
+**** Conjugate Direction

@@ -2,29 +2,94 @@
 #+AUTHOR: Adithya Nair
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
-* Iris Data Classification
-
-#+begin_src python :results output results: output
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-
-irisdata = pd.read_csv('iris.csv')
-
-test, train = train_test_split(irisdata, train_size=0.8, test_size=0.2)
-
-print(np.size(test))
-print(np.size(train))
-print(irisdata.describe())
-#+end_src
-
-#+RESULTS:
 * Overview
-** Pre-Processing
-*** Handling Missing Values (Imputation)
+** Some Terms Used
+- Regression - Continuous numbers as output
+- Classification - Discrete classes as output
+- Binary classification - two classes treated differently.
+- Overfitting - Good performance on the training data, poor generalization to other
+  Solvable by:
+  - Cross-validation
+  - Data augmentation
+  - Feature selection
+  - Ensemble techniques
+- Underfitting - Poor performance on the training data and poor generalization to other data(test data).
+  - qualitatively or quantitatively poor data.
+  - Bad algorithm for the job
+  - Remedy is to add more features
+- Multi-class classification - Multiple classes treated differently.
+** Types Of Machine Learning
+*** Supervised Learning
+Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
+**** Regression
+Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
+To find the error, we add up the square of the distance of the data points to the closest point on the curve and that gives us the *mean-squared error.*
+Neural networks, support vector regressor, linear regression
+*** Unsupervised Learning
+Models that learn about a dataset without labels.
+This includes
+**** Clustering
+Grouping of data points to automatically create classes for them
+**** Finding outliers
+Done using SVM, Autoencoders
+**** Dimensionality reduction
+Done using Principal Component Analysis.
+*** Reinforcement Learning
+Reinforcement Learning involves giving a model:
+- A set of states
+- A set of actions
+- A set of rewards
+- A goal: taking actions to change the state to receive the reward.
+
+  This type of model doesn't get any data, it explores the environment to gather data.
+*** Deep Learning
+Deep learning is a subset of ML.
+It involves the use of neural networks, which consist of nodes and statistical relationships between nodes to model the way our mind works.
+
+One layer gives us approximate predictions, adding additional layers refines the model's capability. A "Deep" neural network is a network with more than 3 layers.
+** AI Use Cases
+*** Image Classification
+Convolutional Neural Networks
+*** Text Classification
+Naive Bayes, Support Vector Machines
+*** Handwriting Recognition
+Convolution Neural Networks
+Long Short-Term Memory Networks
+** Steps In Implementing An AI Model
+*** Problem identification
+This is done by researching
+- Experts in the field
+- Personal experience
+- Literature survey
+- Data curation
+*** Data Curation
+- Data collection in person
+- Public repos
+- Private repos
+- Simulated data
+- Synthetic data
+*** Pre-processing
+*** Selection of AI models based on the data
+- Figure out whether the problem is a regression or a classification problem.
+- Figure out the computational capacity
+- Try various models for best fit.
+*** Training and tuning the model - A train/test split or a train/validation/testing split.
+- The data is separated out into training and testing.
+- The training subset is passed onto the chosen AI model.
+- Validation is done because it prevents overfitting.
+- The model should generalize.
+*** Testing the developed model
+- Choose evaluation metrics based on the model.
+  - Regresssion can involve MSPE, MSAE, $R^2$
+- Test the data.
+*** Analysis of the results
+*** Re-iterate as needed
+*** Deploy model.
+* Pre-Processing
+** Handling Missing Values (Imputation)
 When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
 Hence it is essential to handle the missing values.
-**** CREATING A DATAFRAME
+*** CREATING A DATAFRAME
 #+begin_src python :results output :results output :session Titanic
 import pandas as pd
 import numpy as np
@@ -72,7 +137,7 @@ Cabin          687
 Embarked         2
 dtype: int64
 #+end_example
-**** There are two main methods in dealing with missing values.
+*** There are two main methods in dealing with missing values.
 1. Dropping rows with missing values.
 2. Filling the empty missing values with zeros.
 #+begin_src python :results output :session Titanic
@@ -110,7 +175,7 @@ dtype: int64
 
 This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and filling with zeros does not work here when that might affect the correctness of the prediction.
 So here we replace the values with the mean for numerical values and mode for categorical values.
-***** Look into other methods of imputation
+**** Look into other methods of imputation
 #+begin_src python :results output :session Titanic
 # Method 3: Fill missing values with the mean (for numerical columns)
 df['Age'].fillna(df['Age'].mean(), inplace=True)
@@ -131,7 +196,7 @@ print(df['Embarked'].isnull().sum())
 : METHOD 4 Missing values in 'Embarked' column after filling with mode:
 : 0
 
-**** Forward fill and Backward Fill
+*** Forward fill and Backward Fill
  There are two better ways to fill the rows.
 - Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
 - Backward Fill - it iterates up the given data, and fills in missing values with the last value it saw.
@@ -182,14 +247,14 @@ Embarked       0
 dtype: int64
 ,*****************
 #+end_example
-*** Normalization
+** Normalization
 Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
 
 Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
 
 The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
 
-**** Types Of Normalization
+*** Types Of Normalization
 - MinMaxScaler - all data points are brought to the range $[0,1]$
 
   $$
@@ -199,7 +264,7 @@ The solution is to normalize. Normalization reduces a given numerical feature in
 - LogScaler
 - DecimalScaler - divides the number by a power of 10 until it is lesser than 1.
 
-***** NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
+**** NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
 #+begin_src python :results output :session Scaler
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -222,7 +287,7 @@ print(normalized_data)
 #+RESULTS:
 : [0.   0.25 0.5  0.75 1.  ]
 
-***** NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
+**** NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
 #+begin_src python :results output :session Scaler
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -245,7 +310,7 @@ print(normalized_data)
 #+RESULTS:
 : [-1.41421356 -0.70710678  0.          0.70710678  1.41421356]
 
-***** NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
+**** NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
 #+begin_src python :results output :session Scaler
 # Initialize the MinMaxScaler
 from sklearn.preprocessing import MinMaxScaler
@@ -261,10 +326,10 @@ print("\nDataFrame after Min-Max normalization:")
 print(df)
 #+end_src
 
-*** Sampling
+** Sampling
 Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
 Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
-**** RANDOM SAMPLING
+*** RANDOM SAMPLING
 Random sampling is used for when the dataset is large.
 #+begin_src python :results output
 import random
@@ -280,11 +345,11 @@ print("Simple Random Sample:", sample)
 
 #+RESULTS:
 : Simple Random Sample: [99, 67, 71, 4, 82, 24, 29, 54, 77, 34]
-**** Oversampling
+*** Oversampling
 In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
-***** Oversampling using SMOTE
+**** Oversampling using SMOTE
 It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
-**** STRATIFIED SAMPLING
+*** STRATIFIED SAMPLING
 #+begin_src python :results output
 import random
 
@@ -309,7 +374,7 @@ print("Stratified Sample:", sample)
 #+RESULTS:
 : Stratified Sample: [1, 2, 5, 8, 7, 10]
 
-**** Systematic Sampling
+*** Systematic Sampling
 #+begin_src python :results output
 # Sample data
 data = list(range(1, 101))  # Data from 1 to 100
@@ -351,8 +416,8 @@ print("Cluster Sample:", sample)
 : chosen clusters  ['cluster1', 'cluster3']
 : Cluster Sample: [1, 2, 3, 7, 8, 9]
 
-**** Undersampling
-*** Binning
+*** Undersampling
+** Binning
 #+begin_src python :results output :session Bollywood
 import pandas as pd
 
@@ -389,73 +454,14 @@ plt.tight_layout()
 #+RESULTS:
 [[file:testplot.png]]
 
-*** Data Imbalance
+** Data Imbalance
 We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
-***** Find what vintage means in churn prediction.
-**** One Hot Encoding
+**** Find what vintage means in churn prediction.
+*** One Hot Encoding
 This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
-**** Logistic Regression
+*** Logistic Regression
 This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
-
-** Reinforcement Learning
-This is a method used in game-based systems.
-It maps:
-- A set of states
-- A set of actions
-- A set of rewards
-
-And tries to take actions, to achieve a goal to get the reward. It receives the reward, when it achieves the goal, and receives a penalty upon failure.
-
-These models maximise the cumulative reward.
-** Steps In Implementing An AI Model.
-** Questions
-*** Read The Dataset Into A Dataframe And Identify The Number Of Rows And Columns
-#+begin_src python :results output :session wine-quality
-import pandas as pd
-
-df = pd.read_csv('code/winequality-red.csv')
-print(df)
-#+end_src
-
-#+RESULTS:
-#+begin_example
-      fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  free sulfur dioxide  total sulfur dioxide  density    pH  sulphates  alcohol  quality
-0               7.4             0.700         0.00             1.9      0.076                 11.0                  34.0  0.99780  3.51       0.56      9.4        5
-1               7.8             0.880         0.00             2.6      0.098                 25.0                  67.0  0.99680  3.20       0.68      9.8        5
-2               7.8             0.760         0.04             2.3      0.092                 15.0                  54.0  0.99700  3.26       0.65      9.8        5
-3              11.2             0.280         0.56             1.9      0.075                 17.0                  60.0  0.99800  3.16       0.58      9.8        6
-4               7.4             0.700         0.00             1.9      0.076                 11.0                  34.0  0.99780  3.51       0.56      9.4        5
-...             ...               ...          ...             ...        ...                  ...                   ...      ...   ...        ...      ...      ...
-1594            6.2             0.600         0.08             2.0      0.090                 32.0                  44.0  0.99490  3.45       0.58     10.5        5
-1595            5.9             0.550         0.10             2.2      0.062                 39.0                  51.0  0.99512  3.52       0.76     11.2        6
-1596            6.3             0.510         0.13             2.3      0.076                 29.0                  40.0  0.99574  3.42       0.75     11.0        6
-1597            5.9             0.645         0.12             2.0      0.075                 32.0                  44.0  0.99547  3.57       0.71     10.2        5
-1598            6.0             0.310         0.47             3.6      0.067                 18.0                  42.0  0.99549  3.39       0.66     11.0        6
-
-[1599 rows x 12 columns]
-#+end_example
-
-*** Find The Number Of Unique Values In The Column 'Quality' Which Can Be Treated As The Target Class
-`value_counts()` is a function that tallies up the count of each individual item.
-#+begin_src python :results output :session wine-quality
-unique = df['quality'].value_counts())
-#+end_src
-
-#+RESULTS:
-
-*** Plot A Bar Graph To Map The Frequency Of Each Unique Class In The Target Column
-#+begin_src python :results output :session wine-quality
-import matplotlib.pyplot as plt
-plt.figure(figsize=(8, 6))
-unique.plot(kind='bar', color='skyblue')
-
-#+end_src
-
-#+RESULTS:
-
-*** Split Data In A 70/30 ratio and apply SVM and ADABoost Classifier To Predict The Overall Average F-Measure For The Multi-Class Classification Problem.
-*** Apply Z-Score Normalization On All The Numerical Features And Redo Step 4
-
+* Exploratory Data Analysis
 * Evaluation Metrics For Classification
 This will cover how to evaluate the results of our classification problems.
 ** No Free Lunch Theorem
@@ -489,10 +495,12 @@ F1-score is the harmonic mean of precision and recall
 \[
 F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
 \]
+
 *** Specificity And Sensitivity
 $$
 Specificity = \frac{TN}{TN+FP}
 $$
+
 $$
 Sensitivity = \frac{TP}{TP+ FN}
 $$
@@ -500,132 +508,6 @@ $$
 Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
 *** ROC Curve - Receiver Operating Characteristic Curve
 The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
-
-* Project
-* Overview
-** Types Of Machine Learning
-*** Supervised Learning
-Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
-**** Regression
-Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
-To find the error, we add up the square of the distance of the data points to the closest point on the curve and that gives us the *mean-squared error.*
-Neural networks, support vector regressor, linear regression
-*** Unsupervised Learning
-Models that learn about a dataset without labels.
-This includes
-**** Clustering
-Grouping of data points to automatically create classes for them
-**** Finding outliers
-Done using SVM, Autoencoders
-**** Dimensionality reduction
-Done using Principal Component Analysis.
-*** Reinforcement Learning
-Reinforcement Learning involves giving a model:
-- A set of states
-- A set of actions
-- A set of rewards
-- A goal: taking actions to change the state to receive the reward.
-
-  This type of model doesn't get any data, it explores the environment to gather data.
-*** Deep Learning
-Deep learning is a subset of ML.
-It involves the use of neural networks, which consist of nodes and statistical relationships between nodes to model the way our mind works.
-
-One layer gives us approximate predictions, adding additional layers refines the model's capability. A "Deep" neural network is a network with more than 3 layers.
-** Some Terms Used
-- Regression - Continuous numbers as output
-- Classification - Discrete classes as output
-- Binary classification - two classes treated differently.
-- Overfitting - Good performance on the training data, poor generalization to other
-  Solvable by:
-  - Cross-validation
-  - Data augmentation
-  - Feature selection
-  - Ensemble techniques
-- Underfitting - Poor performance on the training data and poor generalization to other data(test data).
-  - qualitatively or quantitatively poor data.
-  - Bad algorithm for the job
-  - Remedy is to add more features
-- Multi-class classification - Multiple classes treated differently.
-** Steps In Implementing An AI Model
-*** Problem identification
-This is done by researching
-- Experts in the field
-- Personal experience
-- Literature survey
-- Data curation
-*** Data Curation
-- Data collection in person
-- Public repos
-- Private repos
-- Simulated data
-- Synthetic data
-*** [[Pre-processing]]
-*** Selection of AI models based on the data
-- Figure out whether the problem is a regression or a classification problem.
-- Figure out the computational capacity
-- Try various models for best fit.
-*** Training and tuning the model - A train/test split or a train/validation/testing split.
-- The data is separated out into training and testing.
-- The training subset is passed onto the chosen AI model.
-- Validation is done because it prevents overfitting.
-- The model should generalize.
-*** Testing the developed model
-- Choose evaluation metrics based on the model.
-  - Regresssion can involve MSPE, MSAE, $R^2$
-- Test the data.
-*** Analysis of the results
-*** Re-iterate as needed
-*** Deploy model.
-** AI Use Cases
-*** Image Classification
-Convolutional Neural Networks
-*** Text Classification
-Naive Bayes, Support Vector Machines
-*** Handwriting Recognition
-Convolution Neural Networks
-Long Short-Term Memory Networks
-* Data Pre-Processing
-** Missing Values
-There are several methods for dealing with missing values or 'data imputation'
-*** Drop rows with missing values
-`df.dropna()`
-*** Fill missing values with specific value (0)
-`df.fillna(0)`
-*** Fill missing values with the mean (for numerical columns)
-`df['Age'].fillna(df['Age'].mean())
-*** Fill missing values with the mode (for classes)
-*** Forward fill
-*** Backward fill
-** Normalization
-*** Min-Max
-*** Z-Score
-** Binning
-Binning is the process of converting a continuous value, into classes.
-** Sampling
-*** Random Sampling
-*** Stratified Sampling
-*** Systematic Sampling
-*** Cluster Sampling
-** One Hot Encoding
-This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
-** Data Balancing
-*** Oversampling using SMOTE
-It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
-*** Undersampling Using TOMEK
-Undersampling reduces the number of instances in the majority classes to bring it down and hence more or less balance the minority class.
-
-Random undersampling bluntly selects certain instances to be removed from the dataset. Random undersampling is criticized for the fact that it might remove the qualitative samples which are contributing to the major decision making of the algorithm.
-
-We use TOMEK, which removes the noise and discrepant data instances. The disadvantage is that we don't have a control over the number of instances that has to be reduced.
-
-** Data Splitting
-*** Train-Test-Split: Hold Out Method.
-The data is divided into 70-30 or 80-20
-*** K-Fold Cross Validation
-This is a resampling technique.
-Dataset is split into $k$ sets of almost equal sizes. The first set is selected as the test set and the model is trained on the remaining $k-1$ sets. The test error rate is then calculated after fitting the model to the test data.
-In the second iteration, the $2^{nd}$ set is selected as a test set and the remaining $k-1$ sets are used to train the data and the error is calculated. This process continues for all the k sets.
 * Naive Bayes Classifier
 This is a probabilistic classifier.
 ** Conditional Independence

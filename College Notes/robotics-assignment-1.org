@@ -1,0 +1,4 @@
+#+title: Introduction To Robotics Practice Sheet 1
+#+author: Adithya Nair
+#+LATEX_HEADER: \input{preamble}
+#+LATEX_CLASS: article

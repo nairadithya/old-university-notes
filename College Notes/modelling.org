@@ -46,10 +46,10 @@ Principle of superposition - it means that there's a linear correlation of the i
 | Anil    |  14 |
 
 *** System Nomenclature
-#+begin_Definition :options [Dynamical System]
+#+begin_definition :options [Dynamical System]
 	A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
-#+end_Definition
-#+begin_Definition options
+#+end_definition
+#+begin_definition options
 The state of a Dynamic system is the smallest set of variables(called state variables) such that the knowledge of these variables at $t=t_0$, together with the knowledge of the input for $t\geq t_0$, completely determines the behaviour of the system for any time $t \ge t_0$. The number of state variables is the same as the number of inital conditions needed to completely solve the system models
 #+end_definition
 #+begin_definition options
@@ -128,7 +128,7 @@ What we do here is,
 \text{Out}&\text{put}
 \end{align*}
 
-*** Generalized Variables
+*** Generalizd Variables
 - Power Variables
  - Effort $e(t)$
  - Flow $f(t)$
@@ -194,7 +194,15 @@ plot(X_state(:,1), X_state(:,2))
 s output
 #+end_src
 
-#+RESULTS:
 
 REFERENCE
 [[https://ocw.mit.edu/courses/2-141-modeling-and-simulation-of-dynamic-systems-fall-2006/71ca8916669d0aa6839ce780db9f5288_bond_graph_intro.pdf][MIT COURSE NOTES ON BOND GRAPH MODELLING]]
+
+* Assignments
+[[file:~/University-Latex-Notes/Modelling, Simulation And Analysis/assignments/23AID201_MSA_PracticeSheet01.pdf][Practice Sheet 01]]
+1. For mathematical modelling, formulation of state space equation from a mathematic model, and block diagram representation follow [[file:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf][Modern Control Engineering by Ogata]] - [[pdf:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf::24++0.00][Chapter 2]] [[pdf:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf::40++0.00][section 2.4]] and [[pdf:~/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf::74++0.00][Chapter 3(section 3.1 - 3.3)]]
+
+2. For bond graph modelling, refer System Dynamics Book by Dean C Karnopp Chapter 2 and Chapter 3, section 3.3, 3.4
+* Project Notes
+ * Simscape, or a matlab simulink model
+ * Provision is made for solidworks CAD models.
