@@ -329,7 +329,7 @@ print(df)
 ** Sampling
 Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
 Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
-*** RANDOM SAMPLING
+*** Random Sampling
 Random sampling is used for when the dataset is large.
 #+begin_src python :results output
 import random
@@ -349,7 +349,7 @@ print("Simple Random Sample:", sample)
 In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
 **** Oversampling using SMOTE
 It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
-*** STRATIFIED SAMPLING
+*** Stratified SAMPLING
 #+begin_src python :results output
 import random
 

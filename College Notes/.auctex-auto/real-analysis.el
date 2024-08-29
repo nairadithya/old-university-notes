@@ -32,6 +32,8 @@
     "amsmath"
     "amssymb"
     "capt-of"
-    "hyperref"))
+    "hyperref")
+   (LaTeX-add-labels
+    "sec:addition,lemmaadd"))
  :latex)
 

@@ -6,7 +6,6 @@
 
 * Mathematics
 ** Revision Linear Algebra
-
 Every matrix satisfies its own characteristic matrix.
 
 What this means is
@@ -294,9 +293,6 @@ for i = 2:n
   end
 end
 #+end_src
-
-#+RESULTS:
-: ans = 30
 
 *** Gauss-Siedel Iteration Method
 The iterative method is somewhat similar to <Gauss-Jacobi method>.
