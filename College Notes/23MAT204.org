@@ -3,6 +3,7 @@
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
 #+EXPORT_FILE_NAME: exports/23MAT204.pdf
+
 * Mathematics
 ** Revision Linear Algebra
 
@@ -394,6 +395,93 @@ We can write $g_0 = Ax_{0} - b$
 *** Conjugate Gradient Descent
 The problem with normal gradient descent is that there is no way to predict when the function converges. There's a method that can reliably find the convergence in a predictable fashion. That's the conjugate gradient method.
 
-First we must understnand the conjugate direction
+First we must understnand the conjugate direction and the terms associated with them
+**** Krylov Subspace
+Let $A \in R^{n \times n}, b \in R^n$, the Krylov subspace $K_j(A,b)$ is defined as $K_j(A,b) = span \{\vec{b}, \vec{Ab}, A^2b, A^3b, \dots , A^{j-1}b\}$. Thus $K_j(A,b)$ is subspace of $\mathbb{R}^n$
 
-**** Conjugate Direction
+**** Krylov Matrix
+The Krylov Matrix is just the matrix consisting of the basis vectors as the column vectors. The Krylov subspace is the column space of such a matrix.
+**** Motivation For Krylov Subspaces
+We know the Cayley Hamilton theorem, and its use in calculating the inverse from the characteristic equation
+
+Interestingly, the calculation for the inverse leads to a linear combination of the basis vectors of the Krylov subspace when solving linear systems.
+**** Conjugate Directions
+For A real symmetric matrix $n \times n$ with rank $n$
+
+The directions $d_0 d_1 \dots d_{n-1}$ are said to be A-conjugate if,
+
+$$d_i Ad_j = 0 $$ for $i \neq j$
+
+It's a new definition for orthogonality(not orthonormal)
+
+**** Numerical Method
+Input $A,b,x^{0}$
+
+Compute $\vec{r_{0}} = b - A x^0$
+#+begin_src octave :results output
+A = [1 2 3;2 3 4;3 4 5];
+
+b = [6 9 12]';
+x = randi([-9,9], length(b),1);
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+ans =
+
+   1.0000        0  -1.0000   0.0000
+        0   1.0000   2.0000   3.0000
+        0        0        0        0
+
+x =
+
+   1
+   1
+   1
+
+r =
+
+  -3.8522e-16
+   7.5005e-16
+  -8.9023e-16
+
+#+end_example
+** Probability
+*** Probability mass function
+For discrete inputs
+The probabilty mass function for a discrete random variable $x$ is defined as, $f(x) = P(X = x)$
+
+**** Properties
+- $0 \leq f(x) \leq 1$
+- $\Sigma f(x) = 1$
+- $P(\text{at least n outcomes}) = P(X \geq n) = f(n) + \cdots + f(end)$
+
+
+
+**** Mean Of Random Variable
+$$U_x = E(x) = \Sigma x f(x)$$
+
+**** Variance Of Random Variable
+$$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
+$$\sigma_x^{2} = E(X^2) - \mu^2$$
+
+*** Probability density function - For continuous inputs

@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-08-27 Tue 20:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advanced Data Structures And Algorithm Analysis</title>
+<meta name="author" content="Adithya Nair" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Advanced Data Structures And Algorithm Analysis</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org4726e56">1. DSA Notes</a>
+<ul>
+<li><a href="#org3f39459">1.1. Graphs</a>
+<ul>
+<li><a href="#org365ac40">1.1.1. Representations Of A Graph</a></li>
+<li><a href="#org2726473">1.1.2. Traversal(visit all nodes).</a></li>
+</ul>
+</li>
+<li><a href="#org36d0fdb">1.2. Trees</a>
+<ul>
+<li><a href="#org764b3dd">1.2.1. Properties</a></li>
+<li><a href="#orgc2f3132">1.2.2. Types Of Binary Trees</a></li>
+<li><a href="#org7aa8216">1.2.3. Binary Search Tree</a></li>
+<li><a href="#org017bab9">1.2.4. avl trees(height balanced binary tree)</a></li>
+</ul>
+</li>
+<li><a href="#org06546de">1.3. Heap</a>
+<ul>
+<li><a href="#org149aa2b">1.3.1. types of heap</a></li>
+<li><a href="#orgdfdf561">1.3.2. definition</a></li>
+<li><a href="#orga96188e">1.3.3. Insertion</a></li>
+<li><a href="#org334f79e">1.3.4. Deletion</a></li>
+</ul>
+</li>
+<li><a href="#orgca251ff">1.4. Tries</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4726e56" class="outline-2">
+<h2 id="org4726e56"><span class="section-number-2">1.</span> DSA Notes</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3f39459" class="outline-3">
+<h3 id="org3f39459"><span class="section-number-3">1.1.</span> Graphs</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org365ac40" class="outline-4">
+<h4 id="org365ac40"><span class="section-number-4">1.1.1.</span> Representations Of A Graph</h4>
+<div class="outline-text-4" id="text-1-1-1">
+</div>
+<ol class="org-ol">
+<li><a id="org1d9d3ba"></a>Adjacency Matrix<br />
+<div class="outline-text-5" id="text-1-1-1-1">
+<p>
+Adjacency matrices are matrices which can be used to represent the connections that nodes have to each other. This is done by making a matrix of size \(n\) for \(n\) nodes. And the following rules exist for generating the matrix.
+</p>
+
+<ol class="org-ol">
+<li>If there is a link from node \(i\) to node \(j\) then the element \(A_{ij}\) for the adjacency matrix \(A\) is 1.</li>
+<li>If there is no link, then the element is zero.</li>
+</ol>
+
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & &\ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{bmatrix}
+
+<p>
+As a consequence of this, undirected graphs(graphs where the links represent connection rather than direction) are represented with a symmetric matrix.
+</p>
+</div>
+</li>
+<li><a id="org426cc23"></a>Adjacency Lists<br />
+<div class="outline-text-5" id="text-1-1-1-2">
+<p>
+Adjacency lists are an alternative representation of graphs. If a graph has \(n\) nodes, then the list has \(n\) elements. The list adjList is then made with the following rules.
+</p>
+
+<p>
+<b>adjList[i] contains all the nodes which are connected to vertex \(i\), in the order in which they are connected.</b>
+</p>
+
+<p>
+For an example graph,
+</p>
+
+\begin{align*}
+&a \rightarrow b \rightarrow c \rightarrow d  \\
+&\downarrow \\
+&b \rightarrow a \rightarrow c \\
+&\downarrow \\
+&c \rightarrow a \rightarrow b \\
+&\downarrow \\
+&d \rightarrow a \rightarrow e\\
+&\downarrow \\
+&e \rightarrow d \\
+\end{align*}
+
+<p>
+We have a linked list of linked lists. The problem here is that links are represented twice.
+</p>
+
+<p>
+This is an optimization for when graphs have very few links.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org2726473" class="outline-4">
+<h4 id="org2726473"><span class="section-number-4">1.1.2.</span> Traversal(visit all nodes).</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+There are two algorithms of traversal:
+</p>
+<ol class="org-ol">
+<li>Breadth-First Search - which involves the usage of queue</li>
+<li>Depth-First Search - which involves the usage of stack</li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="orga35da42"></a>Breadth-First Search<br />
+<div class="outline-text-5" id="text-1-1-2-1">
+<p>
+Breadth-first involves selecting a root node, and choosing a neighbour node.
+</p>
+
+<p>
+Revising queues, they have a First-In, First Out approach, insertion at the rear and deletion at the front.
+The procedure follows:
+</p>
+<ul class="org-ul">
+<li>The queue starts by inserting any root node, say for example A.</li>
+<li>Now A is dequeued and stored in the result.</li>
+<li>Queue all neighbouring nodes of A.</li>
+<li>The first node is dequeued.</li>
+<li>Upon dequeueing, all neighbouring nodes are checked if it&rsquo;s in the queue. If not, they are queued in.
+<ul class="org-ul">
+<li>Let&rsquo;s say B is taken, and B is connected to C, and C is already connected to A and B.</li>
+<li>A and C will not be queued.</li>
+</ul></li>
+<li>This iterates until there are no more nodes.</li>
+</ul>
+
+<p>
+Clearly, this depends on the number of edges in the graph. The maximum number of edges in a graph is \(^nC_2\).
+</p>
+
+<p>
+The functions required in this queue are:
+</p>
+<ul class="org-ul">
+<li>`Insert()`</li>
+<li>`Delete()`</li>
+<li>`Traverse()`</li>
+</ul>
+</div>
+</li>
+<li><a id="org52347d5"></a>Depth-First Search<br />
+<div class="outline-text-5" id="text-1-1-2-2">
+<p>
+This involves traversing the nodes until an edge node is met, using a stack.
+</p>
+
+<p>
+The procedure follows:
+</p>
+<ul class="org-ul">
+<li>A node is selected and pushed into the stack.</li>
+<li>A random node connected to A is pushed.</li>
+<li>A connected node is pushed.</li>
+<li>This procedure is met until no unvisited node exists
+<ul class="org-ul">
+<li>In which case the stack is full.</li>
+<li>If the stack is still not full, it implies that there are nodes which haven&rsquo;t been visited.</li>
+</ul></li>
+<li>Now popping occurs</li>
+<li>The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost element&rsquo;s adjacent nodes for unvisited nodes.</li>
+<li>This is done until the stack is empty</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #cba6f7;">class</span> <span style="color: #f9e2af;">DFS</span> <span style="color: #f38ba8;">{</span>
+  DFS<span style="color: #fab387;">(</span><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">V</span><span style="color: #fab387;">)</span>  <span style="color: #fab387;">{</span>
+    adj = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">LinkedList</span><span style="color: #f9e2af;">[</span>V<span style="color: #f9e2af;">]</span>;
+    visited = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">boolean</span><span style="color: #f9e2af;">[</span>V<span style="color: #f9e2af;">]</span>;
+    <span style="color: #cba6f7;">for</span> <span style="color: #f9e2af;">(</span><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">i</span> = <span style="color: #fab387;">0</span>; i &lt; <span style="color: #f9e2af;">V</span>; i++<span style="color: #f9e2af;">)</span>
+      adj<span style="color: #f9e2af;">[</span>i<span style="color: #f9e2af;">]</span> = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">LinkedList</span><span style="color: #f9e2af;">&lt;</span><span style="color: #f9e2af;">Integer</span><span style="color: #f9e2af;">&gt;()</span>;
+  <span style="color: #fab387;">}</span>
+<span style="color: #f38ba8;">}</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org36d0fdb" class="outline-3">
+<h3 id="org36d0fdb"><span class="section-number-3">1.2.</span> Trees</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+A tree with at most two links from one node is known as a binary tree.
+</p>
+</div>
+<div id="outline-container-org764b3dd" class="outline-4">
+<h4 id="org764b3dd"><span class="section-number-4">1.2.1.</span> Properties</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Maximum number of nodes - \(2^i\)</li>
+<li>Height is longest distance between root to leaf nodes (count the edges)</li>
+<li>Maximum number of nodes possible till height h is \((2^0 + 2^1 + 2^2 + \cdots 2^h)\) = \(2^{h+1} -1\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2f3132" class="outline-4">
+<h4 id="orgc2f3132"><span class="section-number-4">1.2.2.</span> Types Of Binary Trees</h4>
+<div class="outline-text-4" id="text-1-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgf87bc74"></a>Full/Proper/Strict Binary Tree<br />
+<div class="outline-text-5" id="text-1-2-2-1">
+<p>
+It is a tree where each node must contain 2 children except the leaf node.
+</p>
+
+<ul class="org-ul">
+<li>There are either two children or no children.</li>
+<li>The number of leaf nodes is equal to number of internal nodes + 1</li>
+<li>The minimum number of nodes is equal to \(2^h + 1\)</li>
+<li>Maximum number of nodes is the same as number of nodes in binary tree, \(2^{h+1} - 1\)</li>
+<li>The minimum height of the full binary tree is \(log_2(n+1) - 1\)</li>
+</ul>
+</div>
+</li>
+<li><a id="orgc3d3469"></a>Complete Binary Tree<br />
+<div class="outline-text-5" id="text-1-2-2-2">
+<p>
+A binary tree where all the nodes are completely filled except the last level.
+</p>
+</div>
+</li>
+<li><a id="orge1553af"></a>Degenerate Binary Tree<br />
+<div class="outline-text-5" id="text-1-2-2-3">
+<p>
+Exactly like a linked list.
+</p>
+</div>
+</li>
+<li><a id="org3a588b1"></a>Balanced Binary Tree<br />
+<div class="outline-text-5" id="text-1-2-2-4">
+<ul class="org-ul">
+<li>The heights of left and right trees can have a maximum height difference of 1.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org7aa8216" class="outline-4">
+<h4 id="org7aa8216"><span class="section-number-4">1.2.3.</span> Binary Search Tree</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+Value of left node must be smaller than parent, and value of right node must be greater than the parent node.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org727f90a"></a>Binary Search Tree Insertion<br /></li>
+<li><a id="orge457a96"></a>Binary Search Tree Deletion<br />
+<div class="outline-text-5" id="text-1-2-3-2">
+<ul class="org-ul">
+<li>It works the same as a linked list operation.</li>
+<li>We use In order Traversal to figure out the node&rsquo;s value, it takes the value of its in order successor.</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org017bab9" class="outline-4">
+<h4 id="org017bab9"><span class="section-number-4">1.2.4.</span> avl trees(height balanced binary tree)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+what this solves is the fact that we have a series of insertions that are &rsquo;skinny&rsquo;. an avl tree is balanced, the height is as minimal as possible.
+</p>
+
+<p>
+Each node is given a balancing factor, \(= h_l-h_r\)
+A tree is said to be imbalanced if any node is said to have a balancing factor \(\geq\) 2.
+there are 4 insertions that can be performed, also known as &rsquo;rotations&rsquo;:
+</p>
+<ul class="org-ul">
+<li>ll - /, ll rotation, involve shifting a node to the right, the central node in the line becomes a root node.</li>
+<li>rr - \, rr rotation, involves shifting a node to the left, the central node in the line becomes a root node.</li>
+<li>lr - &lt;, lr rotation, the last node in the subtree becomes the root node(it forms an rr + ll rotation)</li>
+<li>rl - &gt;, rl rotation, the last node in the subtree becomes the root node(perform an ll + rr rotation)</li>
+</ul>
+
+<p>
+The first letter is the sub-tree, and the second letter is the child node.
+</p>
+
+<p>
+Construct an AVL tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
+</p>
+
+<p>
+All 4 rotations are capable of causing an imbalance.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org06546de" class="outline-3">
+<h3 id="org06546de"><span class="section-number-3">1.3.</span> Heap</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
+</p>
+</div>
+<div id="outline-container-org149aa2b" class="outline-4">
+<h4 id="org149aa2b"><span class="section-number-4">1.3.1.</span> types of heap</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+there are two types of heap:
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org212a3a9"></a>min heap<br />
+<div class="outline-text-5" id="text-1-3-1-1">
+<p>
+the value of the root node is less than or equal to  its children
+</p>
+</div>
+</li>
+<li><a id="orge661964"></a>max heap<br />
+<div class="outline-text-5" id="text-1-3-1-2">
+<p>
+the value of the root node is more than or equal to its children
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgdfdf561" class="outline-4">
+<h4 id="orgdfdf561"><span class="section-number-4">1.3.2.</span> definition</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+a heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
+a heap is typically represented as an array, the array representation for a tree, is for each node
+a parent node is represented by \(\frac{i}{2} - 1\), the left child node is \(2\times i + 1\) and the right child node is \(2 \times i + 2\)
+</p>
+
+<p>
+Heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
+</p>
+</div>
+</div>
+<div id="outline-container-orga96188e" class="outline-4">
+<h4 id="orga96188e"><span class="section-number-4">1.3.3.</span> Insertion</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+The process of insertion involves:
+</p>
+<ul class="org-ul">
+<li>Adding a node to the leftmost child node available.</li>
+<li>Comparing the node&rsquo;s value with the parent node
+<ul class="org-ul">
+<li>If current node&rsquo;s value is \(i\), we have \(\frac{(i-1)}{2}\)</li>
+</ul></li>
+<li>If the comparison yields the result that the definition of heap does not hold, then the values of the parent node and the child node are swapped.</li>
+<li>Repeat until the comparison holds.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #6c7086;">// </span><span style="color: #6c7086;">i is the variable holding the last position</span>
+<span style="color: #6c7086;">// </span><span style="color: #6c7086;">k is the value we are trying to add to the heap.</span>
+<span style="color: #f9e2af;">void</span> <span style="color: #89b4fa;">insert</span><span style="color: #f38ba8;">(</span><span style="color: #f9e2af;">A</span>,<span style="color: #f9e2af;">i</span>,<span style="color: #f9e2af;">k</span><span style="color: #f38ba8;">){</span>
+i = i + <span style="color: #fab387;">1</span>;
+a<span style="color: #fab387;">[</span>i<span style="color: #fab387;">]</span> = k;
+<span style="color: #cba6f7;">while</span><span style="color: #fab387;">(</span>i &gt; <span style="color: #fab387;">0</span><span style="color: #fab387;">){</span>
+    <span style="color: #cba6f7;">if</span><span style="color: #f9e2af;">(</span>a<span style="color: #a6e3a1;">[</span><span style="color: #f38ba8;">(</span>i-<span style="color: #fab387;">1</span><span style="color: #f38ba8;">)</span>/<span style="color: #fab387;">2</span><span style="color: #a6e3a1;">]</span> &gt; a<span style="color: #a6e3a1;">[</span>i<span style="color: #a6e3a1;">]</span><span style="color: #f9e2af;">){</span>
+        t = a<span style="color: #a6e3a1;">[</span>i<span style="color: #a6e3a1;">]</span>;
+        a<span style="color: #a6e3a1;">[</span>i<span style="color: #a6e3a1;">]</span> = a<span style="color: #a6e3a1;">[</span><span style="color: #f38ba8;">(</span>i-<span style="color: #fab387;">1</span><span style="color: #f38ba8;">)</span>/<span style="color: #fab387;">2</span><span style="color: #a6e3a1;">]</span>;
+        a<span style="color: #a6e3a1;">[</span><span style="color: #f38ba8;">(</span>i-<span style="color: #fab387;">1</span><span style="color: #f38ba8;">)</span>/<span style="color: #fab387;">2</span><span style="color: #a6e3a1;">]</span> = t;
+    <span style="color: #f9e2af;">}</span>
+    <span style="color: #cba6f7;">else</span>
+        <span style="color: #cba6f7;">return</span>;
+    <span style="color: #fab387;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org334f79e" class="outline-4">
+<h4 id="org334f79e"><span class="section-number-4">1.3.4.</span> Deletion</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li>Deletion can only happen at the root node.</li>
+<li>This deletion takes place when you&rsquo;re trying to perform &rsquo;heap sort&rsquo;.</li>
+</ul>
+
+<p>
+For an array, [52,24,30,12,16,5]
+</p>
+
+<p>
+We have 52 as the root node.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">k</span> = a<span style="color: #f38ba8;">[</span><span style="color: #fab387;">0</span><span style="color: #f38ba8;">]</span>;
+a<span style="color: #f38ba8;">[</span><span style="color: #fab387;">0</span><span style="color: #f38ba8;">]</span> = a<span style="color: #f38ba8;">[</span>n<span style="color: #f38ba8;">]</span>;
+a<span style="color: #f38ba8;">[</span>n<span style="color: #f38ba8;">]</span> = k;
+n = n-<span style="color: #fab387;">1</span>;
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgca251ff" class="outline-3">
+<h3 id="orgca251ff"><span class="section-number-3">1.4.</span> Tries</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+How do you go about storing a dictionary? We construct a root node with 26 child nodes, one for each letter. Then each letter, sequentially forms the subsequent child node.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adithya Nair</p>
+<p class="date">Created: 2024-08-27 Tue 20:10</p>
+</div>
+</body>
+</html>

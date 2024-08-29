@@ -1,0 +1,524 @@
+#+title: Practice Sheet 6
+#+author: Adithya Nair
+#+header:
+
+* Question 1
+#+begin_src octave :results output
+A = [9 2;2 9];
+
+d1 = [1,0]';
+
+d2 = [A(2,1);-A(1,1)]
+
+d2'*(A*d1)
+#+end_src
+
+#+RESULTS:
+: d2 =
+:
+:    2
+:   -9
+:
+: ans = 0
+
+* Question 2
+
+#+begin_src octave :results output
+A = [8 2 1;2 7 2;1 2 5];
+
+d1 = [1 0 0]';
+d2 = [0 1 0]';
+d3 = cross(A*d1,A*d2)
+#+end_src
+
+#+RESULTS:
+: d3 =
+:
+:    -3
+:   -14
+:    52
+:
+
+* Question 3
+** a
+#+begin_src octave :results output
+A = [2 1 1;1 2 -1;-1 -1 4]; b = [1 2 9]';
+b = [6 9 12]';
+x = randi([-9,9], length(b),1);
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+  -3.5790
+   8.1777
+   4.3279
+
+r =
+
+   0.6523
+   0.5514
+  -0.7128
+
+#+end_example
+** b
+#+begin_src octave :results output
+A = [11 2 1;2 4 -1;1 -1 6]; b = [12 1 7]';
+x = randi([-9,9], length(b),1);
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   1.0000e+00
+  -1.1102e-16
+   1.0000e+00
+
+r =
+
+   3.3307e-16
+  -2.2204e-16
+   1.1102e-16
+
+#+end_example
+** c
+#+begin_src octave :results output
+A = [3 0 1;0 4 2; 1 2 3]; b = [3 0 1]';
+x = randi([-9,9], length(b),1);
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   1.0000
+        0
+  -0.0000
+
+r =
+
+   2.2204e-15
+   5.5511e-15
+   4.5519e-15
+
+#+end_example
+
+* Question 4
+** a
+#+begin_src octave :results output :session 4
+A = [8 0; 0 6]; b = [16 36]';
+x = [1;0];
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   2
+   6
+
+r =
+
+            0
+  -9.9920e-16
+
+#+end_example
+** b
+#+begin_src octave :results output
+A = [8 0; 0 6]; b = [16 36]';
+x = [0;0];
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  plot(x);
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   2
+   6
+
+r =
+
+            0
+   4.4409e-16
+
+#+end_example
+** c
+#+begin_src octave :results output
+A = [8 0; 0 6]; b = [16 36]';
+x = [50;0];
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  plot(x);
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   2
+   6
+
+r =
+
+  -5.6621e-15
+   1.7764e-15
+
+#+end_example
+** d
+#+begin_src octave :results output
+A = [8 0; 0 6]; b = [16 36]';
+x = [0;-25];
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  plot(x);
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+** e
+#+begin_src octave :results output
+A = [8 0; 0 6]; b = [16 36]';
+x = [-21;35];
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  plot(x);
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   2
+   6
+
+r =
+
+   0
+   0
+
+#+end_example
+
+* Question 5
+** a
+#+begin_src octave :results output
+A = [12 0 2;0 16 4;2 4 2]; b = [3 0 3]';
+x = [1 0 0]';
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+  -0.3750
+  -0.9375
+   3.7500
+
+r =
+
+  -9.8532e-16
+   8.8818e-16
+  -2.2204e-16
+
+#+end_example
+** b
+#+begin_src octave  :results output
+A = [12 0 2;0 16 4;2 4 2]; b = [3 0 3]';
+x = [1 0 0]';
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+* Question 6
+#+begin_src octave :results output
+A = [9 1 1 0 0;1 5 0 0 2;1 0 3 0 0;0 0 0 4 2;0 2 0 2 6]; b = [11 8 4 6 10]';
+x = [2;13;2;13;2];
+r = b - A*x;
+d = r;
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+  if sqrt(rnew) < 1e-10
+    break;
+    end
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+x =
+
+   1
+   1
+   1
+   1
+   1
+
+r =
+
+   2.8796e-16
+   1.1362e-16
+   1.3878e-17
+   7.8063e-17
+   4.7119e-16
+
+#+end_example
+
+* Question 7
+#+begin_src octave :results output
+A = randi([-9,9],9,1)*randi([-9,9],1,9);
+A = A'*A;
+x = [1:9]';
+b = A*x;
+r = b - A*x;
+d = r
+alpha = (r'*r)/(d'*(A*d));
+beta = 0;
+
+for i = 1:size(A,1)
+  if sqrt(r) < 1e-10
+    break;
+    end
+  x = x + alpha*d;
+  rnew = r - alpha*(A*d);
+  beta = (rnew'*rnew)/(r'*r);
+  d = rnew + beta*d;
+  r = rnew;
+  alpha = (r'*r)/(d'*(A*d));
+end
+
+x
+r
+#+end_src
+
+#+RESULTS:
+#+begin_example
+d =
+
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+
+x =
+
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+
+r =
+
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+   0
+
+#+end_example

@@ -508,6 +508,8 @@ $$
 Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
 *** ROC Curve - Receiver Operating Characteristic Curve
 The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
+*** Support
+Count of test data in a class
 * Naive Bayes Classifier
 This is a probabilistic classifier.
 ** Conditional Independence
@@ -529,3 +531,9 @@ We can have cases where there are conditions which are 0, the conditional relati
 1. Gaussian Naive Bayes - Assumes that the features have a normal Gaussian distribution, good for continuous data.
 2. Multinomial Naive Bayes - Multiple classes.
 3. Bernoulli Naive Bayes - Assumes that the features follow a Bernoulli distribution(binary)
+* Feature Selection
+The reasons to perform feature selection is:
+1. Remove features which almost zero influence on the target class
+2. Right selection between features
+
+TODO Read up on $chi^2$ function

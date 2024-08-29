@@ -1,12 +1,6 @@
 #+title: Advanced Data Structures And Algorithm Analysis
 #+author: Adithya Nair
 
-* Table Of Contents :toc:
-- [[#dsa-notes][DSA Notes]]
-  - [[#graphs][Graphs]]
-  - [[#trees][Trees]]
-  - [[#heap][Heap]]
-  - [[#tries][Tries]]
 
 * DSA Notes
 ** Graphs
@@ -74,11 +68,7 @@ The functions required in this queue are:
 - `Insert()`
 - `Delete()`
 - `Traverse()`
-#+begin_src java
 
-#+end_src
-
-#+RESULTS:
 
 **** Depth-First Search
 This involves traversing the nodes until an edge node is met, using a stack.
@@ -104,8 +94,6 @@ class DFS {
   }
 }
 #+end_src
-
-#+RESULTS:
 
 ** Trees
 A tree with at most two links from one node is known as a binary tree.
@@ -134,25 +122,7 @@ Value of left node must be smaller than parent, and value of right node must be 
 **** Binary Search Tree Insertion
 **** Binary Search Tree Deletion
 - It works the same as a linked list operation.
-- We use [[In order Traversal]] to figure out the node's value, it takes the value of its in order successor.
-***** Binary Search Tree Traversal.
-There are three types of traversal.
-****** Pre-order Traversal.
-- Process the root
-- process left node subtree.
-- process right node subtree.
-- recursively repeat.
-****** in order traversal
-- process the left subtree
-- process the root
-- process the right subtree
-- recursively repeat.
-  **we use in order successors to figure out the value to copy.**
-****** post order traversal
-- process the left subtree
-- process the right subtree
-- process the root
-- recursively repeat.
+- We use In order Traversal to figure out the node's value, it takes the value of its in order successor.
 *** avl trees(height balanced binary tree)
 what this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
 
@@ -169,7 +139,6 @@ The first letter is the sub-tree, and the second letter is the child node.
 Construct an AVL tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
 
 All 4 rotations are capable of causing an imbalance.
-
 
 ** Heap
 heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
@@ -224,8 +193,17 @@ a[n] = k;
 n = n-1;
 
 #+end_src
-*** Write a Java Program To Implement And Insert Elements Into A Heap The array = [80,100,30,20,70,15,19]
-
-Write a program which can automatically arrange itself into a
 ** Tries
 How do you go about storing a dictionary? We construct a root node with 26 child nodes, one for each letter. Then each letter, sequentially forms the subsequent child node.
+
+Trie is a sorted tree based data structure that stores a set of strings, it has $n$ pointers, where $n$ is the number of characters in the alphabet, in each node. It can search a word in the dictionary with the help of the character nodes preceding the end of the word. It searches incrementally by character.
+*** Properties Of Trie
+- the root node of the trie is empty with $n$ pointers, it represents the 'full' node
+- each child node is sorted alphabetically.
+- each node can have a maximum of $n$ children.
+*** Applications
+- Dictionary
+- Address Book
+- Phone Book
+- Spell checker
+- Browser history

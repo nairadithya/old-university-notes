@@ -1,0 +1,12 @@
+#+title: Questions
+
+* What is the primary advantage?
+- A
+- B
+- C
+- D
+* When using the naive bayes, what does naive refer to?
+- A
+- B
+- C
+- D
