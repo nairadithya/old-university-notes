@@ -1,4 +1,5 @@
 /Introduction To Computer Networks/pt/
+_region_.*
 /Introduction to AI And Machine Learning/notebooks/.ipynb_checkpoints/
 *.log
 *.out
