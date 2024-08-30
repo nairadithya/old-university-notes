@@ -97,7 +97,7 @@
 \usetikzlibrary{arrows.meta}
 
 \tikzset{
-  force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
+	force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
 }
 
 %%%%%%%%%%%%%%%
@@ -121,21 +121,21 @@
 
 \usepackage{eso-pic}
 \newcommand\definegraybackground{
-  \definecolor{reallylightgray}{HTML}{FAFAFA}
-  \AddToShipoutPicture{
-    \ifthenelse{\isodd{\thepage}}{
-      \AtPageLowerLeft{
-        \put(\LenToUnit{\dimexpr\paperwidth-222pt},0){
-          \color{reallylightgray}\rule{222pt}{297mm}
-        }
-      }
-    }
-    {
-      \AtPageLowerLeft{
-        \color{reallylightgray}\rule{222pt}{297mm}
-      }
-    }
-  }
+	\definecolor{reallylightgray}{HTML}{FAFAFA}
+	\AddToShipoutPicture{
+		\ifthenelse{\isodd{\thepage}}{
+			\AtPageLowerLeft{
+				\put(\LenToUnit{\dimexpr\paperwidth-222pt},0){
+					\color{reallylightgray}\rule{222pt}{297mm}
+				}
+			}
+		}
+		{
+			\AtPageLowerLeft{
+				\color{reallylightgray}\rule{222pt}{297mm}
+			}
+		}
+	}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,14 +143,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup{
-  % Enable highlighting links.
-  colorlinks,
-  % Change the color of links to blue.
-  linkcolor=blue,
-  % Change the color of citations to black.
-  citecolor={black},
-  % Change the color of url's to blue with some black.
-  urlcolor={blue!80!black}
+	% Enable highlighting links.
+	colorlinks,
+	% Change the color of links to blue.
+	linkcolor=blue,
+	% Change the color of citations to black.
+	citecolor={black},
+	% Change the color of url's to blue with some black.
+	urlcolor={blue!80!black}
 }
 
 %%%%%%%%%%%%%%%%%%
@@ -158,11 +158,11 @@
 %%%%%%%%%%%%%%%%%%
 
 \newcommand{\wrapfill}{\par\ifnum\value{WF@wrappedlines}>0
-    \parskip=0pt
-    \addtocounter{WF@wrappedlines}{-1}%
-    \null\vspace{\arabic{WF@wrappedlines}\baselineskip}%
-    \WFclear
-\fi}
+		\parskip=0pt
+		\addtocounter{WF@wrappedlines}{-1}%
+		\null\vspace{\arabic{WF@wrappedlines}\baselineskip}%
+		\WFclear
+	\fi}
 
 %%%%%%%%%%%%%%%%%
 % Multi Columns %
@@ -173,17 +173,17 @@
 
 \RenewDocumentEnvironment{multicols}{mO{}}
 {%
-  \ifnum#1=1
-    #2%
-  \else % More than 1 column
-    \multicolmulticols{#1}[#2]
-  \fi
+	\ifnum#1=1
+		#2%
+	\else % More than 1 column
+		\multicolmulticols{#1}[#2]
+	\fi
 }
 {%
-  \ifnum#1=1
-\else % More than 1 column
-  \endmulticolmulticols
-\fi
+	\ifnum#1=1
+	\else % More than 1 column
+		\endmulticolmulticols
+	\fi
 }
 
 \newlength{\thickarrayrulewidth}

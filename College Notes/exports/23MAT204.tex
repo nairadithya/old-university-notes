@@ -1,4 +1,4 @@
-% Created 2024-08-27 Tue 20:04
+% Created 2024-08-29 Thu 14:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,10 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:org1586aaa}
+\label{sec:orga4d3a8d}
 \chapter{Revision Linear Algebra}
-\label{sec:org3a957e8}
-
+\label{sec:org990d095}
 Every matrix satisfies its own characteristic matrix.
 
 What this means is
@@ -48,17 +47,17 @@ What this means is
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:orgbd2451a}
+\label{sec:orgcad2732}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:orgd91b489}
+\label{sec:orgff692e5}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:orgce23868}
+\label{sec:orga32e935}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -66,7 +65,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:orgb264492}
+\label{sec:org9808608}
 For rectangular matrices.
 \[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
 
@@ -228,12 +227,12 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 \chapter{Multi variable Optimization}
-\label{sec:orgfd3c265}
+\label{sec:org94e00ea}
 We minimize \(f(x_1,x_2,\cdots,x_3)\).
 \section{Contour Curves}
-\label{sec:orgd681291}
+\label{sec:orgc0c345a}
 \section{Multi variable Calculus}
-\label{sec:orgef98f8f}
+\label{sec:orga131fb3}
 The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
 
 \begin{align*}
@@ -247,7 +246,7 @@ x = 0,\frac{-4}{3} \\
 y = 0,\frac{-8}{3} \\
 \end{align*}
 \section{Newton's Method}
-\label{sec:org54379ee}
+\label{sec:org0a2f368}
 Newton's Method is a numerical method to find a minimum of a function.
 
 Iterative formula:
@@ -268,12 +267,12 @@ Evaluation of first and second derivatives numerically:
 $$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
 $$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
 \section{How solution to a linear system can be found as a solution of an optimization problem.}
-\label{sec:org0afe5b8}
+\label{sec:org34702ca}
 Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
 
 Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
 \section{Numerical Algorithm Of Gauss-Jacobi Method}
-\label{sec:orgdde9abd}
+\label{sec:org2913642}
 
 Input A = [a\textsubscript{ij}], X0 = x\textsuperscript{(0)}, tolerance TOL, maximum number of iterations,
 
@@ -312,7 +311,7 @@ for i = 2:n
 end
 \end{verbatim}
 \section{Gauss-Siedel Iteration Method}
-\label{sec:org6f5b7cc}
+\label{sec:org134a187}
 The iterative method is somewhat similar to <Gauss-Jacobi method>.
 
 The only difference is that the new values are computed by already existing new values.
@@ -345,7 +344,7 @@ $$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
 
 If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
 \section{Unidirectional/Line search}
-\label{sec:org8bccb3a}
+\label{sec:org1c38d40}
 For a given function,
 
 Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
@@ -360,7 +359,7 @@ How to perform uni-directional search:
 Find the minimum of the function \(f(x) = (x-2)^2 - y\), starting from the point \((-1,0)\) along \((1,1)^T\)
 \end{itemize}
 \section{Directions Of Change}
-\label{sec:org27d9440}
+\label{sec:org4780746}
 A direction given by the vector \$x\textsuperscript{(k)}\} is a descent direction only if the function value decreases along that direction from the point, \(x^{(k)}\), when
 $$\nabla f(x^{(k)}\cdot d < 0$$
 
@@ -370,7 +369,7 @@ $$\nabla f(x^{(k)}\cdot d > 0$$
 Question: Check whether the given function have a descent direction \(x = (2,-1)\) along the given directions \(d_1\) and \(d_2\)
 $$f = 2x_1^{2} + x_2^2-2x_1x_2 + 2x_1^3 + x_2^4$$
 \section{Directions Of Descent/Ascent In Numerical Algorithms.}
-\label{sec:orgc7080f9}
+\label{sec:orgfbdb58c}
 In any numerical algorithm to find the optimum of an unconstrained problem, the iterative formula used is:
 $$x^{k+1} = x^k + \alpha^kd^k$$
 Where \(\alpha^k\) is the step length in step k and \(d^k\) is the direction of descent in step k, if it's a minimization problem or a direction of ascent if it's a maximization problem.
@@ -380,7 +379,7 @@ Gradient DEscent - \(x_{k+1} = x_k + \alpha_kd_k\) where \(d_k = - \nabla f(x_k)
 
 A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
 \section{Steepest Descent}
-\label{sec:org3c08812}
+\label{sec:orgb89fbdc}
 A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
 
 A direction along which the function decreases rapidly from a point is given by the negative of the gradient of the function at that point
@@ -395,7 +394,7 @@ This method produces successive directions that are perpendicular to each other.
 
 Near the minima, during line search the convergence is very slow.
 \section{Numerical Method}
-\label{sec:org43bc31b}
+\label{sec:orgd23cbcb}
 To implement this programmatically, we can write\ldots{}
 For \(Ax=b\), we can convert this to an equivalent optimization problem.
 $$f(x) = \frac{1}{2}x^TAx + - b^Tx + c$$
@@ -404,24 +403,24 @@ We have a linear system of equations, which we can be solved by \(Ax=b\)
 
 We can write \(g_0 = Ax_{0} - b\)
 \section{Conjugate Gradient Descent}
-\label{sec:orgc32917a}
+\label{sec:orge5ed4b6}
 The problem with normal gradient descent is that there is no way to predict when the function converges. There's a method that can reliably find the convergence in a predictable fashion. That's the conjugate gradient method.
 
 First we must understnand the conjugate direction and the terms associated with them
 \begin{enumerate}
 \item Krylov Subspace
-\label{sec:org5614bca}
+\label{sec:org7afb814}
 Let \(A \in R^{n \times n}, b \in R^n\), the Krylov subspace \(K_j(A,b)\) is defined as \(K_j(A,b) = span \{\vec{b}, \vec{Ab}, A^2b, A^3b, \dots , A^{j-1}b\}\). Thus \(K_j(A,b)\) is subspace of \(\mathbb{R}^n\)
 \item Krylov Matrix
-\label{sec:org8ac3893}
+\label{sec:org763ec36}
 The Krylov Matrix is just the matrix consisting of the basis vectors as the column vectors. The Krylov subspace is the column space of such a matrix.
 \item Motivation For Krylov Subspaces
-\label{sec:org6fce266}
+\label{sec:org1176f32}
 We know the Cayley Hamilton theorem, and its use in calculating the inverse from the characteristic equation
 
 Interestingly, the calculation for the inverse leads to a linear combination of the basis vectors of the Krylov subspace when solving linear systems.
 \item Conjugate Directions
-\label{sec:orga481c97}
+\label{sec:org409ac77}
 For A real symmetric matrix \(n \times n\) with rank \(n\)
 
 The directions \(d_0 d_1 \dots d_{n-1}\) are said to be A-conjugate if,
@@ -430,7 +429,7 @@ $$d_i Ad_j = 0 $$ for \(i \neq j\)
 
 It's a new definition for orthogonality(not orthonormal)
 \item Numerical Method
-\label{sec:orgedc0f41}
+\label{sec:orgaabc5cf}
 Input \(A,b,x^{0}\)
 
 Compute \(\vec{r_{0}} = b - A x^0\)
@@ -460,4 +459,28 @@ x
 r
 \end{verbatim}
 \end{enumerate}
+\chapter{Probability}
+\label{sec:org04d958e}
+\section{Probability mass function}
+\label{sec:orga753dc1}
+For discrete inputs
+The probabilty mass function for a discrete random variable \(x\) is defined as, \(f(x) = P(X = x)\)
+\begin{enumerate}
+\item Properties
+\label{sec:orgae2b37d}
+\begin{itemize}
+\item \(0 \leq f(x) \leq 1\)
+\item \(\Sigma f(x) = 1\)
+\item \(P(\text{at least n outcomes}) = P(X \geq n) = f(n) + \cdots + f(end)\)
+\end{itemize}
+\item Mean Of Random Variable
+\label{sec:orgb070601}
+$$U_x = E(x) = \Sigma x f(x)$$
+\item Variance Of Random Variable
+\label{sec:org31bf29c}
+$$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
+$$\sigma_x^{2} = E(X^2) - \mu^2$$
+\end{enumerate}
+\section{Probability density function - For continuous inputs}
+\label{sec:org8e3ec7f}
 \end{document}

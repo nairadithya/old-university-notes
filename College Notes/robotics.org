@@ -217,6 +217,7 @@ $$\Omega = \begin{bmatrix}
 ^0 \dot{P} = \omega \times R ^1 \vec{p} \\
 \vec{v} = \vec{\omega} \times \vec{r}
 \end{align*}
+
 ** Unit 2 - Kinematics Of Robotic Manipulators
 *** Forward And Inverse Kinematics
 Forward kinematics is the use of the joint space to get to the task space.
@@ -225,3 +226,7 @@ Inverse Kinematics is the use of the task space to get to the joint space.
 Workspace - The space of all points that the end effector can reach.
 * Practice Sheets
 [[file:~/University-Latex-Notes/Introduction To Robotics/assignments/23AID202_ITR_PracticeSheet01.pdf][Practice Sheet 1]]
+The notations used in our lectures are similar with this book.
+
+- For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
+- For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
