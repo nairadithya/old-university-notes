@@ -15,3 +15,4 @@ octave-workspace
 *.gz
 /Introduction to AI And Machine Learning/.virtual_documents/
 /Introduction to AI And Machine Learning/assignment-1/.ipynb_checkpoints/Digital Assignment1- Machine Learning-checkpoint.pdf
+.virtual_documents/
