@@ -1,12 +1,12 @@
 #+title: Advanced Data Structures And Algorithm Analysis
 #+author: Adithya Nair
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 
 
 * DSA Notes
 ** Graphs
 *** Representations Of A Graph
 **** Adjacency Matrix
-
 Adjacency matrices are matrices which can be used to represent the connections that nodes have to each other. This is done by making a matrix of size $n$ for $n$ nodes. And the following rules exist for generating the matrix.
 
 1. If there is a link from node $i$ to node $j$ then the element $A_{ij}$ for the adjacency matrix $A$ is 1.
@@ -123,7 +123,7 @@ Value of left node must be smaller than parent, and value of right node must be 
 **** Binary Search Tree Deletion
 - It works the same as a linked list operation.
 - We use In order Traversal to figure out the node's value, it takes the value of its in order successor.
-*** avl trees(height balanced binary tree)
+*** AVL trees(height balanced binary tree)
 what this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
 
 Each node is given a balancing factor, $= h_l-h_r$
@@ -191,7 +191,6 @@ int k = a[0];
 a[0] = a[n];
 a[n] = k;
 n = n-1;
-
 #+end_src
 ** Tries
 How do you go about storing a dictionary? We construct a root node with 26 child nodes, one for each letter. Then each letter, sequentially forms the subsequent child node.
@@ -207,3 +206,27 @@ Trie is a sorted tree based data structure that stores a set of strings, it has 
 - Phone Book
 - Spell checker
 - Browser history
+** Hashing
+*** Hash Table
+Hash tables are a 2-dimensional data structure of a fixed size. They allow you to have one probe, the data can be returned immediately
+*** Hash Functions
+1. Division method
+   Given a set of data $k$, for a one-dimensional hash table of a size $n$, We store the elements, where $u$ is the element in the hash and the hash function is $h(k)$
+   $i = h_{k} \% n$  $u_i = k$, we find the index through the modulus function and store it in the corresponding element within the array.
+
+QUESTION: Use division method, to store the following data into a hash table of size $m=10$, the has function is $h_k = (2k_i + 5)$
+
+2. Folding method
+3. Mid-square method
+4. Modulo-multiplication method
+*** Collision Avoidance Methods
+For open hashing, chaining method is used for collision handling
+The chaining method involves creating a pointer to another node, and the conflict element is added to that node instead.
+
+For closed hashing
+Three methods to handle collision:
+1. Linear probing
+2. Quadratic probing
+3. Double hashing
+*** Open Hashing(Closed Addressing)
+*** Closed Hashing(Open Addresssing)

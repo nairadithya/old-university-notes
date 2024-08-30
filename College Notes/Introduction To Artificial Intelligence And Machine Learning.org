@@ -537,3 +537,7 @@ The reasons to perform feature selection is:
 2. Right selection between features
 
 TODO Read up on $chi^2$ function
+** Filter Methods
+Works on the basis of score, like $\chi^{2}$, the features are scored and the best features are selected.
+** Wrapper Methods
+Recursive feature elimination

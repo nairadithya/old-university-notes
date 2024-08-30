@@ -479,5 +479,5 @@ $$U_x = E(x) = \Sigma x f(x)$$
 **** Variance Of Random Variable
 $$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
 $$\sigma_x^{2} = E(X^2) - \mu^2$$
-
+*** Cumulative Distribution Function
 *** Probability density function - For continuous inputs
