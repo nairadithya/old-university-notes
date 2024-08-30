@@ -471,8 +471,6 @@ The probabilty mass function for a discrete random variable $x$ is defined as, $
 - $\Sigma f(x) = 1$
 - $P(\text{at least n outcomes}) = P(X \geq n) = f(n) + \cdots + f(end)$
 
-
-
 **** Mean Of Random Variable
 $$U_x = E(x) = \Sigma x f(x)$$
 
@@ -480,4 +478,17 @@ $$U_x = E(x) = \Sigma x f(x)$$
 $$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
 $$\sigma_x^{2} = E(X^2) - \mu^2$$
 *** Cumulative Distribution Function
+A cumulative distribution function is just adding the previous terms to the new terms.
 *** Probability density function - For continuous inputs
+For continuous inputs
+
+The probability density function for a continuous random variable $x$ is defined as, $P(a \le x \le b) = \int_a^b f(x)dx$
+
+**** Properties
+- $f(x) \ge 0$
+- $\int_xf(x) = 1$, where $\int_x$ is the range for which $x$ is defined.
+**** Mean Of Random Variable
+$$U_x = E(x) = \Sigma x f(x)$$
+**** Variance Of Random Variable
+$$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
+$$\sigma_x^{2} = E(X^2) - \mu^2$$

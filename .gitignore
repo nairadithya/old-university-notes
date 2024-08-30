@@ -1,5 +1,4 @@
 /Introduction To Computer Networks/pt/
-*.tex
 /Introduction to AI And Machine Learning/notebooks/.ipynb_checkpoints/
 *.log
 *.out
@@ -8,3 +7,10 @@
 *.fdb_latexmk
 octave-workspace
 /College Notes/exports/.auctex-auto/
+/.obsidian/
+*.el
+.auctex-auto/
+*.aux
+*.gz
+/Introduction to AI And Machine Learning/.virtual_documents/
+/Introduction to AI And Machine Learning/assignment-1/.ipynb_checkpoints/Digital Assignment1- Machine Learning-checkpoint.pdf
