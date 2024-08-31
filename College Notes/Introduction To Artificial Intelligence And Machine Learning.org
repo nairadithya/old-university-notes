@@ -1,6 +1,7 @@
 #+title:Introduction To Artificial Intelligence And Machine Learning.
 #+AUTHOR: Adithya Nair
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+#+EXPORT_FILE_NAME: exports/AIML.html
 
 * Overview
 ** Some Terms Used
@@ -541,3 +542,43 @@ TODO Read up on $chi^2$ function
 Works on the basis of score, like $\chi^{2}$, the features are scored and the best features are selected.
 ** Wrapper Methods
 Recursive feature elimination
+* K-Nearest Neighbour Classifier
+** Other Names For It
+1. K-nearest neighbours
+2. Memory-based reasoning
+3. Example Based Reasoning
+4. Instance Based Learning
+5. Lazy learning
+** Introduction
+
+- K-nearest neighbours stores all available cases and classifies new cases based on a similarity measure(some distance function)
+- It is non-parametric
+
+The approach to doing this is by classifying new data points based on the most common class of its $K$ -nearest neighbours(measured by some distance function). We take odd numbers of neighbours since we don't want equal votes to happen.
+
+** Distance Measures For Continuous
+1. Euclidean
+2. Manhattan
+3. Minkowski
+
+** How To Choose K
+If $k$ is too small, it is sensitive to noise points. But if $k$ is very large, then it might capture outliers. A good rule of thumb is $K<sqrt(n)$.
+
+** Feature Weighting
+We can assign weights to features by making a vector $\vec{w}$ which allows us to assign importance to a feature, based on our knowledge(These weights can be determined by cross-validation)
+
+** Feature Normalization
+As is with most other algorithms, normalization prevents features with large numbers from overtaking the distance function.
+
+** Nominal/Categorical Data
+Two methods
+- If they're the same, mark them as 0, if they're different mark the feature as 1
+- Use indexing to mark them from 0 - $n$ unique features and plot them in the space
+** Imbalanced Data
+Imbalanced datasets have the consequence of higher values of $k$ tending to select the majority class instead of the 'correct' class.
+** Distance Weighted Nearest Neighbour Algorithm
+$$w = \frac{1}{d(x_{q},x_{i})}$$
+** Efficient Memory Search
+ * If we are working with a large dataset, the time cost in computing the distances between a query and all the training instances and retrieving the k nearest neighbors may be prohibitive.
+ * Use a tree which is a balanced binary tree in which each of the n odes in the tree index one of the instances in a training dataset.
+ * The tree is constructed so that nodes that are nearby in the tree index.

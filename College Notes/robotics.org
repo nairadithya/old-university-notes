@@ -79,7 +79,7 @@ To simplify the equations, we write.
 
 $$^A\vec{P} = _B^AT ^BP$$
 Where T becomes
-$$^A_BT = \begin{bmatrix}^A_BR_{3 \times 3} & ^AP_{B org} \\ 0_{1 \times 3} 1_{1 \times 1}\end{bmatrix}$$
+$$^A_BT = \begin{bmatrix}^A_BR_{3 \times 3} & ^AP_{B org} \\ 0_{1 \times 3} & 1_{1 \times 1}\end{bmatrix}$$
 
 This T is the homogeneous transformation matrix.
 
@@ -225,7 +225,7 @@ Inverse Kinematics is the use of the task space to get to the joint space.
 
 Workspace - The space of all points that the end effector can reach.
 * Practice Sheets
-[[file:~/University-Latex-Notes/Introduction To Robotics/assignments/23AID202_ITR_PracticeSheet01.pdf][Practice Sheet 1]]
+[[file:~/university-notes/Introduction To Robotics/assignments/23AID202_ITR_PracticeSheet01.pdf][Practice Sheet 1]]
 The notations used in our lectures are similar with this book.
 
 - For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
