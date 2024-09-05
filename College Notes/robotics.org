@@ -2,7 +2,9 @@
 #+author: Adithya Nair
 #+LATEX_HEADER: \input{preamble}
 #+LATEX_CLASS: report
+#+EXPORT_FILE_NAME: exports/robotics.html
 * Robotics
+[[file:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf][Textbook]]
 ** Unit 1
 *** Introduction
 This course is mainly going to focus on *Manipulators*. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
@@ -224,6 +226,149 @@ Forward kinematics is the use of the joint space to get to the task space.
 Inverse Kinematics is the use of the task space to get to the joint space.
 
 Workspace - The space of all points that the end effector can reach.
+*** Inverse Kinematics Of 2R Planar Structures
+
+We solve for $q_2$ and eliminate $q_1$
+
+\begin{align*}
+q_2 &= \cos^{-1} \kappa \\
+\kappa &= \frac{^0X_{2}^2 + ^0Y_{2}^2 - L_1^2 - L_2^2}}{2L_1L_2} \\
+\end{align*}
+
+We have two cases,
+
+Case 1: $-1<\kappa<1$ We have two distinct and real solutions of $q_2$
+
+Case 2: $|\kappa| = 1$ We have one solution
+
+Case 3: $|\kappa| < 1$ No solution exists
+*** Forward Kinematics And Inverse Kinematics Of 3R Planar Structures
+$$X_e = L_1 \cos {q_1} + L_2 \cos(q_1+ q_2) + L_3 cos(q_1 + q_2 + q_3)$$
+
+For a 3R Planar structure, the way to find the forward kinematics is straightforward.
+
+What we get for the inverse kinematics is with 3 knowns, $^0X_e, ^0Y_e, \phi$ where $(\phi = q_1 + q_2 + q_3)$ we reduce the problem down to $^0X_{2}, ^0Y_2$ by finding,
+
+\begin{align*}
+^0X_e - L_3 \cos{\phi} &= L_{1} \cos q_1 + L_2 \cos q_{12}\\
+^0Y_e - L_3 \sin{\phi} &= L_{1}\sin q_1 + L_2 \sin q_{12}
+\end{align*}
+
+Now we know that those terms are nothing but
+
+\begin{align*}
+^0X_{2}&= L_{1} \cos q_1 + L_2 \cos q_{12}\\
+^0Y_{2} &= L_{1}\sin q_1 + L_2 \sin q_{12}
+\end{align*}
+
+Which we can solve the same as the 2R Planar Structure
+*** Jacobian Forward Kinematics
+Given $\dot{q_{1}}, \dot{q_{2}}$, how do we get $^0X_{e}, ^0Y_e$? and similarly how do we get the angular velocities of a machine from the end effector's velocity.
+
+We know that for 2R Planar SCMs,
+\begin{align*}
+^0X_e &= L_1 c q_1  + L_2 c(q_1 + q_2) \\
+^0Y_e &= L_1 s q_1 + L_2 s(q_1+q_2) \\
+^0\dot{X_e} &= -\dot{q_1}L_1 s q_1 - L_2s(q_{1}+q_2)\times(\dot{q_1} + \dot{q_2}) \\
+^0\dot{Y_e} &= +\dot{q_1}L_1 c q_1 + L_2c(q_{1}+q_2)\times(\dot{q_1} + \dot{q_2})
+\end{align*}
+
+We have,
+$$\dot{X}_{2\times1} = J_{2 \times2} \times \dot{q}_{2 \times1}$$
+
+
+We now have this for a specific case, when we generalize,
+$$ \dot{X} =  \begin{bmatrix} ^0_nv \\ ^0_n\omega \\ \end{bmatrix} = J \dot{q}$$
+
+So now we can write the term
+
+$$^0_{n}\omega = \sum_{i=1}^n \dot{\theta}_i z$$
+
+
+
+*** Lab Questions
+**** Question 1
+
+Consider the 3R Planar SCM with $L_1 = 2m$, $L_2 = 3m, L_3 = 4m$
+#+begin_src octave :session LQ1
+L = [2;3;4];
+
+% Workspace Points
+WS_points = zeros(0,0);
+#+end_src
+
+#+RESULTS:
+: >
+
+
+***** Forward Kinematics,
+Find the co-ordinates of the end-effector in the base frame:
+ 1. For $q = [q_1 q_2 q_3]^T= [30\deg 45 \deg 60 \deg]^{T}$
+ 2. For $q = [q_1 q_2 q_3]^T= [270\deg 75 \deg 10 \deg]^{T}$
+***** Inverse kinematics,
+Find the joint space variables,
+ 1. For $\phi = q_1 + q_2 + q_3 = 0$ and $[^0X_e, ^0Y_e] = [2,4]$
+ 2. For $\phi = q_1 + q_2 + q_3 = 45$ and $[^0X_e, ^0Y_e] = [5,5]$
+***** Workspace Analysis
+Draw the workspace of the 3R planar serial chain manipulator using forward and inverse kinematics.
+1. For $\phi = 0$ and
+2. For $\phi = 45\deg$
+****** Using Forward Kinematics
+****** Using Inverse Kinematics
+
+\begin{align*}
+\begin{bmatrix} ^0X_e \\ ^0Y_e \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) + L_3 cos(\phi) \\ L_1 sin q_1 + L_2sin(q_{12}) + L_3 sin(\phi) \end{bmatrix}\\
+\begin{bmatrix} ^0X_e - L_3 cos(\phi) \\ ^0Y_e - L_3 sin(\phi) \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) \\ L_1 sin q_1 + L_2sin(q_{12}) \end{bmatrix} \\
+\begin{bmatrix} ^0X_2 \\ ^0Y_2 \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) \\ L_1 sin q_1 + L_2sin(q_{12}) \end{bmatrix} \\
+^0X_2^2 + ^0Y_2^2 &= (L_1^2) + (L_2)^2 + 2L_1L_2\cos(q_2)\\
+q_2 = \cos^{-1}\kappa
+\end{align*}
+
+We plot the workspace by checking the point $(L_{1} + L_2 + L_3,0)$ and $(-(L_1 + L_2 + L_3),0)$ as they are the points at which the arm is fully extended. This means that the radius of the circle we need to check is just a circle where $r = (L_1 + L_2 + L_{3})$
+
+We then look at points where $\kappa > -1$ and $\kappa < 1$ since those are the points which are reachable in the workspace.
+
+#+begin_src octave :session LQ1 :results output
+P = zeros(3,1);
+P(3) = 0;
+range = linspace(-(L(1) + L(2) + L(3)),L(1) + L(2) + L(3));
+[X,Y] = ndgrid(range);
+
+% Position vector of {2} from ground frame
+for i = 1:length(X)
+  for j = 1:length(Y)
+    P(1) = X(i,j);
+    P(2) = Y(i,j);
+    X2 = [P(1) - L(3)*cos(P(3));P(2) - L(2)*sin(P(3))];
+    kappa = (X2(1)^2 + X2(2)^2 - L(1)^2 - L(2)^2)/2*L(1)*L(2);
+        if(kappa >= -1 && kappa <= 1)
+        % Appending to the workspace
+        WS_points = cat(1,WS_points,[P(1) P(2)])
+        end
+  end
+end
+#+end_src
+
+Now we plot,
+#+begin_src octave :session LQ1 :results file
+figure('1, "visible", "off", 'units', 'normalized','outerposition',[0 0 0.5 1])
+
+plot(WS_points(:,1), WS_points(:,2),'bo','LineWidth',1.5)
+grid on; grid minor
+ylim([-((L(1) + L(2) + L(3))-1 L(1) + L(2) + L(3))+1 ])
+xlim([-((L(1) + L(2) + L(3))-1 L(1) + L(2) + L(3))+1 ])
+axis equal
+xlabel('X-Axis(m)')
+ylabel('Y-Axis(m)')
+
+print -dpng ../images/octave-chart.png;
+ans = "../images/octave-chart.png";
+#+end_src
+
+
+#+RESULTS:
+[[file:../images/octave-chart.png]]
+
 * Practice Sheets
 [[file:~/university-notes/Introduction To Robotics/assignments/23AID202_ITR_PracticeSheet01.pdf][Practice Sheet 1]]
 The notations used in our lectures are similar with this book.

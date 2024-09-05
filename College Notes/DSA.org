@@ -69,7 +69,6 @@ The functions required in this queue are:
 - `Delete()`
 - `Traverse()`
 
-
 **** Depth-First Search
 This involves traversing the nodes until an edge node is met, using a stack.
 
@@ -96,10 +95,11 @@ class DFS {
 #+end_src
 
 ** Trees
+
 A tree with at most two links from one node is known as a binary tree.
 *** Properties
 - Maximum number of nodes - $2^i$
-- Height is longest distance between root to leaf nodes (count the edges)
+- height is longest distance between root to leaf nodes (count the edges)
 - Maximum number of nodes possible till height h is $(2^0 + 2^1 + 2^2 + \cdots 2^h)$ = $2^{h+1} -1$
 *** Types Of Binary Trees
 **** Full/Proper/Strict Binary Tree
@@ -113,7 +113,7 @@ It is a tree where each node must contain 2 children except the leaf node.
 **** Complete Binary Tree
 A binary tree where all the nodes are completely filled except the last level.
 
-**** Degenerate Binary Tree
+**** TODO Degenerate Binary Tree
 Exactly like a linked list.
 **** Balanced Binary Tree
 - The heights of left and right trees can have a maximum height difference of 1.
@@ -123,8 +123,8 @@ Value of left node must be smaller than parent, and value of right node must be 
 **** Binary Search Tree Deletion
 - It works the same as a linked list operation.
 - We use In order Traversal to figure out the node's value, it takes the value of its in order successor.
-*** AVL trees(height balanced binary tree)
-what this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
+*** AVL trees(Height Balanced Binary Tree)
+What this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
 
 Each node is given a balancing factor, $= h_l-h_r$
 A tree is said to be imbalanced if any node is said to have a balancing factor $\geq$ 2.
@@ -139,19 +139,21 @@ The first letter is the sub-tree, and the second letter is the child node.
 Construct an AVL tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
 
 All 4 rotations are capable of causing an imbalance.
+#+begin_src
 
+#+end_src
 ** Heap
-heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
-*** types of heap
-there are two types of heap:
-**** min heap
-the value of the root node is less than or equal to  its children
-**** max heap
+Heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
+*** Types Of Heap
+There are two types of heap:
+**** Min Heap
+The value of the root node is less than or equal to its children
+**** Max Heap
 the value of the root node is more than or equal to its children
-*** definition
-a heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
-a heap is typically represented as an array, the array representation for a tree, is for each node
-a parent node is represented by $\frac{i}{2} - 1$, the left child node is $2\times i + 1$ and the right child node is $2 \times i + 2$
+*** Definition
+A heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
+A heap is typically represented as an array, the array representation for a tree, is for each node
+A parent node is represented by $\frac{i}{2} - 1$, the left child node is $2\times i + 1$ and the right child node is $2 \times i + 2$
 
 Heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
 *** Insertion
@@ -219,13 +221,17 @@ QUESTION: Use division method, to store the following data into a hash table of 
 2. Folding method
 3. Mid-square method
 4. Modulo-multiplication method
+*** Note On Probing
+
+
 *** Collision Avoidance Methods
 For open hashing, chaining method is used for collision handling
 The chaining method involves creating a pointer to another node, and the conflict element is added to that node instead.
 
-For closed hashing
+For closed hashing,
 Three methods to handle collision:
 1. Linear probing
+   When a collision occurs, insert the hash into the subsequent node($\frac{(u+i)}{n}$).
 2. Quadratic probing
 3. Double hashing
 *** Open Hashing(Closed Addressing)

@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-09-04 Wed 14:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>23MAT204</title>
+<meta name="author" content="Adithya Nair" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">23MAT204</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org93c7867">1. Mathematics</a>
+<ul>
+<li><a href="#org2af12fd">1.1. Revision Linear Algebra</a>
+<ul>
+<li><a href="#orgdb88e95">1.1.1. Ways To Calculate Whether A Matrix Is Positive Definite</a></li>
+<li><a href="#org29c514e">1.1.2. Large Eigenvalue Computation</a></li>
+<li><a href="#orga0c0439">1.1.3. Specral Decomposition</a></li>
+<li><a href="#orgaf6de0f">1.1.4. Singular Value Decomposition</a></li>
+<li><a href="#the-geometry-of-svd">1.1.5. The Geometry of SVD</a></li>
+<li><a href="#polar-decomposition">1.1.6. Polar Decomposition</a></li>
+<li><a href="#principal-component-analysis">1.1.7. Principal Component Analysis</a></li>
+<li><a href="#norms-of-vectors-and-matrices">1.1.8. Norms Of Vectors And Matrices</a></li>
+<li><a href="#best-low-rank-matrix">1.1.9. Best Low Rank Matrix</a></li>
+</ul>
+</li>
+<li><a href="#org24a93b6">1.2. Multi variable Optimization</a>
+<ul>
+<li><a href="#org6f60e08">1.2.1. Contour Curves</a></li>
+<li><a href="#org5afa254">1.2.2. Multi variable Calculus</a></li>
+<li><a href="#orgdaff04c">1.2.3. Newton&rsquo;s Method</a></li>
+<li><a href="#orgd3488a7">1.2.4. How solution to a linear system can be found as a solution of an optimization problem.</a></li>
+<li><a href="#org2e88106">1.2.5. Numerical Algorithm Of Gauss-Jacobi Method</a></li>
+<li><a href="#org96549e0">1.2.6. Gauss-Siedel Iteration Method</a></li>
+<li><a href="#orgd0f83b1">1.2.7. Unidirectional/Line search</a></li>
+<li><a href="#orgcaa3b69">1.2.8. Directions Of Change</a></li>
+<li><a href="#org04443c2">1.2.9. Directions Of Descent/Ascent In Numerical Algorithms.</a></li>
+<li><a href="#orgc4a804e">1.2.10. Steepest Descent</a></li>
+<li><a href="#org4f3a0bf">1.2.11. Numerical Method</a></li>
+<li><a href="#org61f33e1">1.2.12. Conjugate Gradient Descent</a></li>
+</ul>
+</li>
+<li><a href="#orge7a22bd">1.3. Probability</a>
+<ul>
+<li><a href="#org612b3cd">1.3.1. Probability mass function</a></li>
+<li><a href="#org1b8a3ee">1.3.2. Cumulative Distribution Function</a></li>
+<li><a href="#org793ec6a">1.3.3. Probability density function - For continuous inputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org93c7867" class="outline-2">
+<h2 id="org93c7867"><span class="section-number-2">1.</span> Mathematics</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2af12fd" class="outline-3">
+<h3 id="org2af12fd"><span class="section-number-3">1.1.</span> Revision Linear Algebra</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Every matrix satisfies its own characteristic matrix.
+</p>
+
+<p>
+What this means is
+\[\begin{aligned}
+    \lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\ 
+    A^3 - 2A^2 + A -4I &= 0 \\  
+    A^2 - 2A + I - 4A^{-1} &= 0 \\
+    A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\
+    X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b
+\end{aligned}\] There are some implications behind this. Here&rsquo;s a problem, generate a random 3x3 matrix, find the ranks of
+\((A- \lambda_1 I)\) and then \((A-\lambda_1 I)(A-\lambda_2 I\)
+</p>
+
+<p>
+What you will see is that the rank reduces upon multiplying roots of the
+characteristic equation
+</p>
+</div>
+<div id="outline-container-orgdb88e95" class="outline-4">
+<h4 id="orgdb88e95"><span class="section-number-4">1.1.1.</span> Ways To Calculate Whether A Matrix Is Positive Definite</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ol class="org-ol">
+<li>The minors are positive then negative alternating.</li>
+<li>The eigenvalues are positive.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org29c514e" class="outline-4">
+<h4 id="org29c514e"><span class="section-number-4">1.1.2.</span> Large Eigenvalue Computation</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+Large eigenvalues are computed by using a matrix multiplication method.
+This method involves:
+</p>
+</div>
+</div>
+<div id="outline-container-orga0c0439" class="outline-4">
+<h4 id="orga0c0439"><span class="section-number-4">1.1.3.</span> Specral Decomposition</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+\[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
+</p>
+
+<p>
+This allows us to represent a matrix by the sum of n rank 1 matrices.
+This is used in square symmetric matrices.
+</p>
+
+<p>
+This is the basis behind Principal Component Analysis.
+</p>
+</div>
+</div>
+<div id="outline-container-orgaf6de0f" class="outline-4">
+<h4 id="orgaf6de0f"><span class="section-number-4">1.1.4.</span> Singular Value Decomposition</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+For rectangular matrices.
+\[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
+</p>
+
+<p>
+This is mainly used for getting useful properties about the matrix
+without needing to perform significant operations on this matrix, such
+as the orthogonality.
+</p>
+
+<p>
+Singular values are the eigenvalues of a matrix which are <b>non-zero</b>
+</p>
+
+<p>
+So a rectangular matrix \(m \times n\) would have \(AA^T\) which is
+\(m \times m\) and \(A^TA\) which is \(n \times n\). The number of
+singular values is whether \(m\) or \(n\) is lower.
+</p>
+
+<p>
+The trace of \(A^TA\) equal to the sum of all \(a_{ij}^2\) The trace is
+the sum of all eigenvalues of \(A^T A\), and For \(A_{m \times n}\)
+that&rsquo;s the sum of the eigenvalues squared.
+</p>
+
+<p>
+This is known as the <b>Frobenius Norm</b>
+</p>
+
+<p>
+This method can also be used to generate orthonormal bases for the 4
+Fundamental Subspaces
+</p>
+</div>
+</div>
+<div id="outline-container-the-geometry-of-svd" class="outline-4">
+<h4 id="the-geometry-of-svd"><span class="section-number-4">1.1.5.</span> The Geometry of SVD</h4>
+<div class="outline-text-4" id="text-the-geometry-of-svd">
+<p>
+Since we have an orthogonal matrix, diagonal and orthogonal matrix&#x2026;
+It&rsquo;s a rotation step followed by a stretching step, finally ended by
+another rotation step.
+</p>
+</div>
+</div>
+<div id="outline-container-polar-decomposition" class="outline-4">
+<h4 id="polar-decomposition"><span class="section-number-4">1.1.6.</span> Polar Decomposition</h4>
+<div class="outline-text-4" id="text-polar-decomposition">
+<p>
+This decomposition is a special case of the Singular Value
+Decomposition. Where you decompose the elements into the polar form with
+an orthogonal matrix and a positive semi-definite matrix.
+</p>
+
+<p>
+For 2D, \[\vec{x} = r(\cos(\theta) + sin(\theta))\]
+</p>
+
+<p>
+\[\begin{aligned}
+    A &= U \Sigma V^T \\ 
+      &= U(V^TV) \Sigma V^T \\
+      &= (UV^T)(V\Sigma V^T)\\
+      &= Q \times S \\
+\end{aligned}\]
+</p>
+
+<p>
+Here S is the scaling matrix, and Q is the orthogonal matrix.
+</p>
+
+<p>
+Although my assumptions might be wrong, this might be a way to generate
+rotation matrices for higher-dimension spaces. Might be useful in
+exploring the semantic spaces of LLMs.
+</p>
+</div>
+</div>
+<div id="outline-container-principal-component-analysis" class="outline-4">
+<h4 id="principal-component-analysis"><span class="section-number-4">1.1.7.</span> Principal Component Analysis</h4>
+<div class="outline-text-4" id="text-principal-component-analysis">
+<p>
+Why do we use normalization while working with data? We use
+normalization to ensure that the units are eliminated while working with
+that given data. <b>This normalization is done by subtracting by the
+average and divide by the standard deviation.</b>
+</p>
+
+<p>
+Matrix where the row and columns sums are equal.
+</p>
+</div>
+</div>
+<div id="outline-container-norms-of-vectors-and-matrices" class="outline-4">
+<h4 id="norms-of-vectors-and-matrices"><span class="section-number-4">1.1.8.</span> Norms Of Vectors And Matrices</h4>
+<div class="outline-text-4" id="text-norms-of-vectors-and-matrices">
+<p>
+Norms are a way to measure the size of a vector/matrix. The norm of a
+vector which calculates the magnitude is known as the \(L^2\) norm or
+the Euclidean norm \(\|v\|_2\). This number gives us the length of the
+vector.
+</p>
+
+<p>
+In general, the \(\|u\|_p\) or the p-norm of a vector is
+\([|u_1|^p + |u_2|^p + \cdots + |u_n|^p]^{\frac{1}{p}}\).
+</p>
+
+<p>
+Now, the \(L_1\) norm would be the sum of the components of the vector.
+This is the sum of the projections to each corresponding axis.
+</p>
+
+<p>
+The \(L_3\) norm would be
+\([|u_1|^3 + |u_2|^3 + \cdots + |u_n|^3]^{\frac{1}{3}}\)
+</p>
+
+<p>
+The \(L_\infty\) norm would be
+\([|u_1|^\infty + |u_2|^\infty + \cdots + |u_n|^\infty]^{\frac{1}{\infty}}\).
+This returns the maximum vector component of the vector.
+</p>
+
+<p>
+Let&rsquo;s take the equation, \(\|v\|_1 = 1\) \[\begin{aligned}
+    x + y &amp;= 1 <br />
+    x - y &amp;= 1 <br />
+</p>
+<ul class="org-ul">
+<li>x + y &amp;= 1 <br /></li>
+</ul>
+<p>
+    -x - y = 1 <br />
+\end{aligned}\]
+</p>
+
+<p>
+<a id="orgfa1d5be"></a>
+<a href="./figures/l1eq1">./figures/l1eq1</a>
+</p>
+
+<p>
+The S-norm of a vector \(\vec{x}\) is \(\vec{x}^T S \vec{x}\). When S is
+a symmetric positive definite matrix, this S-norm is known as the energy
+of vector \(\vec{v}\)
+</p>
+
+<p>
+There are three types of Matrix norms:
+</p>
+
+<ol class="org-ol">
+<li>Spectral Norm</li>
+
+<li>Frobenius Norm =
+\(\sqrt{\sigma_1^2 + \sigma_2^2 + \cdots + \sigma_r^2}\)</li>
+
+<li>Nuclear Norm</li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="spectral-norm"></a>Spectral Norm<br />
+<div class="outline-text-5" id="text-spectral-norm">
+<p>
+We know that the vector norm for a vector \(\vec{x}\) is nothing but
+\(\vec{x}^T \vec{x}\). We take this property.
+</p>
+
+<p>
+\[\begin{aligned}
+    Max \|A\|_2^2 &= Max \frac{\|Ax\|_2^2}{\|x\|_2^2} \\
+              &= Max \frac{x^TA^TAx}{x^Tx} \\
+              &= Max \{\lambda_i(S)\} = \lambda_1 = \sigma_1^2
+\end{aligned}\]
+</p>
+</div>
+</li>
+<li><a id="frobenius-norm"></a>Frobenius Norm<br />
+<div class="outline-text-5" id="text-frobenius-norm">
+<p>
+The Frobenius norm for a matrix M, \(\begin{bmatrix}
+    a_{11} & a_{12}\\
+a_{21} & a_{22} \\
+\end{bmatrix}\) is the equation
+\(\sqrt{a_{11}^2 + a_{12}^2 + a_{21}^2 + a_{22}^2}\)
+</p>
+</div>
+</li>
+<li><a id="nuclear-norm"></a>Nuclear Norm<br />
+<div class="outline-text-5" id="text-nuclear-norm">
+<p>
+The nuclear norm is the sum of the singular values of a matrix A.
+</p>
+
+<p>
+For an identity matrix,
+</p>
+
+<ul class="org-ul">
+<li>The Spectral Norm is 1</li>
+
+<li>The Frobenius Norm is \(\sqrt{n}\)</li>
+
+<li>The Nuclear Norm is \({n}\)</li>
+</ul>
+
+<p>
+For an orthogonal matrix,
+</p>
+
+<ul class="org-ul">
+<li>The Spectral Norm is 1</li>
+
+<li>The Frobenius Norm is \(\sqrt{n}\)</li>
+
+<li>The Nuclear Norm is \({n}\)</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-best-low-rank-matrix" class="outline-4">
+<h4 id="best-low-rank-matrix"><span class="section-number-4">1.1.9.</span> Best Low Rank Matrix</h4>
+<div class="outline-text-4" id="text-best-low-rank-matrix">
+<p>
+We say that a matrix is the best approximation of another matrix, based
+on the Frobenius Norm.. For a singular value decomposition
+\(A = U\Sigma V^T\), if we assume that the singular values are arranged
+in descending order&#x2026; We can select the singular value range where the
+values are significant contributors to the final matrix.
+</p>
+
+<p>
+We can then reduce the size of \(U, \Sigma\) and \(V^T\) into a smaller
+matrix B, based on the number of singular values chosen which would give
+the best approximation.
+</p>
+
+<p>
+Let \(A = U\Sigma V^T\) where
+\(\Sigma: \sigma_1 \geq \sigma_2 \geq \cdots \sigma_n\), then B =
+\(U_{m\times m} \Sigma V^T{n \times n}\) is a best rank-k approx. to A.
+Where, S is a diagonal matrix of \(n \times n\) where
+\(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
+solution to \(min_B \|A - B\|F\) where rank(B) = k
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org24a93b6" class="outline-3">
+<h3 id="org24a93b6"><span class="section-number-3">1.2.</span> Multi variable Optimization</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+We minimize \(f(x_1,x_2,\cdots,x_3)\).
+</p>
+</div>
+<div id="outline-container-org6f60e08" class="outline-4">
+<h4 id="org6f60e08"><span class="section-number-4">1.2.1.</span> Contour Curves</h4>
+</div>
+<div id="outline-container-org5afa254" class="outline-4">
+<h4 id="org5afa254"><span class="section-number-4">1.2.2.</span> Multi variable Calculus</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
+</p>
+
+\begin{align*}
+f(x,y) = x^3 + y^3 + 2x^2 + 4y^2 + 6 \\
+\frac{\partial f}{\partial x} = 3x^2 + 4x \\
+\frac{\partial^2 f}{\partial x} = 6x + 4 \\
+\frac{\partial f}{\partial y} = 3y^2 + 8y\\
+\frac{\partial f}{\partial y\partial x} = 0\\
+\frac{\partial^2 f}{\partial y} = 6y + 8\\
+x = 0,\frac{-4}{3} \\
+y = 0,\frac{-8}{3} \\
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgdaff04c" class="outline-4">
+<h4 id="orgdaff04c"><span class="section-number-4">1.2.3.</span> Newton&rsquo;s Method</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+Newton&rsquo;s Method is a numerical method to find a minimum of a function.
+</p>
+
+<p>
+Iterative formula:
+</p>
+
+<p>
+\[
+x_{n+1} = x_n - \frac{f'(x_n)}{f''(x_n)}
+\]
+</p>
+
+<p>
+Find the minimum of \(f(x) = x^2 + \frac{54}{x}\) using Newton&rsquo;s method.
+</p>
+
+<p>
+Newton&rsquo;s method can be practically done for all functions by evaluating the first and second derivatives numerically and then apply the formula
+</p>
+
+<p>
+\[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \text{to find root of $f(x)$ = 0}\]
+\[x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \text{to find minimum of $f(x)$(root of $f'(x) = 0)}\]
+</p>
+
+<p>
+Evaluation of first and second derivatives numerically:
+</p>
+
+<p>
+\[f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}\]
+\[f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgd3488a7" class="outline-4">
+<h4 id="orgd3488a7"><span class="section-number-4">1.2.4.</span> How solution to a linear system can be found as a solution of an optimization problem.</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
+</p>
+
+<p>
+Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
+</p>
+</div>
+</div>
+<div id="outline-container-org2e88106" class="outline-4">
+<h4 id="org2e88106"><span class="section-number-4">1.2.5.</span> Numerical Algorithm Of Gauss-Jacobi Method</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+Input A = [a<sub>ij</sub>], X0 = x<sup>(0)</sup>, tolerance TOL, maximum number of iterations,
+</p>
+
+<p>
+\(Ax = b\)
+</p>
+
+<p>
+We separate A,
+A = D - L - U
+</p>
+
+<p>
+\[(D-L-U)x = b\]
+\[(Dx= b + (L+U)x\]
+\[(x= D^{-1}b + D^{-1}(L+U)x\]
+</p>
+
+<p>
+\[x^{(k)} = Tx^{x^{(k-1)}} + c\]
+</p>
+
+
+<p>
+The code to implement the method:
+</p>
+<div class="org-src-container">
+<pre class="src src-octave">A <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">5</span><span style="color: #f38ba8;">,-</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">3</span><span style="color: #f38ba8;">;-</span><span style="color: #fab387;">3</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">9</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,-</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">,-</span><span style="color: #fab387;">7</span>]<span style="color: #f38ba8;">;</span>
+b <span style="color: #f38ba8;">=</span> [<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">3</span>]<span style="color: #f38ba8;">;</span>
+
+n <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">100</span><span style="color: #f38ba8;">;</span> <span style="color: #6c7086;">% No. of iterations</span>
+D <span style="color: #f38ba8;">=</span> diag(diag(A))<span style="color: #f38ba8;">;</span>
+L <span style="color: #f38ba8;">=</span> <span style="color: #f38ba8;">-</span>tril(A<span style="color: #f38ba8;">,-</span><span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span>
+U <span style="color: #f38ba8;">=</span> <span style="color: #f38ba8;">-</span>triu(A<span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span>
+
+X <span style="color: #f38ba8;">=</span> zeros(size(A)(<span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">,</span>n)<span style="color: #f38ba8;">;</span>
+T <span style="color: #f38ba8;">=</span> inv(D)<span style="color: #f38ba8;">*</span>(L<span style="color: #f38ba8;">+</span>U)<span style="color: #f38ba8;">;</span>
+c <span style="color: #f38ba8;">=</span> inv(D)<span style="color: #f38ba8;">*</span>b<span style="color: #f38ba8;">;</span>
+
+<span style="color: #cba6f7;">for</span> i <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">2</span><span style="color: #f38ba8;">:</span>n
+  X(<span style="color: #f38ba8;">:,</span>i) <span style="color: #f38ba8;">=</span> T<span style="color: #f38ba8;">*</span>X(<span style="color: #f38ba8;">:,</span>i<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>) <span style="color: #f38ba8;">+</span> c<span style="color: #f38ba8;">;</span>
+  <span style="color: #cba6f7;">if</span>(X(<span style="color: #f38ba8;">:,</span>i) <span style="color: #f38ba8;">==</span> X(<span style="color: #f38ba8;">:,</span>i<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>))
+    i<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>
+    <span style="color: #cba6f7;">break</span><span style="color: #f38ba8;">;</span>
+  <span style="color: #cba6f7;">end</span>
+<span style="color: #cba6f7;">end</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org96549e0" class="outline-4">
+<h4 id="org96549e0"><span class="section-number-4">1.2.6.</span> Gauss-Siedel Iteration Method</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<p>
+The iterative method is somewhat similar to &lt;Gauss-Jacobi method&gt;.
+</p>
+
+<p>
+The only difference is that the new values are computed by already existing new values.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-octave">A <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">5</span><span style="color: #f38ba8;">,-</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">3</span><span style="color: #f38ba8;">;-</span><span style="color: #fab387;">3</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">9</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,-</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">,-</span><span style="color: #fab387;">7</span>]<span style="color: #f38ba8;">;</span>
+b <span style="color: #f38ba8;">=</span> [<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">3</span>]<span style="color: #f38ba8;">;</span>
+
+n <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">100</span><span style="color: #f38ba8;">;</span> <span style="color: #6c7086;">% No. of iterations</span>
+D <span style="color: #f38ba8;">=</span> diag(diag(A))<span style="color: #f38ba8;">;</span>
+L <span style="color: #f38ba8;">=</span> <span style="color: #f38ba8;">-</span>tril(A<span style="color: #f38ba8;">,-</span><span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span>
+U <span style="color: #f38ba8;">=</span> <span style="color: #f38ba8;">-</span>triu(A<span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span>
+
+X <span style="color: #f38ba8;">=</span> zeros(size(A)(<span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">,</span>n)<span style="color: #f38ba8;">;</span>
+T <span style="color: #f38ba8;">=</span> inv(D<span style="color: #f38ba8;">-</span>L)<span style="color: #f38ba8;">*</span>U<span style="color: #f38ba8;">;</span>
+c <span style="color: #f38ba8;">=</span> inv(D<span style="color: #f38ba8;">-</span>L)<span style="color: #f38ba8;">*</span>b<span style="color: #f38ba8;">;</span>
+
+<span style="color: #cba6f7;">for</span> i <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">2</span><span style="color: #f38ba8;">:</span>n
+  X(<span style="color: #f38ba8;">:,</span>i) <span style="color: #f38ba8;">=</span> T<span style="color: #f38ba8;">*</span>X(<span style="color: #f38ba8;">:,</span>i<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>) <span style="color: #f38ba8;">+</span> c<span style="color: #f38ba8;">;</span>
+  <span style="color: #cba6f7;">if</span>(X(<span style="color: #f38ba8;">:,</span>i) <span style="color: #f38ba8;">==</span> X(<span style="color: #f38ba8;">:,</span>i<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>))
+    display(<span style="color: #a6e3a1;">"The iteration converges at:"</span>)
+    i<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>
+    <span style="color: #cba6f7;">break</span><span style="color: #f38ba8;">;</span>
+  <span style="color: #cba6f7;">end</span>
+<span style="color: #cba6f7;">end</span>
+</pre>
+</div>
+
+<p>
+\[(D-L)x^{k} = Ux^{k-1} + b\]
+\[x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})\]
+</p>
+
+<p>
+If the matrix is &rsquo;diagonally dominant&rsquo;, where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd0f83b1" class="outline-4">
+<h4 id="orgd0f83b1"><span class="section-number-4">1.2.7.</span> Unidirectional/Line search</h4>
+<div class="outline-text-4" id="text-1-2-7">
+<p>
+For a given function,
+</p>
+
+<p>
+Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
+</p>
+
+<p>
+How to perform uni-directional search:
+</p>
+<ul class="org-ul">
+<li>Write the parametric representation of the line search, \[\vec{s}(t) = \vec{a} + t\vec{b}\]</li>
+<li>Write the function in terms of \(t\), \(f(\vec{s}(t))\). this is a single variable function.</li>
+<li>Find the minimum of \(f(\vec{s}(t))\), \(t^*\)</li>
+<li><p>
+Obtain the solution for unidirectional search by substituting \(t^*\) in \(\vec{s}(t)\)
+</p>
+
+<p>
+Find the minimum of the function \(f(x) = (x-2)^2 - y\), starting from the point \((-1,0)\) along \((1,1)^T\)
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcaa3b69" class="outline-4">
+<h4 id="orgcaa3b69"><span class="section-number-4">1.2.8.</span> Directions Of Change</h4>
+<div class="outline-text-4" id="text-1-2-8">
+<p>
+A direction given by the vector $x<sup>(k)</sup>} is a descent direction only if the function value decreases along that direction from the point, \(x^{(k)}\), when
+\[\nabla f(x^{(k)}\cdot d < 0\]
+</p>
+
+<p>
+A direction given by the vector $x<sup>(k)</sup>} is an ascent direction only if the function value increases along that direction from the point, \(x^{(k)}\), when
+\[\nabla f(x^{(k)}\cdot d > 0\]
+</p>
+
+<p>
+Question: Check whether the given function have a descent direction \(x = (2,-1)\) along the given directions \(d_1\) and \(d_2\)
+\[f = 2x_1^{2} + x_2^2-2x_1x_2 + 2x_1^3 + x_2^4\]
+</p>
+</div>
+</div>
+<div id="outline-container-org04443c2" class="outline-4">
+<h4 id="org04443c2"><span class="section-number-4">1.2.9.</span> Directions Of Descent/Ascent In Numerical Algorithms.</h4>
+<div class="outline-text-4" id="text-1-2-9">
+<p>
+In any numerical algorithm to find the optimum of an unconstrained problem, the iterative formula used is:
+\[x^{k+1} = x^k + \alpha^kd^k\]
+Where \(\alpha^k\) is the step length in step k and \(d^k\) is the direction of descent in step k, if it&rsquo;s a minimization problem or a direction of ascent if it&rsquo;s a maximization problem.
+</p>
+
+<p>
+Newton&rsquo;s Method: \(x_{k+1} = x_k -(H(x_k)^{-1}\nabla f(x_k))\)
+Gradient DEscent - \(x_{k+1} = x_k + \alpha_kd_k\) where \(d_k = - \nabla f(x_k)\) and \(\alpha =\) using line search
+</p>
+
+<p>
+A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
+</p>
+</div>
+</div>
+<div id="outline-container-orgc4a804e" class="outline-4">
+<h4 id="orgc4a804e"><span class="section-number-4">1.2.10.</span> Steepest Descent</h4>
+<div class="outline-text-4" id="text-1-2-10">
+<p>
+A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
+</p>
+
+<p>
+A direction along which the function decreases rapidly from a point is given by the negative of the gradient of the function at that point
+</p>
+
+<p>
+The iterative formula of method of steepest descent is:
+</p>
+
+<p>
+\[x^{k+1} = x^k + \alpha^k d^k\]
+</p>
+
+<p>
+The descent direction \(d^k\) is along the steepest descent direction, \(d^k = - \nabla f(x^k\). The step length \(\alpha^k\) is obtained by performing a unidirectional search from \(x^k\) along the direction \(d^k\), by minimizing,
+</p>
+
+<p>
+This method produces successive directions that are perpendicular to each other.
+</p>
+
+<p>
+Near the minima, during line search the convergence is very slow.
+</p>
+</div>
+</div>
+<div id="outline-container-org4f3a0bf" class="outline-4">
+<h4 id="org4f3a0bf"><span class="section-number-4">1.2.11.</span> Numerical Method</h4>
+<div class="outline-text-4" id="text-1-2-11">
+<p>
+To implement this programmatically, we can write&#x2026;
+For \(Ax=b\), we can convert this to an equivalent optimization problem.
+\[f(x) = \frac{1}{2}x^TAx + - b^Tx + c\]
+</p>
+
+<p>
+We have a linear system of equations, which we can be solved by \(Ax=b\)
+</p>
+
+<p>
+We can write \(g_0 = Ax_{0} - b\)
+</p>
+</div>
+</div>
+<div id="outline-container-org61f33e1" class="outline-4">
+<h4 id="org61f33e1"><span class="section-number-4">1.2.12.</span> Conjugate Gradient Descent</h4>
+<div class="outline-text-4" id="text-1-2-12">
+<p>
+The problem with normal gradient descent is that there is no way to predict when the function converges. There&rsquo;s a method that can reliably find the convergence in a predictable fashion. That&rsquo;s the conjugate gradient method.
+</p>
+
+<p>
+First we must understnand the conjugate direction and the terms associated with them
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgbefb052"></a>Krylov Subspace<br />
+<div class="outline-text-5" id="text-1-2-12-1">
+<p>
+Let \(A \in R^{n \times n}, b \in R^n\), the Krylov subspace \(K_j(A,b)\) is defined as \(K_j(A,b) = span \{\vec{b}, \vec{Ab}, A^2b, A^3b, \dots , A^{j-1}b\}\). Thus \(K_j(A,b)\) is subspace of \(\mathbb{R}^n\)
+</p>
+</div>
+</li>
+<li><a id="org532d070"></a>Krylov Matrix<br />
+<div class="outline-text-5" id="text-1-2-12-2">
+<p>
+The Krylov Matrix is just the matrix consisting of the basis vectors as the column vectors. The Krylov subspace is the column space of such a matrix.
+</p>
+</div>
+</li>
+<li><a id="orgae706d4"></a>Motivation For Krylov Subspaces<br />
+<div class="outline-text-5" id="text-1-2-12-3">
+<p>
+We know the Cayley Hamilton theorem, and its use in calculating the inverse from the characteristic equation
+</p>
+
+<p>
+Interestingly, the calculation for the inverse leads to a linear combination of the basis vectors of the Krylov subspace when solving linear systems.
+</p>
+</div>
+</li>
+<li><a id="org2c1002f"></a>Conjugate Directions<br />
+<div class="outline-text-5" id="text-1-2-12-4">
+<p>
+For A real symmetric matrix \(n \times n\) with rank \(n\)
+</p>
+
+<p>
+The directions \(d_0 d_1 \dots d_{n-1}\) are said to be A-conjugate if,
+</p>
+
+<p>
+\[d_i Ad_j = 0 \] for \(i \neq j\)
+</p>
+
+<p>
+It&rsquo;s a new definition for orthogonality(not orthonormal)
+</p>
+</div>
+</li>
+<li><a id="orgb644eed"></a>Numerical Method<br />
+<div class="outline-text-5" id="text-1-2-12-5">
+<p>
+Input \(A,b,x^{0}\)
+</p>
+
+<p>
+Compute \(\vec{r_{0}} = b - A x^0\)
+</p>
+<div class="org-src-container">
+<pre class="src src-octave">A <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">1</span> <span style="color: #fab387;">2</span> <span style="color: #fab387;">3</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">2</span> <span style="color: #fab387;">3</span> <span style="color: #fab387;">4</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">3</span> <span style="color: #fab387;">4</span> <span style="color: #fab387;">5</span>]<span style="color: #f38ba8;">;</span>
+
+b <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">6</span> <span style="color: #fab387;">9</span> <span style="color: #fab387;">12</span>]<span style="color: #f38ba8;">';</span>
+x <span style="color: #f38ba8;">=</span> randi([<span style="color: #f38ba8;">-</span><span style="color: #fab387;">9</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">9</span>]<span style="color: #f38ba8;">,</span> length(b)<span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span>
+r <span style="color: #f38ba8;">=</span> b <span style="color: #f38ba8;">-</span> A<span style="color: #f38ba8;">*</span>x<span style="color: #f38ba8;">;</span>
+d <span style="color: #f38ba8;">=</span> r<span style="color: #f38ba8;">;</span>
+alpha <span style="color: #f38ba8;">=</span> (r<span style="color: #f38ba8;">'*</span>r)<span style="color: #f38ba8;">/</span>(d<span style="color: #f38ba8;">'*</span>(A<span style="color: #f38ba8;">*</span>d))<span style="color: #f38ba8;">;</span>
+beta <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">0</span><span style="color: #f38ba8;">;</span>
+
+<span style="color: #cba6f7;">for</span> i <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">1</span><span style="color: #f38ba8;">:</span>size(A<span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span>)
+  x <span style="color: #f38ba8;">=</span> x <span style="color: #f38ba8;">+</span> alpha<span style="color: #f38ba8;">*</span>d<span style="color: #f38ba8;">;</span>
+  rnew <span style="color: #f38ba8;">=</span> r <span style="color: #f38ba8;">-</span> alpha<span style="color: #f38ba8;">*</span>(A<span style="color: #f38ba8;">*</span>d)<span style="color: #f38ba8;">;</span>
+  beta <span style="color: #f38ba8;">=</span> (rnew<span style="color: #f38ba8;">'*</span>rnew)<span style="color: #f38ba8;">/</span>(r<span style="color: #f38ba8;">'*</span>r)<span style="color: #f38ba8;">;</span>
+  d <span style="color: #f38ba8;">=</span> rnew <span style="color: #f38ba8;">+</span> beta<span style="color: #f38ba8;">*</span>d<span style="color: #f38ba8;">;</span>
+  r <span style="color: #f38ba8;">=</span> rnew<span style="color: #f38ba8;">;</span>
+  alpha <span style="color: #f38ba8;">=</span> (r<span style="color: #f38ba8;">'*</span>r)<span style="color: #f38ba8;">/</span>(d<span style="color: #f38ba8;">'*</span>(A<span style="color: #f38ba8;">*</span>d))<span style="color: #f38ba8;">;</span>
+  <span style="color: #cba6f7;">if</span> sqrt(rnew) <span style="color: #f38ba8;">&lt;</span> 1e<span style="color: #f38ba8;">-</span><span style="color: #fab387;">10</span>
+    <span style="color: #cba6f7;">break</span><span style="color: #f38ba8;">;</span>
+    <span style="color: #cba6f7;">end</span>
+<span style="color: #cba6f7;">end</span>
+
+x
+r
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orge7a22bd" class="outline-3">
+<h3 id="orge7a22bd"><span class="section-number-3">1.3.</span> Probability</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org612b3cd" class="outline-4">
+<h4 id="org612b3cd"><span class="section-number-4">1.3.1.</span> Probability mass function</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+For discrete inputs
+The probabilty mass function for a discrete random variable \(x\) is defined as, \(f(x) = P(X = x)\)
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgad173a9"></a>Properties<br />
+<div class="outline-text-5" id="text-1-3-1-1">
+<ul class="org-ul">
+<li>\(0 \leq f(x) \leq 1\)</li>
+<li>\(\Sigma f(x) = 1\)</li>
+<li>\(P(\text{at least n outcomes}) = P(X \geq n) = f(n) + \cdots + f(end)\)</li>
+</ul>
+</div>
+</li>
+<li><a id="org65e0ead"></a>Mean Of Random Variable<br />
+<div class="outline-text-5" id="text-1-3-1-2">
+<p>
+\[U_x = E(x) = \Sigma x f(x)\]
+</p>
+</div>
+</li>
+<li><a id="orgdade35d"></a>Variance Of Random Variable<br />
+<div class="outline-text-5" id="text-1-3-1-3">
+<p>
+\[\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}\]
+\[\sigma_x^{2} = E(X^2) - \mu^2\]
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org1b8a3ee" class="outline-4">
+<h4 id="org1b8a3ee"><span class="section-number-4">1.3.2.</span> Cumulative Distribution Function</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+A cumulative distribution function is just adding the previous terms to the new terms.
+</p>
+</div>
+</div>
+<div id="outline-container-org793ec6a" class="outline-4">
+<h4 id="org793ec6a"><span class="section-number-4">1.3.3.</span> Probability density function - For continuous inputs</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+For continuous inputs
+</p>
+
+<p>
+The probability density function for a continuous random variable \(x\) is defined as, \(P(a \le x \le b) = \int_a^b f(x)dx\)
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgb95c2ab"></a>Properties<br />
+<div class="outline-text-5" id="text-1-3-3-1">
+<ul class="org-ul">
+<li>\(f(x) \ge 0\)</li>
+<li>\(\int_xf(x) = 1\), where \(\int_x\) is the range for which \(x\) is defined.</li>
+<li>For a continuous random variable, the probability at a point is \(0\), the probability that \(x\) takes a discrete value is zero.</li>
+</ul>
+</div>
+</li>
+<li><a id="orga5a6ff8"></a>Mean Of Random Variable<br />
+<div class="outline-text-5" id="text-1-3-3-2">
+<p>
+\[U_x = E(x) = \Sigma x f(x)\]
+</p>
+</div>
+</li>
+<li><a id="orgb7ab3f4"></a>Variance Of Random Variable<br />
+<div class="outline-text-5" id="text-1-3-3-3">
+<p>
+\[\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}\]
+\[\sigma_x^{2} = E(X^2) - \mu^2\]
+</p>
+</div>
+</li>
+<li><a id="org666c76b"></a>Cumulative Distribution Function<br />
+<div class="outline-text-5" id="text-1-3-3-4">
+<p>
+\[\int_0^x f(y)dy\]
+</p>
+</div>
+</li>
+<li><a id="orgd24b316"></a>Binomial Distribution<br />
+<div class="outline-text-5" id="text-1-3-3-5">
+<p>
+The Bernoulli Process
+</p>
+
+<ol class="org-ol">
+<li>Repeated trails,</li>
+<li>Each trial results in an outcome that may be classified as a success</li>
+<li>The trials are independent.</li>
+</ol>
+
+
+<p>
+Where n is the number of trials, x is the random variable distribution, \(q = 1 - p\)
+</p>
+
+<p>
+\(^nC_xp^{x} q^{n-x}\)
+</p>
+
+<p>
+We have,
+</p>
+\begin{align*}
+^nC_x \text{Different ways $x$ successes can occur among $n$ trials} \\
+p^x - \text{probability of getting $x$ successes} \\
+(1-p)^{n-x} - \text{probability of getting $n-x$ failures}
+\end{align*}
+</div>
+</li>
+<li><a id="org642ad0c"></a>Uniform Distribution<br />
+<div class="outline-text-5" id="text-1-3-3-6">
+<p>
+A probability distribution which is constant throught the interval, given by the function,
+</p>
+
+<p>
+\[f(x) = \frac{1}{b-a}  \]
+</p>
+
+<p>
+\[F(x) = \int_{-\infty}^xf(x)dx = \int_{-\infty}^x \frac{1}{b-a}  \]
+</p>
+
+<p>
+\[
+f(X) =    \begin{cases}
+0, - \infty < x < 0 \\
+x, 0<x<1 \\
+1, x > 1 \\
+     \end{cases}
+\]
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adithya Nair</p>
+<p class="date">Created: 2024-09-04 Wed 14:10</p>
+</div>
+</body>
+</html>

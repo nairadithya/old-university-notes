@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-09-03 Tue 11:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Software Defined Communication System</title>
+<meta name="author" content="Adithya Nair" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Software Defined Communication System</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org74ba848">1. Unit 1</a>
+<ul>
+<li><a href="#org88c6193">1.1. Convolutions</a></li>
+<li><a href="#orgef69614">1.2. Real Sinusoid</a></li>
+</ul>
+</li>
+<li><a href="#org117047b">2. Revision</a>
+<ul>
+<li><a href="#org86456bb">2.1. Chapter 1</a>
+<ul>
+<li><a href="#org6bd5592">2.1.1. Signal Energy And Power</a></li>
+<li><a href="#org461baa5">2.1.2. Time Invariance</a></li>
+<li><a href="#orgebef49f">2.1.3. Linearity</a></li>
+<li><a href="#orgcef9104">2.1.4. Discrete Convolution</a></li>
+<li><a href="#org7da1d24">2.1.5. Complex Numbers</a></li>
+<li><a href="#orgc25f6b3">2.1.6. Complex Sinusoids</a></li>
+<li><a href="#orgc71e6f0">2.1.7. Filters</a></li>
+</ul>
+</li>
+<li><a href="#org000568e">2.2. Chapter 2</a>
+<ul>
+<li><a href="#orgd8494ec">2.2.1. Modulation</a></li>
+<li><a href="#orgfb4fd0b">2.2.2. AM Power</a></li>
+<li><a href="#orgd4bfe4f">2.2.3. AM DSB SC</a></li>
+<li><a href="#org42ca6d9">2.2.4. Efficiency</a></li>
+<li><a href="#orge70b80b">2.2.5. AM-SSB</a></li>
+<li><a href="#orgf9a82a6">2.2.6. Hilbert Transform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5b48ebb">3. Lab</a>
+<ul>
+<li><a href="#orgf57724a">3.1. Sampling Theorem</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org74ba848" class="outline-2">
+<h2 id="org74ba848"><span class="section-number-2">1.</span> Unit 1</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org88c6193" class="outline-3">
+<h3 id="org88c6193"><span class="section-number-3">1.1.</span> Convolutions</h3>
+<div class="outline-text-3" id="text-1-1">
+\begin{definition}[Convolution]
+A convolution is an integral that expresses the amount of overlap of one function $f(t)$, as it is shifted over to function $g(t)$, for a continuous time signal.
+\[
+(f * g)(t) = \int_{-\infty}^{\infty} f(\tau)g(t - \tau) d \tau
+\]
+\end{definition}
+<p>
+When working with discrete signals, the integral becomes a summation.
+So the convolution $Y[h] $
+\[
+Y[h] = \Sum_{k = -\infty}^{\infty} x(k) h(n-k)
+\]
+</p>
+<div class="org-src-container">
+<pre class="src src-octave">h <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">0</span> <span style="color: #fab387;">1</span> <span style="color: #fab387;">2</span> <span style="color: #fab387;">3</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">2</span> <span style="color: #fab387;">4</span> <span style="color: #fab387;">1</span> <span style="color: #fab387;">3</span>]<span style="color: #f38ba8;">';</span>
+reverse <span style="color: #f38ba8;">=</span> @(H)[<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">*</span>H(<span style="color: #f38ba8;">:,</span><span style="color: #fab387;">1</span>) H(<span style="color: #f38ba8;">:,</span><span style="color: #fab387;">2</span>)]<span style="color: #f38ba8;">;</span>
+timeRH <span style="color: #f38ba8;">=</span> reverse(h)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-octave">clc<span style="color: #f38ba8;">;</span>
+clear all<span style="color: #f38ba8;">;</span>
+close all<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">% </span><span style="color: #6c7086;">Define the original signal</span>
+x <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">1</span> <span style="color: #fab387;">2</span> <span style="color: #fab387;">3</span> <span style="color: #fab387;">4</span>]<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">% </span><span style="color: #6c7086;">Define the time indices for plotting</span>
+n <span style="color: #f38ba8;">=</span> <span style="color: #fab387;">0</span><span style="color: #f38ba8;">:</span>length(x)<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">;</span>
+n_reversed <span style="color: #f38ba8;">=</span> <span style="color: #f38ba8;">-</span>fliplr(n)<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">% </span><span style="color: #6c7086;">Time-shifted versions</span>
+x_n1 <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">0</span> x(<span style="color: #fab387;">1</span><span style="color: #f38ba8;">:</span>end<span style="color: #f38ba8;">-</span><span style="color: #fab387;">1</span>)]<span style="color: #f38ba8;">;</span> <span style="color: #6c7086;">% Shifting right, padding with 0 at the beginning</span>
+x_np1 <span style="color: #f38ba8;">=</span> [x(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">:</span>end) <span style="color: #fab387;">0</span>]<span style="color: #f38ba8;">;</span> <span style="color: #6c7086;">% Shifting left, padding with 0 at the end</span>
+x_neg_n <span style="color: #f38ba8;">=</span> fliplr(x)<span style="color: #f38ba8;">;</span> <span style="color: #6c7086;">% Reversing the sequence</span>
+x_neg_np1 <span style="color: #f38ba8;">=</span> [fliplr(x(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">:</span>end)) <span style="color: #fab387;">0</span>]<span style="color: #f38ba8;">;</span> <span style="color: #6c7086;">% x[-n+1]</span>
+<span style="color: #6c7086;">% </span><span style="color: #6c7086;">Plotting</span>
+subplot(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span> stem(n<span style="color: #f38ba8;">,</span> x)<span style="color: #f38ba8;">;</span> title(<span style="color: #a6e3a1;">'x[n]'</span>)<span style="color: #f38ba8;">;</span>
+subplot(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">2</span>)<span style="color: #f38ba8;">;</span> stem(n<span style="color: #f38ba8;">,</span> x_n1)<span style="color: #f38ba8;">;</span> title(<span style="color: #a6e3a1;">'x[n-1]'</span>)<span style="color: #f38ba8;">;</span>
+subplot(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">3</span>)<span style="color: #f38ba8;">;</span> stem(n<span style="color: #f38ba8;">,</span> x_np1)<span style="color: #f38ba8;">;</span> title(<span style="color: #a6e3a1;">'x[n+1]'</span>)<span style="color: #f38ba8;">;</span>
+subplot(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">,</span><span style="color: #fab387;">4</span>)<span style="color: #f38ba8;">;</span> stem(n_reversed<span style="color: #f38ba8;">,</span> x_neg_n)<span style="color: #f38ba8;">;</span> title(<span style="color: #a6e3a1;">'x[-n]'</span>)<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">% </span><span style="color: #6c7086;">Plot x[-n+1] separately due to different time axis</span>
+figure<span style="color: #f38ba8;">;</span>
+stem(n_reversed<span style="color: #f38ba8;">+</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">,</span> x_neg_np1)<span style="color: #f38ba8;">;</span> title(<span style="color: #a6e3a1;">'x[-n+1]'</span>)<span style="color: #f38ba8;">;</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgef69614" class="outline-3">
+<h3 id="orgef69614"><span class="section-number-3">1.2.</span> Real Sinusoid</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+A rotation of two complex sinusoidal signals in opposite directions to each other.
+</p>
+<ul class="org-ul">
+<li>\(V(t)\) with a frequency F shown as solid blue line with \(V*(t)\) with frequency -F shown as dashed red line</li>
+<li>The I parts exactly fall on top of each other and hence are the same \(cos 2\pi Ft\)</li>
+<li>The Q parts carry exactly the same amplitude with opposite signs to each other and hence are \(sin 2\pi Ft\) and \(-sin 2\pi Ft\)</li>
+</ul>
+
+<p>
+\[|V \cdot V^*| = |V|^2 = V_I^2 + V_q^2\]
+</p>
+
+<p>
+It is a combination of two complex signals.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org117047b" class="outline-2">
+<h2 id="org117047b"><span class="section-number-2">2.</span> Revision</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org86456bb" class="outline-3">
+<h3 id="org86456bb"><span class="section-number-3">2.1.</span> Chapter 1</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org6bd5592" class="outline-4">
+<h4 id="org6bd5592"><span class="section-number-4">2.1.1.</span> Signal Energy And Power</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+\[E = \int_{-\infty}^{\infty}|x(t)|^2dt\]
+\[P \lim_{T \rightarrow \infty} \frac{1}{T} \int_{-T/2}^{T/2} |x(t)|^2dt\]
+</p>
+</div>
+</div>
+<div id="outline-container-org461baa5" class="outline-4">
+<h4 id="org461baa5"><span class="section-number-4">2.1.2.</span> Time Invariance</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<ul class="org-ul">
+<li>No time scaling</li>
+<li>Coefficient should be not be time dependent.</li>
+<li>Any addition or subtraction term to the system, should be constant or zero.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgebef49f" class="outline-4">
+<h4 id="orgebef49f"><span class="section-number-4">2.1.3.</span> Linearity</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>Any linear  system is independent of time scaling</li>
+<li>If the order of system is greater than 1, then it is not linear.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcef9104" class="outline-4">
+<h4 id="orgcef9104"><span class="section-number-4">2.1.4.</span> Discrete Convolution</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+\[y[n] = \Sigma_{k = -\infty}^{\infty}x[k]h[n-k]\]
+</p>
+</div>
+</div>
+<div id="outline-container-org7da1d24" class="outline-4">
+<h4 id="org7da1d24"><span class="section-number-4">2.1.5.</span> Complex Numbers</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<ul class="org-ul">
+<li>Inphase, \(V_I = |V| \cos(V)\)</li>
+<li>Quadrature \(V_Q = |V| \sin(V)\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc25f6b3" class="outline-4">
+<h4 id="orgc25f6b3"><span class="section-number-4">2.1.6.</span> Complex Sinusoids</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<ul class="org-ul">
+<li>V rotating anticlockwise at a constant rate</li>
+<li>Made up of two real sinusoids.</li>
+<li><p>
+Complex sinusoids with frequency F is composed of,
+</p>
+\begin{align*}
+V_I = \cos 2 \pi Ft \\
+V_Q = \sin 2 \pi Ft \\
+\end{align*}</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc71e6f0" class="outline-4">
+<h4 id="orgc71e6f0"><span class="section-number-4">2.1.7.</span> Filters</h4>
+<div class="outline-text-4" id="text-2-1-7">
+<ul class="org-ul">
+<li>Low pass
+Capacitor in parallel and inductor in series</li>
+<li>High pass</li>
+<li>Band pass</li>
+<li>Band stop</li>
+<li>Band reject</li>
+<li>Notch</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orge4f1563"></a>Pass Band<br />
+<div class="outline-text-5" id="text-2-1-7-1">
+<p>
+Range of frequences in which the filter allows the signal to pass
+</p>
+</div>
+</li>
+<li><a id="org0799b91"></a>Stop Band<br />
+<div class="outline-text-5" id="text-2-1-7-2">
+<p>
+Range of frequences which will reject passage
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org000568e" class="outline-3">
+<h3 id="org000568e"><span class="section-number-3">2.2.</span> Chapter 2</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-orgd8494ec" class="outline-4">
+<h4 id="orgd8494ec"><span class="section-number-4">2.2.1.</span> Modulation</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Reduces the size of antenna
+\(L \propto \lambda\) and \(\lambda = \frac{c}{f}\)
+</p>
+
+<p>
+Value of the modulating signal,
+</p>
+
+<p>
+\(v_1 = V_c + v_m = V_c + V_m \sin{2 \pi f_m t}\)
+\(v_{2} = v_{1} sin 2\pi f_ct\)
+</p>
+
+<p>
+\(m = \frac{V_m}{V_c}\) Modulation index
+</p>
+</div>
+</div>
+<div id="outline-container-orgfb4fd0b" class="outline-4">
+<h4 id="orgfb4fd0b"><span class="section-number-4">2.2.2.</span> AM Power</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+\[P_T = P_c + P_{USB} + P_{LSB}\]
+\[P_T = \frac{V_c^2}{2R} + \frac{V_m^2}{4R}\]
+</p>
+
+<p>
+So with modulation index,
+</p>
+
+<p>
+\[P_T = P_c(1 + \frac{m^2}{2})\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgd4bfe4f" class="outline-4">
+<h4 id="orgd4bfe4f"><span class="section-number-4">2.2.3.</span> AM DSB SC</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<ul class="org-ul">
+<li>2/3 of power in carrier</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org42ca6d9" class="outline-4">
+<h4 id="org42ca6d9"><span class="section-number-4">2.2.4.</span> Efficiency</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+\[\mu = \frac{P_{USB} + P_{LSB}}{P_{T}}\]
+\[\mu = \frac{\mu^2}{\mu^{2} + 2}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orge70b80b" class="outline-4">
+<h4 id="orge70b80b"><span class="section-number-4">2.2.5.</span> AM-SSB</h4>
+<div class="outline-text-4" id="text-2-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="orgd8e7d4a"></a>AM-SUSB<br />
+<div class="outline-text-5" id="text-2-2-5-1">
+<p>
+\[A_i A_c \cos(\omega_c + \omega_i)t\]
+</p>
+</div>
+</li>
+<li><a id="orgd4122e2"></a>AM-SLSB<br />
+<div class="outline-text-5" id="text-2-2-5-2">
+<p>
+\[A_iA_ccos(\omega_c - \omega_{i})t\]
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgf9a82a6" class="outline-4">
+<h4 id="orgf9a82a6"><span class="section-number-4">2.2.6.</span> Hilbert Transform</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<p>
+Converts cosine function into sine function by convolution of \(\cos(\phi(t))\) with \(\frac{1}{\pi t}\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org5b48ebb" class="outline-2">
+<h2 id="org5b48ebb"><span class="section-number-2">3.</span> Lab</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgf57724a" class="outline-3">
+<h3 id="orgf57724a"><span class="section-number-3">3.1.</span> Sampling Theorem</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+<pre class="src src-octave">clc<span style="color: #f38ba8;">;</span>
+close all<span style="color: #f38ba8;">;</span>
+clear all<span style="color: #f38ba8;">;</span>
+f1<span style="color: #f38ba8;">=</span><span style="color: #fab387;">3</span><span style="color: #f38ba8;">;</span>
+f2<span style="color: #f38ba8;">=</span><span style="color: #fab387;">23</span><span style="color: #f38ba8;">;</span>
+t<span style="color: #f38ba8;">=-</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">:</span><span style="color: #fab387;">0.0001</span><span style="color: #f38ba8;">:</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">;</span>
+x<span style="color: #f38ba8;">=</span>sin(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f1<span style="color: #f38ba8;">*</span>t)<span style="color: #f38ba8;">+</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">*</span>t)<span style="color: #f38ba8;">;</span>
+figure(<span style="color: #fab387;">1</span>)<span style="color: #f38ba8;">;</span>
+plot(t<span style="color: #f38ba8;">,</span>x<span style="color: #f38ba8;">,</span><span style="color: #a6e3a1;">'-.r'</span>)<span style="color: #f38ba8;">;</span>
+xlabel(<span style="color: #a6e3a1;">'time-----'</span>)<span style="color: #f38ba8;">;</span>
+ylabel(<span style="color: #a6e3a1;">'amp---'</span>)<span style="color: #f38ba8;">;</span>
+title(<span style="color: #a6e3a1;">'The original signal'</span>)<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">%</span><span style="color: #6c7086;">case 1: (fs&lt;2fm)</span>
+fs1<span style="color: #f38ba8;">=</span><span style="color: #fab387;">1.4</span><span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">;</span>
+ts1<span style="color: #f38ba8;">=</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">/</span>fs1<span style="color: #f38ba8;">;</span>
+n1<span style="color: #f38ba8;">=-</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">:</span>ts1<span style="color: #f38ba8;">:</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">;</span>
+xs1<span style="color: #f38ba8;">=</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f1<span style="color: #f38ba8;">*</span>n1)<span style="color: #f38ba8;">+</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">*</span>n1)<span style="color: #f38ba8;">;</span>
+figure(<span style="color: #fab387;">2</span>)<span style="color: #f38ba8;">;</span>
+stem(n1<span style="color: #f38ba8;">,</span>xs1)<span style="color: #f38ba8;">;</span>
+hold on<span style="color: #f38ba8;">;</span>
+plot(t<span style="color: #f38ba8;">,</span>x<span style="color: #f38ba8;">,</span><span style="color: #a6e3a1;">'-.r'</span>)<span style="color: #f38ba8;">;</span>
+hold off<span style="color: #f38ba8;">;</span>
+legend(<span style="color: #a6e3a1;">'fs&lt;2fm'</span>)<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">%</span><span style="color: #6c7086;">case 2: (fs=2fm)</span>
+fs2<span style="color: #f38ba8;">=</span><span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">;</span>
+ts2<span style="color: #f38ba8;">=</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">/</span>fs2<span style="color: #f38ba8;">;</span>
+n2<span style="color: #f38ba8;">=-</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">:</span>ts2<span style="color: #f38ba8;">:</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">;</span>
+xs2<span style="color: #f38ba8;">=</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f1<span style="color: #f38ba8;">*</span>n2)<span style="color: #f38ba8;">+</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">*</span>n2)<span style="color: #f38ba8;">;</span>
+figure(<span style="color: #fab387;">3</span>)<span style="color: #f38ba8;">;</span>
+stem(n2<span style="color: #f38ba8;">,</span>xs2)<span style="color: #f38ba8;">;</span>
+hold on<span style="color: #f38ba8;">;</span>
+plot(t<span style="color: #f38ba8;">,</span>x<span style="color: #f38ba8;">,</span><span style="color: #a6e3a1;">'-.r'</span>)<span style="color: #f38ba8;">;</span>
+hold off<span style="color: #f38ba8;">;</span>
+legend(<span style="color: #a6e3a1;">'fs=2fm'</span>)<span style="color: #f38ba8;">;</span>
+<span style="color: #6c7086;">%</span><span style="color: #6c7086;">case 3: (fs&gt;2fm)</span>
+fs3<span style="color: #f38ba8;">=</span><span style="color: #fab387;">7</span><span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">;</span>
+ts3<span style="color: #f38ba8;">=</span><span style="color: #fab387;">1</span><span style="color: #f38ba8;">/</span>fs3<span style="color: #f38ba8;">;</span>
+n3<span style="color: #f38ba8;">=-</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">:</span>ts3<span style="color: #f38ba8;">:</span><span style="color: #fab387;">0.4</span><span style="color: #f38ba8;">;</span>
+xs3<span style="color: #f38ba8;">=</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f1<span style="color: #f38ba8;">*</span>n3)<span style="color: #f38ba8;">+</span>cos(<span style="color: #fab387;">2</span><span style="color: #f38ba8;">*</span>pi<span style="color: #f38ba8;">*</span>f2<span style="color: #f38ba8;">*</span>n3)<span style="color: #f38ba8;">;</span>
+figure(<span style="color: #fab387;">4</span>)<span style="color: #f38ba8;">;</span>
+stem(n3<span style="color: #f38ba8;">,</span>xs3)<span style="color: #f38ba8;">;</span>
+hold on<span style="color: #f38ba8;">;</span>
+plot(t<span style="color: #f38ba8;">,</span>x<span style="color: #f38ba8;">,</span><span style="color: #a6e3a1;">'-.r'</span>)<span style="color: #f38ba8;">;</span>
+hold off<span style="color: #f38ba8;">;</span>
+legend(<span style="color: #a6e3a1;">'fs&gt;2fm'</span>)<span style="color: #f38ba8;">;</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adithya Nair</p>
+<p class="date">Created: 2024-09-03 Tue 11:02</p>
+</div>
+</body>
+</html>

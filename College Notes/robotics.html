@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-09-04 Wed 08:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introduction To Robotics</title>
+<meta name="author" content="Adithya Nair" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Introduction To Robotics</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5abc7d7">1. Robotics</a>
+<ul>
+<li><a href="#orgc62a83f">1.1. Unit 1</a>
+<ul>
+<li><a href="#orgdbe7153">1.1.1. Introduction</a></li>
+<li><a href="#org263d7ec">1.1.2. Syllabus</a></li>
+<li><a href="#orgbd247cf">1.1.3. Glossary</a></li>
+<li><a href="#orgdaaff42">1.1.4. Degree Of Freedom</a></li>
+<li><a href="#org27cc3c1">1.1.5. Kinematic Pair</a></li>
+<li><a href="#org35fb90a">1.1.6. Robotic Manipulator</a></li>
+<li><a href="#orgc6abba2">1.1.7. Pose of a rigid body</a></li>
+<li><a href="#org03ecc24">1.1.8. Denavit Hartenberg Parameters</a></li>
+<li><a href="#org2934efd">1.1.9. Rotation Matrix</a></li>
+<li><a href="#orgffd1f52">1.1.10. Derivation Using DH Parameters</a></li>
+<li><a href="#orgdb98146">1.1.11. Skew Symmetric Matrix</a></li>
+</ul>
+</li>
+<li><a href="#org86b6be9">1.2. Unit 2 - Kinematics Of Robotic Manipulators</a>
+<ul>
+<li><a href="#orgf8daaeb">1.2.1. Forward And Inverse Kinematics</a></li>
+<li><a href="#org8513317">1.2.2. Inverse Kinematics Of 2R Planar Structures</a></li>
+<li><a href="#org9d58612">1.2.3. Forward Kinematics And Inverse Kinematics Of 3R Planar Structures</a></li>
+<li><a href="#orgeecd4a9">1.2.4. Jacobian Forward Kinematics</a></li>
+<li><a href="#org57b555e">1.2.5. Lab Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4639ce2">2. Practice Sheets</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5abc7d7" class="outline-2">
+<h2 id="org5abc7d7"><span class="section-number-2">1.</span> Robotics</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="file:///home/adithya/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf">Textbook</a>
+</p>
+</div>
+<div id="outline-container-orgc62a83f" class="outline-3">
+<h3 id="orgc62a83f"><span class="section-number-3">1.1.</span> Unit 1</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgdbe7153" class="outline-4">
+<h4 id="orgdbe7153"><span class="section-number-4">1.1.1.</span> Introduction</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+This course is mainly going to focus on <b>Manipulators</b>. These machines are used to manipulate positions and the state of the objects in an environment. We&rsquo;re going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
+</p>
+</div>
+</div>
+<div id="outline-container-org263d7ec" class="outline-4">
+<h4 id="org263d7ec"><span class="section-number-4">1.1.2.</span> Syllabus</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>Overview Of Robotics</li>
+<li>Kinematics Of Simple Robotic Systems</li>
+<li>Dynamics And Control Of Simple Robotic Systems</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbd247cf" class="outline-4">
+<h4 id="orgbd247cf"><span class="section-number-4">1.1.3.</span> Glossary</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ol class="org-ol">
+<li>Actuator - Does work upon receiving voltage</li>
+<li>Encoder - Sensor that measures raw angle data.</li>
+</ol>
+
+
+<p>
+Software for robotics - <b>v-rep</b>, MATLAB
+This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdaaff42" class="outline-4">
+<h4 id="orgdaaff42"><span class="section-number-4">1.1.4.</span> Degree Of Freedom</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
+</p>
+
+<p>
+The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
+Localization - Finding the position and orientation of an object in 3-dimensional space.
+</p>
+
+<p>
+We call a system &rsquo;fully actuated&rsquo; when there are as many actuators as there are degrees of freedom.
+\[\text{No. of controlling inputs} < \text{No. of degrees of freedom}\]
+Underactuated systems contain lesser actuators than the number of degrees of freedom
+\[\text{No. of controlling inputs} = \text{No. of degrees of freedom}\]
+</p>
+
+<p>
+Redundant systems contain more actuators than the number of degrees of freedom
+\[\text{No. of controlling inputs} >\text{ No. of degrees of freedom}\]
+</p>
+</div>
+</div>
+<div id="outline-container-org27cc3c1" class="outline-4">
+<h4 id="org27cc3c1"><span class="section-number-4">1.1.5.</span> Kinematic Pair</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<p>
+Linkages are the basic elements of all mechanisms and robots. Links are rigid body member with nodes, and joints are connection between links at nodes. Allows relative motion between links.
+</p>
+</div>
+</div>
+<div id="outline-container-org35fb90a" class="outline-4">
+<h4 id="org35fb90a"><span class="section-number-4">1.1.6.</span> Robotic Manipulator</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<ul class="org-ul">
+<li>Why study kinematics and dynamics of robotic manipulator
+<ul class="org-ul">
+<li>To manipulate an object in space</li>
+<li>Understand the workspace and limitations of a robotic manipulator</li>
+<li>Understand and estimate contact force between end-effector and object being manipulated.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc6abba2" class="outline-4">
+<h4 id="orgc6abba2"><span class="section-number-4">1.1.7.</span> Pose of a rigid body</h4>
+<div class="outline-text-4" id="text-1-1-7">
+<p>
+A rigid body is completely defined in space by its position and orientation with respect to a reference.
+</p>
+
+<p>
+We use the terminology `Inertial reference frame&rsquo; to mean an observer where Newton&rsquo;s laws of physics apply. We use the terminology &rsquo;Inertial reference frame&rsquo; to mean an observer where Newton&rsquo;s laws of physics apply and the frame itself does not accelerate. Generally the base of the robotic manipulator is treated as the inertial reference frame
+</p>
+
+<p>
+We use unit vectors \(\hat{x},\hat{y},\hat{z}\) to describe the basis vectors. For the orientation of the rigid body, since they lie in 3d space, we must define new basis vectors to define the orientation, \(\hat{x'}, \hat{y'}, \hat{z'}\)
+</p>
+
+<p>
+\[
+\hat{x'} = x'_x \hat{x} + x'_y\hat{y} + x'_z\hat{z}
+\]
+</p>
+
+<p>
+\[
+\hat{y'} = y'_x \hat{x} + y'_y\hat{y} + y'_z\hat{z}
+\]
+</p>
+
+<p>
+\[
+\hat{z'} = z'_x \hat{x} + z'_y\hat{y} + z'_z\hat{z}
+\]
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org09e2dc4"></a>When the frame is translationally different from the original frame.<br />
+<div class="outline-text-5" id="text-1-1-7-1">
+<p>
+\[
+\vec{^AP} = \vec{^BP} + \vec{^AP}_{B org}
+\]
+Where \(^A\vec{P}\) is the position vector of P with respect to A, \(\vec{^BP}\) is the position vector of P with respect to B, and \(\vec{^AP}_{B org}\) is the vector of A to B.
+</p>
+</div>
+</li>
+<li><a id="org1947bd2"></a>When the frame is oriented differently from the original frame.<br />
+<div class="outline-text-5" id="text-1-1-7-2">
+<p>
+Generating a rotation matrix \(^B_AR\) to rotate vectors from a frame B to A. Where A and B are reference frames, with B being oriented differently than A.
+</p>
+
+<p>
+\[ \begin{bmatrix} \hat{X_b} \cdot \hat{X_a} & \hat{Y_b} \cdot \hat{X_a} & \hat{Z_b} \cdot \hat{X_a} \\ \hat{X_b} \cdot \hat{Y_a} & \hat{Y_b} \cdot \hat{Y_a} & \hat{Z_b} \cdot \hat{Y_a} \\ \hat{X_b} \cdot \hat{Z_a} & \hat{Y_b} \cdot \hat{Z_a} & \hat{Z_b} \cdot \hat{Z_a} \\ \end{bmatrix}\]
+</p>
+
+<p>
+We can simply the matrix into 3 column vectors, with the notation \(^AX_B\) which means B with respect to A
+</p>
+
+<p>
+\[\begin{bmatrix}\hat{^AX_B} & \hat{^AY_b} & \hat{^AZ_B}\end{bmatrix}\]
+</p>
+</div>
+</li>
+<li><a id="org2b51235"></a>When the frame is both translationally and oriented different from the original frame<br />
+<div class="outline-text-5" id="text-1-1-7-3">
+<p>
+\[ ^A\vec{P} = ^A_B R ^B\vec{P} + ^A\vec{P}_{B org}\]
+To simplify the equations, we write.
+</p>
+
+<p>
+\[^A\vec{P} = _B^AT ^BP\]
+Where T becomes
+\[^A_BT = \begin{bmatrix}^A_BR_{3 \times 3} & ^AP_{B org} \\ 0_{1 \times 3} & 1_{1 \times 1}\end{bmatrix}\]
+</p>
+
+<p>
+This T is the homogeneous transformation matrix.
+</p>
+
+<p>
+The Rotation Matrix belongs to a category of matrices called \(SO(3)\)(Special Orthogonal Matrices)
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org03ecc24" class="outline-4">
+<h4 id="org03ecc24"><span class="section-number-4">1.1.8.</span> Denavit Hartenberg Parameters</h4>
+<div class="outline-text-4" id="text-1-1-8">
+<p>
+These parameters are used to assign the same co-ordinate frames while dealing with robotic manipulators to ensure that the entire scientific community are working under the same conventions.
+</p>
+<ul class="org-ul">
+<li>Number the link sequentially from \(0\) to \(n\). Giving us \(n+1\) links.</li>
+<li>Number the joints sequentially from \(1\) to \(n\), Giving us \(n\) joints.</li>
+<li>Number of co-ordinate frames: \(n+1\)</li>
+<li>The \(Z_i\) axis is aligned with the \((i+1)^th\) joint axis.</li>
+<li>\(X_i\) is defined along the common normal between the \(Z_i\) and \(Z_{i-1}\) axis.(Common normal is the line which is perpendicular to both of these axes.)</li>
+<li>\(Y_i\) is obtained via cross product between \(Z_i\) and \(X_i\) axis.</li>
+<li>The origin is placed at this point of intersection of \(x_i\), \(y_i\) and \(z_i\)</li>
+<li>We define \(H_i\)(which is the point of intersection of the common normal of the next axis with the current axis.), and 4 new terms:
+<ul class="org-ul">
+<li>\(a_i\) - Offset distance between two adjacent joint axes(The distance between \(O_i\) and \(H_{i-1}\))</li>
+<li>\(d_i\) - Distance between \(H_{i-1}\) and \(O_{i-1}\)</li>
+<li>\(\alpha_i\) Angle between \(Z_i\) and \(Z_{i-1}\) when viewed from \(X_i\), this is also known as the twist angle.</li>
+<li>\(\theta_i\) Angle between \(X_i\) and \(X_{i-1}\) when viewed from \(Z_i\),</li>
+</ul></li>
+</ul>
+
+<p>
+For a 3R Planar serial chain manipulator:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">a<sub>i</sub></th>
+<th scope="col" class="org-right">d<sub>i</sub></th>
+<th scope="col" class="org-right">\(\alpha_{i}\)</th>
+<th scope="col" class="org-left">&theta;<sub>i</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Joint i = 1</td>
+<td class="org-left">L<sub>1</sub></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&theta;<sub>1</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">Joint i = 2</td>
+<td class="org-left">L<sub>2</sub></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&theta;<sub>2</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">Joint i = 3</td>
+<td class="org-left">L<sub>3</sub></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&theta;<sub>3</sub></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org2934efd" class="outline-4">
+<h4 id="org2934efd"><span class="section-number-4">1.1.9.</span> Rotation Matrix</h4>
+<div class="outline-text-4" id="text-1-1-9">
+<p>
+We have three reference frames, with a common origin. With the notation we have setup we can say, \(\{0\},\{1\},\{2\}\) can be defined for a point \(P\)
+</p>
+
+\begin{align*}
+^0P = ^0_1R ^1P \\
+^0P = ^0_2R ^2P \\
+^1P = ^1_2R ^2P \\
+^0_2R = ^0_1R _2^1R
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgffd1f52" class="outline-4">
+<h4 id="orgffd1f52"><span class="section-number-4">1.1.10.</span> Derivation Using DH Parameters</h4>
+<div class="outline-text-4" id="text-1-1-10">
+<p>
+These 4 parameters can be expressed by,
+</p>
+
+<p>
+\[^{i-1}A_i = T(z,d)T(z,\Theta),T(x, \alpha), T(x, a)\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb98146" class="outline-4">
+<h4 id="orgdb98146"><span class="section-number-4">1.1.11.</span> Skew Symmetric Matrix</h4>
+<div class="outline-text-4" id="text-1-1-11">
+<p>
+A matrix such that \(A = -A^T\)
+</p>
+
+<p>
+So this means that,
+</p>
+
+<p>
+\[S + S^{T}=0\]
+</p>
+
+<p>
+\[\vec{a} = a_x \hat{i} + \vec{a_y} \hat{j} \vec{a_z} \hat{k}\]
+</p>
+
+<p>
+We define a matrix function,
+</p>
+
+<p>
+\[S(\vec{a}) = \begin{bmatrix}
+0 & -a_z & a_y \\
+a_z & 0 & - a_x \\
+-a_y & a_x 0
+\end{bmatrix}
+\]
+</p>
+
+<p>
+So we can say for the basis vectors
+</p>
+
+<p>
+\[S(\hat{i}) = \begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & -1 \\
+0 & 1 & 0
+\end{bmatrix}
+\]
+\[S(\hat{j}) = \begin{bmatrix}
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+-1 & 0 & 0dt&i0
+\end{bmatrix}
+\]
+\[S(\hat{k}) = \begin{bmatrix}
+0 & -1 & 0 \\
+1 & 0 & 0  \\
+0 & 0 & 0
+\end{bmatrix}
+\]
+</p>
+
+<p>
+Multiplying the matrix function&rsquo;s output with a vector is the same as doing a cross product with those two vectors.
+\[S (\vec{a}) P = \vec{a} \times \vec{p} \]
+This matrix operation also has linearity in operations.
+\[S (\alpha\vec{a} + \beta \vec{b}) P = \alpha S(\vec{a}) +  \beta S(\vec{b}) \]
+When multiplied with a rotation matrix.
+\[^a_bR S(\vec{a})^a_bR^T = S(^a_bR \vec{a})\]
+</p>
+
+<p>
+We know that,
+</p>
+\begin{align*}
+R R^T &= I \\
+R(\theta) R^t(\theta) &= I \\
+\text{Taking the derivative} \\
+\frac{d R(\theta)}{d \theta} R^T(\theta) + R(\theta) \frac{d R^{T}(\theta)}{d \theta} &= 0 \\
+\frac{d R(\theta)}{d \theta} R^T(\theta) + R(\theta) \left( \frac{d R^{T}(\theta)}{d \theta} \right)^{T}&= 0 \\
+\end{align*}
+
+<p>
+What this means is that the term \(\frac{d R(\theta)}{d \theta} R^T (\theta)\) is a skew-symmetric matrix.
+</p>
+
+<p>
+This means that the the term can be written as \(S\),
+</p>
+
+<p>
+\[S = \frac{d R(\theta)}{d \theta} R^T (\theta)\]
+</p>
+
+<p>
+In other words, S becomes an operator on \(R\) to give us the derivative.
+</p>
+
+<p>
+\[S(\hat{k})R(\theta) = \frac{d R(\theta)}{d\theta}\]
+</p>
+
+<p>
+Taking both sides with respect to time,
+</p>
+
+<p>
+\[ \frac{d R(\theta)}{d \theta} \frac{d \theta}{dt} = \dot{\theta} S(\hat{k})R(\theta) \]
+In other words,
+\[\dot{R} = S(\dot{\theta}\hat{k})R(\theta)\]
+</p>
+
+<p>
+So we have,
+\[\dot{R} = S(\vec{\omega})R(\theta)\]
+</p>
+
+<p>
+\[S(\vec{\omega}) = \begin{bmatrix}
+0 & -\omega_z & \omega_y \\
+\omega_z & 0 & -\omega_x \\
+\omega_y & \omega_{x} & 0
+\end{bmatrix}\]
+</p>
+
+<p>
+\[\Omega = \begin{bmatrix}
+0 & -\omega_z & \omega_y \\
+\omega_z & 0 & -\omega_x \\
+\omega_y & \omega_{x} & 0
+\end{bmatrix}\]
+</p>
+
+\begin{align*}
+^0P = ^0_1R ^1P \\
+^0P = R ^1P \\
+^0 \dot{P} = \dot{R} ^1P + R^1 \dot{P} \\
+^0 \dot{P} = S(\vec{\omega}) R ^1P \\
+^0 \dot{P} = \omega \times R ^1 \vec{p} \\
+^0 \dot{P} = \omega \times R ^1 \vec{p} \\
+\vec{v} = \vec{\omega} \times \vec{r}
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-org86b6be9" class="outline-3">
+<h3 id="org86b6be9"><span class="section-number-3">1.2.</span> Unit 2 - Kinematics Of Robotic Manipulators</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgf8daaeb" class="outline-4">
+<h4 id="orgf8daaeb"><span class="section-number-4">1.2.1.</span> Forward And Inverse Kinematics</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Forward kinematics is the use of the joint space to get to the task space.
+Inverse Kinematics is the use of the task space to get to the joint space.
+</p>
+
+<p>
+Workspace - The space of all points that the end effector can reach.
+</p>
+</div>
+</div>
+<div id="outline-container-org8513317" class="outline-4">
+<h4 id="org8513317"><span class="section-number-4">1.2.2.</span> Inverse Kinematics Of 2R Planar Structures</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+We solve for \(q_2\) and eliminate \(q_1\)
+</p>
+
+\begin{align*}
+q_2 &= \cos^{-1} \kappa \\
+\kappa &= \frac{^0X_{2}^2 + ^0Y_{2}^2 - L_1^2 - L_2^2}}{2L_1L_2} \\
+\end{align*}
+
+<p>
+We have two cases,
+</p>
+
+<p>
+Case 1: \(-1<\kappa<1\) We have two distinct and real solutions of \(q_2\)
+</p>
+
+<p>
+Case 2: \(|\kappa| = 1\) We have one solution
+</p>
+
+<p>
+Case 3: \(|\kappa| < 1\) No solution exists
+</p>
+</div>
+</div>
+<div id="outline-container-org9d58612" class="outline-4">
+<h4 id="org9d58612"><span class="section-number-4">1.2.3.</span> Forward Kinematics And Inverse Kinematics Of 3R Planar Structures</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+\[X_e = L_1 \cos {q_1} + L_2 \cos(q_1+ q_2) + L_3 cos(q_1 + q_2 + q_3)\]
+</p>
+
+<p>
+For a 3R Planar structure, the way to find the forward kinematics is straightforward.
+</p>
+
+<p>
+What we get for the inverse kinematics is with 3 knowns, \(^0X_e, ^0Y_e, \phi\) where \((\phi = q_1 + q_2 + q_3)\) we reduce the problem down to \(^0X_{2}, ^0Y_2\) by finding,
+</p>
+
+\begin{align*}
+^0X_e - L_3 \cos{\phi} &= L_{1} \cos q_1 + L_2 \cos q_{12}\\
+^0Y_e - L_3 \sin{\phi} &= L_{1}\sin q_1 + L_2 \sin q_{12}
+\end{align*}
+
+<p>
+Now we know that those terms are nothing but
+</p>
+
+\begin{align*}
+^0X_{2}&= L_{1} \cos q_1 + L_2 \cos q_{12}\\
+^0Y_{2} &= L_{1}\sin q_1 + L_2 \sin q_{12}
+\end{align*}
+
+<p>
+Which we can solve the same as the 2R Planar Structure
+</p>
+</div>
+</div>
+<div id="outline-container-orgeecd4a9" class="outline-4">
+<h4 id="orgeecd4a9"><span class="section-number-4">1.2.4.</span> Jacobian Forward Kinematics</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+Given \(\dot{q_{1}}, \dot{q_{2}}\), how do we get \(^0X_{e}, ^0Y_e\)? and similarly how do we get the angular velocities of a machine from the end effector&rsquo;s velocity.
+</p>
+
+<p>
+We know that for 2R Planar SCMs,
+</p>
+\begin{align*}
+^0X_e &= L_1 c q_1  + L_2 c(q_1 + q_2) \\
+^0Y_e &= L_1 s q_1 + L_2 s(q_1+q_2) \\
+^0\dot{X_e} &= -\dot{q_1}L_1 s q_1 - L_2s(q_{1}+q_2)\times(\dot{q_1} + \dot{q_2}) \\
+^0\dot{Y_e} &= +\dot{q_1}L_1 c q_1 + L_2c(q_{1}+q_2)\times(\dot{q_1} + \dot{q_2})
+\end{align*}
+
+<p>
+We have,
+\[\dot{X}_{2\times1} = J_{2 \times2} \times \dot{q}_{2 \times1}\]
+</p>
+
+
+<p>
+We now have this for a specific case, when we generalize,
+\[ \dot{X} =  \begin{bmatrix} ^0_nv \\ ^0_n\omega \\ \end{bmatrix} = J \dot{q}\]
+</p>
+
+<p>
+So now we can write the term
+</p>
+
+<p>
+\[^0_{n}\omega = \sum_{i=1}^n \dot{\theta}_i z\]
+</p>
+</div>
+</div>
+<div id="outline-container-org57b555e" class="outline-4">
+<h4 id="org57b555e"><span class="section-number-4">1.2.5.</span> Lab Questions</h4>
+<div class="outline-text-4" id="text-1-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="org3931518"></a>Question 1<br />
+<div class="outline-text-5" id="text-1-2-5-1">
+<p>
+Consider the 3R Planar SCM with \(L_1 = 2m\), \(L_2 = 3m, L_3 = 4m\)
+</p>
+<div class="org-src-container">
+<pre class="src src-octave">clear all<span style="color: #f38ba8;">;</span> clc<span style="color: #f38ba8;">,</span> close all<span style="color: #f38ba8;">;</span>
+L <span style="color: #f38ba8;">=</span> [<span style="color: #fab387;">2</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">3</span><span style="color: #f38ba8;">;</span><span style="color: #fab387;">4</span>]<span style="color: #f38ba8;">;</span>
+</pre>
+</div>
+</div>
+<ol class="org-ol">
+<li><a id="orgb748619"></a>Forward Kinematics,<br />
+<div class="outline-text-6" id="text-1-2-5-1-1">
+<p>
+Find the co-ordinates of the end-effector in the base frame:
+</p>
+<ol class="org-ol">
+<li>For \(q = [q_1 q_2 q_3]^T= [30\deg 45 \deg 60 \deg]^{T}\)</li>
+<li>For \(q = [q_1 q_2 q_3]^T= [270\deg 75 \deg 10 \deg]^{T}\)</li>
+</ol>
+</div>
+</li>
+<li><a id="orga361871"></a>Inverse kinematics,<br />
+<div class="outline-text-6" id="text-1-2-5-1-2">
+<p>
+Find the joint space variables,
+</p>
+<ol class="org-ol">
+<li>For \(\phi = q_1 + q_2 + q_3 = 0\) and \([^0X_e, ^0Y_e] = [2,4]\)</li>
+<li>For \(\phi = q_1 + q_2 + q_3 = 45\) and \([^0X_e, ^0Y_e] = [5,5]\)</li>
+</ol>
+</div>
+</li>
+<li><a id="orgf6c5170"></a>Workspace Analysis<br />
+<div class="outline-text-6" id="text-1-2-5-1-3">
+<p>
+Draw the workspace of the 3R planar serial chain manipulator using forward and inverse kinematics.
+</p>
+<ol class="org-ol">
+<li>For \(\phi = 0\) and</li>
+<li>For \(\phi = 45\deg\)</li>
+</ol>
+</div>
+<ol class="org-ol">
+<li><a id="org446bf66"></a>Using Forward Kinematics<br /></li>
+<li><a id="org5909dc8"></a>Using Inverse Kinematics<br />
+<div class="outline-text-7" id="text-1-2-5-1-3-2">
+\begin{align*}
+\begin{bmatrix} ^0X_e \\ ^0Y_e \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) + L_3 cos(\phi) \\ L_1 sin q_1 + L_2sin(q_{12}) + L_3 sin(\phi) \end{bmatrix}\\
+\begin{bmatrix} ^0X_e - L_3 cos(\phi) \\ ^0Y_e - L_3 sin(\phi) \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) \\ L_1 sin q_1 + L_2sin(q_{12}) \end{bmatrix} \\
+
+\begin{bmatrix} ^0X_2 \\ ^0Y_2 \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) \\ L_1 sin q_1 + L_2sin(q_{12}) \end{bmatrix} \\
+\end{align*}
+
+<p>
+\[\]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-octave">
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org4639ce2" class="outline-2">
+<h2 id="org4639ce2"><span class="section-number-2">2.</span> Practice Sheets</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="file:///home/adithya/university-notes/Introduction To Robotics/assignments/23AID202_ITR_PracticeSheet01.pdf">Practice Sheet 1</a>
+The notations used in our lectures are similar with this book.
+</p>
+
+<ul class="org-ul">
+<li>For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation &#x2014;&gt; read Chapter 2</li>
+<li>For DH Parameters and Coordinate Convention &#x2014;&gt; read Chapter 3, Sections 3.1 to 3.4</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Adithya Nair</p>
+<p class="date">Created: 2024-09-04 Wed 08:41</p>
+</div>
+</body>
+</html>

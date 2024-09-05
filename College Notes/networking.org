@@ -828,5 +828,32 @@ arp
 
 It maintains a table with your IP address and your MAC address.
 
->[!note] You can get your MAC address using the `getmac` command.
-* Cisco Packet Tracer
+You can get your MAC address using the `getmac` command.
+
+* Wireshark
+We get the fields:
+#+begin_src verse
+Hypertext Transfer Protocol
+    HTTP/1.1 200 OK\r\n
+    Date: Mon, 02 Sep 2024 09:16:47 GMT\r\n
+    Server: Apache\r\n
+    Upgrade: h2\r\n
+    Connection: Upgrade, close\r\n
+    Last-Modified: Fri, 10 May 2024 20:31:43 GMT\r\n
+    Accept-Ranges: bytes\r\n
+    Content-Length: 2\r\n
+        [Content length: 2]
+    Cache-Control: must-revalidate\r\n
+    Expires: Mon, 02 Sep 2024 09:16:47 GMT\r\n
+    AppTime: D=84\r\n
+    X-Fedora-ProxyServer: proxy06.fedoraproject.org\r\n
+    X-Fedora-RequestID: ZtWCfztbMKuQxjZkv0aAjQAAAJI\r\n
+    Content-Type: text/plain\r\n
+    \r\n
+    [HTTP response 1/1]
+    [Time since request: 0.669624997 seconds]
+    [Request in frame: 428]
+    [Request URI: http://fedoraproject.org/static/hotspot.txt]
+    File Data: 2 bytes
+Line-based text data: text/plain (1 lines)
+#+end_src

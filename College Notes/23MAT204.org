@@ -487,8 +487,47 @@ The probability density function for a continuous random variable $x$ is defined
 **** Properties
 - $f(x) \ge 0$
 - $\int_xf(x) = 1$, where $\int_x$ is the range for which $x$ is defined.
+- For a continuous random variable, the probability at a point is $0$, the probability that $x$ takes a discrete value is zero.
 **** Mean Of Random Variable
 $$U_x = E(x) = \Sigma x f(x)$$
 **** Variance Of Random Variable
 $$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
 $$\sigma_x^{2} = E(X^2) - \mu^2$$
+**** Cumulative Distribution Function
+$$\int_0^x f(y)dy$$
+**** Binomial Distribution
+The Bernoulli Process
+
+1. Repeated trails,
+2. Each trial results in an outcome that may be classified as a success
+3. The trials are independent.
+
+
+Where n is the number of trials, x is the random variable distribution, $q = 1 - p$
+
+$^nC_xp^{x} q^{n-x}$
+
+We have,
+\begin{align*}
+^nC_x \text{Different ways $x$ successes can occur among $n$ trials} \\
+p^x - \text{probability of getting $x$ successes} \\
+(1-p)^{n-x} - \text{probability of getting $n-x$ failures}
+\end{align*}
+**** Uniform Distribution
+A probability distribution which is constant throught the interval, given by the function,
+
+$$f(x) = \frac{1}{b-a}  $$
+
+$$Mean = \frac{a+b}{2}$$
+$$Variance = \frac{(b-a)^2}{12}$$
+
+$$F(x) = \int_{-\infty}^xf(x)dx = \int_{-\infty}^x \frac{1}{b-a}  $$
+
+$$
+f(X) =    \begin{cases}
+0, - \infty < x < 0 \\
+x, 0<x<1 \\
+1, x > 1 \\
+     \end{cases}
+$$
+****

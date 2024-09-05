@@ -63,6 +63,75 @@ A rotation of two complex sinusoidal signals in opposite directions to each othe
 $$|V \cdot V^*| = |V|^2 = V_I^2 + V_q^2$$
 
 It is a combination of two complex signals.
+
+* Revision
+** Chapter 1
+*** Signal Energy And Power
+$$E = \int_{-\infty}^{\infty}|x(t)|^2dt$$
+$$P \lim_{T \rightarrow \infty} \frac{1}{T} \int_{-T/2}^{T/2} |x(t)|^2dt$$
+*** Time Invariance
+- No time scaling
+- Coefficient should be not be time dependent.
+- Any addition or subtraction term to the system, should be constant or zero.
+*** Linearity
+- Any linear  system is independent of time scaling
+- If the order of system is greater than 1, then it is not linear.
+*** Discrete Convolution
+$$y[n] = \Sigma_{k = -\infty}^{\infty}x[k]h[n-k]$$
+*** Complex Numbers
+- Inphase, $V_I = |V| \cos(V)$
+- Quadrature $V_Q = |V| \sin(V)$
+*** Complex Sinusoids
+- V rotating anticlockwise at a constant rate
+- Made up of two real sinusoids.
+- Complex sinusoids with frequency F is composed of,
+  \begin{align*}
+  V_I = \cos 2 \pi Ft \\
+  V_Q = \sin 2 \pi Ft \\
+  \end{align*}
+*** Filters
+- Low pass
+  Capacitor in parallel and inductor in series
+- High pass
+- Band pass
+- Band stop
+- Band reject
+- Notch
+**** Pass Band
+Range of frequences in which the filter allows the signal to pass
+**** Stop Band
+Range of frequences which will reject passage
+** Chapter 2
+*** Modulation
+Reduces the size of antenna
+$L \propto \lambda$ and $\lambda = \frac{c}{f}$
+
+Value of the modulating signal,
+
+$v_1 = V_c + v_m = V_c + V_m \sin{2 \pi f_m t}$
+$v_{2} = v_{1} sin 2\pi f_ct$
+
+$m = \frac{V_m}{V_c}$ Modulation index
+
+*** AM Power
+$$P_T = P_c + P_{USB} + P_{LSB}$$
+$$P_T = \frac{V_c^2}{2R} + \frac{V_m^2}{4R}$$
+
+So with modulation index,
+
+$$P_T = P_c(1 + \frac{m^2}{2})$$
+*** AM DSB SC
+- 2/3 of power in carrier
+*** Efficiency
+$$\mu = \frac{P_{USB} + P_{LSB}}{P_{T}}$$
+$$\mu = \frac{\mu^2}{\mu^{2} + 2}$$
+*** AM-SSB
+**** AM-SUSB
+$$A_i A_c \cos(\omega_c + \omega_i)t$$
+**** AM-SLSB
+$$A_iA_ccos(\omega_c - \omega_{i})t$$
+*** Hilbert Transform
+Converts cosine function into sine function by convolution of $\cos(\phi(t))$ with $\frac{1}{\pi t}$
 * Lab
 ** Sampling Theorem
 #+begin_src octave :results output

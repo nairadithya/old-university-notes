@@ -562,7 +562,7 @@ The approach to doing this is by classifying new data points based on the most c
 3. Minkowski
 
 ** How To Choose K
-If $k$ is too small, it is sensitive to noise points. But if $k$ is very large, then it might capture outliers. A good rule of thumb is $K<sqrt(n)$.
+If $k$ is too small, it is sensitive to noise points. But if $k$ is very large, then it might capture outliers. A good rule of thumb is $K < \sqrt(n)$.
 
 ** Feature Weighting
 We can assign weights to features by making a vector $\vec{w}$ which allows us to assign importance to a feature, based on our knowledge(These weights can be determined by cross-validation)
@@ -582,3 +582,31 @@ $$w = \frac{1}{d(x_{q},x_{i})}$$
  * If we are working with a large dataset, the time cost in computing the distances between a query and all the training instances and retrieving the k nearest neighbors may be prohibitive.
  * Use a tree which is a balanced binary tree in which each of the n odes in the tree index one of the instances in a training dataset.
  * The tree is constructed so that nodes that are nearby in the tree index.
+
+
+QUESTION Implement knn on the iris dataset for 10 different values of $k$ ranging from $3 - sqrt(n)$ and calculate the average f-measure of 30% on the test data.
+
+Step 1:
+Step 2: Identify the optimal $k$ value, for the value corresponding to the optimal $k$, rerun KNN by assigning weights to the features, which is the inverse of the distances.
+Step 3: Change the distance metric to Manhattan
+* Decision Tree Classifier
+This is a rule based classifier
+A decision tree is a tree in which each branch node represents a choice between a number of alternatives, and each leaf node represnets a decision. It is a form of supervised learning
+
+** Entropy And Information Gain
+It is a useful concept to speak of decision trees and supervised learning algorithms. Entropy defines the chaos, or randomness, or disorder of a system while information gain is the opposite. It represents order.
+
+The formula for entropy is... where $p_+$ is the proportion of  positive instances and $p_-$ is the proportion of negative instances
+
+$$\text{Entropy(S)} = -p_+ \log_2p_+ - p_- log_2p_{-}$$
+
+Information gain's formula is
+
+$$Gain(S,A) = Entropy(S) - \Sigma_{v \in values(A)} |S_v| / |S| Entropy(S_v)$$
+** Basic Algorithm
+- Choose the 'best' node A
+- Assign A as decision attribute for a node
+- For each value of A, create a new descendant node
+- If a decision node has all 'yes' or all 'no' we need not check further and convert the decision node into a leaf node.
+- If all the nodes are classified, stop
+- If not, recursively keep going.

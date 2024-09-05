@@ -1,0 +1,46 @@
+#+title: Solutions
+
+* Question 1
+#+begin_src octave :results output
+pkg load statistics
+n = 10;
+p = 0.3;
+a = pdf('bino',5,n,p)
+b = pdf('bino',10,n,p)
+c = cdf('bino',2,n,p)
+d = 1-cdf('bino',8,n,p)
+#+end_src
+
+#+RESULTS:
+: a = 0.1029
+: b = 5.9049e-06
+: c = 0.3828
+: d = 1.4369e-04
+
+* Question 2
+#+begin_src octave :results output
+pkg load statistics
+lambda = 5;
+a = poisspdf(0,lambda)
+b = poisspdf(2,lambda)
+c = poisscdf(11,lambda)
+d = 1-poisscdf(25,lambda)
+#+end_src
+
+#+RESULTS:
+: a = 6.7379e-03
+: b = 0.084224
+: c = 0.9945
+: d = 3.0500e-11
+
+* Question 3
+#+begin_src octave :results output
+pkg load statistics
+% a unifcdf(x, 0.96, 1.06)
+b = 1-unifcdf(1.02, 0.96, 1.06)
+mean = unif
+c = icdf('unif',0.9, )
+#+end_src
+
+#+RESULTS:
+: b = 0.4000
