@@ -2,6 +2,21 @@
 #+AUTHOR: Adithya Nair
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 #+EXPORT_FILE_NAME: exports/AIML.html
+* Iris Data Classification
+
+#+begin_src python :results output results: output
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+irisdata = pd.read_csv('iris.csv')
+
+test, train = train_test_split(irisdata, train_size=0.8, test_size=0.2)
+
+print(np.size(test))
+print(np.size(train))
+print(irisdata.describe())
+#+end_src
 
 * Overview
 ** Some Terms Used
@@ -113,6 +128,9 @@ print(df.head())
 : 4            5         0       3                           Allen, Mr. William Henry    male  35.0      0      0            373450   8.0500   NaN        S
 
 This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
+
+$$\frac{5}{3} \times \frac{3}{4}$$
+
 #+begin_src python :results output :session Titanic
 # Identify missing values
 print("\nMissing values in each column:")
@@ -457,7 +475,6 @@ plt.tight_layout()
 
 ** Data Imbalance
 We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
-**** Find what vintage means in churn prediction.
 *** One Hot Encoding
 This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
 *** Logistic Regression
@@ -593,7 +610,7 @@ Step 3: Change the distance metric to Manhattan
 This is a rule based classifier
 A decision tree is a tree in which each branch node represents a choice between a number of alternatives, and each leaf node represnets a decision. It is a form of supervised learning
 
-** Entropy And Information Gain
+** Entropy, Information Gain
 It is a useful concept to speak of decision trees and supervised learning algorithms. Entropy defines the chaos, or randomness, or disorder of a system while information gain is the opposite. It represents order.
 
 The formula for entropy is... where $p_+$ is the proportion of  positive instances and $p_-$ is the proportion of negative instances
@@ -610,3 +627,7 @@ $$Gain(S,A) = Entropy(S) - \Sigma_{v \in values(A)} |S_v| / |S| Entropy(S_v)$$
 - If a decision node has all 'yes' or all 'no' we need not check further and convert the decision node into a leaf node.
 - If all the nodes are classified, stop
 - If not, recursively keep going.
+** Overfitting
+- This might happen with too many branches, or outliers
+  - We avoid this with prepruning, halt tree construction early
+  - We can also remove branches from a full tree.
