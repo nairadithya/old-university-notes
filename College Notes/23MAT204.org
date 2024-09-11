@@ -9,19 +9,16 @@
 Every matrix satisfies its own characteristic matrix.
 
 What this means is
-\[\begin{aligned}
-    \lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\ 
-    A^3 - 2A^2 + A -4I &= 0 \\  
-    A^2 - 2A + I - 4A^{-1} &= 0 \\
-    A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\
-    X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b
-\end{aligned}\] There are some implications behind this. Here's a problem, generate a random 3x3 matrix, find the ranks of
+
+$$ \begin{aligned}     \lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\      A^3 - 2A^2 + A -4I &= 0 \\      A^2 - 2A + I - 4A^{-1} &= 0 \\    A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\    X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b $$
+ There are some implications behind this. Here's a problem, generate a random 3x3 matrix, find the ranks of
 \((A- \lambda_1 I)\) and then \((A-\lambda_1 I)(A-\lambda_2 I\)
 
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 
 *** Ways To Calculate Whether A Matrix Is Positive Definite
+
 1. The minors are positive then negative alternating.
 2. The eigenvalues are positive.
 
@@ -39,7 +36,7 @@ This is the basis behind Principal Component Analysis.
 
 *** Singular Value Decomposition
 For rectangular matrices.
-\[A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T\]
+$$A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T$$
 
 This is mainly used for getting useful properties about the matrix
 without needing to perform significant operations on this matrix, such
@@ -78,12 +75,12 @@ an orthogonal matrix and a positive semi-definite matrix.
 
 For 2D, \[\vec{x} = r(\cos(\theta) + sin(\theta))\]
 
-\[\begin{aligned}
+\begin{aligned}
     A &= U \Sigma V^T \\ 
       &= U(V^TV) \Sigma V^T \\
       &= (UV^T)(V\Sigma V^T)\\
       &= Q \times S \\
-\end{aligned}\]
+\end{aligned}
 
 Here S is the scaling matrix, and Q is the orthogonal matrix.
 
@@ -124,12 +121,12 @@ The \(L_\infty\) norm would be
 \([|u_1|^\infty + |u_2|^\infty + \cdots + |u_n|^\infty]^{\frac{1}{\infty}}\).
 This returns the maximum vector component of the vector.
 
-Let's take the equation, \(\|v\|_1 = 1\) \[\begin{aligned}
+Let's take the equation, \(\|v\|_1 = 1\) \begin{aligned}
     x + y &= 1 \\
     x - y &= 1 \\
     - x + y &= 1 \\
     -x - y = 1 \\
-\end{aligned}\]
+\end{aligned}
 
 #+caption: We find 4 lines to satisfy these conditions.
 <<fig:l1eq1>>
@@ -155,11 +152,11 @@ There are three types of Matrix norms:
 We know that the vector norm for a vector \(\vec{x}\) is nothing but
 \(\vec{x}^T \vec{x}\). We take this property.
 
-\[\begin{aligned}
+\begin{aligned}
     Max \|A\|_2^2 &= Max \frac{\|Ax\|_2^2}{\|x\|_2^2} \\
               &= Max \frac{x^TA^TAx}{x^Tx} \\
               &= Max \{\lambda_i(S)\} = \lambda_1 = \sigma_1^2
-\end{aligned}\]
+\end{aligned}
 
 **** Frobenius Norm
 :PROPERTIES:
@@ -399,7 +396,6 @@ Let $A \in R^{n \times n}, b \in R^n$, the Krylov subspace $K_j(A,b)$ is defined
 The Krylov Matrix is just the matrix consisting of the basis vectors as the column vectors. The Krylov subspace is the column space of such a matrix.
 **** Motivation For Krylov Subspaces
 We know the Cayley Hamilton theorem, and its use in calculating the inverse from the characteristic equation
-
 Interestingly, the calculation for the inverse leads to a linear combination of the basis vectors of the Krylov subspace when solving linear systems.
 **** Conjugate Directions
 For A real symmetric matrix $n \times n$ with rank $n$
@@ -484,17 +480,6 @@ For continuous inputs
 
 The probability density function for a continuous random variable $x$ is defined as, $P(a \le x \le b) = \int_a^b f(x)dx$
 
-**** Properties
-- $f(x) \ge 0$
-- $\int_xf(x) = 1$, where $\int_x$ is the range for which $x$ is defined.
-- For a continuous random variable, the probability at a point is $0$, the probability that $x$ takes a discrete value is zero.
-**** Mean Of Random Variable
-$$U_x = E(x) = \Sigma x f(x)$$
-**** Variance Of Random Variable
-$$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
-$$\sigma_x^{2} = E(X^2) - \mu^2$$
-**** Cumulative Distribution Function
-$$\int_0^x f(y)dy$$
 **** Binomial Distribution
 The Bernoulli Process
 
@@ -513,6 +498,14 @@ We have,
 p^x - \text{probability of getting $x$ successes} \\
 (1-p)^{n-x} - \text{probability of getting $n-x$ failures}
 \end{align*}
+**** Cumulative Distribution Function
+$$\int_0^x f(y)dy$$
+**** Mean Of Random Variable
+$$U_x = E(x) = \Sigma x f(x)$$
+**** Properties
+- $f(x) \ge 0$
+- $\int_xf(x) = 1$, where $\int_x$ is the range for which $x$ is defined.
+- For a continuous random variable, the probability at a point is $0$, the probability that $x$ takes a discrete value is zero.
 **** Uniform Distribution
 A probability distribution which is constant throught the interval, given by the function,
 
@@ -531,3 +524,23 @@ x, 0<x<1 \\
      \end{cases}
 $$
 ****
+**** Variance Of Random Variable
+$$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
+
+$$\sigma_x^{2} = E(X^2) - \mu^2$$
+*** Joint Probability Distribution
+This is given for two variables, a function $f(x,y)$ gives us a probability, $P(X= x_1, X = x_2$
+**** Properties
+- $0 \le f(x_1,) \le 1$
+- $\Sigma_x \Sigma_y f(x,y) = 1$
+**** Marginal Distribution Function
+Marginal distribution functions are the probability distributions of the variables themselves.
+
+- The distribution of $x_1$ is given by the columns, and $x_2$ is given by the rows. In other words you're fixing the values and adding the remaining.
+**** Mean Of Marginal Values
+
+$Mean(X_1) = E(X_1) = \Sigma_{x1} x_1 f_{1)(x_{1})$
+*** Independent Probabilities
+Two events $A$ and $B$ are said to be independent if $P(A|B) = P(A)$ or $P(B|A) = P(B)$
+
+Two discrete random variables $x_1$ and $x_2$ are said to be independent if $f(x_1,x_2)$ = $f(x_1)f_2(x_2) \forall x_1 \& x_2$

@@ -1,4 +1,4 @@
-% Created 2024-08-27 Tue 08:41
+% Created 2024-09-09 Mon 11:14
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -30,9 +30,9 @@
 \tableofcontents
 
 \part{Notes}
-\label{sec:org6f0f5b6}
+\label{sec:org2223641}
 \chapter{Course Overview}
-\label{sec:org1f4870e}
+\label{sec:org8423830}
 \begin{enumerate}
 \item Introduction to Modelling
 \item Bond graph modelling
@@ -45,21 +45,21 @@ What is modelling? It's a mathematical representation of a system. These represe
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
 \chapter{Unit 1}
-\label{sec:orgc8e5f75}
+\label{sec:orge8ee5d4}
 \section{What Is Modelling?}
-\label{sec:org31c8e23}
+\label{sec:org077ff4d}
 \begin{itemize}
 \item Model - Models of the systems are simplified, abstracted constructs used to predict their behaviour.
 \item Mathematical Modelling - Predicts only a certain aspect of the behaviour
 \end{itemize}
 \section{Uses Of Modelling}
-\label{sec:org55d59e0}
+\label{sec:org38843ed}
 Modelling consists of input variables \(U\), which performs certain operations on a dynamic system \(S\), with state variables \(X\) to give some output variables \(U\).
 Analysis means that given an input for the present, and the system itself.
 
 We can predict the outputs for the future. To exert some form of control, the system \(S\) are used. Another term used is identification, identification means that you already \(U\), and \(Y\). We know the inputs and the outputs, and we map \(U\) to \(Y\) with the system \(S\). We \textbf{identify} the system that would map the inputs to the outputs. This is done by experimenting and figuring out what mapping works best to generate the outputs from the inputs. The way to tell whether a model is good is to see if it is consistent with large sets of input and outputs.
 \section{Types Of Modeling}
-\label{sec:org76551be}
+\label{sec:org8532267}
 Principle of superposition - it means that there's a linear correlation of the inputs to the outputs.
 \begin{center}
 \begin{tabular}{lll}
@@ -86,7 +86,7 @@ Anil & 14\\
 \end{tabular}
 \end{center}
 \section{System Nomenclature}
-\label{sec:org755196d}
+\label{sec:orgc022bee}
 \begin{definition}
 A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
 \end{definition}
@@ -147,11 +147,11 @@ $$Y(s) = G(s)U(s)$$
 A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
 \end{definition}
 \section{Modeling Of Dynamical Systems.}
-\label{sec:orgcb7e449}
+\label{sec:org86fa21c}
 Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force \(f\). The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass \(m\) and a moment of inertia \(I\) relative to its mass center at point C.
 \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf}{Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf: Page 78 Systems example}
 \section{Bond Graph Modelling}
-\label{sec:org5a23318}
+\label{sec:org314da04}
 What we did earlier is a classical approach to modelling. We find  the differential equations and generate matrix equations with inputs, state variables and output.
 
 What we do here is,
@@ -168,8 +168,8 @@ What we do here is,
 &\downarrow \\
 \text{Out}&\text{put}
 \end{align*}
-\section{Generalized Variables}
-\label{sec:orgcfcd178}
+\section{Generalizd Variables}
+\label{sec:orgacfe4e9}
 \begin{itemize}
 \item Power Variables
 \begin{itemize}
@@ -204,10 +204,10 @@ Thermodynamics & Temperature & Entropy Flow\\
 \end{center}
 \begin{enumerate}
 \item Bond Graphs
-\label{sec:org67dfe2d}
+\label{sec:org2a215e1}
 A bond graph is a labelled directed graph, each link has an assigned orientation.
 \item Multiports
-\label{sec:orgeb5e1c2}
+\label{sec:org8eb8fa0}
 Places at which subsystems can be interconnected, power can flow through ports between subsystems.
 
 \begin{verbatim}
@@ -252,10 +252,38 @@ s output
 REFERENCE
 \href{https://ocw.mit.edu/courses/2-141-modeling-and-simulation-of-dynamic-systems-fall-2006/71ca8916669d0aa6839ce780db9f5288\_bond\_graph\_intro.pdf}{MIT COURSE NOTES ON BOND GRAPH MODELLING}
 \end{enumerate}
+\chapter{Unit 2}
+\label{sec:orgf01e0c2}
+\section{Transformers}
+\label{sec:orgb0195df}
+We have bond graphs now, and we can say certain things about the efforts and flows using bond graphs.
+
+
+What we can do next is write functions known as transformers that convert the input effort into the output effort, or the input flow into the output flow, based on the causal stroke.
+\section{Gyrators}
+\label{sec:org6f89a34}
+What we can do with gyrators convert the input of one form into the output of another form, based on the causal stroke.
+\section{Dynamical Response Of 1st Order Systems}
+\label{sec:org0e26bcb}
+A transfer function is the ratio of the output function by the input function, provided that the initial conditions are zero.
+
+A first order system is a system such that the highest power is 1.
+
+$$\frac{\Delta{Output}}{\Delta{Input}}$$
+
+For a first order system we get,
+
+$$\frac{1}{T_s+1}$$
 \part{Assignments}
-\label{sec:orgd1f4ef8}
+\label{sec:org904a0b1}
+\href{file:///home/adithya/university-notes/Modelling, Simulation And Analysis/assignments/23AID201\_MSA\_PracticeSheet01.pdf}{Practice Sheet 01}
+\begin{enumerate}
+\item For mathematical modelling, formulation of state space equation from a mathematic model, and block diagram representation follow \href{file:///home/adithya/university-notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf}{Modern Control Engineering by Ogata} - \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf}{Chapter 2} \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf}{section 2.4} and \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Modern Control Engineering 5th Edition.pdf}{Chapter 3(section 3.1 - 3.3)}
+
+\item For bond graph modelling, refer System Dynamics Book by Dean C Karnopp Chapter 2 and Chapter 3, section 3.3, 3.4
+\end{enumerate}
 \part{Project Notes}
-\label{sec:org9d8ec03}
+\label{sec:orgadf131c}
 \begin{itemize}
 \item Simscape, or a matlab simulink model
 \item Provision is made for solidworks CAD models.

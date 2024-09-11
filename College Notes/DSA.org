@@ -23,9 +23,9 @@ As a consequence of this, undirected graphs(graphs where the links represent con
 **** Adjacency Lists
 Adjacency lists are an alternative representation of graphs. If a graph has $n$ nodes, then the list has $n$ elements. The list adjList is then made with the following rules.
 
-*adjList[i] contains all the nodes which are connected to vertex $i$, in the order in which they are connected.*
+*adjlist[i] contains all the nodes which are connected to vertex $i$, in the order in which they are connected.*
 
-For an example graph,
+for an example graph,
 
 \begin{align*}
 &a \rightarrow b \rightarrow c \rightarrow d  \\
@@ -39,135 +39,135 @@ For an example graph,
 &e \rightarrow d \\
 \end{align*}
 
-We have a linked list of linked lists. The problem here is that links are represented twice.
+we have a linked list of linked lists. the problem here is that links are represented twice.
 
-This is an optimization for when graphs have very few links.
+this is an optimization for when graphs have very few links.
 
-*** Traversal(visit all nodes).
-There are two algorithms of traversal:
-1. Breadth-First Search - which involves the usage of queue
-2. Depth-First Search - which involves the usage of stack
+*** traversal(visit all nodes).
+there are two algorithms of traversal:
+1. breadth-first search - which involves the usage of queue
+2. depth-first search - which involves the usage of stack
 
-**** Breadth-First Search
-Breadth-first involves selecting a root node, and choosing a neighbour node.
+**** breadth-first search
+breadth-first involves selecting a root node, and choosing a neighbour node.
 
-Revising queues, they have a First-In, First Out approach, insertion at the rear and deletion at the front.
-The procedure follows:
-- The queue starts by inserting any root node, say for example A.
-- Now A is dequeued and stored in the result.
-- Queue all neighbouring nodes of A.
-- The first node is dequeued.
-- Upon dequeueing, all neighbouring nodes are checked if it's in the queue. If not, they are queued in.
-	- Let's say B is taken, and B is connected to C, and C is already connected to A and B.
-	- A and C will not be queued.
-- This iterates until there are no more nodes.
+revising queues, they have a first-in, first out approach, insertion at the rear and deletion at the front.
+the procedure follows:
+- the queue starts by inserting any root node, say for example a.
+- now a is dequeued and stored in the result.
+- queue all neighbouring nodes of a.
+- the first node is dequeued.
+- upon dequeueing, all neighbouring nodes are checked if it's in the queue. if not, they are queued in.
+	- let's say b is taken, and b is connected to c, and c is already connected to a and b.
+	- a and c will not be queued.
+- this iterates until there are no more nodes.
 
-Clearly, this depends on the number of edges in the graph. The maximum number of edges in a graph is $^nC_2$.
+clearly, this depends on the number of edges in the graph. the maximum number of edges in a graph is $^nc_2$.
 
-The functions required in this queue are:
-- `Insert()`
-- `Delete()`
-- `Traverse()`
+the functions required in this queue are:
+- `insert()`
+- `delete()`
+- `traverse()`
 
-**** Depth-First Search
-This involves traversing the nodes until an edge node is met, using a stack.
+**** depth-first search
+this involves traversing the nodes until an edge node is met, using a stack.
 
-The procedure follows:
-- A node is selected and pushed into the stack.
-- A random node connected to A is pushed.
-- A connected node is pushed.
-- This procedure is met until no unvisited node exists
-  - In which case the stack is full.
-  - If the stack is still not full, it implies that there are nodes which haven't been visited.
-- Now popping occurs
-- The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost element's adjacent nodes for unvisited nodes.
-- This is done until the stack is empty
+the procedure follows:
+- a node is selected and pushed into the stack.
+- a random node connected to a is pushed.
+- a connected node is pushed.
+- this procedure is met until no unvisited node exists
+  - in which case the stack is full.
+  - if the stack is still not full, it implies that there are nodes which haven't been visited.
+- now popping occurs
+- the algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost element's adjacent nodes for unvisited nodes.
+- this is done until the stack is empty
 
 #+begin_src java
-class DFS {
-  DFS(int V)  {
-    adj = new LinkedList[V];
-    visited = new boolean[V];
-    for (int i = 0; i < V; i++)
-      adj[i] = new LinkedList<Integer>();
+class dfs {
+  dfs(int v)  {
+    adj = new linkedlist[v];
+    visited = new boolean[v];
+    for (int i = 0; i < v; i++)
+      adj[i] = new linkedlist<integer>();
   }
 }
 #+end_src
 
-** Trees
+** trees
 
-A tree with at most two links from one node is known as a binary tree.
-*** Properties
-- Maximum number of nodes - $2^i$
+a tree with at most two links from one node is known as a binary tree.
+*** properties
+- maximum number of nodes - $2^i$
 - height is longest distance between root to leaf nodes (count the edges)
-- Maximum number of nodes possible till height h is $(2^0 + 2^1 + 2^2 + \cdots 2^h)$ = $2^{h+1} -1$
-*** Types Of Binary Trees
-**** Full/Proper/Strict Binary Tree
-It is a tree where each node must contain 2 children except the leaf node.
+- maximum number of nodes possible till height h is $(2^0 + 2^1 + 2^2 + \cdots 2^h)$ = $2^{h+1} -1$
+*** types of binary trees
+**** full/proper/strict binary tree
+it is a tree where each node must contain 2 children except the leaf node.
 
-- There are either two children or no children.
-- The number of leaf nodes is equal to number of internal nodes + 1
-- The minimum number of nodes is equal to $2^h + 1$
-- Maximum number of nodes is the same as number of nodes in binary tree, $2^{h+1} - 1$
-- The minimum height of the full binary tree is $log_2(n+1) - 1$
-**** Complete Binary Tree
-A binary tree where all the nodes are completely filled except the last level.
+- there are either two children or no children.
+- the number of leaf nodes is equal to number of internal nodes + 1
+- the minimum number of nodes is equal to $2^h + 1$
+- maximum number of nodes is the same as number of nodes in binary tree, $2^{h+1} - 1$
+- the minimum height of the full binary tree is $log_2(n+1) - 1$
+**** complete binary tree
+a binary tree where all the nodes are completely filled except the last level.
 
-**** TODO Degenerate Binary Tree
-Exactly like a linked list.
-**** Balanced Binary Tree
-- The heights of left and right trees can have a maximum height difference of 1.
-*** Binary Search Tree
-Value of left node must be smaller than parent, and value of right node must be greater than the parent node.
-**** Binary Search Tree Insertion
-**** Binary Search Tree Deletion
-- It works the same as a linked list operation.
-- We use In order Traversal to figure out the node's value, it takes the value of its in order successor.
-*** AVL trees(Height Balanced Binary Tree)
-What this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
+**** todo degenerate binary tree
+exactly like a linked list.
+**** balanced binary tree
+- the heights of left and right trees can have a maximum height difference of 1.
+*** binary search tree
+value of left node must be smaller than parent, and value of right node must be greater than the parent node.
+**** binary search tree insertion
+**** binary search tree deletion
+- it works the same as a linked list operation.
+- we use in order traversal to figure out the node's value, it takes the value of its in order successor.
+*** avl trees(height balanced binary tree)
+what this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
 
-Each node is given a balancing factor, $= h_l-h_r$
-A tree is said to be imbalanced if any node is said to have a balancing factor $\geq$ 2.
+each node is given a balancing factor, $= h_l-h_r$
+a tree is said to be imbalanced if any node is said to have a balancing factor $\geq$ 2.
 there are 4 insertions that can be performed, also known as 'rotations':
 - ll - /, ll rotation, involve shifting a node to the right, the central node in the line becomes a root node.
 - rr - \, rr rotation, involves shifting a node to the left, the central node in the line becomes a root node.
 - lr - <, lr rotation, the last node in the subtree becomes the root node(it forms an rr + ll rotation)
 - rl - >, rl rotation, the last node in the subtree becomes the root node(perform an ll + rr rotation)
 
-The first letter is the sub-tree, and the second letter is the child node.
+the first letter is the sub-tree, and the second letter is the child node.
 
-Construct an AVL tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
+construct an avl tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
 
-All 4 rotations are capable of causing an imbalance.
+all 4 rotations are capable of causing an imbalance.
 #+begin_src
 
 #+end_src
-** Heap
-Heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
+** heap
+heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
 *** Types Of Heap
-There are two types of heap:
+there are two types of heap:
 **** Min Heap
-The value of the root node is less than or equal to its children
+the value of the root node is less than or equal to its children
 **** Max Heap
 the value of the root node is more than or equal to its children
 *** Definition
-A heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
-A heap is typically represented as an array, the array representation for a tree, is for each node
-A parent node is represented by $\frac{i}{2} - 1$, the left child node is $2\times i + 1$ and the right child node is $2 \times i + 2$
+a heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
+a heap is typically represented as an array, the array representation for a tree, is for each node
+a parent node is represented by $\frac{i}{2} - 1$, the left child node is $2\times i + 1$ and the right child node is $2 \times i + 2$
 
-Heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
+heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
 *** Insertion
-The process of insertion involves:
-- Adding a node to the leftmost child node available.
-- Comparing the node's value with the parent node
-  - If current node's value is $i$, we have $\frac{(i-1)}{2}$
-- If the comparison yields the result that the definition of heap does not hold, then the values of the parent node and the child node are swapped.
-- Repeat until the comparison holds.
+the process of insertion involves:
+- adding a node to the leftmost child node available.
+- comparing the node's value with the parent node
+  - if current node's value is $i$, we have $\frac{(i-1)}{2}$
+- if the comparison yields the result that the definition of heap does not hold, then the values of the parent node and the child node are swapped.
+- repeat until the comparison holds.
 
 #+begin_src java
 // i is the variable holding the last position
 // k is the value we are trying to add to the heap.
-void insert(A,i,k){
+void insert(a,i,k){
 i = i + 1;
 a[i] = k;
 while(i > 0){
@@ -221,9 +221,6 @@ QUESTION: Use division method, to store the following data into a hash table of 
 2. Folding method
 3. Mid-square method
 4. Modulo-multiplication method
-*** Note On Probing
-
-
 *** Collision Avoidance Methods
 For open hashing, chaining method is used for collision handling
 The chaining method involves creating a pointer to another node, and the conflict element is added to that node instead.
@@ -231,8 +228,72 @@ The chaining method involves creating a pointer to another node, and the conflic
 For closed hashing,
 Three methods to handle collision:
 1. Linear probing
-   When a collision occurs, insert the hash into the subsequent node($\frac{(u+i)}{n}$).
+   When a collision occurs, insert the hash into the subsequent node $(u+i)\%n)$.
 2. Quadratic probing
+   When a collision occurs, insert the hash into the node $(u+i^2)\%10)$
 3. Double hashing
-*** Open Hashing(Closed Addressing)
-*** Closed Hashing(Open Addresssing)
+   We use two hashing functions
+
+  - $h_1(k) = u$
+  - $h_2(k) = v$
+
+When there is a collision, the second hashing function is used, in every other case the first hashing function is used.
+
+Then the new index is calculated,
+
+$$w = (u+v*i)\%m$$
+
+Let's take an example, we define $h_1(k) = (2k+1)\%10$, $h_2(k) = (3k+2)\%10$
+
+|-----+---+---+---+-------|
+| Key | U | V | W | Probe |
+|-----+---+---+---+-------|
+|   6 | 3 | - | - |     1 |
+|  12 | 5 | - | - |     1 |
+|  18 | 7 | - | - |     1 |
+|  10 | 1 | - | - |     1 |
+|   2 | 5 | - | 9 |     4 |
+|  18 | - | - | - |     - |
+|  22 | - | - | - |     - |
+|-----+---+---+---+-------|
+
+
+Now we write the hash table,
+|---------+-------|
+| *index* | *key* |
+|---------+-------|
+|       0 | -     |
+|       1 | 10    |
+|       2 | -     |
+|       3 | 6     |
+|       4 | -     |
+|       5 | 12    |
+|       6 | -     |
+|       7 | 8     |
+|       8 | -     |
+|       9 | 2     |
+|---------+-------|
+The data array A is equal to 3,2,9,6,11,13,7,12, $n = 10$, $h_k = 2k + 3$, $h2(k) = 3k + 1$, plot the order of storage  of the data in a hash table and total probing, and average probing, with respect to chaining, linear probing, quadratic probing, double hashing
+|-----+---+---+---+-------|
+| Key | U | V | W | Probe |
+|-----+---+---+---+-------|
+|   3 | 9 | 0 |   |       |
+|   2 | 7 | 7 |   |       |
+|   9 | 1 | 8 |   |       |
+|   6 | 5 | 9 |   |       |
+|  11 | 5 | 4 |   |       |
+|  13 | 9 | 0 |   |       |
+|   7 | 7 | 2 |   |       |
+|  12 | 7 | 7 |   |       |
+#+TBLFM: $2=(2*$1 + 3)%10::$3=(3*$1 + 1)%10
+** Merkel Trees
+A hash tree is a data structure used for data verification and synchronization. It is a tree where each non-leaf node is a hash of its child node.
+- The first layer is the list of all transacttion IDs in a block
+- The data itself is not part the merkel tree, the first hashed values are the child nodes.
+- These IDs are concatenated and hashed using SHA-256
+- The second layer will be half the length of the first layer
+
+*** Usage
+The hash nodes are used to check if data is corrupted. If the root node of the hashing function differs from the merkel tree generated from the data, then we have an issue.
+
+Torrent

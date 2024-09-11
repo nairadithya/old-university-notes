@@ -282,13 +282,49 @@ $$ \dot{X} =  \begin{bmatrix} ^0_nv \\ ^0_n\omega \\ \end{bmatrix} = J \dot{q}$$
 
 So now we can write the term
 
-$$^0_{n}\omega = \sum_{i=1}^n \dot{\theta}_i z$$
+$$^0_{n}\omega = \sum_{i=1}^n \dot{\theta}_i $$
+*** Singularity
+So now we have,
+
+\begin{align*}
+\dot{X} &= J \dot{q} \\
+\dot{J} &= q^{-1} X \\
+J^{-1} &= \frac{adj(J)}{det(J)}
+\end{align*}
+
+We term singularity to be the case where the determinant of $J$ is 0
 
 
+$$det(J) = L_1L_2\sin{\theta_2}$$
+
+
+This means that we're only depending on $\theta_2$
+
+Which cannot be $n\pi$
+
+What this means is that when $\theta_2$  should never be zero.
+
+This means that when the arm is fully extended or retracted then it is not a point that the robot can recover from.
+
+
+*** Finding The Jacobian quickly
+\begin{align*}
+\dot{X}_{m \times 1} &= J \dot{q} \\
+J &= [ J_1_{n \times 1}, J_2_{n \times 1} , \cdots, J_n] \\
+
+J_i = \begin{bmatrix}^0_{i-1}z \times ^{i-1}_{n}p^{*} \\ ^0_{i-1}z\end{bmatrix}
+\end{align*}
+
+Where $^{i-1}_n P^*$ is the position vector of $\{n\}th$ origin relative to $\{i-1\}^{th}$ frame but expressed in $\{0\}^{th}$ frame.
+
+
+\begin{align*}
+J_i = \begin{bmatrix} ^0_{i-1}z \\ 0  \end{bmatrix} \\
+
+\end{align*}
 
 *** Lab Questions
 **** Question 1
-
 Consider the 3R Planar SCM with $L_1 = 2m$, $L_2 = 3m, L_3 = 4m$
 #+begin_src octave :session LQ1
 L = [2;3;4];
@@ -350,7 +386,7 @@ end
 #+end_src
 
 Now we plot,
-#+begin_src octave :session LQ1 :results file
+#+begin_src octave :session LQ1 :results none
 figure('1, "visible", "off", 'units', 'normalized','outerposition',[0 0 0.5 1])
 
 plot(WS_points(:,1), WS_points(:,2),'bo','LineWidth',1.5)

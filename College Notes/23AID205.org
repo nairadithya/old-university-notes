@@ -183,3 +183,63 @@ legend('fs>2fm');
 #+end_src
 
 #+RESULTS:
+* Practice
+** Generate basic signals
+Use the required blocks for the scopes.
+1. Ramp
+2. Step
+3. Sine
+4. Square Wave Generator
+5. Triangle Wave Generator
+** Convolution
+*** Discrete Convolution
+Use two constant block parameters and connect them to a convolution block and then make a scope(discrete convolution)
+*** Continous Convolution
+Two signal blocks and connect them to a convolution block and then make a scope(continuous convolution)
+** Find FFT Of A Signal
+1. Put a Signal Block Parameter
+2. Connect it to a zero-order hold(sample time, same as question)
+3. Connect that to a buffer(Output buffer size 1024)
+4. Connect it to FFT block
+5. Add a gain(1/buffer size)
+6. Add Abs
+7. Spectrum Analyzer
+** TODO Find Time Invariance Of Given System
+** Generate A Square Wave From Odd Harmonics
+1. Make 7 Sine Waves - (f = 2*pi*1 - 2*pi 13)
+2. Add a gain for each of these waves (1 - 1/13)
+3. Adder(connect all these waves)
+** Generate An AM Signal Using Simulink
+- Ingredients
+  1. Use two signal generators to generate the message and carrier signal
+  2. Bring in a constant block(modulation index)
+  3. Adder block
+  4. Product block
+  5. 3 Zero Order Holds
+  6. Spectrum Analyzer
+- Connect message signal generator to the message zero order hold
+- Similarly do so for the carrier signal
+- The output of the product(modulator) goes to the last zero order hold
+- Message signal and modulation index is added through the adder block
+- The output of the adder block along with the carrier signal goes to the product(modulator)
+- 3 Inputs For The Spectrum Analyzer
+  1. Message Zero Order Hold
+  2. Carrier Zero Order Hold
+  3. AM Modulator Zero Order Hold
+- Scope requires 3 inputs
+  1. Message Signal
+  2. Carrier Signal
+  3. AM Modulator Signal
+- Finally in the spectrum analyzer, click Peak Finder and adjust number of peaks(For the Amplitude Modulation)
+** Generate A DSB-SC Signal Using Simulink
+Same as above, but the modulation index and the adder block
+** Generate an SSB with or without a filter using Simulink
+** Perform Operations On Basic Signals
+1. Multiply (Product block)
+2. Add (Adder block)
+3. Flip (Gain block with gain = -1)
+4. Shift (Transport Delay Block, Time delay = given in question)
+*** Observation
+*** Inference
+** Analyzing Appropriate Sampling Rate
+1. Take the given sine wave and add it with pulse generator(also can use step or ramp)

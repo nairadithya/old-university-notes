@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-04 Wed 11:34 -->
+<!-- 2024-09-06 Fri 09:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Advanced Data Structures And Algorithm Analysis</title>
@@ -23,7 +23,7 @@
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #ffffff; }
+  .timestamp-kwd { color: #5f9ea0; }
   .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
   .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
   .org-center { margin-left: auto; margin-right: auto; text-align: center; }
@@ -234,43 +234,43 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org16cd3bd">1. DSA Notes</a>
+<li><a href="#org5404dff">1. DSA Notes</a>
 <ul>
-<li><a href="#org77c2732">1.1. Graphs</a>
+<li><a href="#orgdf46ff0">1.1. Graphs</a>
 <ul>
-<li><a href="#orgc2bfa46">1.1.1. Representations Of A Graph</a></li>
-<li><a href="#org016b9ea">1.1.2. Traversal(visit all nodes).</a></li>
+<li><a href="#orgc0c18a2">1.1.1. Representations Of A Graph</a></li>
+<li><a href="#orga4c7821">1.1.2. traversal(visit all nodes).</a></li>
 </ul>
 </li>
-<li><a href="#orgc7add6a">1.2. Trees</a>
+<li><a href="#orgdd0bc56">1.2. trees</a>
 <ul>
-<li><a href="#org561e511">1.2.1. Properties</a></li>
-<li><a href="#org1eb30fc">1.2.2. Types Of Binary Trees</a></li>
-<li><a href="#org88adf1d">1.2.3. Binary Search Tree</a></li>
-<li><a href="#org4a033ee">1.2.4. AVL trees(Height Balanced Binary Tree)</a></li>
+<li><a href="#org1a126f0">1.2.1. properties</a></li>
+<li><a href="#org26698f0">1.2.2. types of binary trees</a></li>
+<li><a href="#org23db509">1.2.3. binary search tree</a></li>
+<li><a href="#org39d5953">1.2.4. avl trees(height balanced binary tree)</a></li>
 </ul>
 </li>
-<li><a href="#org997b9c5">1.3. Heap</a>
+<li><a href="#org3bd6bbc">1.3. heap</a>
 <ul>
-<li><a href="#orge0f5459">1.3.1. Types Of Heap</a></li>
-<li><a href="#orgb9f046f">1.3.2. Definition</a></li>
-<li><a href="#orgf448786">1.3.3. Insertion</a></li>
-<li><a href="#orgfba9ffb">1.3.4. Deletion</a></li>
+<li><a href="#org5d3df5b">1.3.1. types of heap</a></li>
+<li><a href="#org3cf9520">1.3.2. definition</a></li>
+<li><a href="#orge932ef8">1.3.3. insertion</a></li>
+<li><a href="#org79b502c">1.3.4. Deletion</a></li>
 </ul>
 </li>
-<li><a href="#org0246054">1.4. Tries</a>
+<li><a href="#org97a424b">1.4. Tries</a>
 <ul>
-<li><a href="#org99271fc">1.4.1. Properties Of Trie</a></li>
-<li><a href="#orgcb7148d">1.4.2. Applications</a></li>
+<li><a href="#orge433afb">1.4.1. Properties Of Trie</a></li>
+<li><a href="#org05e79f8">1.4.2. Applications</a></li>
 </ul>
 </li>
-<li><a href="#org76ba7b1">1.5. Hashing</a>
+<li><a href="#orgf127eef">1.5. Hashing</a>
 <ul>
-<li><a href="#orgfeca5e1">1.5.1. Hash Table</a></li>
-<li><a href="#orgd1d80b5">1.5.2. Hash Functions</a></li>
-<li><a href="#orga00b31a">1.5.3. Collision Avoidance Methods</a></li>
-<li><a href="#org1c599c2">1.5.4. Open Hashing(Closed Addressing)</a></li>
-<li><a href="#org7208aac">1.5.5. Closed Hashing(Open Addresssing)</a></li>
+<li><a href="#orgc9e833d">1.5.1. Hash Table</a></li>
+<li><a href="#orgdda921f">1.5.2. Hash Functions</a></li>
+<li><a href="#org9e6345b">1.5.3. Collision Avoidance Methods</a></li>
+<li><a href="#org5f4328b">1.5.4. Open Hashing(Closed Addressing)</a></li>
+<li><a href="#org3954461">1.5.5. Closed Hashing(Open Addresssing)</a></li>
 </ul>
 </li>
 </ul>
@@ -278,20 +278,20 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org16cd3bd" class="outline-2">
-<h2 id="org16cd3bd"><span class="section-number-2">1.</span> DSA Notes</h2>
+<div id="outline-container-org5404dff" class="outline-2">
+<h2 id="org5404dff"><span class="section-number-2">1.</span> DSA Notes</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org77c2732" class="outline-3">
-<h3 id="org77c2732"><span class="section-number-3">1.1.</span> Graphs</h3>
+<div id="outline-container-orgdf46ff0" class="outline-3">
+<h3 id="orgdf46ff0"><span class="section-number-3">1.1.</span> Graphs</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgc2bfa46" class="outline-4">
-<h4 id="orgc2bfa46"><span class="section-number-4">1.1.1.</span> Representations Of A Graph</h4>
+<div id="outline-container-orgc0c18a2" class="outline-4">
+<h4 id="orgc0c18a2"><span class="section-number-4">1.1.1.</span> Representations Of A Graph</h4>
 <div class="outline-text-4" id="text-1-1-1">
 </div>
 <ol class="org-ol">
-<li><a id="org24e1b1d"></a>Adjacency Matrix<br />
+<li><a id="orga77180b"></a>Adjacency Matrix<br />
 <div class="outline-text-5" id="text-1-1-1-1">
 <p>
 Adjacency matrices are matrices which can be used to represent the connections that nodes have to each other. This is done by making a matrix of size \(n\) for \(n\) nodes. And the following rules exist for generating the matrix.
@@ -314,18 +314,18 @@ As a consequence of this, undirected graphs(graphs where the links represent con
 </p>
 </div>
 </li>
-<li><a id="org86687a3"></a>Adjacency Lists<br />
+<li><a id="org07a3063"></a>Adjacency Lists<br />
 <div class="outline-text-5" id="text-1-1-1-2">
 <p>
 Adjacency lists are an alternative representation of graphs. If a graph has \(n\) nodes, then the list has \(n\) elements. The list adjList is then made with the following rules.
 </p>
 
 <p>
-<b>adjList[i] contains all the nodes which are connected to vertex \(i\), in the order in which they are connected.</b>
+<b>adjlist[i] contains all the nodes which are connected to vertex \(i\), in the order in which they are connected.</b>
 </p>
 
 <p>
-For an example graph,
+for an example graph,
 </p>
 
 \begin{align*}
@@ -341,95 +341,95 @@ For an example graph,
 \end{align*}
 
 <p>
-We have a linked list of linked lists. The problem here is that links are represented twice.
+we have a linked list of linked lists. the problem here is that links are represented twice.
 </p>
 
 <p>
-This is an optimization for when graphs have very few links.
+this is an optimization for when graphs have very few links.
 </p>
 </div>
 </li>
 </ol>
 </div>
-<div id="outline-container-org016b9ea" class="outline-4">
-<h4 id="org016b9ea"><span class="section-number-4">1.1.2.</span> Traversal(visit all nodes).</h4>
+<div id="outline-container-orga4c7821" class="outline-4">
+<h4 id="orga4c7821"><span class="section-number-4">1.1.2.</span> traversal(visit all nodes).</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
-There are two algorithms of traversal:
+there are two algorithms of traversal:
 </p>
 <ol class="org-ol">
-<li>Breadth-First Search - which involves the usage of queue</li>
-<li>Depth-First Search - which involves the usage of stack</li>
+<li>breadth-first search - which involves the usage of queue</li>
+<li>depth-first search - which involves the usage of stack</li>
 </ol>
 </div>
 <ol class="org-ol">
-<li><a id="org03923c8"></a>Breadth-First Search<br />
+<li><a id="org9b78159"></a>breadth-first search<br />
 <div class="outline-text-5" id="text-1-1-2-1">
 <p>
-Breadth-first involves selecting a root node, and choosing a neighbour node.
+breadth-first involves selecting a root node, and choosing a neighbour node.
 </p>
 
 <p>
-Revising queues, they have a First-In, First Out approach, insertion at the rear and deletion at the front.
-The procedure follows:
+revising queues, they have a first-in, first out approach, insertion at the rear and deletion at the front.
+the procedure follows:
 </p>
 <ul class="org-ul">
-<li>The queue starts by inserting any root node, say for example A.</li>
-<li>Now A is dequeued and stored in the result.</li>
-<li>Queue all neighbouring nodes of A.</li>
-<li>The first node is dequeued.</li>
-<li>Upon dequeueing, all neighbouring nodes are checked if it&rsquo;s in the queue. If not, they are queued in.
+<li>the queue starts by inserting any root node, say for example a.</li>
+<li>now a is dequeued and stored in the result.</li>
+<li>queue all neighbouring nodes of a.</li>
+<li>the first node is dequeued.</li>
+<li>upon dequeueing, all neighbouring nodes are checked if it&rsquo;s in the queue. if not, they are queued in.
 <ul class="org-ul">
-<li>Let&rsquo;s say B is taken, and B is connected to C, and C is already connected to A and B.</li>
-<li>A and C will not be queued.</li>
+<li>let&rsquo;s say b is taken, and b is connected to c, and c is already connected to a and b.</li>
+<li>a and c will not be queued.</li>
 </ul></li>
-<li>This iterates until there are no more nodes.</li>
+<li>this iterates until there are no more nodes.</li>
 </ul>
 
 <p>
-Clearly, this depends on the number of edges in the graph. The maximum number of edges in a graph is \(^nC_2\).
+clearly, this depends on the number of edges in the graph. the maximum number of edges in a graph is \(^nc_2\).
 </p>
 
 <p>
-The functions required in this queue are:
+the functions required in this queue are:
 </p>
 <ul class="org-ul">
-<li>`Insert()`</li>
-<li>`Delete()`</li>
-<li>`Traverse()`</li>
+<li>`insert()`</li>
+<li>`delete()`</li>
+<li>`traverse()`</li>
 </ul>
 </div>
 </li>
-<li><a id="org45e3960"></a>Depth-First Search<br />
+<li><a id="orga824e28"></a>depth-first search<br />
 <div class="outline-text-5" id="text-1-1-2-2">
 <p>
-This involves traversing the nodes until an edge node is met, using a stack.
+this involves traversing the nodes until an edge node is met, using a stack.
 </p>
 
 <p>
-The procedure follows:
+the procedure follows:
 </p>
 <ul class="org-ul">
-<li>A node is selected and pushed into the stack.</li>
-<li>A random node connected to A is pushed.</li>
-<li>A connected node is pushed.</li>
-<li>This procedure is met until no unvisited node exists
+<li>a node is selected and pushed into the stack.</li>
+<li>a random node connected to a is pushed.</li>
+<li>a connected node is pushed.</li>
+<li>this procedure is met until no unvisited node exists
 <ul class="org-ul">
-<li>In which case the stack is full.</li>
-<li>If the stack is still not full, it implies that there are nodes which haven&rsquo;t been visited.</li>
+<li>in which case the stack is full.</li>
+<li>if the stack is still not full, it implies that there are nodes which haven&rsquo;t been visited.</li>
 </ul></li>
-<li>Now popping occurs</li>
-<li>The algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost element&rsquo;s adjacent nodes for unvisited nodes.</li>
-<li>This is done until the stack is empty</li>
+<li>now popping occurs</li>
+<li>the algorithm goes back and checks for unvisited nodes by popping the stack and checking the topmost element&rsquo;s adjacent nodes for unvisited nodes.</li>
+<li>this is done until the stack is empty</li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #cba6f7;">class</span> <span style="color: #f9e2af;">DFS</span> <span style="color: #f38ba8;">{</span>
-  DFS<span style="color: #fab387;">(</span><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">V</span><span style="color: #fab387;">)</span>  <span style="color: #fab387;">{</span>
-    adj = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">LinkedList</span><span style="color: #f9e2af;">[</span>V<span style="color: #f9e2af;">]</span>;
-    visited = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">boolean</span><span style="color: #f9e2af;">[</span>V<span style="color: #f9e2af;">]</span>;
-    <span style="color: #cba6f7;">for</span> <span style="color: #f9e2af;">(</span><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">i</span> = <span style="color: #fab387;">0</span>; i &lt; <span style="color: #f9e2af;">V</span>; i++<span style="color: #f9e2af;">)</span>
-      adj<span style="color: #f9e2af;">[</span>i<span style="color: #f9e2af;">]</span> = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">LinkedList</span><span style="color: #f9e2af;">&lt;</span><span style="color: #f9e2af;">Integer</span><span style="color: #f9e2af;">&gt;()</span>;
+<pre class="src src-java"><span style="color: #cba6f7;">class</span> <span style="color: #f9e2af;">dfs</span> <span style="color: #f38ba8;">{</span>
+  dfs<span style="color: #fab387;">(</span><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">v</span><span style="color: #fab387;">)</span>  <span style="color: #fab387;">{</span>
+    adj = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">linkedlist</span><span style="color: #f9e2af;">[</span>v<span style="color: #f9e2af;">]</span>;
+    visited = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">boolean</span><span style="color: #f9e2af;">[</span>v<span style="color: #f9e2af;">]</span>;
+    <span style="color: #cba6f7;">for</span> <span style="color: #f9e2af;">(</span><span style="color: #f9e2af;">int</span> <span style="color: #cdd6f4;">i</span> = <span style="color: #fab387;">0</span>; i &lt; <span style="color: #f9e2af;">v</span>; i++<span style="color: #f9e2af;">)</span>
+      adj<span style="color: #f9e2af;">[</span>i<span style="color: #f9e2af;">]</span> = <span style="color: #cba6f7;">new</span> <span style="color: #f9e2af;">linkedlist</span><span style="color: #f9e2af;">&lt;</span><span style="color: #f9e2af;">integer</span><span style="color: #f9e2af;">&gt;()</span>;
   <span style="color: #fab387;">}</span>
 <span style="color: #f38ba8;">}</span>
 </pre>
@@ -439,95 +439,95 @@ The procedure follows:
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc7add6a" class="outline-3">
-<h3 id="orgc7add6a"><span class="section-number-3">1.2.</span> Trees</h3>
+<div id="outline-container-orgdd0bc56" class="outline-3">
+<h3 id="orgdd0bc56"><span class="section-number-3">1.2.</span> trees</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-A tree with at most two links from one node is known as a binary tree.
+a tree with at most two links from one node is known as a binary tree.
 </p>
 </div>
-<div id="outline-container-org561e511" class="outline-4">
-<h4 id="org561e511"><span class="section-number-4">1.2.1.</span> Properties</h4>
+<div id="outline-container-org1a126f0" class="outline-4">
+<h4 id="org1a126f0"><span class="section-number-4">1.2.1.</span> properties</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
-<li>Maximum number of nodes - \(2^i\)</li>
-<li>Height is longest distance between root to leaf nodes (count the edges)</li>
-<li>Maximum number of nodes possible till height h is \((2^0 + 2^1 + 2^2 + \cdots 2^h)\) = \(2^{h+1} -1\)</li>
+<li>maximum number of nodes - \(2^i\)</li>
+<li>height is longest distance between root to leaf nodes (count the edges)</li>
+<li>maximum number of nodes possible till height h is \((2^0 + 2^1 + 2^2 + \cdots 2^h)\) = \(2^{h+1} -1\)</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1eb30fc" class="outline-4">
-<h4 id="org1eb30fc"><span class="section-number-4">1.2.2.</span> Types Of Binary Trees</h4>
+<div id="outline-container-org26698f0" class="outline-4">
+<h4 id="org26698f0"><span class="section-number-4">1.2.2.</span> types of binary trees</h4>
 <div class="outline-text-4" id="text-1-2-2">
 </div>
 <ol class="org-ol">
-<li><a id="orgbf2eb80"></a>Full/Proper/Strict Binary Tree<br />
+<li><a id="orgf58663e"></a>full/proper/strict binary tree<br />
 <div class="outline-text-5" id="text-1-2-2-1">
 <p>
-It is a tree where each node must contain 2 children except the leaf node.
+it is a tree where each node must contain 2 children except the leaf node.
 </p>
 
 <ul class="org-ul">
-<li>There are either two children or no children.</li>
-<li>The number of leaf nodes is equal to number of internal nodes + 1</li>
-<li>The minimum number of nodes is equal to \(2^h + 1\)</li>
-<li>Maximum number of nodes is the same as number of nodes in binary tree, \(2^{h+1} - 1\)</li>
-<li>The minimum height of the full binary tree is \(log_2(n+1) - 1\)</li>
+<li>there are either two children or no children.</li>
+<li>the number of leaf nodes is equal to number of internal nodes + 1</li>
+<li>the minimum number of nodes is equal to \(2^h + 1\)</li>
+<li>maximum number of nodes is the same as number of nodes in binary tree, \(2^{h+1} - 1\)</li>
+<li>the minimum height of the full binary tree is \(log_2(n+1) - 1\)</li>
 </ul>
 </div>
 </li>
-<li><a id="orgd730895"></a>Complete Binary Tree<br />
+<li><a id="orgf673644"></a>complete binary tree<br />
 <div class="outline-text-5" id="text-1-2-2-2">
 <p>
-A binary tree where all the nodes are completely filled except the last level.
+a binary tree where all the nodes are completely filled except the last level.
 </p>
 </div>
 </li>
-<li><a id="orgf45d34b"></a><span class="todo TODO">TODO</span> Degenerate Binary Tree<br />
+<li><a id="org196af84"></a>todo degenerate binary tree<br />
 <div class="outline-text-5" id="text-1-2-2-3">
 <p>
-Exactly like a linked list.
+exactly like a linked list.
 </p>
 </div>
 </li>
-<li><a id="org4e8d3b5"></a>Balanced Binary Tree<br />
+<li><a id="orgca9b9a1"></a>balanced binary tree<br />
 <div class="outline-text-5" id="text-1-2-2-4">
 <ul class="org-ul">
-<li>The heights of left and right trees can have a maximum height difference of 1.</li>
+<li>the heights of left and right trees can have a maximum height difference of 1.</li>
 </ul>
 </div>
 </li>
 </ol>
 </div>
-<div id="outline-container-org88adf1d" class="outline-4">
-<h4 id="org88adf1d"><span class="section-number-4">1.2.3.</span> Binary Search Tree</h4>
+<div id="outline-container-org23db509" class="outline-4">
+<h4 id="org23db509"><span class="section-number-4">1.2.3.</span> binary search tree</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
-Value of left node must be smaller than parent, and value of right node must be greater than the parent node.
+value of left node must be smaller than parent, and value of right node must be greater than the parent node.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org1b4d03b"></a>Binary Search Tree Insertion<br /></li>
-<li><a id="org2c0931c"></a>Binary Search Tree Deletion<br />
+<li><a id="orgbc7cc8b"></a>binary search tree insertion<br /></li>
+<li><a id="orgda4d5a1"></a>binary search tree deletion<br />
 <div class="outline-text-5" id="text-1-2-3-2">
 <ul class="org-ul">
-<li>It works the same as a linked list operation.</li>
-<li>We use In order Traversal to figure out the node&rsquo;s value, it takes the value of its in order successor.</li>
+<li>it works the same as a linked list operation.</li>
+<li>we use in order traversal to figure out the node&rsquo;s value, it takes the value of its in order successor.</li>
 </ul>
 </div>
 </li>
 </ol>
 </div>
-<div id="outline-container-org4a033ee" class="outline-4">
-<h4 id="org4a033ee"><span class="section-number-4">1.2.4.</span> AVL trees(Height Balanced Binary Tree)</h4>
+<div id="outline-container-org39d5953" class="outline-4">
+<h4 id="org39d5953"><span class="section-number-4">1.2.4.</span> avl trees(height balanced binary tree)</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
-What this solves is the fact that we have a series of insertions that are &rsquo;skinny&rsquo;. an avl tree is balanced, the height is as minimal as possible.
+what this solves is the fact that we have a series of insertions that are &rsquo;skinny&rsquo;. an avl tree is balanced, the height is as minimal as possible.
 </p>
 
 <p>
-Each node is given a balancing factor, \(= h_l-h_r\)
-A tree is said to be imbalanced if any node is said to have a balancing factor \(\geq\) 2.
+each node is given a balancing factor, \(= h_l-h_r\)
+a tree is said to be imbalanced if any node is said to have a balancing factor \(\geq\) 2.
 there are 4 insertions that can be performed, also known as &rsquo;rotations&rsquo;:
 </p>
 <ul class="org-ul">
@@ -538,42 +538,46 @@ there are 4 insertions that can be performed, also known as &rsquo;rotations&rsq
 </ul>
 
 <p>
-The first letter is the sub-tree, and the second letter is the child node.
+the first letter is the sub-tree, and the second letter is the child node.
 </p>
 
 <p>
-Construct an AVL tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
+construct an avl tree by inserting 14,17,11,7,53,4,13,12,8,16,19,60,20
 </p>
 
 <p>
-All 4 rotations are capable of causing an imbalance.
+all 4 rotations are capable of causing an imbalance.
 </p>
+<div class="org-src-container">
+<pre class="src src-nil">
+</pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org997b9c5" class="outline-3">
-<h3 id="org997b9c5"><span class="section-number-3">1.3.</span> Heap</h3>
+</div>
+<div id="outline-container-org3bd6bbc" class="outline-3">
+<h3 id="org3bd6bbc"><span class="section-number-3">1.3.</span> heap</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-Heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
+heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
 </p>
 </div>
-<div id="outline-container-orge0f5459" class="outline-4">
-<h4 id="orge0f5459"><span class="section-number-4">1.3.1.</span> Types Of Heap</h4>
+<div id="outline-container-org5d3df5b" class="outline-4">
+<h4 id="org5d3df5b"><span class="section-number-4">1.3.1.</span> types of heap</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
-There are two types of heap:
+there are two types of heap:
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org5e76038"></a>Min Heap<br />
+<li><a id="org782b248"></a>min heap<br />
 <div class="outline-text-5" id="text-1-3-1-1">
 <p>
-The value of the root node is less than or equal to its children
+the value of the root node is less than or equal to its children
 </p>
 </div>
 </li>
-<li><a id="orgbf70226"></a>Max Heap<br />
+<li><a id="orgfcc089e"></a>max heap<br />
 <div class="outline-text-5" id="text-1-3-1-2">
 <p>
 the value of the root node is more than or equal to its children
@@ -582,40 +586,40 @@ the value of the root node is more than or equal to its children
 </li>
 </ol>
 </div>
-<div id="outline-container-orgb9f046f" class="outline-4">
-<h4 id="orgb9f046f"><span class="section-number-4">1.3.2.</span> Definition</h4>
+<div id="outline-container-org3cf9520" class="outline-4">
+<h4 id="org3cf9520"><span class="section-number-4">1.3.2.</span> definition</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <p>
-A heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
-A heap is typically represented as an array, the array representation for a tree, is for each node
-A parent node is represented by \(\frac{i}{2} - 1\), the left child node is \(2\times i + 1\) and the right child node is \(2 \times i + 2\)
+a heap is a special form of complete binary tree where the key value is lesser than or greater than its children.
+a heap is typically represented as an array, the array representation for a tree, is for each node
+a parent node is represented by \(\frac{i}{2} - 1\), the left child node is \(2\times i + 1\) and the right child node is \(2 \times i + 2\)
 </p>
 
 <p>
-Heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
+heaps can be used for sorting, by deleting the root node until none are left, we get a sorted array.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf448786" class="outline-4">
-<h4 id="orgf448786"><span class="section-number-4">1.3.3.</span> Insertion</h4>
+<div id="outline-container-orge932ef8" class="outline-4">
+<h4 id="orge932ef8"><span class="section-number-4">1.3.3.</span> insertion</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
-The process of insertion involves:
+the process of insertion involves:
 </p>
 <ul class="org-ul">
-<li>Adding a node to the leftmost child node available.</li>
-<li>Comparing the node&rsquo;s value with the parent node
+<li>adding a node to the leftmost child node available.</li>
+<li>comparing the node&rsquo;s value with the parent node
 <ul class="org-ul">
-<li>If current node&rsquo;s value is \(i\), we have \(\frac{(i-1)}{2}\)</li>
+<li>if current node&rsquo;s value is \(i\), we have \(\frac{(i-1)}{2}\)</li>
 </ul></li>
-<li>If the comparison yields the result that the definition of heap does not hold, then the values of the parent node and the child node are swapped.</li>
-<li>Repeat until the comparison holds.</li>
+<li>if the comparison yields the result that the definition of heap does not hold, then the values of the parent node and the child node are swapped.</li>
+<li>repeat until the comparison holds.</li>
 </ul>
 
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #6c7086;">// </span><span style="color: #6c7086;">i is the variable holding the last position</span>
 <span style="color: #6c7086;">// </span><span style="color: #6c7086;">k is the value we are trying to add to the heap.</span>
-<span style="color: #f9e2af;">void</span> <span style="color: #89b4fa;">insert</span><span style="color: #f38ba8;">(</span><span style="color: #f9e2af;">A</span>,<span style="color: #f9e2af;">i</span>,<span style="color: #f9e2af;">k</span><span style="color: #f38ba8;">){</span>
+<span style="color: #f9e2af;">void</span> <span style="color: #89b4fa;">insert</span><span style="color: #f38ba8;">(</span><span style="color: #f9e2af;">a</span>,<span style="color: #f9e2af;">i</span>,<span style="color: #f9e2af;">k</span><span style="color: #f38ba8;">){</span>
 i = i + <span style="color: #fab387;">1</span>;
 a<span style="color: #fab387;">[</span>i<span style="color: #fab387;">]</span> = k;
 <span style="color: #cba6f7;">while</span><span style="color: #fab387;">(</span>i &gt; <span style="color: #fab387;">0</span><span style="color: #fab387;">){</span>
@@ -631,8 +635,8 @@ a<span style="color: #fab387;">[</span>i<span style="color: #fab387;">]</span> =
 </div>
 </div>
 </div>
-<div id="outline-container-orgfba9ffb" class="outline-4">
-<h4 id="orgfba9ffb"><span class="section-number-4">1.3.4.</span> Deletion</h4>
+<div id="outline-container-org79b502c" class="outline-4">
+<h4 id="org79b502c"><span class="section-number-4">1.3.4.</span> Deletion</h4>
 <div class="outline-text-4" id="text-1-3-4">
 <ul class="org-ul">
 <li>Deletion can only happen at the root node.</li>
@@ -657,8 +661,8 @@ n = n-<span style="color: #fab387;">1</span>;
 </div>
 </div>
 </div>
-<div id="outline-container-org0246054" class="outline-3">
-<h3 id="org0246054"><span class="section-number-3">1.4.</span> Tries</h3>
+<div id="outline-container-org97a424b" class="outline-3">
+<h3 id="org97a424b"><span class="section-number-3">1.4.</span> Tries</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 How do you go about storing a dictionary? We construct a root node with 26 child nodes, one for each letter. Then each letter, sequentially forms the subsequent child node.
@@ -668,8 +672,8 @@ How do you go about storing a dictionary? We construct a root node with 26 child
 Trie is a sorted tree based data structure that stores a set of strings, it has \(n\) pointers, where \(n\) is the number of characters in the alphabet, in each node. It can search a word in the dictionary with the help of the character nodes preceding the end of the word. It searches incrementally by character.
 </p>
 </div>
-<div id="outline-container-org99271fc" class="outline-4">
-<h4 id="org99271fc"><span class="section-number-4">1.4.1.</span> Properties Of Trie</h4>
+<div id="outline-container-orge433afb" class="outline-4">
+<h4 id="orge433afb"><span class="section-number-4">1.4.1.</span> Properties Of Trie</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>the root node of the trie is empty with \(n\) pointers, it represents the &rsquo;full&rsquo; node</li>
@@ -678,8 +682,8 @@ Trie is a sorted tree based data structure that stores a set of strings, it has 
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcb7148d" class="outline-4">
-<h4 id="orgcb7148d"><span class="section-number-4">1.4.2.</span> Applications</h4>
+<div id="outline-container-org05e79f8" class="outline-4">
+<h4 id="org05e79f8"><span class="section-number-4">1.4.2.</span> Applications</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>Dictionary</li>
@@ -691,20 +695,20 @@ Trie is a sorted tree based data structure that stores a set of strings, it has 
 </div>
 </div>
 </div>
-<div id="outline-container-org76ba7b1" class="outline-3">
-<h3 id="org76ba7b1"><span class="section-number-3">1.5.</span> Hashing</h3>
+<div id="outline-container-orgf127eef" class="outline-3">
+<h3 id="orgf127eef"><span class="section-number-3">1.5.</span> Hashing</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgfeca5e1" class="outline-4">
-<h4 id="orgfeca5e1"><span class="section-number-4">1.5.1.</span> Hash Table</h4>
+<div id="outline-container-orgc9e833d" class="outline-4">
+<h4 id="orgc9e833d"><span class="section-number-4">1.5.1.</span> Hash Table</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <p>
 Hash tables are a 2-dimensional data structure of a fixed size. They allow you to have one probe, the data can be returned immediately
 </p>
 </div>
 </div>
-<div id="outline-container-orgd1d80b5" class="outline-4">
-<h4 id="orgd1d80b5"><span class="section-number-4">1.5.2.</span> Hash Functions</h4>
+<div id="outline-container-orgdda921f" class="outline-4">
+<h4 id="orgdda921f"><span class="section-number-4">1.5.2.</span> Hash Functions</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <ol class="org-ol">
 <li>Division method
@@ -723,8 +727,8 @@ QUESTION: Use division method, to store the following data into a hash table of 
 </ol>
 </div>
 </div>
-<div id="outline-container-orga00b31a" class="outline-4">
-<h4 id="orga00b31a"><span class="section-number-4">1.5.3.</span> Collision Avoidance Methods</h4>
+<div id="outline-container-org9e6345b" class="outline-4">
+<h4 id="org9e6345b"><span class="section-number-4">1.5.3.</span> Collision Avoidance Methods</h4>
 <div class="outline-text-4" id="text-1-5-3">
 <p>
 For open hashing, chaining method is used for collision handling
@@ -732,28 +736,205 @@ The chaining method involves creating a pointer to another node, and the conflic
 </p>
 
 <p>
-For closed hashing
+For closed hashing,
 Three methods to handle collision:
 </p>
 <ol class="org-ol">
-<li>Linear probing</li>
-<li>Quadratic probing</li>
-<li>Double hashing</li>
+<li>Linear probing
+When a collision occurs, insert the hash into the subsequent node \((u+i)\%n)\).</li>
+<li>Quadratic probing
+When a collision occurs, insert the hash into the node \((u+i^2)\%10)\)</li>
+<li>Double hashing
+We use two hashing functions
+
+<ul class="org-ul">
+<li>\(h_1(k) = u\)</li>
+<li>\(h_2(k) = v\)</li>
+</ul></li>
 </ol>
+
+<p>
+When there is a collision, the second hashing function is used, in every other case the first hashing function is used.
+</p>
+
+<p>
+Then the new index is calculated,
+</p>
+
+<p>
+\[w = (u+v*i)\%m\]
+</p>
+
+<p>
+Let&rsquo;s take an example, we define \(h_1(k) = (2k+1)\%10\), \(h_2(k) = (3k+2)\%10\)
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Key</th>
+<th scope="col" class="org-right">U</th>
+<th scope="col" class="org-left">V</th>
+<th scope="col" class="org-left">W</th>
+<th scope="col" class="org-right">Probe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">3</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">5</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-right">7</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">1</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+<td class="org-left">-</td>
+<td class="org-left">9</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-right">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-right">-</td>
+</tr>
+
+<tr>
+<td class="org-right">22</td>
+<td class="org-right">-</td>
+<td class="org-left">-</td>
+<td class="org-left">-</td>
+<td class="org-right">-</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Now we write the hash table,
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><b>index</b></th>
+<th scope="col" class="org-left"><b>key</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">10</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">6</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">12</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">8</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-left">-</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">2</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div id="outline-container-org1c599c2" class="outline-4">
-<h4 id="org1c599c2"><span class="section-number-4">1.5.4.</span> Open Hashing(Closed Addressing)</h4>
+<div id="outline-container-org5f4328b" class="outline-4">
+<h4 id="org5f4328b"><span class="section-number-4">1.5.4.</span> Open Hashing(Closed Addressing)</h4>
 </div>
-<div id="outline-container-org7208aac" class="outline-4">
-<h4 id="org7208aac"><span class="section-number-4">1.5.5.</span> Closed Hashing(Open Addresssing)</h4>
+<div id="outline-container-org3954461" class="outline-4">
+<h4 id="org3954461"><span class="section-number-4">1.5.5.</span> Closed Hashing(Open Addresssing)</h4>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Adithya Nair</p>
-<p class="date">Created: 2024-09-04 Wed 11:34</p>
+<p class="date">Created: 2024-09-06 Fri 09:11</p>
 </div>
 </body>
 </html>

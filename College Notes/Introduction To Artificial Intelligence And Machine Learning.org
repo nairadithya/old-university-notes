@@ -631,3 +631,8 @@ $$Gain(S,A) = Entropy(S) - \Sigma_{v \in values(A)} |S_v| / |S| Entropy(S_v)$$
 - This might happen with too many branches, or outliers
   - We avoid this with prepruning, halt tree construction early
   - We can also remove branches from a full tree.
+
+In the prepruning experiment
+1. Find the maximum depth of the tree if max depth was not given.
+2. What are the different values for 'criterion' that can be given in the python package implementation.
+3. Use min_samples_split, which is the minimum number of samples required to split a node
