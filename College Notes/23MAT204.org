@@ -4,6 +4,12 @@
 #+LATEX_CLASS: report
 #+EXPORT_FILE_NAME: exports/23MAT204.pdf
 
+* Table Of Contents :toc:
+- [[#mathematics][Mathematics]]
+  - [[#revision-linear-algebra][Revision Linear Algebra]]
+  - [[#multi-variable-optimization][Multi variable Optimization]]
+  - [[#probability][Probability]]
+
 * Mathematics
 ** Revision Linear Algebra
 Every matrix satisfies its own characteristic matrix.
@@ -58,17 +64,11 @@ This method can also be used to generate orthonormal bases for the 4
 Fundamental Subspaces
 
 *** The Geometry of SVD
-:PROPERTIES:
-:CUSTOM_ID: the-geometry-of-svd
-:END:
 Since we have an orthogonal matrix, diagonal and orthogonal matrix...
 It's a rotation step followed by a stretching step, finally ended by
 another rotation step.
 
 *** Polar Decomposition
-:PROPERTIES:
-:CUSTOM_ID: polar-decomposition
-:END:
 This decomposition is a special case of the Singular Value
 Decomposition. Where you decompose the elements into the polar form with
 an orthogonal matrix and a positive semi-definite matrix.
@@ -89,9 +89,6 @@ rotation matrices for higher-dimension spaces. Might be useful in
 exploring the semantic spaces of LLMs.
 
 *** Principal Component Analysis
-:PROPERTIES:
-:CUSTOM_ID: principal-component-analysis
-:END:
 Why do we use normalization while working with data? We use
 normalization to ensure that the units are eliminated while working with
 that given data. *This normalization is done by subtracting by the
@@ -146,9 +143,6 @@ There are three types of Matrix norms:
 3. Nuclear Norm
 
 **** Spectral Norm
-:PROPERTIES:
-:CUSTOM_ID: spectral-norm
-:END:
 We know that the vector norm for a vector \(\vec{x}\) is nothing but
 \(\vec{x}^T \vec{x}\). We take this property.
 
@@ -362,6 +356,7 @@ Gradient DEscent - $x_{k+1} = x_k + \alpha_kd_k$ where $d_k = - \nabla f(x_k)$ a
 A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
 
 *** Steepest Descent
+
 A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
 
 A direction along which the function decreases rapidly from a point is given by the negative of the gradient of the function at that point
@@ -523,7 +518,6 @@ x, 0<x<1 \\
 1, x > 1 \\
      \end{cases}
 $$
-****
 **** Variance Of Random Variable
 $$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
 
@@ -531,7 +525,7 @@ $$\sigma_x^{2} = E(X^2) - \mu^2$$
 *** Joint Probability Distribution
 This is given for two variables, a function $f(x,y)$ gives us a probability, $P(X= x_1, X = x_2$
 **** Properties
-- $0 \le f(x_1,) \le 1$
+- $0 \le f(x_1,y_1) \le 1$
 - $\Sigma_x \Sigma_y f(x,y) = 1$
 **** Marginal Distribution Function
 Marginal distribution functions are the probability distributions of the variables themselves.
@@ -540,6 +534,14 @@ Marginal distribution functions are the probability distributions of the variabl
 **** Mean Of Marginal Values
 
 $Mean(X_1) = E(X_1) = \Sigma_{x1} x_1 f_{1)(x_{1})$
+*** Double Integrals
+$\int_x \int_y f(x,y) dy dx$
+**** Area Of A Region
+$$R= \int_R 1 dx dy$$
+*** Joint Probability Density Function
+For a continuous scalar field, $P(a \le x  \le b, c \le y \le d)$
+**** Properties
+- $\int\int f(x,y) dx dy = 1$
 *** Independent Probabilities
 Two events $A$ and $B$ are said to be independent if $P(A|B) = P(A)$ or $P(B|A) = P(B)$
 

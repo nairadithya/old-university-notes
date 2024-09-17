@@ -279,8 +279,8 @@ The data array A is equal to 3,2,9,6,11,13,7,12, $n = 10$, $h_k = 2k + 3$, $h2(k
 |-----+---+---+---+-------|
 |   3 | 9 | 0 |   |       |
 |   2 | 7 | 7 |   |       |
-|   9 | 1 | 8 |   |       |
 |   6 | 5 | 9 |   |       |
+|   9 | 1 | 8 |   |       |
 |  11 | 5 | 4 |   |       |
 |  13 | 9 | 0 |   |       |
 |   7 | 7 | 2 |   |       |
@@ -295,5 +295,3 @@ A hash tree is a data structure used for data verification and synchronization. 
 
 *** Usage
 The hash nodes are used to check if data is corrupted. If the root node of the hashing function differs from the merkel tree generated from the data, then we have an issue.
-
-Torrent
