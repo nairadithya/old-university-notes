@@ -16,7 +16,6 @@ This course is mainly going to focus on *Manipulators*. These machines are used 
 1. Actuator - Does work upon receiving voltage
 2. Encoder - Sensor that measures raw angle data.
 
-
 Software for robotics - *v-rep*, MATLAB
 This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
 
@@ -103,13 +102,13 @@ These parameters are used to assign the same co-ordinate frames while dealing wi
 
 For a 3R Planar serial chain manipulator:
 
-|-------------+-----+-----+---------+-----|
+|-------------+-----+-----+--------------+----------|
 |             | a_i | d_i | $\alpha_{i}$ | \theta_i |
-|-------------+-----+-----+---------+-----|
-| Joint i = 1 | L_1 |   0 |       0 | \theta_1 |
-| Joint i = 2 | L_2 |   0 |       0 | \theta_2 |
-| Joint i = 3 | L_3 |   0 |       0 | \theta_3 |
-|-------------+-----+-----+---------+-----|
+|-------------+-----+-----+--------------+----------|
+| Joint i = 1 | L_1 |   0 |            0 | \theta_1 |
+| Joint i = 2 | L_2 |   0 |            0 | \theta_2 |
+| Joint i = 3 | L_3 |   0 |            0 | \theta_3 |
+|-------------+-----+-----+--------------+----------|
 *** Rotation Matrix
 We have three reference frames, with a common origin. With the notation we have setup we can say, $\{0\},\{1\},\{2\}$ can be defined for a point $P$
 
@@ -406,19 +405,27 @@ ans = "../images/octave-chart.png";
 [[file:../images/octave-chart.png]]
 
 * Practice Sheets
-[[file:~/university-notes/Introduction To Robotics/assignments/23AID202_ITR_PracticeSheet01.pdf][Practice Sheet 1]]
 The notations used in our lectures are similar with this book.
 
 - For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
 - For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
 
+
 * Syllabus
-- Pose of a rigid body
+[[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::27++0.00][Chapter 2
+]]- Pose of a rigid body
   - Position + Orientation
-  - Rotation Matrices
-  - Homogeneous Transformation Matrix
-- DH Parameters+Co-ordinate Convention
+- Rotation Matrices
+- Homogeneous Transformation Matrix
+
+[[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::70++0.00][Chapter 3 - 3.1 to 3.4
+]]- DH Parameters+Co-ordinate Convention
+
+[[pdf:~/university-notes/Introduction To Robotics/textbooks/(Tj211.T75) Lung-Wen Tsai - Robot Analysis_ The mechanics of serial and parallel manipulators (1999).pdf::84++0.00][(Tj211.T75) Lung-Wen Tsai Segment on Direct And Inverse Kinematics]]
+[[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::109++0.00][John J Craig On Forward And Inverse Kinematics]]
 - Forward Kinematics
 - Inverse Kinematics
-  - Jacobian
-  - Singularity
+
+[[pdf:~/university-notes/Introduction To Robotics/textbooks/(Tj211.T75) Lung-Wen Tsai - Robot Analysis_ The mechanics of serial and parallel manipulators (1999).pdf::198++0.00][4.5-4.6.1]]
+- Jacobian
+- Singularity

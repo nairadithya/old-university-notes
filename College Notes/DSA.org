@@ -9,8 +9,8 @@
 **** Adjacency Matrix
 Adjacency matrices are matrices which can be used to represent the connections that nodes have to each other. This is done by making a matrix of size $n$ for $n$ nodes. And the following rules exist for generating the matrix.
 
-1. If there is a link from node $i$ to node $j$ then the element $A_{ij}$ for the adjacency matrix $A$ is 1.
-2. If there is no link, then the element is zero.
+1. if there is a link from node $i$ to node $j$ then the element $a_{ij}$ for the adjacency matrix $a$ is 1.
+2. if there is no link, then the element is zero.
 
 \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -19,9 +19,9 @@ a_{21} & a_{22} & \cdots & a_{2n} \\
 a_{n1} & a_{n2} & \cdots & a_{nn} \\
 \end{bmatrix}
 
-As a consequence of this, undirected graphs(graphs where the links represent connection rather than direction) are represented with a symmetric matrix.
-**** Adjacency Lists
-Adjacency lists are an alternative representation of graphs. If a graph has $n$ nodes, then the list has $n$ elements. The list adjList is then made with the following rules.
+as a consequence of this, undirected graphs(graphs where the links represent connection rather than direction) are represented with a symmetric matrix.
+**** adjacency lists
+adjacency lists are an alternative representation of graphs. if a graph has $n$ nodes, then the list has $n$ elements. the list adjlist is then made with the following rules.
 
 *adjlist[i] contains all the nodes which are connected to vertex $i$, in the order in which they are connected.*
 
@@ -59,8 +59,7 @@ the procedure follows:
 - the first node is dequeued.
 - upon dequeueing, all neighbouring nodes are checked if it's in the queue. if not, they are queued in.
 	- let's say b is taken, and b is connected to c, and c is already connected to a and b.
-	- a and c will not be queued.
-- this iterates until there are no more nodes.
+	- a and c will not be queued. - this iterates until there are no more nodes.
 
 clearly, this depends on the number of edges in the graph. the maximum number of edges in a graph is $^nc_2$.
 
@@ -295,3 +294,36 @@ A hash tree is a data structure used for data verification and synchronization. 
 
 *** Usage
 The hash nodes are used to check if data is corrupted. If the root node of the hashing function differs from the merkel tree generated from the data, then we have an issue.
+
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+| Data Structure | Type/Representation | Algorithm    | Time Complexity                                     | Space Complexity |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+| Graphs         | Adjacency Matrix    | BFS          | O(v^2)                                              | O(v)             |
+|                |                     | DFS          | O(v^2)                                              | O(v)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+|                | Adjacency List      | BFS          | O(v+e)                                              | O(v)             |
+|                |                     | DFS          | O(v+e)                                              | O(v)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+| Trees          | Binary Tree         | Insertion    | O(n)                                                | O(H)             |
+|                |                     | Search       | O(n)                                                | O(H)             |
+|                |                     | Deletion     | O(n)                                                | O(H)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+|                | Binary Search Tree  | Insertion    | O(n) - worst, O(h) - general                        | O(H)             |
+|                |                     | Search       | O(n) - worst, O(log n) - general                    | O(H)             |
+|                |                     | Deletion     | O(n) - worst, O(h) - general                        | O(H)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+|                | AVL Tree            | Insertion    | O(log n) - worst                                    | O(n)             |
+|                |                     | Search       | O(log n) - worst                                    | O(n)             |
+|                |                     | Deletion     | O(log n) - worst                                    | O(n)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+| Heap           |                     | Insertion    | O(h) - general, O(log n) - for complete binary tree | O(n)             |
+|                |                     | Deletion     | O(h) - general, O(log n) - for complete binary tree | O(n)             |
+|                |                     | Find min/max | O(1)                                                | O(n)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+| Trie           |                     | Insertion    | O(number of words * maximum length of word)         |                  |
+|                |                     | Search       | O(number of words * maximum length of word)         |                  |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+| Hash Table     |                     | Insertion    | O(1) - general, worst case - O(n)                   | O(n)             |
+|                |                     | Search       | O(1) - general, worst case - O(n)                   | O(n)             |
+|                |                     | Deletion     | O(1) - general, worst case - O(n)                   | O(n)             |
+|----------------+---------------------+--------------+-----------------------------------------------------+------------------|

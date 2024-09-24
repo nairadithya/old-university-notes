@@ -1,4 +1,4 @@
-j+title: Mahabharata
+#z+title: Mahabharata
 
 * Mahabharata A Brief Summary
 ** Narrations
@@ -11,7 +11,6 @@ j+title: Mahabharata
 - Story of Bharata
 **** Bhishma
 son of King Santanu and Ganga Devi. Devavrata vows to never marry and observes chastity so that father could marry Satyavati. He becomes Bhishma(one who undertook a terrible vow), now he can only die when he wishes to (boon from father.)
-
 
 He abducts Kasi princesses Amba, Ambika and Ambalika at a function as brides for [[Vichitravirya]]
 **** Chitraganda

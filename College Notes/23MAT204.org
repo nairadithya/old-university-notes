@@ -4,19 +4,19 @@
 #+LATEX_CLASS: report
 #+EXPORT_FILE_NAME: exports/23MAT204.pdf
 
-* Table Of Contents :toc:
-- [[#mathematics][Mathematics]]
-  - [[#revision-linear-algebra][Revision Linear Algebra]]
-  - [[#multi-variable-optimization][Multi variable Optimization]]
-  - [[#probability][Probability]]
-
 * Mathematics
 ** Revision Linear Algebra
 Every matrix satisfies its own characteristic matrix.
 
 What this means is
 
-$$ \begin{aligned}     \lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\      A^3 - 2A^2 + A -4I &= 0 \\      A^2 - 2A + I - 4A^{-1} &= 0 \\    A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\    X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b $$
+\begin{align}
+\lambda^3 - 2\lambda^2 + \lambda -4 &= 0 \\
+A^3 - 2A^2 + A -4I &= 0 \\
+A^2 - 2A + I - 4A^{-1} &= 0 \\
+A^{-1} &= \frac{1}{4}[A^2 - 2A + I] \\
+X = A^{-1}b &= \frac{1}{4}[A^2 - 2A + I]b
+\end{align}
  There are some implications behind this. Here's a problem, generate a random 3x3 matrix, find the ranks of
 \((A- \lambda_1 I)\) and then \((A-\lambda_1 I)(A-\lambda_2 I\)
 
@@ -24,7 +24,6 @@ What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 
 *** Ways To Calculate Whether A Matrix Is Positive Definite
-
 1. The minors are positive then negative alternating.
 2. The eigenvalues are positive.
 
@@ -460,7 +459,7 @@ The probabilty mass function for a discrete random variable $x$ is defined as, $
 **** Properties
 - $0 \leq f(x) \leq 1$
 - $\Sigma f(x) = 1$
-- $P(\text{at least n outcomes}) = P(X \geq n) = f(n) + \cdots + f(end)$
+- $p(\text{at least n outcomes}) = p(x \geq n) = f(n) + \cdots + f(end)$
 
 **** Mean Of Random Variable
 $$U_x = E(x) = \Sigma x f(x)$$
@@ -482,9 +481,7 @@ The Bernoulli Process
 2. Each trial results in an outcome that may be classified as a success
 3. The trials are independent.
 
-
 Where n is the number of trials, x is the random variable distribution, $q = 1 - p$
-
 $^nC_xp^{x} q^{n-x}$
 
 We have,
