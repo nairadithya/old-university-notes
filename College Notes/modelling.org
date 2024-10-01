@@ -194,7 +194,6 @@ s output
 *** Transformers
 We have bond graphs now, and we can say certain things about the efforts and flows using bond graphs.
 
-
 What we can do next is write functions known as transformers that convert the input effort into the output effort, or the input flow into the output flow, based on the causal stroke.
 *** Gyrators
 What we can do with gyrators convert the input of one form into the output of another form, based on the causal stroke.
@@ -210,7 +209,39 @@ $$\frac{1}{T_s+1}$$
 *** S-Plane
 *** Maximum Overshoot
 $$M_p=\frac{c(t_p)-c(\infty)}{c(\infty)}$$
-* Assignments
+
+** Frequency Response
+
+We write $s = \sigma + j \omega$
+
+If we have a block diagram where X(s) through some linear transformation G(s) becomes Y(s)
+
+We can write that
+
+\begin{align*}
+y(t) &= Y sin(\omega t + \phi) \\
+&= X |G(j \omega)| sin(\omega t + \phi)
+\end{align*}
+
+\begin{align*}
+Y &= X|G(j\omega) \\
+\phi &= tan^{-1}\frac{Im(G(j\omega))}{Re(G(j\omega))}
+&= G(s) \frac{\omega X}{s^2+ \omega^2}
+\end{align*}
+
+We can then write it out as a polynomial.
+
+\begin{align*}
+Y(s) = \frac{p(s)}{q(s)} \frac{\omega X}{s^2 + \omega^2} \\
+Y(s) = \frac{a}{s + j \omega} + \frac{\overline{a}}{s - j \omega} + \frac{b_1}{s+s_1} + \frac{b_2}{s + s_2} \\
+y(t) = ae^{-j \omega t} + \overline{a}e^{j \omega t} + b_1 e^{-s_1t} + b_2 e^{-s_2t}
+\end{align*}
+
+Thus the steady state,
+
+$$y(t) = ae^{-j \omega t} + \overline{a}e^{j \omega t}$$
+
+Ogata Chapter 7, first three pages.
 * Syllabus
 
  * Mathematical Modelling

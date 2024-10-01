@@ -540,6 +540,18 @@ For a continuous scalar field, $P(a \le x  \le b, c \le y \le d)$
 **** Properties
 - $\int\int f(x,y) dx dy = 1$
 *** Independent Probabilities
+
 Two events $A$ and $B$ are said to be independent if $P(A|B) = P(A)$ or $P(B|A) = P(B)$
 
 Two discrete random variables $x_1$ and $x_2$ are said to be independent if $f(x_1,x_2)$ = $f(x_1)f_2(x_2) \forall x_1 \& x_2$
+*** Binomial Distribution
+The Bernoulli process has these properties:
+1. The experiment consists of repeated trials
+2. Each trial results in an outcome that may be classified as a success or failure.
+*** Poisson Distribution
+$$\lim_{n \rightarrow \infty} P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}$$
+
+
+*** Continuous Uniform Distribution
+$$f(x) = \frac{1}{b-a}$$
+*** Gaussian Normal Distribution

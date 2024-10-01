@@ -410,7 +410,94 @@ The notations used in our lectures are similar with this book.
 - For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
 - For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
 
+* End-Sem Project
+1. Select a robotic system
+   a. select only serial chain robotic manipulator
+   b. select standard SCM
+   c. No more than 5 or 6 joints
+   d. Robotic SCM can be as simple as planar 2R manipulator or complex as Stanford Manipulator
+   e. The simpler the robotic manipulator, problem should be detailed
+   f. No more than 2 teams should select the same robotic system, but they should work on different problems.
+2. Problems
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Problems           | Type       | Examples                                                                                  |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Forward Kinematics | Compulsory | Completely define the robotic system using DH Parameters.                                 |
+   |                    |            | Find homogeneous transformation and jacobian matrix                                       |
+   |                    |            | Give arbitrary end-effector position by user and robotic SCM should reach it              |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Inverse Kinematics | Compulsory | Find the workspace and show it graphically on simulation                                  |
+   |                    |            | Take up some inverse kinematics problems on your will.                                    |
+   |                    |            | Examples-                                                                                 |
+   |                    |            | Trajectory planning, stylus writing manpulator, dance moves performed by the end effector |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Statics            | Optional   |                                                                                           |
+   | Dynamics           | Optional   |                                                                                           |
+   | Controls           | Optional   |                                                                                           |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+3. Software
+   1. Matlab - scripts/functions, simscabe, rigidbody, multibody tool
+   2. CoppeliaSim
 
+* Statics
+Statics is the study of the forces and torques acting on bodies that are at rest or in a state of equilibrium.
+
+How does this play into robotics? This comes in handy in situations where the robot must stand still. It needs to apply forces to counteract all the forces on it to stay stationary.
+
+We know from inverse kinematics that,
+
+$$\dot{X} = J \dot{q}$$
+
+The final answer here is,
+$$\tau = J^TF$$
+Where $\tau$ is the joint torques and $F$ is the End-Effector's wrench vector, which containeds both forces and torques.
+
+We invert both sides
+
+$$\dot{q} = J^{-1}\dot{X}$$ and $$F = (J^T)^{-1}\tau$$
+
+With singularity, we're unable to map the end effector's veloticy to joint space velocities. It also means we're unable to map joint torques($\tau$) to the Wrench vector($F$) In the neighbourhood of  sinularity, samll velocity in task space will cause very high velocity in joint space, and small joint torques will cause very high forces and torques.
+
+*** Proof
+*Using work method*,
+
+Work done by external agent at the Ende Effector = Work done by actuators at the joint.
+
+$$\vec{F} \cdot \partial {\vec{X}} = \tau \cdot \partial \theta $$
+$${F}^{T} \cdot \partial {\vec{X}} = \tau^{T} \cdot \partial \theta $$
+
+From Jacobian relation:
+
+$$F^T = J \partial \theta => \partial X = J \partial \theta$$
+
+So,
+$$F^T J d \theta = \tau^T d \theta$$
+$$F^T J = \tau^T d$$
+
+Taking the transpose on both sides
+$$J^{T} F  = \tau$$
+
+Using Newton's second law,
+Define the wrench vector for the end effector
+$$F_{6 \times 1} = \begin{bmatrix}f_{3 \times 1} \\ n_{3 \times 1}\end{bmatrix}$$
+
+
+For a given link $i$
+
+$$\Sum \vec{f} = 0$$
+
+\begin{align*}
+f_{i,i-1} - f_{i+1,i} + m_ig &= 0 \\
+f_{i,i-1} = f_{i+1,i} + m_ig  \\
+\end{align*}
+
+\begin{align*}
+n_{i,i-1} = n_{i+1,1} + (r_i \times f_{i,i+1}) - (*r_{com(i),i} \times m_i g) \\
+\end{align*}
+
+We iterate from i = n to 1, and we calculate the forces first.
+
+Lung wen tsai 266-268
 * Syllabus
 [[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::27++0.00][Chapter 2
 ]]- Pose of a rigid body

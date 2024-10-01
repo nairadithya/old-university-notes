@@ -20,7 +20,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn} \\
 \end{bmatrix}
 
 as a consequence of this, undirected graphs(graphs where the links represent connection rather than direction) are represented with a symmetric matrix.
-**** adjacency lists
+**** Adjacency Lists
 adjacency lists are an alternative representation of graphs. if a graph has $n$ nodes, then the list has $n$ elements. the list adjlist is then made with the following rules.
 
 *adjlist[i] contains all the nodes which are connected to vertex $i$, in the order in which they are connected.*
@@ -43,12 +43,12 @@ we have a linked list of linked lists. the problem here is that links are repres
 
 this is an optimization for when graphs have very few links.
 
-*** traversal(visit all nodes).
+*** Traversal(visit all nodes).
 there are two algorithms of traversal:
 1. breadth-first search - which involves the usage of queue
 2. depth-first search - which involves the usage of stack
 
-**** breadth-first search
+**** Breadth-First Search
 breadth-first involves selecting a root node, and choosing a neighbour node.
 
 revising queues, they have a first-in, first out approach, insertion at the rear and deletion at the front.
@@ -68,7 +68,7 @@ the functions required in this queue are:
 - `delete()`
 - `traverse()`
 
-**** depth-first search
+**** Depth-First Search
 this involves traversing the nodes until an edge node is met, using a stack.
 
 the procedure follows:
@@ -93,15 +93,15 @@ class dfs {
 }
 #+end_src
 
-** trees
+** Trees
 
 a tree with at most two links from one node is known as a binary tree.
-*** properties
+*** Properties
 - maximum number of nodes - $2^i$
 - height is longest distance between root to leaf nodes (count the edges)
 - maximum number of nodes possible till height h is $(2^0 + 2^1 + 2^2 + \cdots 2^h)$ = $2^{h+1} -1$
-*** types of binary trees
-**** full/proper/strict binary tree
+*** Types Of Binary Trees
+**** Full/Proper/Strict Binary Tree
 it is a tree where each node must contain 2 children except the leaf node.
 
 - there are either two children or no children.
@@ -109,9 +109,8 @@ it is a tree where each node must contain 2 children except the leaf node.
 - the minimum number of nodes is equal to $2^h + 1$
 - maximum number of nodes is the same as number of nodes in binary tree, $2^{h+1} - 1$
 - the minimum height of the full binary tree is $log_2(n+1) - 1$
-**** complete binary tree
-a binary tree where all the nodes are completely filled except the last level.
-
+**** Complete Binary Tree
+A Binary Tree where all the nodes are completely filled except the last level.
 **** todo degenerate binary tree
 exactly like a linked list.
 **** balanced binary tree
@@ -122,7 +121,7 @@ value of left node must be smaller than parent, and value of right node must be 
 **** binary search tree deletion
 - it works the same as a linked list operation.
 - we use in order traversal to figure out the node's value, it takes the value of its in order successor.
-*** avl trees(height balanced binary tree)
+*** Avl Trees(Height Balanced Binary Tree)
 what this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
 
 each node is given a balancing factor, $= h_l-h_r$
@@ -141,7 +140,7 @@ all 4 rotations are capable of causing an imbalance.
 #+begin_src
 
 #+end_src
-** heap
+** Heap
 heap is a data structure with a complete binary tree. this tree is mainly used for creating an efficient sorting algorithm.
 *** Types Of Heap
 there are two types of heap:
@@ -300,18 +299,17 @@ The hash nodes are used to check if data is corrupted. If the root node of the h
 |----------------+---------------------+--------------+-----------------------------------------------------+------------------|
 | Graphs         | Adjacency Matrix    | BFS          | O(v^2)                                              | O(v)             |
 |                |                     | DFS          | O(v^2)                                              | O(v)             |
-|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
 |                | Adjacency List      | BFS          | O(v+e)                                              | O(v)             |
 |                |                     | DFS          | O(v+e)                                              | O(v)             |
 |----------------+---------------------+--------------+-----------------------------------------------------+------------------|
 | Trees          | Binary Tree         | Insertion    | O(n)                                                | O(H)             |
 |                |                     | Search       | O(n)                                                | O(H)             |
 |                |                     | Deletion     | O(n)                                                | O(H)             |
-|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+|                |                     |              |                                                     |                  |
 |                | Binary Search Tree  | Insertion    | O(n) - worst, O(h) - general                        | O(H)             |
 |                |                     | Search       | O(n) - worst, O(log n) - general                    | O(H)             |
 |                |                     | Deletion     | O(n) - worst, O(h) - general                        | O(H)             |
-|----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+|                |                     |              |                                                     |                  |
 |                | AVL Tree            | Insertion    | O(log n) - worst                                    | O(n)             |
 |                |                     | Search       | O(log n) - worst                                    | O(n)             |
 |                |                     | Deletion     | O(log n) - worst                                    | O(n)             |

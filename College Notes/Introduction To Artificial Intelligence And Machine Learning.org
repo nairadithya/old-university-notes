@@ -554,9 +554,18 @@ The reasons to perform feature selection is:
 1. Remove features which almost zero influence on the target class
 2. Right selection between features
 
-TODO Read up on $chi^2$ function
+Read up on $chi^2$ function
 ** Filter Methods
 Works on the basis of score, like $\chi^{2}$, the features are scored and the best features are selected.
+** Curse Of Dimensionality
+ * The number of traning examples initially increase accuracy but deteriorates after some point
+ * The number of training examples required increases exponentailly with dimensionality
+ * Other curses- visualization & performance challenges.
+** Search Forms
+ * Forward search involves finding a set that satisfies a measure.
+ * Backward search involves removing sets until the set satisfies a measure.
+ * Bidirectional Search - begins the search for both forward and backward and compares their results.
+ * Sequential Forward-Backward Search - Based on accuracy, we  check the feature that gives maximum accuracy
 ** Wrapper Methods
 Recursive feature elimination
 * K-Nearest Neighbour Classifier
@@ -636,3 +645,46 @@ In the prepruning experiment
 1. Find the maximum depth of the tree if max depth was not given.
 2. What are the different values for 'criterion' that can be given in the python package implementation.
 3. Use min_samples_split, which is the minimum number of samples required to split a node
+* Regression
+Models the relationship between one or more independent or predictor variables and a dependent or response variable.
+** Metrics
+You use a loss function that measures the squared error in the prediction.
+
+**** Mean Absolute Error
+
+Average over the test sample of the differences between prediction and actual observation.
+
+** Linear Regression
+A model that fits a set of continuous values into a line.
+
+A line is modelled by the equation,
+$$y = mx + c$$
+
+Where $m$ and $c$ are known as the regression coefficients.
+
+**** Method of least squares - Estimates the best-fitting straight line.
+$$m = \frac{\sum_{i=1}^{|D|} (x_i - \overline{x})(y_i - \overline{y})}{(\sum_{i=1}^{|D|}x_i - \overline{x})}$$
+
+$$c = \overline{y} - m\overline{x}$$
+
+The cost function used to find this.
+
+$$J(\theta) = \frac{1}{2n}\sum_{i=1}^n(h_{\theta}(x^i) - y^i)^{2}$$
+
+** Lasso Regression
+Adds a penalty term which sums the coefficients to the loss function.
+
+** Ridge Regression
+Adds a penalty term which sums the squares of the coefficients to the loss function.
+
+** ElasticNet
+Combination of lasso and ridge.
+
+** Logistic Regression
+A regression algorithm that works as a classifier.
+
+A sigmoid function,
+
+$$\frac{1}{1+ e^{-x}}$$
+** Regularization
+Regularization is a mechanism to avoid overfitting and is particularly employed in regression models which are specially designed to handle high dimensionality data.

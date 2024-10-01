@@ -1,0 +1,338 @@
+% Created 2024-09-25 Wed 12:56
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\input{preamble}
+\author{Adithya Nair}
+\date{\today}
+\title{Software Defined Communication System}
+\hypersetup{
+ pdfauthor={Adithya Nair},
+ pdftitle={Software Defined Communication System},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.4 (Org mode 9.7.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\part{Notes}
+\label{sec:orgc34de2d}
+\chapter{Unit 1}
+\label{sec:org7d2c385}
+\section{Classification Of Systems}
+\label{sec:org7e67950}
+\begin{itemize}
+\item No. of inputs - SISO, MIMO
+\item Type of signal - Continuous time-system, discrete
+\item Dimension - One-dimensional, multi-dimensional
+\end{itemize}
+\section{Even And Odd Signals}
+\label{sec:org93dcdf3}
+\begin{enumerate}
+\item Even Signal
+\label{sec:org69eba5d}
+$$x(t) = x(-t)$$
+\item Odd Signal
+\label{sec:orgde50520}
+$$x(t) = -x(-t)$$
+\end{enumerate}
+\section{Signal Energy And Power}
+\label{sec:org29adfdf}
+$$E = \int_{-\infty}^{\infty}|x(t)|^2dt$$
+$$P \lim_{T \rightarrow \infty} \frac{1}{T} \int_{-T/2}^{T/2} |x(t)|^2dt$$
+\section{Linear Time Invariance}
+\label{sec:org972c01e}
+\begin{enumerate}
+\item Why LTI?
+\label{sec:org924b53d}
+\begin{itemize}
+\item The effect of a system on the spectrum can be analyzed easily if and only if the system is LTI.
+\end{itemize}
+\item How To Check Time Invariance
+\label{sec:orgc7bb8da}
+\begin{itemize}
+\item No time scaling
+\item Coefficient should be not be time dependent.
+\item Any addition or subtraction term to the system, should be constant or zero.
+\end{itemize}
+\end{enumerate}
+\section{Linearity}
+\label{sec:org286224a}
+\begin{itemize}
+\item Any linear  system is independent of time scaling
+\item If the order of system is greater than 1, then it is not linear.
+\end{itemize}
+\section{Discrete Convolution}
+\label{sec:orgacc2079}
+$$y[n] = \Sigma_{k = -\infty}^{\infty}x[k]h[n-k]$$
+\section{Sinusoids}
+\label{sec:orgf6f79c6}
+\begin{enumerate}
+\item Why Do We Need Sinusoids?
+\label{sec:org6801b64}
+\begin{itemize}
+\item Used in modulation schemes
+\item Used in communication systems
+\item Any signal can be represented as a sum of sinusoids.
+\item Filters and equalizers can be characterized by their response
+\end{itemize}
+\end{enumerate}
+\section{Complex Numbers}
+\label{sec:org983677c}
+\begin{itemize}
+\item Inphase, \(V_I = |V| \cos(V)\)
+\item Quadrature \(V_Q = |V| \sin(V)\)
+\end{itemize}
+\section{Complex Sinusoids}
+\label{sec:orgd01b7c6}
+\begin{itemize}
+\item V rotating anticlockwise at a constant rate
+\item Made up of two real sinusoids.
+\item Complex sinusoids with frequency F is composed of,
+\begin{align*}
+V_I = \cos 2 \pi Ft \\
+V_Q = \sin 2 \pi Ft \\
+\end{align*}
+\end{itemize}
+\section{Filters}
+\label{sec:orgcd435f2}
+\begin{enumerate}
+\item Primary Functions
+\label{sec:org250d6c8}
+\begin{itemize}
+\item To confine a signal into a prescribed frequency band.
+\item To decompose a signal into two or more sub-band signals for sub-band signal processing, in music
+\item To modify frequency spectrum
+\item To model input output relation of a system.
+\end{itemize}
+\item Types Of Filters
+\label{sec:orge1ab688}
+\begin{itemize}
+\item Low pass
+Capacitor in parallel and inductor in series
+\item High pass
+\item Band pass
+\item Band stop
+\item Band reject
+\item Notch
+\end{itemize}
+\item Pass Band
+\label{sec:org05f39e5}
+Range of frequences in which the filter allows the signal to pass
+\item Stop Band
+\label{sec:org00be9e7}
+Range of frequences which will reject passage
+\end{enumerate}
+\chapter{Unit 2}
+\label{sec:org5bdaffd}
+\section{Modulation}
+\label{sec:org9d60fdd}
+Why do modulation?
+\begin{itemize}
+\item Reduces the size of antenna $$L \propto \lambda \text{ and } \lambda = \frac{c}{f}$$
+
+\item To reduce interference
+\item To improve SNR(\(\frac{\text{Power Of Signal}}{{Power Of Noise}}\))
+\item To allow multiplexing of the signals
+\item Optimizes bandwidth utilization
+\end{itemize}
+Value of the modulating signal,
+
+$$v_1 = V_c + v_m = V_c + V_m \sin{2 \pi f_m t}$$
+$$v_{2} = v_{1} sin 2\pi f_ct$$
+
+$$\text{Modulation Index}, m = \frac{V_m}{V_c}$$
+\section{Over-Modulation}
+\label{sec:org1b53222}
+When \(V_m > V_{c}\), over-modulation. Automatic circuits called compression circuits solve this problem by amplifying the lower signals and suppressing or compressing the higher level signals
+\section{Side-Band Calculation}
+\label{sec:org68cdac4}
+$$V_{AM} = V_C sin 2 \pi f_c t + (V_m sin 2 \pi f_c t)(sin 2 \pi f_c t)$$
+$$V_{AM} = V_C sin 2 \pi f_c t + \frac{V_m}{2} cos 2 \pi t (f_c - f_m) - \frac{V_{m}}{2} \cos 2 \pi t (f_c + f_{m}) $$
+
+\begin{align*}
+f_{USB} = f_c + f_m \\
+f_{LSB} = f_c - f_m \\
+\end{align*}
+\begin{enumerate}
+\item Types Of Modulation
+\label{sec:org34d1b7e}
+\begin{enumerate}
+\item Analog Modulation
+\begin{itemize}
+\item Amplitude Modulation
+\item Frequency Modulation
+\item Phase Modulation
+\end{itemize}
+\item Digital Modulation
+\end{enumerate}
+\end{enumerate}
+\section{Analog Modulation}
+\label{sec:org7672938}
+\begin{enumerate}
+\item Total Power
+\label{sec:orgd0ef6a1}
+For power calculation, rms value is used.
+$$P_T = P_C + P_{USB} + P_{LSB}$$
+\textbf{**}
+\item Power In Terms Of Modulation Index
+\label{sec:org117e346}
+$$P_T = P_C(1 + \frac{m^2}{2})$$
+\end{enumerate}
+\section{Types Of Amplitude Modulation}
+\label{sec:org8b78d20}
+\begin{enumerate}
+\item Double SideBand - Suppressed Carrier
+\label{sec:org948e0a2}
+
+$$s_{am-dsb-sc}(t) = \frac{A_iA_c}{2}(cos(\omega_c- \omega_i)t + cos((\omega_c + \omega_i)t)$$
+
+\begin{itemize}
+\item In AM, 2/3rds of the transmitted power is in the carrier, which conveys no information
+\item No power is wasted on the carrier
+\item It's given an efficiency of 50\%
+\item Used in transmission of color info in a TV signal.
+\end{itemize}
+\begin{enumerate}
+\item Transmission Efficiency
+\label{sec:org381a7b0}
+$$\eta = \frac{P_{USB} + P_{LSB}}{P_{T}} = \frac{\mu^2}{\mu^2 + 2}$$
+\end{enumerate}
+\item Single SideBand
+\label{sec:orgbbede92}
+\begin{itemize}
+\item The primary benefit is that it occupies only half of AM-DSB
+\item SSB signals occupy narrower bandwidth so less signal noise
+\item Less selective fading of SSB signal over long distances.
+\end{itemize}
+
+$$s_{am-susb}(t) = \frac{A_iA_c}{2}cos((\omega_c + \omega_i)t)$$
+$$s_{am-slsb}(t) = \frac{A_iA_c}{2}cos((\omega_c - \omega_i)t)$$
+\begin{enumerate}
+\item Advantages
+\label{sec:org8e8114e}
+\begin{itemize}
+\item Half the bandwidth is required compared to DSB
+\item Due to suppression of carrier and one sideband power is saved
+\item Reduced noise interference due to to reduced bandwidth
+\end{itemize}
+\item Disadvantages
+\label{sec:org170013c}
+\begin{itemize}
+\item Generation and reception of SSB signals are complex
+\item SSB transmitter and receiver need to have an excellent frequency stability
+\item SSB modulation is expensive and complex to implement.
+\end{itemize}
+\item Applications
+\label{sec:org75daf04}
+\begin{itemize}
+\item Used at HF segment of the spectrum(for frequency below 10MHz-LSB, above 10MHz - USB)
+\item Used where power saving is required
+\item Also used in low bandwidth requirements
+\end{itemize}
+\end{enumerate}
+\item Vestigial SideBand
+\label{sec:org4c0cc86}
+\begin{itemize}
+\item Used to reduce the spectral requirements of analog TV
+\item Apply BPF to AM-DSB-TC signals to suppress most of the sidebands.
+\item In VSB, one sideband and part of the other sideband is transmitted
+\item Bandwidth is slightly higher than SSB
+\item Easier to implement than SSB.
+\end{itemize}
+\end{enumerate}
+\section{Amplitude Demodulation}
+\label{sec:org9c1f102}
+\begin{enumerate}
+\item Coherent AM Demodulation
+\label{sec:org18ba5b4}
+To demodulate an AM signal, a recover must multiply the received signal with a sine wave, that has exactly the same frequency and phase as the carrier embedded within it.
+
+The mixing operation shifts the modulated information from being centered around carrier frequency back to baseband.
+\begin{enumerate}
+\item Demodulation of AM-DSB-SC signals
+\label{sec:org0facd58}
+Given that the sine wave synthesized with the same frequency and phase
+$$s_d = \frac{A_iA_c}{2}\cos{\omega_i t}$$
+\end{enumerate}
+\item Non-coherent AM Demodulation
+\label{sec:org5e34a7b}
+\begin{itemize}
+\item During the positive half cycle diode conducts and the capacitor charges to the peak voltage.
+\item During -ve half cycle capacitor discharges
+\item Because the capacitor charges and discharges, the recovered signal has a small amount of ripple
+\item Distortion occurs when the time constant of resistor and capacitor is too long or too short.
+\item If the time constant is too long, the discharge is too slow to follow the faster changes in the modulated signal.
+\end{itemize}
+\end{enumerate}
+\section{Frequency Modulation}
+\label{sec:org5d3a382}
+\begin{itemize}
+\item The carrier amplitude remains constant, the carrier frequency is changed by the modulating signal.
+\item If amplitude of modulating signal increases, frequency increases, if amplitude decreases, frequency decreases
+\item Change in carrier frequency produced by modulating frequency is \(f_d\).
+\item FM is used for commercial radio.
+\end{itemize}
+\begin{enumerate}
+\item Voltage Controlled Oscillator
+\label{sec:orgb8a9040}
+$$\hat{\theta}(t) = k_o \int_{-\infty}^t v(t) dt$$
+\begin{itemize}
+\item \(k_o\) - voltage to frequency gain ratio
+\item integrated(change phase by 90)
+
+$$s_{fm} = A_c \cos{\omega_c t + 2 \pi K_{fm} \times \int_{-\infty}^ts_i(t) dt}$$
+\end{itemize}
+\item Modulating a sine wave
+\label{sec:org0d6346e}
+$$s_i = A_i \cos{\omegas_i t}$$
+$$s_{fm} = A_c \cos{(\omega_{c} t) + \beta_{fm} \cos{\omegas_i t}$$
+
+Where,
+\begin{itemize}
+\item \(\beta_{fm}\) - modulating index(\(\frac{\Delta f}{f_i}\))
+\end{itemize}
+
+The instantaneous frequency is
+
+$$f_{fm} = f_c + K_{fm} s_i(t)$$
+\item Sidebands
+\label{sec:orgecb9d61}
+In FM, a large number of sidebands are generated. These sidebands are of the form, \(f_c \pm kf_m\)
+\end{enumerate}
+\section{Types Of FM}
+\label{sec:org65d600b}
+\begin{itemize}
+\item Narrowband FM
+$$\beta_{fm} << \frac{\pi}{2} or 1$$
+
+$$s_{fm-nfm} = A_c [\cos{\omega_c t} + \frac{\beta_{fm}}{2}\cos(\omega_c+ \omega_{i} t)+ \frac{\beta_{fm}}{2}\cos(\omega_c - \omega_{i} t)]$$
+\item Wideband FM
+$$\beta_{fm} >> \frac{\pi}{2} or 1$$
+\end{itemize}
+\begin{enumerate}
+\item Advantages Of FM Over AM
+\label{sec:org012a1a2}
+\begin{itemize}
+\item Improved Signal-To-Noise Ratio
+\item Better Sound Quality
+\item Reduced Distortion
+\end{itemize}
+\end{enumerate}
+\section{Phase Alternating Line}
+\label{sec:orgf927207}
+PAL is a composite video because luminance(luma, monochrome image) and chrominance(chroma, color applied to monochrome) are transmitted as one signal.
+\end{document}
