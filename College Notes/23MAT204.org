@@ -550,8 +550,21 @@ The Bernoulli process has these properties:
 2. Each trial results in an outcome that may be classified as a success or failure.
 *** Poisson Distribution
 $$\lim_{n \rightarrow \infty} P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}$$
-
-
 *** Continuous Uniform Distribution
 $$f(x) = \frac{1}{b-a}$$
-*** Gaussian Normal Distribution
+*** Exponential Distribution
+Let N be a random variable with a Poisson Distribution with mean $\lambda x$ and X be the random variable that gives the time between each arrival or count. Then,
+
+
+$$P(X > x) = P(N=0) = \frac{e^{-\lambda x}(\lambda x)^0}{0!} = e^{-\lambda x}$$
+PDF,
+$$\lambda e^{-\lambda x}$$
+*** Gaussian/Normal Distribution
+- It is one of the most common probability distribution
+
+  $$f(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{\frac{-(x-\mu)^2}{2 \sigma^2}}$$
+*** Covariance And Correlation Coefficient
+
+Correlation is a measure of how much two data points depend on each other.
+
+$$\rho = \frac{Cov(X_1,X_2)}{\sigma_1 \sigma_2}$$

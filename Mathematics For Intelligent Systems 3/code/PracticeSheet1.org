@@ -1,0 +1,387 @@
+#+title: Practice Sheets
+#+author: Adithya Nair
+* Practice Sheet 1
+** Question 1
+#+begin_src octave :results output
+eig1 = [1;1;0];
+eig2 = [1;-1;0];
+eig3 = [0;0;1];
+eigMat = [eig1 eig2 eig3];
+eigVal = diag([24,10,5]);
+
+eigMat*eigVal*inv(eigMat)
+#+end_src
+
+#+RESULTS:
+: ans =
+:
+:    17    7    0
+:     7   17    0
+:     0    0    5
+:
+
+** Question 2
+#+begin_src octave :results output
+A = randi([-4 4], 5, 5) ;
+A = A - diag(diag(A));
+A = A + eye(5);
+
+S = diag([9,8,7,6,5]);
+A*S*inv(A)
+eig(ans)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+ans =
+
+   7.8750  -1.3750  -4.7500   1.1250  -0.7500
+  -1.1812   7.1562   6.6125  -2.4187  -0.7875
+  -0.1719  -0.2656   7.7188   0.1719  -0.2813
+  -1.6250   0.1250   8.2500   4.6250  -0.7500
+   0.9375  -2.1875  -9.3750   3.0625   7.6250
+
+ans =
+
+   9
+   5
+   8
+   7
+   6
+
+#+end_example
+
+** Question 3
+#+begin_src octave :results output
+A = randi([-3 3], 3, 3);
+A = A - diag(diag(A));
+A = A + eye(3);
+A1 = triu(A);
+A2 = tril(A);
+A = A1*A2;
+det(A)
+
+#+end_src
+
+#+RESULTS:
+: ans = 1
+
+** Question 4
+#+begin_src octave :results output
+A = randi([-3 3], 3, 3);
+A = A - diag(diag(A));
+A = A + eye(3);
+A1 = triu(A);
+A2 = tril(A);
+A = A1*A2;
+det(A)
+inv(A)
+#+end_src
+
+#+RESULTS:
+: ans = 1.0000
+: ans =
+:
+:     1   -2   -4
+:     3   -5  -11
+:    -3    4   11
+:
+
+** Question 5
+#+begin_src octave :results output
+A = randi([-2 2],15,15);
+A = A - diag(diag(A));
+A = A + eye(15);
+A1 = triu(A);
+A2 = tril(A);
+A = A1*A2;
+
+vec = ones(15,1);
+vec(15) = 3;
+S = diag(vec);
+A*S*inv(A);
+det(ans)
+#+end_src
+
+#+RESULTS:
+: ans = 3.0000
+
+** Question 6
+#+begin_src octave :results output
+A = [-4 1 1;1 -6 7;1 7 -9];
+P = randi([-3 3],3,3);
+B = P*A*inv(P);
+P = randi([-3 3],3,3);
+C = P*A*inv(P);
+eig(A)
+eig(B)
+eig(C)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+ans =
+
+  -14.6610
+   -4.4761
+    0.1371
+
+ans =
+
+  -14.6610
+   -4.4761
+    0.1371
+
+ans =
+
+  -14.6610
+   -4.4761
+    0.1371
+
+#+end_example
+
+** Question 7
+#+begin_src octave :results output
+A = randi([-3 3],10,3)*randi([-3 3],3,5);
+S1 = A'*A;
+S1 - S1';
+S2 = A*A';
+S2 - S2';
+
+#+end_src
+
+#+RESULTS:
+
+** Question 8
+Repeat of [[Question 5]]
+#+begin_src octave
+% Repeat
+#+end_src
+
+** Question 9
+#+begin_src octave :results output
+S = randi([-2 2],3,3);
+val = eig(S);
+A = S-val(1)*eye(3);
+B = S-val(2)*eye(3);
+C = S-val(3)*eye(3);
+
+A*B*C
+#+end_src
+
+#+RESULTS:
+#+begin_example
+ans =
+
+ Columns 1 and 2:
+
+   8.8818e-16 - 9.8608e-32i  -8.8818e-16 + 9.8608e-32i
+            0 +          0i            0 +          0i
+  -1.7764e-15 + 9.8608e-32i   1.7764e-15 - 9.8608e-32i
+
+ Column 3:
+
+   8.8818e-16 - 4.9304e-32i
+            0 +          0i
+  -8.8818e-16 +          0i
+
+#+end_example
+
+** Question 10
+#+begin_src octave :results output
+S = randi([-2 2],4,4);
+val = eig(S);
+A = S-val(1)*eye(4);
+B = S-val(2)*eye(4);
+C = (S-val(3)*eye(4))*(S-val(4)*eye(4));
+
+A*B*C
+#+end_src
+
+#+RESULTS:
+: ans =
+:
+:    4.3999e-15  -4.2360e-16  -8.8818e-16   3.7776e-15
+:    2.6236e-15   3.1291e-15   1.7764e-15   1.1771e-14
+:    1.1505e-14   5.4164e-16  -1.7764e-15   4.2217e-15
+:   -8.4943e-15  -8.8818e-16   3.5527e-15  -1.1370e-14
+:
+
+* Practice Sheet 2
+* Practice Sheet 3
+** Question 1
+#+begin_src octave :results output
+x = linspace(-5,5);
+y = linspace(-5,5);
+[x,y] = meshgrid(x,y);
+
+X = abs(x)
+Y = abs(y)
+z = 1./((X) + (Y) + 0.5);
+contour(x,y,z)
+#+end_src
+** Question 2
+#+begin_src  octave :results output
+pkg load symbolic
+syms x y z;
+gradient(4*x^2 + 9*y^2 - 72,[x,y,z])
+#+end_src
+
+#+RESULTS:
+: Symbolic pkg v3.2.1: Python communication link active, SymPy v1.13.1.
+: ans = (sym 3×1 matrix)
+:
+:   ⎡8⋅x ⎤
+:   ⎢    ⎥
+:   ⎢18⋅y⎥
+:   ⎢    ⎥
+:   ⎣ 0  ⎦
+:
+
+** Question 3
+#+begin_src octave :results output
+x = linspace(-2,2);
+y = linspace(-2,2);
+[x,y] = meshgrid(x,y);
+
+z = x.*e^(x.^2 + y.^2);
+pkg load symbolic
+syms x y z
+z = x*e^-(x^2 + y^2);
+gradient(z,[x y])
+hess =  hessian(z,[x y])
+
+subs(hess,[x y],[0.6 0.2])
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+Symbolic pkg v3.2.1: Python communication link active, SymPy v1.13.1.
+ans = (sym 2×1 matrix)
+
+  ⎡           2    2       2    2⎤
+  ⎢     2  - x  - y     - x  - y ⎥
+  ⎢- 2⋅x ⋅ℯ          + ℯ         ⎥
+  ⎢                              ⎥
+  ⎢                 2    2       ⎥
+  ⎢              - x  - y        ⎥
+  ⎣      -2⋅x⋅y⋅ℯ                ⎦
+
+hess = (sym 2×2 matrix)
+
+  ⎡          2    2           2    2              2    2           2    2⎤
+  ⎢    3  - x  - y         - x  - y       2    - x  - y         - x  - y ⎥
+  ⎢ 4⋅x ⋅ℯ          - 6⋅x⋅ℯ            4⋅x ⋅y⋅ℯ          - 2⋅y⋅ℯ         ⎥
+  ⎢                                                                      ⎥
+  ⎢           2    2           2    2             2    2           2    2⎥
+  ⎢   2    - x  - y         - x  - y        2  - x  - y         - x  - y ⎥
+  ⎣4⋅x ⋅y⋅ℯ          - 2⋅y⋅ℯ           4⋅x⋅y ⋅ℯ          - 2⋅x⋅ℯ         ⎦
+
+ans = (sym 2×2 matrix)
+
+  ⎡      -2/5        -2/5  ⎤
+  ⎢-342⋅ℯ       -14⋅ℯ      ⎥
+  ⎢───────────  ────────── ⎥
+  ⎢    125         125     ⎥
+  ⎢                        ⎥
+  ⎢     -2/5          -2/5 ⎥
+  ⎢-14⋅ℯ        -138⋅ℯ     ⎥
+  ⎢──────────   ───────────⎥
+  ⎣   125           125    ⎦
+
+#+end_example
+
+* Practice Sheet 4
+** Gauss Jacobi
+#+begin_src octave :results output
+A = [];
+b = [];
+xold = [];
+D= diag(diag(A));
+L = -tril(A,-1);
+TOL = 1e-8;
+U = -triu(A,1);
+
+T = inv(D)*(L+U)
+c = inv(D)*b;
+while  xold-xnew > TOL
+  xnew = T*xold + c
+  diff = xold-xnew
+  xold = xnew;
+end
+
+
+
+
+#+end_src
+** Gauss Siedel
+#+begin_src octave :results output
+A = [];
+b = [];
+xold = [];
+D= diag(diag(A));
+L = -tril(A,-1);
+TOL = 1e-8;
+U = -triu(A,1);
+
+T = (D-L)^(-1)*U
+c = (D-L)^(-1)*b
+while  xold-xnew > TOL
+  xnew = T*xold + c
+  diff = xold-xnew
+  xold = xnew;
+end
+#+end_src
+
+* Practice Sheet 5
+** Conjugate Direction Method
+#+begin_src octave :results output
+
+#+end_src
+
+
+#+begin_src octave :results output
+A  = randi([-3 3],3, 3)
+
+[eigM, eigVal] = eig(A)
+
+A = eigM*eigVal*inv(eigM)
+A^5 - eigM*(eigVal^5)*inv(eigM)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+A =
+
+   3  -1   0
+  -1  -1  -1
+   3  -3  -2
+
+eigM =
+
+  -0.751480   0.203692   0.069992
+   0.303633   0.648224   0.435469
+  -0.585735  -0.733700   0.897479
+
+eigVal =
+
+Diagonal Matrix
+
+   3.4040        0        0
+        0  -0.1824        0
+        0        0  -3.2217
+
+A =
+
+   3.0000e+00  -1.0000e+00  -5.3318e-16
+  -1.0000e+00  -1.0000e+00  -1.0000e+00
+   3.0000e+00  -3.0000e+00  -2.0000e+00
+
+ans =
+
+  -1.7053e-13   2.8422e-14  -2.3093e-14
+   1.4211e-13  -9.9476e-14  -5.6843e-14
+  -5.6843e-14  -2.2737e-13  -1.4211e-13
+
+#+end_example

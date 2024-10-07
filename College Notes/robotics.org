@@ -305,7 +305,6 @@ What this means is that when $\theta_2$  should never be zero.
 
 This means that when the arm is fully extended or retracted then it is not a point that the robot can recover from.
 
-
 *** Finding The Jacobian quickly
 \begin{align*}
 \dot{X}_{m \times 1} &= J \dot{q} \\
@@ -498,6 +497,40 @@ n_{i,i-1} = n_{i+1,1} + (r_i \times f_{i,i+1}) - (*r_{com(i),i} \times m_i g) \\
 We iterate from i = n to 1, and we calculate the forces first.
 
 Lung wen tsai 266-268
+* Dynamics
+** Velocity and force ellipse
+We take the force vectors and the end effector velocity, $\dot{X}$
+
+We put the constraint that $\dot{X}^T\dot{X} = 1$
+
+For a 2R planar, this gives us the equation of a unit circle in task space
+For a 3R planar, this gives us the equation of a unit sphere in task space
+
+\begin{align*}
+\dot{X}^T\dot{X} &= 1 \\
+\dot{q}^{T}J^{T} J \dot{q} &= 1 \\
+\end{align*}
+
+The Jacobian is an expression of the configuration, the robot's shape and orientation.
+
+A property of the Jacobian is that it is symmetric positive semi-definite, this implies the following
+ * The eigenvalues of $J^{T} J$ are non-negative
+ * Eigenvalues tell the length of major axis and minor axis value of the ellipse in joint space.
+ * Eigenvector tells the direction of the major and minor axis of the ellipse in joint space
+
+The ellipse constantly changes as the jacobian changes.
+
+But there are points in the robot's workspace where the ellipse becomes a perfect circle. These are known as *'isotropic points'*
+
+And at points of singularity, the ellipse flattens.
+
+Similarly,
+We can do this for
+$$\tau = J^T F$$
+*** Finding the locus of isotropic points
+At isotropic points, the we find the eigenvalues of the jacobian. then we equate the eigenvalues such that $$\frac{1}{\lambda_{1}} = \frac{1}{\lambda_2}=1$$ so that the major and minor axis are equal to form a circle.
+
+Similarly the eigenvectors define the orientation.
 * Syllabus
 [[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::27++0.00][Chapter 2
 ]]- Pose of a rigid body

@@ -688,3 +688,18 @@ A sigmoid function,
 $$\frac{1}{1+ e^{-x}}$$
 ** Regularization
 Regularization is a mechanism to avoid overfitting and is particularly employed in regression models which are specially designed to handle high dimensionality data.
+* Filter Vs Wrapper Methods
+ * Filter methods select based on the statistical properties
+ * Ranked independently, using correlation, mutual information
+ * Wrapper methods use a ML model
+
+Note: - Genetic algorithms
+Look into computational intelligence - fuzzy logic, genetic algorithms and pso or particle swarm optimization.
+* Clustering
+** K-Means Clustering
+1. Partition objects into $k$ nonempty subsets.
+2. Compute seed points as the centroids of the clusters of the current partitioning (the centroid is the mean of the cluster)
+3. Assign each object tot the cluster, with the nearest seed point.
+4. Go to step 2, stop when the assignment does not change.
+
+**
