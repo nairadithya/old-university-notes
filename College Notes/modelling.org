@@ -210,7 +210,7 @@ $$\frac{1}{T_s+1}$$
 *** Maximum Overshoot
 $$M_p=\frac{c(t_p)-c(\infty)}{c(\infty)}$$
 
-** Frequency Response
+*** Frequency Response
 
 We write $s = \sigma + j \omega$
 
@@ -242,6 +242,44 @@ Thus the steady state,
 $$y(t) = ae^{-j \omega t} + \overline{a}e^{j \omega t}$$
 
 Ogata Chapter 7, first three pages.
+** Unit 3
+
+*** Frequency Response
+A stable system is such that the output has a frequency with a negative real part.
+
+A system where the input is a sinusoid.
+
+A system is linear, then the output's frequency must be the same as the input frequency
+
+The output's amplitude is,
+
+$$Y = X * |G(j \omega) |$$
+
+The output is shifted by a phase $\phi$
+$$\phi = tan^{-1}(\frac{Im(G(j\omega))}{Re(G(j\omega))})$$
+
+$$G(j\omega) = \frac{K}{T(j\omega + 1)} = \frac{K}{1 + j(\omega T)}$$
+
+The phase is defined for the transfer function as,
+
+$$ang(G(j\omega)) = tan^{-1} \frac{Im(numerator)}{Re(num)} - tan^{-1} \frac{Im(denominator)}{Re(denominator)}$$
+
+
+Thus the steady state becomes,
+
+$$y_{ss}(t) = \frac{XK}{\sqrt{1 + \omega^2T^2}} sin(\omega t - tan^{-1} \omega T)$$
+
+We express the magnitude of the transfer function $G(j \omega)$ in terms of decibels
+
+$$G(j \omega) \text{in Db} = 20 log_{10}|G(j\omega)$$
+
+
+The plot is a 'semi-log' plot where one of the axes are plotted on a logarithmic scale instead of linear. The decibel values act as the y-axis and the angular frequency is equally spaced in multiples of 10.
+
+*** Bode Plots
+*** Bandwidth
+For a minimum phase system, $$-90(p-q)$$, where p is the number of poles and q is the number of zeros.
+
 * Syllabus
 
  * Mathematical Modelling

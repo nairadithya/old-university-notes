@@ -102,13 +102,13 @@ These parameters are used to assign the same co-ordinate frames while dealing wi
 
 For a 3R Planar serial chain manipulator:
 
-|-------------+-----+-----+--------------+----------|
+|-------------+-----+-----+------+-----|
 |             | a_i | d_i | $\alpha_{i}$ | \theta_i |
-|-------------+-----+-----+--------------+----------|
-| Joint i = 1 | L_1 |   0 |            0 | \theta_1 |
-| Joint i = 2 | L_2 |   0 |            0 | \theta_2 |
-| Joint i = 3 | L_3 |   0 |            0 | \theta_3 |
-|-------------+-----+-----+--------------+----------|
+|-------------+-----+-----+------+-----|
+| Joint i = 1 | L_1 |   0 |    0 | \theta_1 |
+| Joint i = 2 | L_2 |   0 |    0 | \theta_2 |
+| Joint i = 3 | L_3 |   0 |    0 | \theta_3 |
+|-------------+-----+-----+------+-----|
 *** Rotation Matrix
 We have three reference frames, with a common origin. With the notation we have setup we can say, $\{0\},\{1\},\{2\}$ can be defined for a point $P$
 
@@ -384,10 +384,9 @@ end
 #+end_src
 
 Now we plot,
-#+begin_src octave :session LQ1 :results none
+#+begin_src octave :session LQ1 :results output
 figure('1, "visible", "off", 'units', 'normalized','outerposition',[0 0 0.5 1])
 
-plot(WS_points(:,1), WS_points(:,2),'bo','LineWidth',1.5)
 grid on; grid minor
 ylim([-((L(1) + L(2) + L(3))-1 L(1) + L(2) + L(3))+1 ])
 xlim([-((L(1) + L(2) + L(3))-1 L(1) + L(2) + L(3))+1 ])
@@ -395,50 +394,30 @@ axis equal
 xlabel('X-Axis(m)')
 ylabel('Y-Axis(m)')
 
-print -dpng ../images/octave-chart.png;
 ans = "../images/octave-chart.png";
 #+end_src
 
 
 #+RESULTS:
-[[file:../images/octave-chart.png]]
+#+begin_example
+error: parse error:
 
-* Practice Sheets
-The notations used in our lectures are similar with this book.
+  syntax error
+figure('1, "visible", "off", 'units', 'normalized','outerposition',[0 0 0.5 1])
+                                      ^
+error: parse error:
 
-- For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
-- For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
+  syntax error
+ylim([-((L(1) + L(2) + L(3))-1 L(1) + L(2) + L(3))+1 ])
+                                   ^
+error: parse error:
 
-* End-Sem Project
-1. Select a robotic system
-   a. select only serial chain robotic manipulator
-   b. select standard SCM
-   c. No more than 5 or 6 joints
-   d. Robotic SCM can be as simple as planar 2R manipulator or complex as Stanford Manipulator
-   e. The simpler the robotic manipulator, problem should be detailed
-   f. No more than 2 teams should select the same robotic system, but they should work on different problems.
-2. Problems
-   |--------------------+------------+-------------------------------------------------------------------------------------------|
-   | Problems           | Type       | Examples                                                                                  |
-   |--------------------+------------+-------------------------------------------------------------------------------------------|
-   | Forward Kinematics | Compulsory | Completely define the robotic system using DH Parameters.                                 |
-   |                    |            | Find homogeneous transformation and jacobian matrix                                       |
-   |                    |            | Give arbitrary end-effector position by user and robotic SCM should reach it              |
-   |--------------------+------------+-------------------------------------------------------------------------------------------|
-   | Inverse Kinematics | Compulsory | Find the workspace and show it graphically on simulation                                  |
-   |                    |            | Take up some inverse kinematics problems on your will.                                    |
-   |                    |            | Examples-                                                                                 |
-   |                    |            | Trajectory planning, stylus writing manpulator, dance moves performed by the end effector |
-   |--------------------+------------+-------------------------------------------------------------------------------------------|
-   | Statics            | Optional   |                                                                                           |
-   | Dynamics           | Optional   |                                                                                           |
-   | Controls           | Optional   |                                                                                           |
-   |--------------------+------------+-------------------------------------------------------------------------------------------|
-3. Software
-   1. Matlab - scripts/functions, simscabe, rigidbody, multibody tool
-   2. CoppeliaSim
+  syntax error
+xlim([-((L(1) + L(2) + L(3))-1 L(1) + L(2) + L(3))+1 ])
+                                   ^
+#+end_example
 
-* Statics
+** Unit 3- Statics And Dynamics
 Statics is the study of the forces and torques acting on bodies that are at rest or in a state of equilibrium.
 
 How does this play into robotics? This comes in handy in situations where the robot must stand still. It needs to apply forces to counteract all the forces on it to stay stationary.
@@ -497,7 +476,6 @@ n_{i,i-1} = n_{i+1,1} + (r_i \times f_{i,i+1}) - (*r_{com(i),i} \times m_i g) \\
 We iterate from i = n to 1, and we calculate the forces first.
 
 Lung wen tsai 266-268
-* Dynamics
 ** Velocity and force ellipse
 We take the force vectors and the end effector velocity, $\dot{X}$
 
@@ -531,6 +509,87 @@ $$\tau = J^T F$$
 At isotropic points, the we find the eigenvalues of the jacobian. then we equate the eigenvalues such that $$\frac{1}{\lambda_{1}} = \frac{1}{\lambda_2}=1$$ so that the major and minor axis are equal to form a circle.
 
 Similarly the eigenvectors define the orientation.
+
+** Dynamics
+It's the study of systems in motion under the influence of external forces and torques.
+
+What forces and torques are required to achieve a given (desired) motion of a robot.
+
+For a general second order system
+
+\[ m\ddot{x} + b \dot{x} c x = F(t) \]
+
+This is true for a general robotic manipulator,
+
+$$M \ddot{q} + C \dot{q} + G = \tau$$
+
+We get this in matrix form.
+
+$$M(q) \ddot{q} + C(q,\dot{q})\dot{q} + G(q) = \tau$$
+
+- Inertia matrix $M(q)$
+  - tells about the mass distribution of the robotic manipulator
+  - positive semi-definite
+  - always iverttible
+- Velocity Coupling Vector $C(q,\dot{q})$
+  - Velocity squared - centripetal acceleration, $q_{1}^2$
+  - cross velocity multiplication, $\dot{q_1}\dot{q_2}$
+- Gravitational Force Vector $G(q)$
+- $tau$ is nothing but $\tau + J^TF$
+
+
+$$D(q) \ddot{q} + H(q,\dot{q}) + G(q) = \tau$$
+
+You start with task space, apply inverse kinematics to find the joint space and find $\ddot{q}$ to fully understand the joint space. Then apply forward dynamics to find the torque space.
+
+Finding the inertia matrix is done like so,
+
+$$D = \sum_{i=1}^n(J^T_{vi} m_i J_{vi} + J^T I_i J_{wi})$$
+
+Finding the velocity coupling vector,
+
+$$H_{ijk}\sum_{j=1}^n\sum_{k=1}^n(\frac{\partial D_{ij}}{\partial q_k} - \frac{1}{2}\frac{\partial D_{jk}}{\partial q_i})$$
+
+* Practice Sheets
+The notations used in our lectures are similar with this book.
+
+- For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
+- For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
+
+* Assignment
+Free marks
+
+Kinetic energy can be found by $$\frac{1}{2} v^T m v$$
+* End-Sem Project
+1. Select a robotic system
+   a. select only serial chain robotic manipulator
+   b. select standard SCM
+   c. No more than 5 or 6 joints
+   d. Robotic SCM can be as simple as planar 2R manipulator or complex as Stanford Manipulator
+   e. The simpler the robotic manipulator, problem should be detailed
+   f. No more than 2 teams should select the same robotic system, but they should work on different problems.
+2. Problems
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Problems           | Type       | Examples                                                                                  |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Forward Kinematics | Compulsory | Completely define the robotic system using DH Parameters.                                 |
+   |                    |            | Find homogeneous transformation and jacobian matrix                                       |
+   |                    |            | Give arbitrary end-effector position by user and robotic SCM should reach it              |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Inverse Kinematics | Compulsory | Find the workspace and show it graphically on simulation                                  |
+   |                    |            | Take up some inverse kinematics problems on your will.                                    |
+   |                    |            | Examples-                                                                                 |
+   |                    |            | Trajectory planning, stylus writing manpulator, dance moves performed by the end effector |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+   | Statics            | Optional   |                                                                                           |
+   | Dynamics           | Optional   |                                                                                           |
+   | Controls           | Optional   |                                                                                           |
+   |--------------------+------------+-------------------------------------------------------------------------------------------|
+3. Software
+   1. Matlab - scripts/functions, simscabe, rigidbody, multibody tool
+   2. CoppeliaSim
+
+* Dynamics
 * Syllabus
 [[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::27++0.00][Chapter 2
 ]]- Pose of a rigid body
@@ -549,3 +608,26 @@ Similarly the eigenvectors define the orientation.
 [[pdf:~/university-notes/Introduction To Robotics/textbooks/(Tj211.T75) Lung-Wen Tsai - Robot Analysis_ The mechanics of serial and parallel manipulators (1999).pdf::198++0.00][4.5-4.6.1]]
 - Jacobian
 - Singularity
+
+* Project
+** Robotics Project
+*** Forward Kinematics
+Find the homogeneous transformation matrices, find jacobian(pen and paper). Simulate inputting joint space variables to give the end effector's point. The simulation should show the end effector moving to that point (code)
+*** Inverse Kinematics
+Select two points within the workspace and trace the trajectory of the robot between those two points or find the workspace and plot it.
+*** Statics
+Simulate a robot under some forces and the robot maintains its equilibrium. Come up with some creative problems, such as the robot is holding a heavy object and it applies a force to hold the object against gravity.
+*** Dynamics
+**** Forward
+Knowing the joint torques and the external forces/torques, find the manipulator's trajectory $q(t),\dot{q(t)}, \ddot{q(t)}$
+**** Inverse
+Find the joint torques required to move a robot in a specific trajectory. Find the trajectory of a robot with a specific joint torque vector.
+*** Report Is Required
+You can use a MATLAB live script or LaTeX
+** Modelling Project
+*** Modelling
+Make FBD and model it with analytical method.
+*** Dynamical Response To Standard Input
+Compare the robot's response to step, ramp and impulse input.
+*** Frequency Response
+Apply a sinusoidal input, and bode plot, interpret the results.

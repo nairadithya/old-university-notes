@@ -1,4 +1,22 @@
 #+title: Networking
+* Table Of Contents :toc:
+- [[#commands][Commands]]
+  - [[#ipconfigifconfiglinux][ipconfig/ifconfig(Linux)]]
+  - [[#subnet-mask][Subnet Mask]]
+  - [[#default-gateway][Default gateway]]
+  - [[#ping][Ping]]
+  - [[#nslookup][nslookup]]
+  - [[#traceroutetracert][traceroute/tracert]]
+  - [[#netstat][netstat]]
+  - [[#hostname][hostname]]
+  - [[#arp][ARP]]
+- [[#wireshark][Wireshark]]
+- [[#configuring-rip][Configuring RIP]]
+- [[#portions][Portions]]
+  - [[#chapter-1][Chapter 1]]
+  - [[#chapter-2][Chapter 2]]
+  - [[#chapter-3][Chapter 3]]
+
 * Commands
 ** ipconfig/ifconfig(Linux)
 
@@ -11,26 +29,28 @@ ifconfig
 | inet        | 127.0.0.1                                          |    netmask | 255.0.0.0       |             |               |      |         |   |            |   |
 | inet6       | ::1                                                |  prefixlen | 128             |     scopeid | 0x10<host>    |      |         |   |            |   |
 | loop        | txqueuelen                                         |       1000 | (Local          |   Loopback) |               |      |         |   |            |   |
-| RX          | packets                                            |       7597 | bytes           |     2822419 | (2.6          | MiB) |         |   |            |   |
+| RX          | packets                                            |     848006 | bytes           |  1291795782 | (1.2          | GiB) |         |   |            |   |
 | RX          | errors                                             |          0 | dropped         |           0 | overruns      |    0 | frame   | 0 |            |   |
-| TX          | packets                                            |       7597 | bytes           |     2822419 | (2.6          | MiB) |         |   |            |   |
+| TX          | packets                                            |     848006 | bytes           |  1291795782 | (1.2          | GiB) |         |   |            |   |
 | TX          | errors                                             |          0 | dropped         |           0 | overruns      |    0 | carrier | 0 | collisions | 0 |
 |             |                                                    |            |                 |             |               |      |         |   |            |   |
 | tailscale0: | flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST> |        mtu | 1280            |             |               |      |         |   |            |   |
-| inet        | 100.86.150.70                                      |    netmask | 255.255.255.255 | destination | 100.86.150.70 |      |         |   |            |   |
-| inet6       | fe80::775e:7d23:53a8:2b69                          |  prefixlen | 64              |     scopeid | 0x20<link>    |      |         |   |            |   |
-| inet6       | fd7a:115c:a1e0::4b01:9646                          |  prefixlen | 128             |     scopeid | 0x0<global>   |      |         |   |            |   |
+| inet        | 100.71.69.64                                       |    netmask | 255.255.255.255 | destination | 100.71.69.64  |      |         |   |            |   |
+| inet6       | fd7a:115c:a1e0::4901:4540                          |  prefixlen | 128             |     scopeid | 0x0<global>   |      |         |   |            |   |
+| inet6       | fe80::4d0a:b73:a08:ca31                            |  prefixlen | 64              |     scopeid | 0x20<link>    |      |         |   |            |   |
 | unspec      | 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00    | txqueuelen | 500             |    (UNSPEC) |               |      |         |   |            |   |
-| RX          | packets                                            |      47998 | bytes           |     2977576 | (2.8          | MiB) |         |   |            |   |
+| RX          | packets                                            |        911 | bytes           |       72363 | (70.6         | KiB) |         |   |            |   |
 | RX          | errors                                             |          0 | dropped         |           0 | overruns      |    0 | frame   | 0 |            |   |
-| TX          | packets                                            |      47154 | bytes           |    30799725 | (29.3         | MiB) |         |   |            |   |
+| TX          | packets                                            |       5198 | bytes           |     1197840 | (1.1          | MiB) |         |   |            |   |
 | TX          | errors                                             |          0 | dropped         |           0 | overruns      |    0 | carrier | 0 | collisions | 0 |
 |             |                                                    |            |                 |             |               |      |         |   |            |   |
-| wlp0s20f3:  | flags=4099<UP,BROADCAST,MULTICAST>                 |        mtu | 1500            |             |               |      |         |   |            |   |
-| ether       | a6:5c:33:14:2c:04                                  | txqueuelen | 1000            |  (Ethernet) |               |      |         |   |            |   |
-| RX          | packets                                            |    1849673 | bytes           |  2201884185 | (2.0          | GiB) |         |   |            |   |
-| RX          | errors                                             |          0 | dropped         |           0 | overruns      |    0 | frame   | 0 |            |   |
-| TX          | packets                                            |     361681 | bytes           |   114368015 | (109.0        | MiB) |         |   |            |   |
+| wlp0s20f3:  | flags=4163<UP,BROADCAST,RUNNING,MULTICAST>         |        mtu | 1500            |             |               |      |         |   |            |   |
+| inet        | 172.29.14.87                                       |    netmask | 255.255.224.0   |   broadcast | 172.29.31.255 |      |         |   |            |   |
+| inet6       | fe80::3403:9d68:6492:9455                          |  prefixlen | 64              |     scopeid | 0x20<link>    |      |         |   |            |   |
+| ether       | 8e:56:25:c3:bd:98                                  | txqueuelen | 1000            |  (Ethernet) |               |      |         |   |            |   |
+| RX          | packets                                            |   16174343 | bytes           | 19109540046 | (17.7         | GiB) |         |   |            |   |
+| RX          | errors                                             |          0 | dropped         |       17463 | overruns      |    0 | frame   | 0 |            |   |
+| TX          | packets                                            |    4290539 | bytes           |   921705656 | (879.0        | MiB) |         |   |            |   |
 | TX          | errors                                             |          0 | dropped         |           0 | overruns      |    0 | carrier | 0 | collisions | 0 |
 |             |                                                    |            |                 |             |               |      |         |   |            |   |
 
@@ -55,9 +75,13 @@ The default gateway is the 'door' for a network, it's an interface which facilit
 
 In Linux, can be accessed by:
 
-#+end_srcbash
+#+begin_src bash
 ip r
 #+end_src
+
+#+RESULTS:
+| default       | via | 172.29.0.1 | dev   | wlp0s20f3 | proto | dhcp | src | 172.29.14.87 | metric | 600 |
+| 172.29.0.0/19 | dev |  wlp0s20f3 | proto | kernel    | scope | link | src | 172.29.14.87 | metric | 600 |
 
 ** Ping
 
@@ -68,19 +92,20 @@ ping -c  4 www.google.com
 #+end_src
 
 #+RESULTS:
-: PING www.google.com (2404:6800:4007:82a::2004) 56 data bytes
-: 64 bytes from maa03s45-in-x04.1e100.net (2404:6800:4007:82a::2004): icmp_seq=1 ttl=119 time=11.7 ms
-: 64 bytes from maa03s45-in-x04.1e100.net (2404:6800:4007:82a::2004): icmp_seq=2 ttl=119 time=10.2 ms
-: 64 bytes from maa03s45-in-x04.1e100.net (2404:6800:4007:82a::2004): icmp_seq=3 ttl=119 time=9.27 ms
-: 64 bytes from maa03s45-in-x04.1e100.net (2404:6800:4007:82a::2004): icmp_seq=4 ttl=119 time=12.6 ms
+: PING www.google.com (142.250.182.4) 56(84) bytes of data.
+: 64 bytes from maa05s18-in-f4.1e100.net (142.250.182.4): icmp_seq=1 ttl=57 time=11.0 ms
+: 64 bytes from maa05s18-in-f4.1e100.net (142.250.182.4): icmp_seq=2 ttl=57 time=13.7 ms
+: 64 bytes from maa05s18-in-f4.1e100.net (142.250.182.4): icmp_seq=3 ttl=57 time=11.5 ms
+: 64 bytes from maa05s18-in-f4.1e100.net (142.250.182.4): icmp_seq=4 ttl=57 time=11.4 ms
 :
 : --- www.google.com ping statistics ---
-: 4 packets transmitted, 4 received, 0% packet loss, time 3004ms
-: rtt min/avg/max/mdev = 9.274/10.920/12.551/1.269 ms
+: 4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+: rtt min/avg/max/mdev = 10.975/11.903/13.705/1.059 ms
 
 It uses a protocol known as **ICMP(Internet Control Message Protocol)**.
 
-_TTL means Time To Leave, which means hop count_
+_TTL means Time To Live, which means hop count_
+
 _It's the number of nodes the packet being sent passes through._
 
 ** nslookup
@@ -95,9 +120,9 @@ nslookup www.google.com
 :
 : Non-authoritative answer:
 : Name:	www.google.com
-: Address: 172.217.31.196
+: Address: 142.250.77.164
 : Name:	www.google.com
-: Address: 2404:6800:4007:817::2004
+: Address: 2404:6800:4007:818::2004
 :
 
 Returns the IP address of the website given, by requesting from the DNS server.
@@ -838,8 +863,26 @@ arp
 #+end_src
 
 #+RESULTS:
-| Address  | HWtype | HWaddress         | Flags | Mask      | Iface |
-| _gateway | ether  | f0:68:65:aa:fe:10 | C     | wlp0s20f3 |       |
+|       Address | HWtype | HWaddress         | Flags | Mask      | Iface |
+|  172.29.18.82 | ether  | b8:1e:a4:b0:78:29 | C     | wlp0s20f3 |       |
+|  172.29.5.131 | ether  | 34:c9:3d:8d:72:19 | C     | wlp0s20f3 |       |
+|  172.29.17.58 | ether  | dc:21:5c:f3:6c:cc | C     | wlp0s20f3 |       |
+|   172.29.2.77 | ether  | f0:a6:54:29:07:29 | C     | wlp0s20f3 |       |
+|   172.29.2.79 | ether  | 28:d0:43:08:e8:f8 | C     | wlp0s20f3 |       |
+|   172.29.22.7 | ether  | 28:d0:43:5a:fc:18 | C     | wlp0s20f3 |       |
+|  172.29.4.223 | ether  | 14:d4:24:83:30:9b | C     | wlp0s20f3 |       |
+| 172.29.17.246 | ether  | 7c:50:79:e9:0d:a4 | C     | wlp0s20f3 |       |
+|  172.29.23.75 | ether  | 5c:80:b6:98:dd:98 | C     | wlp0s20f3 |       |
+| 172.29.26.108 | ether  | f4:46:37:66:24:a7 | C     | wlp0s20f3 |       |
+| 172.29.23.128 | ether  | e4:0d:36:ea:61:fe | C     | wlp0s20f3 |       |
+|  172.29.21.15 | ether  | 74:4c:a1:62:06:01 | C     | wlp0s20f3 |       |
+|   172.29.24.6 | ether  | 3c:58:c2:b6:66:88 | C     | wlp0s20f3 |       |
+| 172.29.23.180 | ether  | ec:63:d7:f9:be:8d | C     | wlp0s20f3 |       |
+| 172.29.25.229 | ether  | 6e:38:fb:92:31:29 | C     | wlp0s20f3 |       |
+|      _gateway | ether  | 9c:5a:80:b2:8b:00 | C     | wlp0s20f3 |       |
+| 172.29.17.154 | ether  | cc:47:40:7b:2d:62 | C     | wlp0s20f3 |       |
+|  172.29.20.24 | ether  | aa:93:4a:12:bd:d4 | C     | wlp0s20f3 |       |
+|  172.29.20.24 | ether  | aa:93:4a:12:bd:d4 | C     | wlp0s20f3 |       |
 
 It maintains a table with your IP address and your MAC address.
 
@@ -871,6 +914,20 @@ Hypertext Transfer Protocol
     [Request URI: http://fedoraproject.org/static/hotspot.txt]
     File Data: 2 bytes
 Line-based text data: text/plain (1 lines)
+#+end_src
+
+* Configuring RIP
+1. Click on the router
+2. Config
+3. Routing
+4. RIP
+
+#+begin_src router
+enable
+config t
+router rip
+network <net-1>
+network <net-2>
 #+end_src
 * Portions
 ** Chapter 1

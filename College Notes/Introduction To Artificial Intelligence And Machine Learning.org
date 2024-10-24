@@ -701,5 +701,18 @@ Look into computational intelligence - fuzzy logic, genetic algorithms and pso o
 2. Compute seed points as the centroids of the clusters of the current partitioning (the centroid is the mean of the cluster)
 3. Assign each object tot the cluster, with the nearest seed point.
 4. Go to step 2, stop when the assignment does not change.
-
-**
+** K-Means++
+Initializes centroids by selecting the first centroids randomly, then chooses subsequent centroids based on how far away they are from existing centroids.
+** Hierarchical Clustering
+This uses a distance matrix, it does not require a $k$, you set a threshold and figure out distances and closeness to cluster related data points together.
+* Ensemble Learning Algorithms
+Take two or three classifiers and compare their results to optimize the results even further.
+** Simple models
+1. Max voting - used for classification, multiple models make predictions, majority vote wins.
+2. Averaging - self-explanatory, used for regression
+3. Weighted averaging - also self-explanatory.
+** Strategies
+1. Bagging - the three simple models seen until now come under bagging.
+2. Boosting - involves filtering models with a low probability prediction rate.
+3. Stacking - automatically calculates the weightage of each
+** TODO look into decision trees for regression, support vector regressors

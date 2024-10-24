@@ -1,4 +1,4 @@
-% Created 2024-09-30 Mon 11:21
+% Created 2024-10-10 Thu 11:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -30,9 +30,9 @@
 \tableofcontents
 
 \part{Notes}
-\label{sec:org4b14d2a}
+\label{sec:orgdcdb3d8}
 \chapter{Course Overview}
-\label{sec:org7892828}
+\label{sec:org737fefa}
 \begin{enumerate}
 \item Introduction to Modelling
 \item Bond graph modelling
@@ -45,21 +45,21 @@ What is modelling? It's a mathematical representation of a system. These represe
 
 Upon modelling the system, we can start controlling this system. With the equations we have made, we can now add our own inputs to those equations. This in a nutshell is what the course is about.
 \chapter{Unit 1}
-\label{sec:orgfa428be}
+\label{sec:org3bdb183}
 \section{What Is Modelling?}
-\label{sec:orgd5dd5d8}
+\label{sec:orge566857}
 \begin{itemize}
 \item Model - Models of the systems are simplified, abstracted constructs used to predict their behaviour.
 \item Mathematical Modelling - Predicts only a certain aspect of the behaviour
 \end{itemize}
 \section{Uses Of Modelling}
-\label{sec:org0fec6fb}
+\label{sec:org2e9d8fc}
 Modelling consists of input variables \(U\), which performs certain operations on a dynamic system \(S\), with state variables \(X\) to give some output variables \(U\).
 Analysis means that given an input for the present, and the system itself.
 
 We can predict the outputs for the future. To exert some form of control, the system \(S\) are used. Another term used is identification, identification means that you already \(U\), and \(Y\). We know the inputs and the outputs, and we map \(U\) to \(Y\) with the system \(S\). We \textbf{identify} the system that would map the inputs to the outputs. This is done by experimenting and figuring out what mapping works best to generate the outputs from the inputs. The way to tell whether a model is good is to see if it is consistent with large sets of input and outputs.
 \section{Types Of Modeling}
-\label{sec:org1d085aa}
+\label{sec:orgbdabae6}
 Principle of superposition - it means that there's a linear correlation of the inputs to the outputs.
 \begin{center}
 \begin{tabular}{lll}
@@ -77,7 +77,7 @@ Discrete & dependent variables defined only for distinct values & Time-differenc
 \end{tabular}
 \end{center}
 \section{System Nomenclature}
-\label{sec:org970483f}
+\label{sec:org6b9ac60}
 \begin{definition}
 A Dynamical system is a particle or ensemble of particles whose state varies over time and thus obeys differential equations involving time derivatives.
 \end{definition}
@@ -138,11 +138,11 @@ $$Y(s) = G(s)U(s)$$
 A block diagram of a system is a pictorial representation of the functions performed by each component and of the flow of signals. Such a diagram depicts the interrelationships that exist among the various components. Differing from a purely abstract mathematical representation, a block diagram has the advantage of indicating more realistically the signal flows of the actual system.
 \end{definition}
 \section{Modeling Of Dynamical Systems.}
-\label{sec:orgca7b720}
+\label{sec:orgdfcdbe8}
 Consider the system shown in the figure. The main body of mass M is propelled along a horizontal track by a traction force \(f\). The main body contains an actuator for rotating the pendulum. The  actuator applies a torque T to the arm. The pendulum has a total mass \(m\) and a moment of inertia \(I\) relative to its mass center at point C.
 \href{file:///home/adithya/University-Latex-Notes/Modelling, Simulation And Analysis/textbooks/Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf}{Katsuhiko Ogata - Modern Control Engineering-Prentice Hal (2010).pdf: Page 78 Systems example}
 \section{Bond Graph Modelling}
-\label{sec:orgc8c7861}
+\label{sec:orgf62f3b3}
 What we did earlier is a classical approach to modelling. We find  the differential equations and generate matrix equations with inputs, state variables and output.
 
 What we do here is,
@@ -160,7 +160,7 @@ What we do here is,
 \text{Out}&\text{put}
 \end{align*}
 \section{Generalizd Variables}
-\label{sec:orge76de18}
+\label{sec:org5b6557d}
 \begin{itemize}
 \item Power Variables
 \begin{itemize}
@@ -195,10 +195,10 @@ Thermodynamics & Temperature & Entropy Flow\\
 \end{center}
 \begin{enumerate}
 \item Bond Graphs
-\label{sec:orgdcf9d02}
+\label{sec:orgdfca559}
 A bond graph is a labelled directed graph, each link has an assigned orientation.
 \item Multiports
-\label{sec:orgd64853d}
+\label{sec:org38e5ec5}
 Places at which subsystems can be interconnected, power can flow through ports between subsystems.
 
 \begin{verbatim}
@@ -242,17 +242,17 @@ s output
 \href{https://ocw.mit.edu/courses/2-141-modeling-and-simulation-of-dynamic-systems-fall-2006/71ca8916669d0aa6839ce780db9f5288\_bond\_graph\_intro.pdf}{MIT COURSE NOTES ON BOND GRAPH MODELLING}
 \end{enumerate}
 \chapter{Unit 2}
-\label{sec:org3ff8ff5}
+\label{sec:org3b77352}
 \section{Transformers}
-\label{sec:org644dd5d}
+\label{sec:org59a83b4}
 We have bond graphs now, and we can say certain things about the efforts and flows using bond graphs.
 
 What we can do next is write functions known as transformers that convert the input effort into the output effort, or the input flow into the output flow, based on the causal stroke.
 \section{Gyrators}
-\label{sec:orgc7517ef}
+\label{sec:orgc5625db}
 What we can do with gyrators convert the input of one form into the output of another form, based on the causal stroke.
 \section{Dynamical Response Of 1st Order Systems}
-\label{sec:org66cf9e7}
+\label{sec:org95c784a}
 A transfer function is the ratio of the output function by the input function, provided that the initial conditions are zero.
 
 A first order system is a system such that the highest power is 1.
@@ -262,12 +262,12 @@ For a first order system we get,
 
 $$\frac{1}{T_s+1}$$
 \section{S-Plane}
-\label{sec:org2a63ff2}
+\label{sec:org990f47e}
 \section{Maximum Overshoot}
-\label{sec:org00c5e24}
+\label{sec:org9f867a0}
 $$M_p=\frac{c(t_p)-c(\infty)}{c(\infty)}$$
-\chapter{Frequency Response}
-\label{sec:orgbd190a8}
+\section{Frequency Response}
+\label{sec:orgc2eb8bb}
 
 We write \(s = \sigma + j \omega\)
 
@@ -276,12 +276,68 @@ If we have a block diagram where X(s) through some linear transformation G(s) be
 We can write that
 
 \begin{align*}
-$$y(t) = Y sin(\omega t + \phi)$$
-$$= X |G(j \omega)| sin(\omega t + \phi)$$
-
+y(t) &= Y sin(\omega t + \phi) \\
+&= X |G(j \omega)| sin(\omega t + \phi)
 \end{align*}
+
+\begin{align*}
+Y &= X|G(j\omega) \\
+\phi &= tan^{-1}\frac{Im(G(j\omega))}{Re(G(j\omega))}
+&= G(s) \frac{\omega X}{s^2+ \omega^2}
+\end{align*}
+
+We can then write it out as a polynomial.
+
+\begin{align*}
+Y(s) = \frac{p(s)}{q(s)} \frac{\omega X}{s^2 + \omega^2} \\
+Y(s) = \frac{a}{s + j \omega} + \frac{\overline{a}}{s - j \omega} + \frac{b_1}{s+s_1} + \frac{b_2}{s + s_2} \\
+y(t) = ae^{-j \omega t} + \overline{a}e^{j \omega t} + b_1 e^{-s_1t} + b_2 e^{-s_2t}
+\end{align*}
+
+Thus the steady state,
+
+$$y(t) = ae^{-j \omega t} + \overline{a}e^{j \omega t}$$
+
+Ogata Chapter 7, first three pages.
+\chapter{Unit 3}
+\label{sec:org492c584}
+
+\section{Frequency Response}
+\label{sec:org99cf65c}
+A stable system is such that the output has a frequency with a negative real part.
+
+A system where the input is a sinusoid.
+
+A system is linear, then the output's frequency must be the same as the input frequency
+
+The output's amplitude is,
+
+$$Y = X * |G(j \omega) |$$
+
+The output is shifted by a phase \(\phi\)
+$$\phi = tan^{-1}(\frac{Im(G(j\omega))}{Re(G(j\omega))})$$
+
+$$G(j\omega) = \frac{K}{T(j\omega + 1)} = \frac{K}{1 + j(\omega T)}$$
+
+The phase is defined for the transfer function as,
+
+$$ang(G(j\omega)) = tan^{-1} \frac{Im(numerator)}{Re(num)} - tan^{-1} \frac{Im(denominator)}{Re(denominator)}$$
+
+
+Thus the steady state becomes,
+
+$$y_{ss}(t) = \frac{XK}{\sqrt{1 + \omega^2T^2}} sin(\omega t - tan^{-1} \omega T)$$
+
+We express the magnitude of the transfer function \(G(j \omega)\) in terms of decibels
+
+$$G(j \omega) \text{in Db} = 20 log_{10}|G(j\omega)$$
+
+
+The plot is a 'semi-log' plot where one of the axes are plotted on a logarithmic scale instead of linear. The decibel values act as the y-axis and the angular frequency is equally spaced in multiples of 10.
+\section{Bode Plots}
+\label{sec:org76f47c6}
 \part{Syllabus}
-\label{sec:org7b37087}
+\label{sec:org15778f2}
 
 \begin{itemize}
 \item Mathematical Modelling
@@ -308,7 +364,7 @@ In pt 3 above, get yourself comfortable with
 \end{itemize}
 \end{itemize}
 \part{Project Notes}
-\label{sec:org269aea6}
+\label{sec:org902889f}
 \begin{itemize}
 \item Simscape, or a matlab simulink model
 \item Provision is made for solidworks CAD models.

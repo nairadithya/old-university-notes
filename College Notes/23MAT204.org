@@ -568,3 +568,52 @@ $$\lambda e^{-\lambda x}$$
 Correlation is a measure of how much two data points depend on each other.
 
 $$\rho = \frac{Cov(X_1,X_2)}{\sigma_1 \sigma_2}$$
+*** Multiple Joint Distributions
+
+ * Multiple discrete random variables
+
+   Multinomial distributions, $$P(X_1 = x_{1}, X_2 = x_2, ... , X_k = x_k) = \frac{n!}{x_1! x_2! x_3! ... x_k!} p_1^{x_1}p_2^{x_2}$$
+** Constrained Optimization
+***  Graphical Method
+For a linear system, the optimum solution will always be at the boundary of the feasible region. Such systems will always have *either* -
+1. Unique solutions
+2. Infinitely many solutions
+3. Unbounded solutions(solutions for a feasible region which is not fully closed.)
+*** Analytical Solution
+There are three problems which can be solved analytically
+ * Least squares problems
+ * Linear optimization problems
+   * Convex optimization problems
+*** Convex Sets
+Let S be a set and let $x_1$ and $x_2$ be elements of the set. If the line segment joining $x_1$ and $x_2$ is also an element of S. then we say that S is convex.
+
+Mathematically:
+        - Let $x_1$, $x_2 \in S$
+        - If $\alpha x_1 + (1 - \alpha) x_{2}$, then S is a convex set.
+**** Examples
+ - The empty set
+ - The singleton set.
+ - Any vector space
+ - Any line segment is a convex set.
+ - Solution set of any linear equations
+ - A halfspace is convex(a halfspace is defined by a linear inequality)
+ - A polyhedron and polytope is convex
+*** Convex Functions
+A function $f: R^n \rightarrow R$ is a convex function if:
+        a) the domain of $f$ is convex and
+        b) $f(\theta x + (1 - \theta)y) \le \theta f(x) + (1- \theta) f(y)$
+*** Concave Function
+A function $f: R^n \rightarrow R$ is a convex function if:
+        a) the domain of $f$ is convex and
+        b) $f(\theta x + (1 - \theta)y) \le \theta f(x) + (1- \theta) f(y)$
+*** Second derivative test for convexity/concavity
+
+A twice differentiable function $f(x)$ is convex if its Hessian $\nabla^{2}f(x)$ is positive definite.
+A twice differentiable function $f(x)$ is concave if its Hessian $\nabla^{2}f(x)$ is negative definite.
+*** Operations preserving convexity
+- A scalar multiple
+- Sum of convex Functions
+
+If $g(x)$ is a convex function, then $g(x) \le 0$ is a convex set.
+
+*** Relation between convex sets and convex functions
