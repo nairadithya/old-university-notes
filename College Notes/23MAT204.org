@@ -614,6 +614,56 @@ A twice differentiable function $f(x)$ is concave if its Hessian $\nabla^{2}f(x)
 - A scalar multiple
 - Sum of convex Functions
 
+*** Relation between convex sets and convex functions
+
 If $g(x)$ is a convex function, then $g(x) \le 0$ is a convex set.
 
-*** Relation between convex sets and convex functions
+An optimization problem in the standard form:
+  Minimize $f(x)$ subject to $g_i(x) \le 0, i = 1,2,...,m$, $h_i(x) = 0, i = 1,2,...,p$
+
+  is said to be convex if
+
+  a) the objective function is convex
+  b) the inequality constraint functions, $g_i(x)$ are convex
+  c) the equality constraint functions, h_j(x) are linear.
+
+*** Langrangian Multiplier
+For an optimization problem,
+At an optimal point $x$, $$\nabla f(x^{*}) = \lambda \nabla g(x^{**})$$
+
+We define a Langrangian function,
+$$L = f(x) + \lambda g(x)$$
+
+*** Kuhn-Tucker Conditions
+To recap, a standard optimization problem is, Minimize $f(x_1,x_2,\cdots x_n}$ subject to $g_1(x_1,\cdots , x_n) \le 0$
+
+These conditions are known as the Kuhn Tucker Conditions, the sufficient condition is that the problem is a convex optimization problem.
+
+We write the Langrangian for a problem,
+
+$$L = f + \lambda_{1} g_{1} + \lambda_2g_2 + \cdots \lambda_m g_m + \mu_1 h_1 \mu_2h_2 + \cdots \mu_p h_{p}$$
+
+
+The first condition is that,
+
+$$\frac{\partial L}{\partial x_i} = 0$$
+
+This gives us $n$ equations.
+
+The second condition is that,
+
+$$\lambda_i g_i(x) = 0$$
+
+This gives us $m$ equations
+
+The third condition is,
+
+$\lambda_i \ge 0$
+
+This ensures that the sign does not flip, since they're paired with inequality constraints.
+
+No. of variables = $n+m+p$
+
+No. of KT conditions = $n + 3m + p$
+
+No. of equality conditions = $n + m + p$
