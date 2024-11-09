@@ -1,4 +1,4 @@
-% Created 2024-10-14 Mon 08:49
+% Created 2024-10-30 Wed 09:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,9 +29,9 @@
 \tableofcontents
 
 \part{Mathematics}
-\label{sec:org6244666}
+\label{sec:org9c4abc6}
 \chapter{Revision Linear Algebra}
-\label{sec:org65bbc60}
+\label{sec:orgaeba880}
 Every matrix satisfies its own characteristic matrix.
 
 What this means is
@@ -49,17 +49,17 @@ There are some implications behind this. Here's a problem, generate a random 3x3
 What you will see is that the rank reduces upon multiplying roots of the
 characteristic equation
 \section{Ways To Calculate Whether A Matrix Is Positive Definite}
-\label{sec:org0b84a5f}
+\label{sec:orgf6bd993}
 \begin{enumerate}
 \item The minors are positive then negative alternating.
 \item The eigenvalues are positive.
 \end{enumerate}
 \section{Large Eigenvalue Computation}
-\label{sec:org0a33671}
+\label{sec:org927a45b}
 Large eigenvalues are computed by using a matrix multiplication method.
 This method involves:
 \section{Specral Decomposition}
-\label{sec:org3922c74}
+\label{sec:org93a4d97}
 \[S = Q \Lambda Q^T = \lambda_1 q_1 q_1^T + \lambda_2 q_2 q_2^T + \cdots + \lambda_n q_n q_n^T\]
 
 This allows us to represent a matrix by the sum of n rank 1 matrices.
@@ -67,7 +67,7 @@ This is used in square symmetric matrices.
 
 This is the basis behind Principal Component Analysis.
 \section{Singular Value Decomposition}
-\label{sec:orgc689af1}
+\label{sec:org69aa1ea}
 For rectangular matrices.
 $$A = U \Sigma V^T  = \sigma_1 u_1 v_1^T + \sigma_2u_2v_2^T + \cdots + \sigma_r u_r v_r^T$$
 
@@ -90,12 +90,12 @@ This is known as the \textbf{Frobenius Norm}
 This method can also be used to generate orthonormal bases for the 4
 Fundamental Subspaces
 \section{The Geometry of SVD}
-\label{sec:org4e0ec34}
+\label{sec:org02ce47e}
 Since we have an orthogonal matrix, diagonal and orthogonal matrix\ldots{}
 It's a rotation step followed by a stretching step, finally ended by
 another rotation step.
 \section{Polar Decomposition}
-\label{sec:org077f686}
+\label{sec:org14a47de}
 This decomposition is a special case of the Singular Value
 Decomposition. Where you decompose the elements into the polar form with
 an orthogonal matrix and a positive semi-definite matrix.
@@ -115,7 +115,7 @@ Although my assumptions might be wrong, this might be a way to generate
 rotation matrices for higher-dimension spaces. Might be useful in
 exploring the semantic spaces of LLMs.
 \section{Principal Component Analysis}
-\label{sec:orgca9ba9b}
+\label{sec:org0914c34}
 Why do we use normalization while working with data? We use
 normalization to ensure that the units are eliminated while working with
 that given data. \textbf{This normalization is done by subtracting by the
@@ -170,7 +170,7 @@ There are three types of Matrix norms:
 \end{enumerate}
 \begin{enumerate}
 \item Spectral Norm
-\label{sec:orgf0bad2e}
+\label{sec:org85c03eb}
 We know that the vector norm for a vector \(\vec{x}\) is nothing but
 \(\vec{x}^T \vec{x}\). We take this property.
 
@@ -229,12 +229,12 @@ Where, S is a diagonal matrix of \(n \times n\) where
 \(s_i = \sigma_i (i = 1\cdots k)\) else \(s_i = 0\), by best B is a
 solution to \(min_B \|A - B\|F\) where rank(B) = k
 \chapter{Multi variable Optimization}
-\label{sec:org442f5b4}
+\label{sec:org2eec98f}
 We minimize \(f(x_1,x_2,\cdots,x_3)\).
 \section{Contour Curves}
-\label{sec:orgfa605ac}
+\label{sec:orgb9a25ef}
 \section{Multi variable Calculus}
-\label{sec:org15c368b}
+\label{sec:orga63a554}
 The points where \(\nabla f = \vec{0}\) are called the stationary points. The Hessian matrix should be positive definite for a minima and negative definite for a maxima. A point where there is no change, is known as a saddle point.
 
 \begin{align*}
@@ -248,7 +248,7 @@ x = 0,\frac{-4}{3} \\
 y = 0,\frac{-8}{3} \\
 \end{align*}
 \section{Newton's Method}
-\label{sec:orgcc4f80c}
+\label{sec:orgf08b758}
 Newton's Method is a numerical method to find a minimum of a function.
 
 Iterative formula:
@@ -269,12 +269,12 @@ Evaluation of first and second derivatives numerically:
 $$f'(a) = \frac{f(a+\Delta a)-f(a-\Delta a)}{2 \Delta a}$$
 $$f''(a) = \frac{f(a+\Delta a)- 2f(a) + f(a-\Delta a)}{(\Delta a)^2}$$
 \section{How solution to a linear system can be found as a solution of an optimization problem.}
-\label{sec:org6ea7669}
+\label{sec:org36ef5fe}
 Find an objective function whose solution is specified as \(\vec{x} : A\vec{x} = b\)
 
 Take for example, \(\frac{1}{2}x^T A x - b^T x + c\), \(x \in R^n, A = A^T\)
 \section{Numerical Algorithm Of Gauss-Jacobi Method}
-\label{sec:orgf9d3aea}
+\label{sec:orgbcbfa78}
 
 Input A = [a\textsubscript{ij}], X0 = x\textsuperscript{(0)}, tolerance TOL, maximum number of iterations,
 
@@ -313,7 +313,7 @@ for i = 2:n
 end
 \end{verbatim}
 \section{Gauss-Siedel Iteration Method}
-\label{sec:org5d39184}
+\label{sec:org4e171ca}
 The iterative method is somewhat similar to <Gauss-Jacobi method>.
 
 The only difference is that the new values are computed by already existing new values.
@@ -346,7 +346,7 @@ $$x^{k} = (D-L)^{-1} \vec{b} + (D-L)^{-1}(U \vec{x})$$
 
 If the matrix is 'diagonally dominant', where the magnitude of the diagonal elements should be greater than the sum of the magnitude of the other elements(absolute value) in the same row.
 \section{Unidirectional/Line search}
-\label{sec:org1ffda6f}
+\label{sec:orgd2f4332}
 For a given function,
 
 Find the minima of \(f(x) = (x-1)^2 + (y-2)^2\) starting from \((0,0)\) along the direction of x-axis.
@@ -361,7 +361,7 @@ How to perform uni-directional search:
 Find the minimum of the function \(f(x) = (x-2)^2 - y\), starting from the point \((-1,0)\) along \((1,1)^T\)
 \end{itemize}
 \section{Directions Of Change}
-\label{sec:org18016ee}
+\label{sec:org69e9f93}
 A direction given by the vector \$x\textsuperscript{(k)}\} is a descent direction only if the function value decreases along that direction from the point, \(x^{(k)}\), when
 $$\nabla f(x^{(k)}\cdot d < 0$$
 
@@ -371,7 +371,7 @@ $$\nabla f(x^{(k)}\cdot d > 0$$
 Question: Check whether the given function have a descent direction \(x = (2,-1)\) along the given directions \(d_1\) and \(d_2\)
 $$f = 2x_1^{2} + x_2^2-2x_1x_2 + 2x_1^3 + x_2^4$$
 \section{Directions Of Descent/Ascent In Numerical Algorithms.}
-\label{sec:orga3943d8}
+\label{sec:org89ec84f}
 In any numerical algorithm to find the optimum of an unconstrained problem, the iterative formula used is:
 $$x^{k+1} = x^k + \alpha^kd^k$$
 Where \(\alpha^k\) is the step length in step k and \(d^k\) is the direction of descent in step k, if it's a minimization problem or a direction of ascent if it's a maximization problem.
@@ -381,7 +381,7 @@ Gradient DEscent - \(x_{k+1} = x_k + \alpha_kd_k\) where \(d_k = - \nabla f(x_k)
 
 A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
 \section{Steepest Descent}
-\label{sec:org059c378}
+\label{sec:org5ade907}
 
 A direction along which the function increases rapidly from a point is given by the gradient of the function at that point
 
@@ -397,7 +397,7 @@ This method produces successive directions that are perpendicular to each other.
 
 Near the minima, during line search the convergence is very slow.
 \section{Numerical Method}
-\label{sec:org2dee866}
+\label{sec:orgc4ebbf1}
 To implement this programmatically, we can write\ldots{}
 For \(Ax=b\), we can convert this to an equivalent optimization problem.
 $$f(x) = \frac{1}{2}x^TAx + - b^Tx + c$$
@@ -406,23 +406,23 @@ We have a linear system of equations, which we can be solved by \(Ax=b\)
 
 We can write \(g_0 = Ax_{0} - b\)
 \section{Conjugate Gradient Descent}
-\label{sec:org1cd3617}
+\label{sec:org87becdd}
 The problem with normal gradient descent is that there is no way to predict when the function converges. There's a method that can reliably find the convergence in a predictable fashion. That's the conjugate gradient method.
 
 First we must understnand the conjugate direction and the terms associated with them
 \begin{enumerate}
 \item Krylov Subspace
-\label{sec:org64d8c95}
+\label{sec:orgf0516bf}
 Let \(A \in R^{n \times n}, b \in R^n\), the Krylov subspace \(K_j(A,b)\) is defined as \(K_j(A,b) = span \{\vec{b}, \vec{Ab}, A^2b, A^3b, \dots , A^{j-1}b\}\). Thus \(K_j(A,b)\) is subspace of \(\mathbb{R}^n\)
 \item Krylov Matrix
-\label{sec:org80ca7a6}
+\label{sec:orgc802202}
 The Krylov Matrix is just the matrix consisting of the basis vectors as the column vectors. The Krylov subspace is the column space of such a matrix.
 \item Motivation For Krylov Subspaces
-\label{sec:org0181f77}
+\label{sec:org34e91d1}
 We know the Cayley Hamilton theorem, and its use in calculating the inverse from the characteristic equation
 Interestingly, the calculation for the inverse leads to a linear combination of the basis vectors of the Krylov subspace when solving linear systems.
 \item Conjugate Directions
-\label{sec:org0676a95}
+\label{sec:org77e1339}
 For A real symmetric matrix \(n \times n\) with rank \(n\)
 
 The directions \(d_0 d_1 \dots d_{n-1}\) are said to be A-conjugate if,
@@ -431,7 +431,7 @@ $$d_i Ad_j = 0 $$ for \(i \neq j\)
 
 It's a new definition for orthogonality(not orthonormal)
 \item Numerical Method
-\label{sec:orgf2d7041}
+\label{sec:orgc3dc06a}
 Input \(A,b,x^{0}\)
 
 Compute \(\vec{r_{0}} = b - A x^0\)
@@ -462,38 +462,38 @@ r
 \end{verbatim}
 \end{enumerate}
 \chapter{Probability}
-\label{sec:org64c0769}
+\label{sec:org37a05b4}
 \section{Probability mass function}
-\label{sec:org765bc5e}
+\label{sec:orgcd8af72}
 For discrete inputs
 The probabilty mass function for a discrete random variable \(x\) is defined as, \(f(x) = P(X = x)\)
 \begin{enumerate}
 \item Properties
-\label{sec:orgb35b31b}
+\label{sec:org5a0c0b3}
 \begin{itemize}
 \item \(0 \leq f(x) \leq 1\)
 \item \(\Sigma f(x) = 1\)
 \item \(p(\text{at least n outcomes}) = p(x \geq n) = f(n) + \cdots + f(end)\)
 \end{itemize}
 \item Mean Of Random Variable
-\label{sec:org5b5d3c8}
+\label{sec:org499ab0c}
 $$U_x = E(x) = \Sigma x f(x)$$
 \item Variance Of Random Variable
-\label{sec:org878ead3}
+\label{sec:org447f6c1}
 $$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
 $$\sigma_x^{2} = E(X^2) - \mu^2$$
 \end{enumerate}
 \section{Cumulative Distribution Function}
-\label{sec:org99e1b78}
+\label{sec:orgdd17f6b}
 A cumulative distribution function is just adding the previous terms to the new terms.
 \section{Probability density function - For continuous inputs}
-\label{sec:org88ac4ca}
+\label{sec:org4f2cd60}
 For continuous inputs
 
 The probability density function for a continuous random variable \(x\) is defined as, \(P(a \le x \le b) = \int_a^b f(x)dx\)
 \begin{enumerate}
 \item Binomial Distribution
-\label{sec:orga36fc11}
+\label{sec:orgd5cdbeb}
 The Bernoulli Process
 
 \begin{enumerate}
@@ -512,20 +512,20 @@ p^x - \text{probability of getting $x$ successes} \\
 (1-p)^{n-x} - \text{probability of getting $n-x$ failures}
 \end{align*}
 \item Cumulative Distribution Function
-\label{sec:orgc8cbf38}
+\label{sec:orgb1bf243}
 $$\int_0^x f(y)dy$$
 \item Mean Of Random Variable
-\label{sec:org1b0295b}
+\label{sec:org9f58e1f}
 $$U_x = E(x) = \Sigma x f(x)$$
 \item Properties
-\label{sec:orgb6563ac}
+\label{sec:orgc420182}
 \begin{itemize}
 \item \(f(x) \ge 0\)
 \item \(\int_xf(x) = 1\), where \(\int_x\) is the range for which \(x\) is defined.
 \item For a continuous random variable, the probability at a point is \(0\), the probability that \(x\) takes a discrete value is zero.
 \end{itemize}
 \item Uniform Distribution
-\label{sec:org0466bce}
+\label{sec:org1c222a4}
 A probability distribution which is constant throught the interval, given by the function,
 
 $$f(x) = \frac{1}{b-a}  $$
@@ -543,72 +543,72 @@ x, 0<x<1 \\
      \end{cases}
 $$
 \item Variance Of Random Variable
-\label{sec:org1f0f7c4}
+\label{sec:org22faf54}
 $$\sigma_x^{2} = E((x-\mu_{x}^2)) = \Sigma (x-\mu)^2 f(x) = \Sigma x^2f(x) - \mu^{2}$$
 
 $$\sigma_x^{2} = E(X^2) - \mu^2$$
 \end{enumerate}
 \section{Joint Probability Distribution}
-\label{sec:orgd104e76}
+\label{sec:orgf9f1bbe}
 This is given for two variables, a function \(f(x,y)\) gives us a probability, \(P(X= x_1, X = x_2\)
 \begin{enumerate}
 \item Properties
-\label{sec:orgbc2e659}
+\label{sec:orge53bddc}
 \begin{itemize}
 \item \(0 \le f(x_1,y_1) \le 1\)
 \item \(\Sigma_x \Sigma_y f(x,y) = 1\)
 \end{itemize}
 \item Marginal Distribution Function
-\label{sec:orgaa82b42}
+\label{sec:org2a73ebe}
 Marginal distribution functions are the probability distributions of the variables themselves.
 
 \begin{itemize}
 \item The distribution of \(x_1\) is given by the columns, and \(x_2\) is given by the rows. In other words you're fixing the values and adding the remaining.
 \end{itemize}
 \item Mean Of Marginal Values
-\label{sec:orga2c4a45}
+\label{sec:orgbeaa621}
 
 \(Mean(X_1) = E(X_1) = \Sigma_{x1} x_1 f_{1)(x_{1})\)
 \end{enumerate}
 \section{Double Integrals}
-\label{sec:orgd661d15}
+\label{sec:org260d8c3}
 \(\int_x \int_y f(x,y) dy dx\)
 \begin{enumerate}
 \item Area Of A Region
-\label{sec:org4c66042}
+\label{sec:orgc362322}
 $$R= \int_R 1 dx dy$$
 \end{enumerate}
 \section{Joint Probability Density Function}
-\label{sec:org3c21b46}
+\label{sec:org14438d2}
 For a continuous scalar field, \(P(a \le x  \le b, c \le y \le d)\)
 \begin{enumerate}
 \item Properties
-\label{sec:org785c501}
+\label{sec:org21d37c9}
 \begin{itemize}
 \item \(\int\int f(x,y) dx dy = 1\)
 \end{itemize}
 \end{enumerate}
 \section{Independent Probabilities}
-\label{sec:org777e927}
+\label{sec:orgb0461d1}
 
 Two events \(A\) and \(B\) are said to be independent if \(P(A|B) = P(A)\) or \(P(B|A) = P(B)\)
 
 Two discrete random variables \(x_1\) and \(x_2\) are said to be independent if \(f(x_1,x_2)\) = \(f(x_1)f_2(x_2) \forall x_1 \& x_2\)
 \section{Binomial Distribution}
-\label{sec:orgfa9f288}
+\label{sec:org57114ca}
 The Bernoulli process has these properties:
 \begin{enumerate}
 \item The experiment consists of repeated trials
 \item Each trial results in an outcome that may be classified as a success or failure.
 \end{enumerate}
 \section{Poisson Distribution}
-\label{sec:org1a2cc13}
+\label{sec:orge3a7201}
 $$\lim_{n \rightarrow \infty} P(X=x) = \frac{e^{-\lambda}\lambda^x}{x!}$$
 \section{Continuous Uniform Distribution}
-\label{sec:org6b25b3f}
+\label{sec:org7fd9ea7}
 $$f(x) = \frac{1}{b-a}$$
 \section{Exponential Distribution}
-\label{sec:org1c5c584}
+\label{sec:orgdfd2be2}
 Let N be a random variable with a Poisson Distribution with mean \(\lambda x\) and X be the random variable that gives the time between each arrival or count. Then,
 
 
@@ -616,24 +616,153 @@ $$P(X > x) = P(N=0) = \frac{e^{-\lambda x}(\lambda x)^0}{0!} = e^{-\lambda x}$$
 PDF,
 $$\lambda e^{-\lambda x}$$
 \section{Gaussian/Normal Distribution}
-\label{sec:orgc6af4bb}
+\label{sec:org65e5306}
 \begin{itemize}
 \item It is one of the most common probability distribution
 
 $$f(x) = \frac{1}{\sqrt{2 \pi} \sigma} e^{\frac{-(x-\mu)^2}{2 \sigma^2}}$$
 \end{itemize}
 \section{Covariance And Correlation Coefficient}
-\label{sec:orga771c84}
+\label{sec:org88ede2a}
 
 Correlation is a measure of how much two data points depend on each other.
 
 $$\rho = \frac{Cov(X_1,X_2)}{\sigma_1 \sigma_2}$$
 \section{Multiple Joint Distributions}
-\label{sec:org3041c8f}
+\label{sec:org5dc5f51}
 
 \begin{itemize}
 \item Multiple discrete random variables
 
-Multinomial distributions, $$P(X_1 = x_{1}, X_2 = x_2, ... , X_k = x_k) = \frac{n!}{x_1! x_2! x_3! ... x_k!} p_1^{x_1}p_2^{x_2}...p_k^{x_k}$$
+Multinomial distributions, $$P(X_1 = x_{1}, X_2 = x_2, ... , X_k = x_k) = \frac{n!}{x_1! x_2! x_3! ... x_k!} p_1^{x_1}p_2^{x_2}$$
 \end{itemize}
+\chapter{Constrained Optimization}
+\label{sec:orga2d440b}
+\section{Graphical Method}
+\label{sec:orgdfb0979}
+For a linear system, the optimum solution will always be at the boundary of the feasible region. Such systems will always have \textbf{either} -
+\begin{enumerate}
+\item Unique solutions
+\item Infinitely many solutions
+\item Unbounded solutions(solutions for a feasible region which is not fully closed.)
+\end{enumerate}
+\section{Analytical Solution}
+\label{sec:org9442d64}
+There are three problems which can be solved analytically
+\begin{itemize}
+\item Least squares problems
+\item Linear optimization problems
+\begin{itemize}
+\item Convex optimization problems
+\end{itemize}
+\end{itemize}
+\section{Convex Sets}
+\label{sec:orgb6abde8}
+Let S be a set and let \(x_1\) and \(x_2\) be elements of the set. If the line segment joining \(x_1\) and \(x_2\) is also an element of S. then we say that S is convex.
+
+Mathematically:
+\begin{itemize}
+\item Let \(x_1\), \(x_2 \in S\)
+\item If \(\alpha x_1 + (1 - \alpha) x_{2}\), then S is a convex set.
+\end{itemize}
+\begin{enumerate}
+\item Examples
+\label{sec:org1068082}
+\begin{itemize}
+\item The empty set
+\item The singleton set.
+\item Any vector space
+\item Any line segment is a convex set.
+\item Solution set of any linear equations
+\item A halfspace is convex(a halfspace is defined by a linear inequality)
+\item A polyhedron and polytope is convex
+\end{itemize}
+\end{enumerate}
+\section{Convex Functions}
+\label{sec:orgd3fc8e1}
+A function \(f: R^n \rightarrow R\) is a convex function if:
+\begin{enumerate}
+\item the domain of \(f\) is convex and
+\item \(f(\theta x + (1 - \theta)y) \le \theta f(x) + (1- \theta) f(y)\)
+\end{enumerate}
+\section{Concave Function}
+\label{sec:org8778ad7}
+A function \(f: R^n \rightarrow R\) is a convex function if:
+\begin{enumerate}
+\item the domain of \(f\) is convex and
+\item \(f(\theta x + (1 - \theta)y) \le \theta f(x) + (1- \theta) f(y)\)
+\end{enumerate}
+\section{Second derivative test for convexity/concavity}
+\label{sec:org2804cf3}
+
+A twice differentiable function \(f(x)\) is convex if its Hessian \(\nabla^{2}f(x)\) is positive definite.
+A twice differentiable function \(f(x)\) is concave if its Hessian \(\nabla^{2}f(x)\) is negative definite.
+\section{Operations preserving convexity}
+\label{sec:orgd4e80ed}
+\begin{itemize}
+\item A scalar multiple
+\item Sum of convex Functions
+\end{itemize}
+\section{Relation between convex sets and convex functions}
+\label{sec:org11a36b4}
+
+If \(g(x)\) is a convex function, then \(g(x) \le 0\) is a convex set.
+
+An optimization problem in the standard form:
+  Minimize \(f(x)\) subject to \(g_i(x) \le 0, i = 1,2,...,m\), \(h_i(x) = 0, i = 1,2,...,p\)
+
+is said to be convex if
+
+\begin{enumerate}
+\item the objective function is convex
+\item the inequality constraint functions, \(g_i(x)\) are convex
+\item the equality constraint functions, h\textsubscript{j}(x) are linear.
+\end{enumerate}
+\section{Langrangian Multiplier}
+\label{sec:org3fb52f2}
+For an optimization problem,
+At an optimal point \(x\), $$\nabla f(x^{*}) = \lambda \nabla g(x^{**})$$
+
+We define a Langrangian function,
+$$L = f(x) + \lambda g(x)$$
+\section{Kuhn-Tucker Conditions}
+\label{sec:org5a0666c}
+To recap, a standard optimization problem is, Minimize \(f(x_1,x_2,\cdots x_n}\) subject to \(g_1(x_1,\cdots , x_n) \le 0\)
+
+These conditions are known as the Kuhn Tucker Conditions, the sufficient condition is that the problem is a convex optimization problem.
+
+We write the Langrangian for a problem,
+
+$$L = f + \lambda_{1} g_{1} + \lambda_2g_2 + \cdots \lambda_m g_m + \mu_1 h_1 \mu_2h_2 + \cdots \mu_p h_{p}$$
+
+
+The first condition is that,
+
+$$\frac{\partial L}{\partial x_i} = 0$$
+
+This gives us \(n\) equations.
+
+The second condition is that,
+
+$$\lambda_i g_i(x) = 0$$
+
+This gives us \(m\) equations
+
+The third condition is,
+
+$$\lambda_i \ge 0$$
+
+This ensures that the sign does not flip, since they're paired with inequality constraints.
+
+This gives us \(m\) equations
+
+The fourth condition
+
+$$g_i \le 0, h_j = 0$$
+
+No. of variables = \(n+m+p\)
+
+No. of KT conditions = \(n + 3m + p\)
+
+No. of equality conditions = \(n + m + p\)
 \end{document}

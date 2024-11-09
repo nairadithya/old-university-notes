@@ -8,9 +8,9 @@ deltaY = h/N;
 
 % Terms in the equation
 nu = mu/rho; % Kinematic Viscosity
-alpha = 0.51; % Diffusion Number
-deltaT = alpha*rho*(deltaY^2)/mu; % Evaluating time step from alpha
-dpdx = -2; % Pressure Gradient
+  alpha = 0.51; % Diffusion Number
+  deltaT = alpha*rho*(deltaY^2)/mu; % Evaluating time step from alpha
+  dpdx = -2; % Pressure Gradient
 
 % Velocities of the plates
 U0 = 0;
@@ -22,8 +22,6 @@ T = 5;
 U = zeros(floor(T/deltaT),N+1);
 % Initial Conditions
 y = 0:deltaY:h;
-
-
 
 % Equation
 for k = 2:floor(T/deltaT)

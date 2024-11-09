@@ -9,7 +9,7 @@ nodeVector = [1;2;2;3;3;4;1;4;2;4]; % AB, BC, CD, DA, DB
 elementCount = 5;
 nodeCount = 4;
 
-displacementVector = zeros(2*nodeCount,1);
+isplacementVector = zeros(2*nodeCount,1);
 forceVector = zeros(2*nodeCount,1);
 forceVector(6) = -1500;
 forceVector(7) = -1000;

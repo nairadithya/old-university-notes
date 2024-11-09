@@ -1,8 +1,6 @@
 #+title: Advanced Data Structures And Algorithm Analysis
 #+author: Adithya Nair
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
-
-
 * DSA Notes
 ** Graphs
 *** Representations Of A Graph
@@ -58,8 +56,8 @@ the procedure follows:
 - queue all neighbouring nodes of a.
 - the first node is dequeued.
 - upon dequeueing, all neighbouring nodes are checked if it's in the queue. if not, they are queued in.
-	- let's say b is taken, and b is connected to c, and c is already connected to a and b.
-	- a and c will not be queued. - this iterates until there are no more nodes.
+  - let's say b is taken, and b is connected to c, and c is already connected to a and b.
+  - a and c will not be queued. - this iterates until there are no more nodes.
 
 clearly, this depends on the number of edges in the graph. the maximum number of edges in a graph is $^nc_2$.
 
@@ -84,12 +82,12 @@ the procedure follows:
 
 #+begin_src java
 class dfs {
-  dfs(int v)  {
-    adj = new linkedlist[v];
-    visited = new boolean[v];
-    for (int i = 0; i < v; i++)
-      adj[i] = new linkedlist<integer>();
-  }
+    dfs(int v)  {
+        adj = new linkedlist[v];
+        visited = new boolean[v];
+        for (int i = 0; i < v; i++)
+            adj[i] = new linkedlist<integer>();
+    }
 }
 #+end_src
 
@@ -121,7 +119,7 @@ value of left node must be smaller than parent, and value of right node must be 
 **** binary search tree deletion
 - it works the same as a linked list operation.
 - we use in order traversal to figure out the node's value, it takes the value of its in order successor.
-*** Avl Trees(Height Balanced Binary Tree)
+*** AVL Trees(Height Balanced Binary Tree)
 what this solves is the fact that we have a series of insertions that are 'skinny'. an avl tree is balanced, the height is as minimal as possible.
 
 each node is given a balancing factor, $= h_l-h_r$
@@ -325,3 +323,23 @@ The hash nodes are used to check if data is corrupted. If the root node of the h
 |                |                     | Search       | O(1) - general, worst case - O(n)                   | O(n)             |
 |                |                     | Deletion     | O(1) - general, worst case - O(n)                   | O(n)             |
 |----------------+---------------------+--------------+-----------------------------------------------------+------------------|
+** Algorithm Design Techniques
+*** Divide And Conquer
+ * Divide - break problem into sub-problems
+ * Conquer - solve sub-problems recursively
+ * Combine - merge solutions into a final solution
+
+A thing to note is that the sub-problem should be the same as the big problem. The result must be combinable
+**** QuickSort
+***** Select Pivot
+ * Choose an element as pivot
+ * Pivot will be used to partition the array
+***** Partitioning
+ * Move elements smaller than pivot to left side
+ * Move elements larger than pivot to right side
+ * Place pivot in its final position
+***** Recursive Division
+ * Recursively apply to sub-arrays
+ * Left sub-array: elements smaller than pivot
+ * Right sub-array: elements larger than pivot.
+**** Max-Min Problem

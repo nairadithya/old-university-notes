@@ -1,4 +1,4 @@
-% Created 2024-09-30 Mon 22:07
+% Created 2024-11-07 Thu 12:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -12,12 +12,13 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
+\usepackage[tmargin=2cm,rmargin=0.5in,lmargin=0.5in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
 \author{Adithya Nair}
 \date{\today}
-\title{Introduction To Artificial Intelligence And Machine Learning.}
+\title{Project}
 \hypersetup{
  pdfauthor={Adithya Nair},
- pdftitle={Introduction To Artificial Intelligence And Machine Learning.},
+ pdftitle={Project},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 29.4 (Org mode 9.7.11)}, 
@@ -27,716 +28,87 @@
 \maketitle
 \tableofcontents
 
-\section{Iris Data Classification}
-\label{sec:org06366bd}
-
-\begin{verbatim}
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-
-irisdata = pd.read_csv('iris.csv')
-
-test, train = train_test_split(irisdata, train_size=0.8, test_size=0.2)
-
-print(np.size(test))
-print(np.size(train))
-print(irisdata.describe())
-\end{verbatim}
-\section{Overview}
-\label{sec:org365e2bd}
-\subsection{Some Terms Used}
-\label{sec:org4907177}
+\section{IEEE Report Template}
+\label{sec:orga98af04}
 \begin{itemize}
-\item Regression - Continuous numbers as output
-\item Classification - Discrete classes as output
-\item Binary classification - two classes treated differently.
-\item Overfitting - Good performance on the training data, poor generalization to other
-Solvable by:
+\item Abstract
 \begin{itemize}
-\item Cross-validation
-\item Data augmentation
-\item Feature selection
-\item Ensemble techniques
+\item 150-200 words, first 2 lines(about application and its uses)
+\item Next 2 lines (what models you are experimenting with)
+\item Dataset sourced from
+\item Best results reported
+\item Enhancements from baseline(find papers reporting on the same dataset, and you compare your results to these papers)
 \end{itemize}
-\item Underfitting - Poor performance on the training data and poor generalization to other data(test data).
+\item Introduction
 \begin{itemize}
-\item qualitatively or quantitatively poor data.
-\item Bad algorithm for the job
-\item Remedy is to add more features
+\item 1-1.5 pages long
+\item Every paragraph contains some references.
+\item Paragraph 1 - Broad domain - Explain higher level concepts pertaining to your application
+\item Paragraph 2 - Application
+\item Paragraph 3 - Techniques Experimented
+\item Paragraph 4 - Proposed Model
+\item Paragraph 5 - Section Overview
+\item Paragraph 6 - Contributions as bullet points
 \end{itemize}
-\item Multi-class classification - Multiple classes treated differently.
-\end{itemize}
-\subsection{Types Of Machine Learning}
-\label{sec:org28bdf8f}
-\subsubsection{Supervised Learning}
-\label{sec:orgd9c3c61}
-Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
-\begin{enumerate}
-\item Regression
-\label{sec:org16f10f3}
-Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
-To find the error, we add up the square of the distance of the data points to the closest point on the curve and that gives us the \textbf{mean-squared error.}
-Neural networks, support vector regressor, linear regression
-\end{enumerate}
-\subsubsection{Unsupervised Learning}
-\label{sec:org789d802}
-Models that learn about a dataset without labels.
-This includes
-\begin{enumerate}
-\item Clustering
-\label{sec:org277c40e}
-Grouping of data points to automatically create classes for them
-\item Finding outliers
-\label{sec:orgfd49aa9}
-Done using SVM, Autoencoders
-\item Dimensionality reduction
-\label{sec:org4bd5be5}
-Done using Principal Component Analysis.
-\end{enumerate}
-\subsubsection{Reinforcement Learning}
-\label{sec:orgc2565f8}
-Reinforcement Learning involves giving a model:
+\item Related Works
 \begin{itemize}
-\item A set of states
-\item A set of actions
-\item A set of rewards
-\item A goal: taking actions to change the state to receive the reward.
-
-This type of model doesn't get any data, it explores the environment to gather data.
-\end{itemize}
-\subsubsection{Deep Learning}
-\label{sec:org2dbbd68}
-Deep learning is a subset of ML.
-It involves the use of neural networks, which consist of nodes and statistical relationships between nodes to model the way our mind works.
-
-One layer gives us approximate predictions, adding additional layers refines the model's capability. A ``Deep'' neural network is a network with more than 3 layers.
-\subsection{AI Use Cases}
-\label{sec:org97638c7}
-\subsubsection{Image Classification}
-\label{sec:orgc2aaeb2}
-Convolutional Neural Networks
-\subsubsection{Text Classification}
-\label{sec:orgc9e9c75}
-Naive Bayes, Support Vector Machines
-\subsubsection{Handwriting Recognition}
-\label{sec:orgb3a0bc2}
-Convolution Neural Networks
-Long Short-Term Memory Networks
-\subsection{Steps In Implementing An AI Model}
-\label{sec:org61f26ec}
-\subsubsection{Problem identification}
-\label{sec:orgf657e26}
-This is done by researching
+\item Write out what has been done as part of your survey.
+\item Introduce the motivation for the related works being done.
+\item Find 10 papers related to your application
 \begin{itemize}
-\item Experts in the field
-\item Personal experience
-\item Literature survey
-\item Data curation
-\end{itemize}
-\subsubsection{Data Curation}
-\label{sec:org09614ff}
-\begin{itemize}
-\item Data collection in person
-\item Public repos
-\item Private repos
-\item Simulated data
-\item Synthetic data
-\end{itemize}
-\subsubsection{Pre-processing}
-\label{sec:org8246e86}
-\subsubsection{Selection of AI models based on the data}
-\label{sec:orge2d102e}
-\begin{itemize}
-\item Figure out whether the problem is a regression or a classification problem.
-\item Figure out the computational capacity
-\item Try various models for best fit.
-\end{itemize}
-\subsubsection{Training and tuning the model - A train/test split or a train/validation/testing split.}
-\label{sec:orgdf3cce2}
-\begin{itemize}
-\item The data is separated out into training and testing.
-\item The training subset is passed onto the chosen AI model.
-\item Validation is done because it prevents overfitting.
-\item The model should generalize.
-\end{itemize}
-\subsubsection{Testing the developed model}
-\label{sec:org8c95e78}
-\begin{itemize}
-\item Choose evaluation metrics based on the model.
-\begin{itemize}
-\item Regresssion can involve MSPE, MSAE, \(R^2\)
-\end{itemize}
-\item Test the data.
-\end{itemize}
-\subsubsection{Analysis of the results}
-\label{sec:org6835fde}
-\subsubsection{Re-iterate as needed}
-\label{sec:org4989a8e}
-\subsubsection{Deploy model.}
-\label{sec:org8908f2e}
-\section{Pre-Processing}
-\label{sec:org89451e9}
-\subsection{Handling Missing Values (Imputation)}
-\label{sec:org76b79cd}
-When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
-Hence it is essential to handle the missing values.
-\subsubsection{CREATING A DATAFRAME}
-\label{sec:orgaa6727d}
-\begin{verbatim}
-import pandas as pd
-import numpy as np
-
-# Load the Titanic dataset
-df = pd.read_csv('code/titanic.csv')
-
-# Display the first few rows of the dataset
-print("First few rows of the dataset:")
-print(df.head())
-\end{verbatim}
-
-This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
-
-$$\frac{5}{3} \times \frac{3}{4}$$
-
-\begin{verbatim}
-# Identify missing values
-print("\nMissing values in each column:")
-print(df.isnull().sum())
-
-\end{verbatim}
-\subsubsection{There are two main methods in dealing with missing values.}
-\label{sec:orgb3edb13}
-\begin{enumerate}
-\item Dropping rows with missing values.
-\item Filling the empty missing values with zeros.
-\end{enumerate}
-\begin{verbatim}
-# Method 1: Drop rows with missing values
-df_dropped = df.dropna()
-print("\n METHOD 1 Shape of dataset after dropping rows with missing values:", df_dropped.shape)
-
-# Method 2: Fill missing values with a specific value (e.g., 0)
-df_filled_zeros = df.fillna(0)
-print("\nMETHOD 2 Missing values filled with 0:")
-print(df_filled_zeros.isnull().sum())
-
-\end{verbatim}
-
-This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and filling with zeros does not work here when that might affect the correctness of the prediction.
-So here we replace the values with the mean for numerical values and mode for categorical values.
-\begin{enumerate}
-\item Look into other methods of imputation
-\label{sec:orgb0cb548}
-\begin{verbatim}
-# Method 3: Fill missing values with the mean (for numerical columns)
-df['Age'].fillna(df['Age'].mean(), inplace=True)
-print("\nMETHOD 3 Missing values in 'Age' column after filling with mean:")
-print(df['Age'].isnull().sum())
-
-# Method 4: Fill missing values with the most frequent value (mode)
-df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
-print("\nMETHOD 4 Missing values in 'Embarked' column after filling with mode:")
-print(df['Embarked'].isnull().sum())
-\end{verbatim}
-\end{enumerate}
-\subsubsection{Forward fill and Backward Fill}
-\label{sec:orgf9f12b1}
-There are two better ways to fill the rows.
-\begin{itemize}
-\item Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
-\item Backward Fill - it iterates up the given data, and fills in missing values with the last value it saw.
-\end{itemize}
-\begin{verbatim}
-# Method 5: Forward fill method
-df_ffill = df.fillna(method='ffill')
-print("\nMethod 5 Missing values handled using forward fill method:")
-print(df_ffill.isnull().sum())
-
-# Method 6: Backward fill method
-df_bfill = df.fillna(method='bfill')
-print("\nMethod 6 Missing values handled using backward fill method:")
-print(df_bfill.isnull().sum())
-print("*****************")
-\end{verbatim}
-\subsection{Normalization}
-\label{sec:org4820ea5}
-Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
-
-Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
-
-The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
-\subsubsection{Types Of Normalization}
-\label{sec:org5cb2c07}
-\begin{itemize}
-\item MinMaxScaler - all data points are brought to the range \([0,1]\)
-
-$$
-  x_{new} = \frac{x_{old} - x_{min}}{x_{max} - x_{min}}
-  $$
-\item Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
-\item LogScaler
-\item DecimalScaler - divides the number by a power of 10 until it is lesser than 1.
-\end{itemize}
-\begin{enumerate}
-\item NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
-\label{sec:org9a5cfe1}
-\begin{verbatim}
-import numpy as np
-from sklearn.preprocessing import MinMaxScaler
-
-# Example usage:
-data = np.array([2, 5, 8, 11, 14]).reshape(-1, 1)  # Reshape to 2D array for scaler
-
-# Initialize the MinMaxScaler
-scaler = MinMaxScaler()
-
-# Apply Min-Max normalization
-normalized_data = scaler.fit_transform(data)
-
-# Flatten the normalized data to 1D array
-normalized_data = normalized_data.flatten()
-
-print(normalized_data)
-\end{verbatim}
-\item NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
-\label{sec:org5c4e9a7}
-\begin{verbatim}
-import numpy as np
-from sklearn.preprocessing import StandardScaler
-
-# Example usage:
-data = np.array([2, 5, 8, 11, 14]).reshape(-1, 1)  # Reshape to 2D array for scaler
-
-# Initialize the StandardScaler
-scaler = StandardScaler()
-
-# Apply Z-score normalization
-normalized_data = scaler.fit_transform(data)
-
-# Flatten the normalized data to 1D array
-normalized_data = normalized_data.flatten()
-
-print(normalized_data)
-\end{verbatim}
-\item NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
-\label{sec:orgfadd2fb}
-\begin{verbatim}
-# Initialize the MinMaxScaler
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler()
-
-# List of columns to be normalized
-columns_to_normalize = ['Age', 'Fare']
-
-# Apply Min-Max normalization
-df[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
-
-print("\nDataFrame after Min-Max normalization:")
-print(df)
-\end{verbatim}
-\end{enumerate}
-\subsection{Sampling}
-\label{sec:org978da81}
-Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
-Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
-\subsubsection{Random Sampling}
-\label{sec:orgbced240}
-Random sampling is used for when the dataset is large.
-\begin{verbatim}
-import random
-
-# Sample data
-population = list(range(1, 101))  # Population from 1 to 100
-sample_size = 10  # Size of the sample
-
-# Simple random sampling
-sample = random.sample(population, sample_size)
-print("Simple Random Sample:", sample)
-\end{verbatim}
-\subsubsection{Oversampling}
-\label{sec:orga0ed101}
-In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
-\begin{enumerate}
-\item Oversampling using SMOTE
-\label{sec:orgeeeb0d1}
-It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
-\end{enumerate}
-\subsubsection{Stratified SAMPLING}
-\label{sec:orgedb6e4c}
-\begin{verbatim}
-import random
-
-# Sample data with strata
-strata_data = {
-    'stratum1': [1, 2, 3, 4, 5],
-    'stratum2': [6, 7, 8, 9, 10],
-}
-
-# Sample size per stratum
-sample_size_per_stratum = 3
-
-# Stratified sampling
-sample = []
-for stratum, data in strata_data.items():
-    stratum_sample = random.sample(data, sample_size_per_stratum)
-    sample.extend(stratum_sample)
-
-print("Stratified Sample:", sample)
-\end{verbatim}
-\subsubsection{Systematic Sampling}
-\label{sec:orgbe143f4}
-\begin{verbatim}
-# Sample data
-data = list(range(1, 101))  # Data from 1 to 100
-n = 5  # Every nth data point to be included in the sample
-
-# Systematic sampling
-sample = data[::n]
-print("Systematic Sample:", sample)
-\end{verbatim}
-
-
-\begin{verbatim}
-import random
-
-# Sample data with clusters
-clusters = {
-    'cluster1': [1, 2, 3],
-    'cluster2': [4, 5, 6],
-    'cluster3': [7, 8, 9],
-}
-
-# Number of clusters to sample
-clusters_to_sample = 2
-
-# Cluster sampling
-selected_clusters = random.sample(list(clusters.keys()), clusters_to_sample)
-print("chosen clusters ", selected_clusters)
-sample = []
-for cluster in selected_clusters:
-    sample.extend(clusters[cluster])
-
-print("Cluster Sample:", sample)
-\end{verbatim}
-\subsubsection{Undersampling}
-\label{sec:org4824022}
-\subsection{Binning}
-\label{sec:org598d173}
-\begin{verbatim}
-import pandas as pd
-
-df = pd.read_csv('bollywood.csv')
-budget_bins = [0, 10, 20, float('inf')]  # Define your budget bins
-budget_labels = ['Low Budget', 'Medium Budget', 'High Budget']  # Labels for the bins
-df['BudgetBin'] = pd.cut(df['Budget'], bins=budget_bins, labels=budget_labels)
-print(df.head(10))
-\end{verbatim}
-
-\begin{verbatim}
-collection_bins = [0, 20, 40, 60, float('inf')]  # Define your collection bins
-collection_labels = ['Low Collection', 'Medium Collection', 'High Collection', 'Very High Collection']  # Labels for the bins
-
-df['CollectionBin'] = pd.cut(df['BoxOfficeCollection'], bins=collection_bins, labels=collection_labels)
-df.head(10)
-\end{verbatim}
-
-\begin{verbatim}
-import matplotlib.pyplot as plt
-budget_bin_counts = df['BudgetBin'].value_counts()
-# Plot the data as a bar chart
-plt.figure(figsize=(8, 6))
-budget_bin_counts.plot(kind='bar', color='skyblue')
-plt.title('Number of Movies in Each Budget Bin')
-plt.xlabel('Budget Bin')
-plt.ylabel('Number of Movies')
-plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-plt.tight_layout()
-\end{verbatim}
-\subsection{Data Imbalance}
-\label{sec:org02cca51}
-We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
-\subsubsection{One Hot Encoding}
-\label{sec:org2d4b62d}
-This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
-\subsubsection{Logistic Regression}
-\label{sec:orga7124ba}
-This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
-\section{Exploratory Data Analysis}
-\label{sec:org1bf449e}
-\section{Evaluation Metrics For Classification}
-\label{sec:org0598e15}
-This will cover how to evaluate the results of our classification problems.
-\subsection{No Free Lunch Theorem}
-\label{sec:org7d06569}
-The no free lunch theorem in machine learning states that it conveys the idea that there is no universally superior algorithm that performs better than all others across all possible problem domains or datasets. What this means is that there is no one-size-fits-all solution. The datasets pose unique challenges that different models excel better for different models.
-\subsection{Why do we need evaluation metrics?}
-\label{sec:org779229a}
-\begin{itemize}
-\item Evaluation metrics allow you to assess your model's performance, monitor your ML in production and customize your model to fit your business needs.
-\item Our goal is to create and select a modelw hich gives high accuracy out of an unseen sample.
-\end{itemize}
-\subsection{Types Of Classification Metrics}
-\label{sec:org795e99a}
-\subsubsection{Classification Accuracy}
-\label{sec:org1483fe3}
-\[Accuracy = \frac{\text{No. of correct predictions}}{\text{Total no. of predictions}}\]
-The problem with this is that it cannot tell the difference between the classes. The metric might deceive you, especially with unbalanced datasets.
-\subsubsection{Confusion Matrix}
-\label{sec:org65787e4}
-A matrix which documents the model's predictions against the actual value.
-\begin{itemize}
-\item True positive - when the model's class and the actual class are the same.
-\item False Positive - when the model's class incorrectly predicts the class, type-1 error
-\item False Negative - when the model does not correctly recognize the class. type-2 errors.
-\item True Negative - the model correctly predicts that the instance does not belong to that class.
-\end{itemize}
-\subsubsection{Precision}
-\label{sec:org53f6880}
-Precision's formula
-\[
-\text{Precision} = \frac{\text{True Positive}}{\text{True Positive + False Positive}
-\]
-\subsubsection{Recall}
-\label{sec:orgc834d6d}
-Recall is the ratio of true positives to all the positives in your dataset.
-
-\[\text{Recall} = \frac{TP}{TP + FN}\]
-This is good when you want to make sure your model correctly classifies the positive samples.
-\subsubsection{F1-score}
-\label{sec:org0e44193}
-F1-score is the harmonic mean of precision and recall
-
-\[
-F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
-\]
-\subsubsection{Specificity And Sensitivity}
-\label{sec:org7581c84}
-$$
-Specificity = \frac{TN}{TN+FP}
-$$
-
-$$
-Sensitivity = \frac{TP}{TP+ FN}
-$$
-
-Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
-\subsubsection{ROC Curve - Receiver Operating Characteristic Curve}
-\label{sec:org8afed22}
-The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
-\subsubsection{Support}
-\label{sec:orge2df73f}
-Count of test data in a class
-\section{Naive Bayes Classifier}
-\label{sec:orge81c04d}
-This is a probabilistic classifier.
-\subsection{Conditional Independence}
-\label{sec:org0b3e896}
-Conditional independence is a requirement for the naive bayes classifier. The dataset must not have any features which have a correlation to each other.
-\subsection{Bayes Theorem}
-\label{sec:org3b26f76}
-Given conditional probability,
-
-$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
-
-$$P(A|B) = \frac{P(B|A) P (A)}{P(B)}$$
-
-What we're doing here is using this theorem, to find the hypothesis given a set of data which is the \textbf{most} probable.
-
-We take the dataset's columns and figure out the conditional probability of a given class, and returning the \textbf{most probable}
-\subsection{o-probability problem}
-\label{sec:org3eb7339}
-There is a problem that might arise while calculating the probability of a given class.
-We can have cases where there are conditions which are 0, the conditional relations result in a probability of 0. The remedy to fix this is \textbf{Laplacian Correction}, which is adding 1 to the numerator
-\subsection{Types Of Classifiers}
-\label{sec:orgd1ebbbe}
-\begin{enumerate}
-\item Gaussian Naive Bayes - Assumes that the features have a normal Gaussian distribution, good for continuous data.
-\item Multinomial Naive Bayes - Multiple classes.
-\item Bernoulli Naive Bayes - Assumes that the features follow a Bernoulli distribution(binary)
-\end{enumerate}
-\section{Feature Selection}
-\label{sec:orga1734ec}
-The reasons to perform feature selection is:
-\begin{enumerate}
-\item Remove features which almost zero influence on the target class
-\item Right selection between features
-\end{enumerate}
-
-Read up on \(chi^2\) function
-\subsection{Filter Methods}
-\label{sec:org698060f}
-Works on the basis of score, like \(\chi^{2}\), the features are scored and the best features are selected.
-\subsection{Curse Of Dimensionality}
-\label{sec:org20b7fa0}
-\begin{itemize}
-\item The number of traning examples initially increase accuracy but deteriorates after some point
-\item The number of training examples required increases exponentailly with dimensionality
-\item Other curses- visualization \& performance challenges.
-\end{itemize}
-\subsection{Search Forms}
-\label{sec:orge7f635f}
-\begin{itemize}
-\item Forward search involves finding a set that satisfies a measure.
-\item Backward search involves removing sets until the set satisfies a measure.
-\item Bidirectional Search - begins the search for both forward and backward and compares their results.
-\item Sequential Forward-Backward Search - Based on accuracy, we  check the feature that gives maximum accuracy
-\end{itemize}
-\subsection{Wrapper Methods}
-\label{sec:org320d6fd}
-Recursive feature elimination
-\section{K-Nearest Neighbour Classifier}
-\label{sec:org50a9861}
-\subsection{Other Names For It}
-\label{sec:org98cebc7}
-\begin{enumerate}
-\item K-nearest neighbours
-\item Memory-based reasoning
-\item Example Based Reasoning
-\item Instance Based Learning
-\item Lazy learning
-\end{enumerate}
-\subsection{Introduction}
-\label{sec:org6660df3}
-
-\begin{itemize}
-\item K-nearest neighbours stores all available cases and classifies new cases based on a similarity measure(some distance function)
-\item It is non-parametric
-\end{itemize}
-
-The approach to doing this is by classifying new data points based on the most common class of its \(K\) -nearest neighbours(measured by some distance function). We take odd numbers of neighbours since we don't want equal votes to happen.
-\subsection{Distance Measures For Continuous}
-\label{sec:orgc9f5f65}
-\begin{enumerate}
-\item Euclidean
-\item Manhattan
-\item Minkowski
-\end{enumerate}
-\subsection{How To Choose K}
-\label{sec:orgd4be14a}
-If \(k\) is too small, it is sensitive to noise points. But if \(k\) is very large, then it might capture outliers. A good rule of thumb is \(K < \sqrt(n)\).
-\subsection{Feature Weighting}
-\label{sec:orgd5a950e}
-We can assign weights to features by making a vector \(\vec{w}\) which allows us to assign importance to a feature, based on our knowledge(These weights can be determined by cross-validation)
-\subsection{Feature Normalization}
-\label{sec:orgac2c388}
-As is with most other algorithms, normalization prevents features with large numbers from overtaking the distance function.
-\subsection{Nominal/Categorical Data}
-\label{sec:org4fd6332}
-Two methods
-\begin{itemize}
-\item If they're the same, mark them as 0, if they're different mark the feature as 1
-\item Use indexing to mark them from 0 - \(n\) unique features and plot them in the space
-\end{itemize}
-\subsection{Imbalanced Data}
-\label{sec:org7c4b4cc}
-Imbalanced datasets have the consequence of higher values of \(k\) tending to select the majority class instead of the 'correct' class.
-\subsection{Distance Weighted Nearest Neighbour Algorithm}
-\label{sec:orgd5b7add}
-$$w = \frac{1}{d(x_{q},x_{i})}$$
-\subsection{Efficient Memory Search}
-\label{sec:org4cab829}
-\begin{itemize}
-\item If we are working with a large dataset, the time cost in computing the distances between a query and all the training instances and retrieving the k nearest neighbors may be prohibitive.
-\item Use a tree which is a balanced binary tree in which each of the n odes in the tree index one of the instances in a training dataset.
-\item The tree is constructed so that nodes that are nearby in the tree index.
-\end{itemize}
-
-
-QUESTION Implement knn on the iris dataset for 10 different values of \(k\) ranging from \(3 - sqrt(n)\) and calculate the average f-measure of 30\% on the test data.
-
-Step 1:
-Step 2: Identify the optimal \(k\) value, for the value corresponding to the optimal \(k\), rerun KNN by assigning weights to the features, which is the inverse of the distances.
-Step 3: Change the distance metric to Manhattan
-\section{Decision Tree Classifier}
-\label{sec:org55d3754}
-This is a rule based classifier
-A decision tree is a tree in which each branch node represents a choice between a number of alternatives, and each leaf node represnets a decision. It is a form of supervised learning
-\subsection{Entropy, Information Gain}
-\label{sec:org6977077}
-It is a useful concept to speak of decision trees and supervised learning algorithms. Entropy defines the chaos, or randomness, or disorder of a system while information gain is the opposite. It represents order.
-
-The formula for entropy is\ldots{} where \(p_+\) is the proportion of  positive instances and \(p_-\) is the proportion of negative instances
-
-$$\text{Entropy(S)} = -p_+ \log_2p_+ - p_- log_2p_{-}$$
-
-Information gain's formula is
-
-$$Gain(S,A) = Entropy(S) - \Sigma_{v \in values(A)} |S_v| / |S| Entropy(S_v)$$
-\subsection{Basic Algorithm}
-\label{sec:org1185b82}
-\begin{itemize}
-\item Choose the 'best' node A
-\item Assign A as decision attribute for a node
-\item For each value of A, create a new descendant node
-\item If a decision node has all 'yes' or all 'no' we need not check further and convert the decision node into a leaf node.
-\item If all the nodes are classified, stop
-\item If not, recursively keep going.
-\end{itemize}
-\subsection{Overfitting}
-\label{sec:org4327526}
-\begin{itemize}
-\item This might happen with too many branches, or outliers
-\begin{itemize}
-\item We avoid this with prepruning, halt tree construction early
-\item We can also remove branches from a full tree.
+\item Model design
+\item Dataset sourced from
+\item Experimented models
+\item Challenges and limitations
+\item Results reported
 \end{itemize}
 \end{itemize}
+\item Dataset Description
+\item Proposed Methodology
+\item Results And Analysis
+\item Conclusion
+\item Future Work
+\item Citations
+\begin{itemize}
+\item Overall 22-25
+\item Include papers from the last 2 years.
+\item Literature survey directly connected to your application - 8-10
+\item 4-6 Amrita Citations
+\end{itemize}
+\end{itemize}
+\section{Presentation}
+\label{sec:orgc74635d}
+\begin{itemize}
+\item Title Slide
+\begin{itemize}
+\item Project Title
+\item Subject Code And Name
+\item Group Members - Name And Registration Number
+\item Mentor
+\end{itemize}
+\item Introduction(Optional)
+\item Motivation
+\item Problem Statement
+\item Literature Survey - 2 Slides
+\end{itemize}
+\textbf{Template for Literature Survey}
+\begin{center}
+\begin{tabular}{llllll}
+\hline
+Year & Title & Dataset/Domain & Methods & Results & Challenges\\
+\hline
+ &  & note- Sometimes some datasets are streamed dataset &  &  & \\
+\hline
+\end{tabular}
+\end{center}
+\begin{itemize}
+\item Proposed Methodology - 5-8 Slides
+\begin{itemize}
+\item Ideally an architecture diagram. \href{http:app.diagrams.net/}{relevant tool}
+\end{itemize}
 
-In the prepruning experiment
-\begin{enumerate}
-\item Find the maximum depth of the tree if max depth was not given.
-\item What are the different values for 'criterion' that can be given in the python package implementation.
-\item Use min\textsubscript{samples}\textsubscript{split}, which is the minimum number of samples required to split a node
-\end{enumerate}
-\section{Regression}
-\label{sec:org341b9fa}
-Models the relationship between one or more independent or predictor variables and a dependent or response variable.
-\subsection{Metrics}
-\label{sec:org1847879}
-You use a loss function that measures the squared error in the prediction.
-\begin{enumerate}
-\item Mean Absolute Error
-\label{sec:org17507b6}
-
-Average over the test sample of the differences between prediction and actual observation.
-\end{enumerate}
-\subsection{Linear Regression}
-\label{sec:org26c8b6d}
-A model that fits a set of continuous values into a line.
-
-A line is modelled by the equation,
-$$y = mx + c$$
-
-Where \(m\) and \(c\) are known as the regression coefficients.
-\begin{enumerate}
-\item Method of least squares - Estimates the best-fitting straight line.
-\label{sec:org6c310e0}
-$$m = \frac{\sum_{i=1}^{|D|} (x_i - \overline{x})(y_i - \overline{y})}{(\sum_{i=1}^{|D|}x_i - \overline{x})}$$
-
-$$c = \overline{y} - m\overline{x}$$
-
-The cost function used to find this.
-
-$$J(\theta) = \frac{1}{2n}\sum_{i=1}^n(h_{\theta}(x^i) - y^i)^{2}$$
-\end{enumerate}
-\subsection{Lasso Regression}
-\label{sec:org3312a74}
-Adds a penalty term which sums the coefficients to the loss function.
-\subsection{Ridge Regression}
-\label{sec:orgd8d5008}
-Adds a penalty term which sums the squares of the coefficients to the loss function.
-\subsection{ElasticNet}
-\label{sec:org4f9c444}
-Combination of lasso and ridge.
-\subsection{Logistic Regression}
-\label{sec:orga0398f7}
-A regression algorithm that works as a classifier.
-
-A sigmoid function,
-
-$$\frac{1}{1+ e^{-x}}$$
-\subsection{Regularization}
-\label{sec:orge4169a5}
-Regularization is a mechanism to avoid overfitting and is particularly employed in regression models which are specially designed to handle high dimensionality data.
+\item Results And Analysis - 3-5 Slides
+\item Conclusion And Future Work - 1 Slides
+\item References - 1 Slides
+\end{itemize}
 \end{document}

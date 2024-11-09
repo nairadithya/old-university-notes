@@ -1,5 +1,6 @@
 #+title:Introduction To Artificial Intelligence And Machine Learning.
 #+AUTHOR: Adithya Nair
+#+LATEX_HEADER: \usepackage[tmargin=2cm,rmargin=0.5in,lmargin=0.5in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
 #+EXPORT_FILE_NAME: exports/AIML.html
 * Iris Data Classification
@@ -716,3 +717,61 @@ Take two or three classifiers and compare their results to optimize the results 
 2. Boosting - involves filtering models with a low probability prediction rate.
 3. Stacking - automatically calculates the weightage of each
 ** TODO look into decision trees for regression, support vector regressors
+* Project
+** IEEE Report Template
+- Abstract
+  * 150-200 words, first 2 lines(about application and its uses)
+  * Next 2 lines (what models you are experimenting with)
+  * Dataset sourced from
+  * Best results reported
+  * Enhancements from baseline(find papers reporting on the same dataset, and you compare your results to these papers)
+- Introduction
+  * 1-1.5 pages long
+  * Every paragraph contains some references.
+  * Paragraph 1 - Broad domain - Explain higher level concepts pertaining to your application
+  * Paragraph 2 - Application
+  * Paragraph 3 - Techniques Experimented
+  * Paragraph 4 - Proposed Model
+  * Paragraph 5 - Section Overview
+  * Paragraph 6 - Contributions as bullet points
+- Related Works
+  * Write out what has been done as part of your survey.
+  * Introduce the motivation for the related works being done.
+  * Find 10 papers related to your application
+    * Model design
+    * Dataset sourced from
+    * Experimented models
+    * Challenges and limitations
+    * Results reported
+- Dataset Description
+- Proposed Methodology
+- Results And Analysis
+- Conclusion
+- Future Work
+- Citations
+  * Overall 22-25
+  * Include papers from the last 2 years.
+  * Literature survey directly connected to your application - 8-10
+  * 4-6 Amrita Citations
+** Presentation
+- Title Slide
+  - Project Title
+  - Subject Code And Name
+  - Group Members - Name And Registration Number
+  - Mentor
+- Introduction(Optional)
+- Motivation
+- Problem Statement
+- Literature Survey - 2 Slides
+*Template for Literature Survey*
+|------+-------+----------------------------------------------------+---------+---------+------------|
+| Year | Title | Dataset/Domain                                     | Methods | Results | Challenges |
+|------+-------+----------------------------------------------------+---------+---------+------------|
+|      |       | note- Sometimes some datasets are streamed dataset |         |         |            |
+|------+-------+----------------------------------------------------+---------+---------+------------|
+- Proposed Methodology - 5-8 Slides
+  - Ideally an architecture diagram. [[http:app.diagrams.net/][relevant tool]]
+
+- Results And Analysis - 3-5 Slides
+- Conclusion And Future Work - 1 Slides
+- References - 1 Slides

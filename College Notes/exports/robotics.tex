@@ -1,4 +1,4 @@
-% Created 2024-10-23 Wed 08:59
+% Created 2024-11-07 Thu 11:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{report}
 \usepackage[utf8]{inputenc}
@@ -29,22 +29,22 @@
 \tableofcontents
 
 \part{Robotics}
-\label{sec:orgd753c3c}
+\label{sec:org97aac8e}
 \href{file:///home/adithya/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf}{Textbook}
 \chapter{Unit 1}
-\label{sec:orge80aad8}
+\label{sec:orgf437c89}
 \section{Introduction}
-\label{sec:orgf5ae02b}
+\label{sec:org15d2aa9}
 This course is mainly going to focus on \textbf{Manipulators}. These machines are used to manipulate positions and the state of the objects in an environment. We're going to break down their movements into Dynamics Analysis akin to the work done in Computational Mechanics.
 \section{Syllabus}
-\label{sec:org63495e9}
+\label{sec:org0348181}
 \begin{itemize}
 \item Overview Of Robotics
 \item Kinematics Of Simple Robotic Systems
 \item Dynamics And Control Of Simple Robotic Systems
 \end{itemize}
 \section{Glossary}
-\label{sec:orge6e10b8}
+\label{sec:org48c43ea}
 \begin{enumerate}
 \item Actuator - Does work upon receiving voltage
 \item Encoder - Sensor that measures raw angle data.
@@ -53,7 +53,7 @@ This course is mainly going to focus on \textbf{Manipulators}. These machines ar
 Software for robotics - \textbf{v-rep}, MATLAB
 This software involves making a CAD model, and apply a mathematical model. Unity can also be used in making such models.
 \section{Degree Of Freedom}
-\label{sec:org3aab981}
+\label{sec:orgce5a525}
 The degree of  freedom of a mechanical system is defined as the no. of independent paramets need to completely define its position in space at a given time..
 
 The degree of freedom is defined with respect to a reference frame. If the object is free to rotate and move, it means it has 6 degrees of freedom.
@@ -67,10 +67,10 @@ $$\text{No. of controlling inputs} = \text{No. of degrees of freedom}$$
 Redundant systems contain more actuators than the number of degrees of freedom
 $$\text{No. of controlling inputs} >\text{ No. of degrees of freedom}$$
 \section{Kinematic Pair}
-\label{sec:orgbd23ce0}
+\label{sec:org8d79d36}
 Linkages are the basic elements of all mechanisms and robots. Links are rigid body member with nodes, and joints are connection between links at nodes. Allows relative motion between links.
 \section{Robotic Manipulator}
-\label{sec:org6e25cf7}
+\label{sec:org4761a46}
 \begin{itemize}
 \item Why study kinematics and dynamics of robotic manipulator
 \begin{itemize}
@@ -80,7 +80,7 @@ Linkages are the basic elements of all mechanisms and robots. Links are rigid bo
 \end{itemize}
 \end{itemize}
 \section{Pose of a rigid body}
-\label{sec:org735f20d}
+\label{sec:orgcec442a}
 A rigid body is completely defined in space by its position and orientation with respect to a reference.
 
 We use the terminology `Inertial reference frame' to mean an observer where Newton's laws of physics apply. We use the terminology 'Inertial reference frame' to mean an observer where Newton's laws of physics apply and the frame itself does not accelerate. Generally the base of the robotic manipulator is treated as the inertial reference frame
@@ -100,13 +100,13 @@ $$
 $$
 \begin{enumerate}
 \item When the frame is translationally different from the original frame.
-\label{sec:orgd610a5b}
+\label{sec:orgf110128}
 $$
 \vec{^AP} = \vec{^BP} + \vec{^AP}_{B org}
 $$
 Where \(^A\vec{P}\) is the position vector of P with respect to A, \(\vec{^BP}\) is the position vector of P with respect to B, and \(\vec{^AP}_{B org}\) is the vector of A to B.
 \item When the frame is oriented differently from the original frame.
-\label{sec:org97f0dab}
+\label{sec:orgfeb3d47}
 Generating a rotation matrix \(^B_AR\) to rotate vectors from a frame B to A. Where A and B are reference frames, with B being oriented differently than A.
 
 $$ \begin{bmatrix} \hat{X_b} \cdot \hat{X_a} & \hat{Y_b} \cdot \hat{X_a} & \hat{Z_b} \cdot \hat{X_a} \\ \hat{X_b} \cdot \hat{Y_a} & \hat{Y_b} \cdot \hat{Y_a} & \hat{Z_b} \cdot \hat{Y_a} \\ \hat{X_b} \cdot \hat{Z_a} & \hat{Y_b} \cdot \hat{Z_a} & \hat{Z_b} \cdot \hat{Z_a} \\ \end{bmatrix}$$
@@ -115,7 +115,7 @@ We can simply the matrix into 3 column vectors, with the notation \(^AX_B\) whic
 
 $$\begin{bmatrix}\hat{^AX_B} & \hat{^AY_b} & \hat{^AZ_B}\end{bmatrix}$$
 \item When the frame is both translationally and oriented different from the original frame
-\label{sec:org61587bf}
+\label{sec:org7c3de0c}
 $$ ^A\vec{P} = ^A_B R ^B\vec{P} + ^A\vec{P}_{B org}$$
 To simplify the equations, we write.
 
@@ -128,7 +128,7 @@ This T is the homogeneous transformation matrix.
 The Rotation Matrix belongs to a category of matrices called \(SO(3)\)(Special Orthogonal Matrices)
 \end{enumerate}
 \section{Denavit Hartenberg Parameters}
-\label{sec:org3817f83}
+\label{sec:org21b16e0}
 These parameters are used to assign the same co-ordinate frames while dealing with robotic manipulators to ensure that the entire scientific community are working under the same conventions.
 \begin{itemize}
 \item Number the link sequentially from \(0\) to \(n\). Giving us \(n+1\) links.
@@ -161,7 +161,7 @@ Joint i = 3 & L\textsubscript{3} & 0 & 0 & \(\theta\)\textsubscript{3}\\
 \end{tabular}
 \end{center}
 \section{Rotation Matrix}
-\label{sec:org1dce666}
+\label{sec:org8a53922}
 We have three reference frames, with a common origin. With the notation we have setup we can say, \(\{0\},\{1\},\{2\}\) can be defined for a point \(P\)
 
 \begin{align*}
@@ -171,12 +171,12 @@ We have three reference frames, with a common origin. With the notation we have 
 ^0_2R = ^0_1R _2^1R
 \end{align*}
 \section{Derivation Using DH Parameters}
-\label{sec:org7eead88}
+\label{sec:org88e1d0a}
 These 4 parameters can be expressed by,
 
 $$^{i-1}A_i = T(z,d)T(z,\Theta),T(x, \alpha), T(x, a)$$
 \section{Skew Symmetric Matrix}
-\label{sec:org0ecbcd5}
+\label{sec:org1a6b910}
 
 A matrix such that \(A = -A^T\)
 
@@ -273,15 +273,15 @@ $$\Omega = \begin{bmatrix}
 \vec{v} = \vec{\omega} \times \vec{r}
 \end{align*}
 \chapter{Unit 2 - Kinematics Of Robotic Manipulators}
-\label{sec:orgc7bcbbd}
+\label{sec:org1b37152}
 \section{Forward And Inverse Kinematics}
-\label{sec:org23d88eb}
+\label{sec:orgec32e2c}
 Forward kinematics is the use of the joint space to get to the task space.
 Inverse Kinematics is the use of the task space to get to the joint space.
 
 Workspace - The space of all points that the end effector can reach.
 \section{Inverse Kinematics Of 2R Planar Structures}
-\label{sec:org3e0c821}
+\label{sec:orgbe26c8d}
 
 We solve for \(q_2\) and eliminate \(q_1\)
 
@@ -298,7 +298,7 @@ Case 2: \(|\kappa| = 1\) We have one solution
 
 Case 3: \(|\kappa| < 1\) No solution exists
 \section{Forward Kinematics And Inverse Kinematics Of 3R Planar Structures}
-\label{sec:org27aa6c9}
+\label{sec:org418a560}
 $$X_e = L_1 \cos {q_1} + L_2 \cos(q_1+ q_2) + L_3 cos(q_1 + q_2 + q_3)$$
 
 For a 3R Planar structure, the way to find the forward kinematics is straightforward.
@@ -319,7 +319,7 @@ Now we know that those terms are nothing but
 
 Which we can solve the same as the 2R Planar Structure
 \section{Jacobian Forward Kinematics}
-\label{sec:org0c4591d}
+\label{sec:org8eefc3d}
 Given \(\dot{q_{1}}, \dot{q_{2}}\), how do we get \(^0X_{e}, ^0Y_e\)? and similarly how do we get the angular velocities of a machine from the end effector's velocity.
 
 We know that for 2R Planar SCMs,
@@ -341,7 +341,7 @@ So now we can write the term
 
 $$^0_{n}\omega = \sum_{i=1}^n \dot{\theta}_i $$
 \section{Singularity}
-\label{sec:org501ba59}
+\label{sec:org0436413}
 So now we have,
 
 \begin{align*}
@@ -364,7 +364,7 @@ What this means is that when \(\theta_2\)  should never be zero.
 
 This means that when the arm is fully extended or retracted then it is not a point that the robot can recover from.
 \section{Finding The Jacobian quickly}
-\label{sec:org476c0f3}
+\label{sec:org4d96d8a}
 \begin{align*}
 \dot{X}_{m \times 1} &= J \dot{q} \\
 J &= [ J_1_{n \times 1}, J_2_{n \times 1} , \cdots, J_n] \\
@@ -380,10 +380,10 @@ J_i = \begin{bmatrix} ^0_{i-1}z \\ 0  \end{bmatrix} \\
 
 \end{align*}
 \section{Lab Questions}
-\label{sec:org1876354}
+\label{sec:org8134b85}
 \begin{enumerate}
 \item Question 1
-\label{sec:org1e40244}
+\label{sec:org06446b4}
 Consider the 3R Planar SCM with \(L_1 = 2m\), \(L_2 = 3m, L_3 = 4m\)
 \begin{verbatim}
 L = [2;3;4];
@@ -393,21 +393,21 @@ WS_points = zeros(0,0);
 \end{verbatim}
 \begin{enumerate}
 \item Forward Kinematics,
-\label{sec:orga89cf52}
+\label{sec:orgcb34c91}
 Find the co-ordinates of the end-effector in the base frame:
 \begin{enumerate}
 \item For \(q = [q_1 q_2 q_3]^T= [30\deg 45 \deg 60 \deg]^{T}\)
 \item For \(q = [q_1 q_2 q_3]^T= [270\deg 75 \deg 10 \deg]^{T}\)
 \end{enumerate}
 \item Inverse kinematics,
-\label{sec:org7a52a25}
+\label{sec:org8ce9ed7}
 Find the joint space variables,
 \begin{enumerate}
 \item For \(\phi = q_1 + q_2 + q_3 = 0\) and \([^0X_e, ^0Y_e] = [2,4]\)
 \item For \(\phi = q_1 + q_2 + q_3 = 45\) and \([^0X_e, ^0Y_e] = [5,5]\)
 \end{enumerate}
 \item Workspace Analysis
-\label{sec:org3f636f8}
+\label{sec:org443bff5}
 Draw the workspace of the 3R planar serial chain manipulator using forward and inverse kinematics.
 \begin{enumerate}
 \item For \(\phi = 0\) and
@@ -415,9 +415,9 @@ Draw the workspace of the 3R planar serial chain manipulator using forward and i
 \end{enumerate}
 \begin{enumerate}
 \item Using Forward Kinematics
-\label{sec:org0597f71}
+\label{sec:orgf730c03}
 \item Using Inverse Kinematics
-\label{sec:org55fe4b6}
+\label{sec:org35699d0}
 
 \begin{align*}
 \begin{bmatrix} ^0X_e \\ ^0Y_e \end{bmatrix} &= \begin{bmatrix}L_1 cos q_1 + L_2cos(q_{12}) + L_3 cos(\phi) \\ L_1 sin q_1 + L_2sin(q_{12}) + L_3 sin(\phi) \end{bmatrix}\\
@@ -469,7 +469,7 @@ ans = "../images/octave-chart.png";
 \end{enumerate}
 \end{enumerate}
 \chapter{Unit 3- Statics And Dynamics}
-\label{sec:org5ed8d5a}
+\label{sec:org331f141}
 Statics is the study of the forces and torques acting on bodies that are at rest or in a state of equilibrium.
 
 How does this play into robotics? This comes in handy in situations where the robot must stand still. It needs to apply forces to counteract all the forces on it to stay stationary.
@@ -488,7 +488,7 @@ $$\dot{q} = J^{-1}\dot{X}$$ and $$F = (J^T)^{-1}\tau$$
 
 With singularity, we're unable to map the end effector's veloticy to joint space velocities. It also means we're unable to map joint torques(\(\tau\)) to the Wrench vector(\(F\)) In the neighbourhood of  sinularity, samll velocity in task space will cause very high velocity in joint space, and small joint torques will cause very high forces and torques.
 \section{Proof}
-\label{sec:org54701b2}
+\label{sec:orgfe790b7}
 \textbf{Using work method},
 
 Work done by external agent at the Ende Effector = Work done by actuators at the joint.
@@ -529,7 +529,7 @@ We iterate from i = n to 1, and we calculate the forces first.
 
 Lung wen tsai 266-268
 \chapter{Velocity and force ellipse}
-\label{sec:org2aee5a5}
+\label{sec:orgc58d4e9}
 We take the force vectors and the end effector velocity, \(\dot{X}\)
 
 We put the constraint that \(\dot{X}^T\dot{X} = 1\)
@@ -561,12 +561,12 @@ Similarly,
 We can do this for
 $$\tau = J^T F$$
 \section{Finding the locus of isotropic points}
-\label{sec:orgac1d520}
+\label{sec:org43a405f}
 At isotropic points, the we find the eigenvalues of the jacobian. then we equate the eigenvalues such that $$\frac{1}{\lambda_{1}} = \frac{1}{\lambda_2}=1$$ so that the major and minor axis are equal to form a circle.
 
 Similarly the eigenvectors define the orientation.
 \chapter{Dynamics}
-\label{sec:orgd3d37dd}
+\label{sec:org0796bd0}
 It's the study of systems in motion under the influence of external forces and torques.
 
 What forces and torques are required to achieve a given (desired) motion of a robot.
@@ -582,8 +582,6 @@ $$M \ddot{q} + C \dot{q} + G = \tau$$
 We get this in matrix form.
 
 $$M(q) \ddot{q} + C(q,\dot{q})\dot{q} + G(q) = \tau$$
-
-Where, M is the inertia matrix. This inertia matrix contains the moments of inertia of each joint. \(C(q,\dot{q})\) is the velocity coupling vector
 
 \begin{itemize}
 \item Inertia matrix \(M(q)\)
@@ -603,16 +601,31 @@ Where, M is the inertia matrix. This inertia matrix contains the moments of iner
 
 
 $$D(q) \ddot{q} + H(q,\dot{q}) + G(q) = \tau$$
+
+You start with task space, apply inverse kinematics to find the joint space and find \(\ddot{q}\) to fully understand the joint space. Then apply forward dynamics to find the torque space.
+
+Finding the inertia matrix is done like so,
+
+$$D = \sum_{i=1}^n(J^T_{vi} m_i J_{vi} + J^T I_i J_{wi})$$
+
+Finding the velocity coupling vector,
+
+$$H_{ijk}\sum_{j=1}^n\sum_{k=1}^n(\frac{\partial D_{ij}}{\partial q_k} - \frac{1}{2}\frac{\partial D_{jk}}{\partial q_i})$$
 \part{Practice Sheets}
-\label{sec:orgf440b7d}
+\label{sec:orgec109a1}
 The notations used in our lectures are similar with this book.
 
 \begin{itemize}
 \item For Rotation Matrices, Pose of a rigid body, Euler Angles, Homogeneous Transformation ---> read Chapter 2
 \item For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
 \end{itemize}
+\part{Assignment}
+\label{sec:org57db669}
+Free marks
+
+Kinetic energy can be found by $$\frac{1}{2} v^T m v$$
 \part{End-Sem Project}
-\label{sec:org91ddd99}
+\label{sec:org91f29aa}
 \begin{enumerate}
 \item Select a robotic system
 \begin{enumerate}
@@ -651,9 +664,9 @@ Controls & Optional & \\
 \end{enumerate}
 \end{enumerate}
 \part{Dynamics}
-\label{sec:org2d9890a}
+\label{sec:org81a6a4c}
 \part{Syllabus}
-\label{sec:org3369a2b}
+\label{sec:org7388c6a}
 \href{file:///home/adithya/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf}{Chapter 2
 }- Pose of a rigid body
 \begin{itemize}
@@ -679,41 +692,45 @@ Controls & Optional & \\
 \item Jacobian
 \item Singularity
 \end{itemize}
+\part{Assignment}
+\label{sec:org117816d}
+\chapter{Quetion 1}
+\label{sec:org6033d27}
 \part{Project}
-\label{sec:org778c44b}
+\label{sec:org741c28b}
 \chapter{Robotics Project}
-\label{sec:org0ca1004}
+\label{sec:orgdab67c9}
 \section{Forward Kinematics}
-\label{sec:orgbc0eb69}
+\label{sec:org5b8c9aa}
 Find the homogeneous transformation matrices, find jacobian(pen and paper). Simulate inputting joint space variables to give the end effector's point. The simulation should show the end effector moving to that point (code)
 \section{Inverse Kinematics}
-\label{sec:orgfdc2cb1}
+\label{sec:org7d4286b}
 Select two points within the workspace and trace the trajectory of the robot between those two points or find the workspace and plot it.
 \section{Statics}
-\label{sec:orga7308dc}
+\label{sec:org1427f62}
 Simulate a robot under some forces and the robot maintains its equilibrium. Come up with some creative problems, such as the robot is holding a heavy object and it applies a force to hold the object against gravity.
 \section{Dynamics}
-\label{sec:orgcab135b}
+\label{sec:org973838c}
 \begin{enumerate}
 \item Forward
-\label{sec:org1c360ec}
+\label{sec:org6ca9748}
 Knowing the joint torques and the external forces/torques, find the manipulator's trajectory \(q(t),\dot{q(t)}, \ddot{q(t)}\)
 \item Inverse
-\label{sec:org41a8680}
+\label{sec:org5e7c779}
 Find the joint torques required to move a robot in a specific trajectory. Find the trajectory of a robot with a specific joint torque vector.
 \end{enumerate}
 \section{Report Is Required}
-\label{sec:org193f7aa}
+\label{sec:org73cba2b}
 You can use a MATLAB live script or \LaTeX{}
 \chapter{Modelling Project}
-\label{sec:org7d1246f}
+\label{sec:org5c4aff1}
 \section{Modelling}
-\label{sec:org8aaf0e1}
+\label{sec:orgc67ddac}
 Make FBD and model it with analytical method.
 \section{Dynamical Response To Standard Input}
-\label{sec:org4eae4b3}
+\label{sec:org53e3530}
 Compare the robot's response to step, ramp and impulse input.
 \section{Frequency Response}
-\label{sec:org473364e}
+\label{sec:orgd1aa60e}
 Apply a sinusoidal input, and bode plot, interpret the results.
 \end{document}

@@ -530,7 +530,7 @@ $$M(q) \ddot{q} + C(q,\dot{q})\dot{q} + G(q) = \tau$$
 - Inertia matrix $M(q)$
   - tells about the mass distribution of the robotic manipulator
   - positive semi-definite
-  - always iverttible
+  - always invertible
 - Velocity Coupling Vector $C(q,\dot{q})$
   - Velocity squared - centripetal acceleration, $q_{1}^2$
   - cross velocity multiplication, $\dot{q_1}\dot{q_2}$
@@ -557,9 +557,14 @@ The notations used in our lectures are similar with this book.
 - For DH Parameters and Coordinate Convention ---> read Chapter 3, Sections 3.1 to 3.4
 
 * Assignment
-Free marks
 
-Kinetic energy can be found by $$\frac{1}{2} v^T m v$$
+Kinetic + Potential energy is constant.
+
+Kinetic energy can be found by $$\frac{1}{2} v^T D(q)v$$ for this question
+
+We find v by finding the velocity of the center of mass
+
+v = [q_1 q_2]^T
 * End-Sem Project
 1. Select a robotic system
    a. select only serial chain robotic manipulator
@@ -588,26 +593,6 @@ Kinetic energy can be found by $$\frac{1}{2} v^T m v$$
 3. Software
    1. Matlab - scripts/functions, simscabe, rigidbody, multibody tool
    2. CoppeliaSim
-
-* Dynamics
-* Syllabus
-[[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::27++0.00][Chapter 2
-]]- Pose of a rigid body
-  - Position + Orientation
-- Rotation Matrices
-- Homogeneous Transformation Matrix
-
-[[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::70++0.00][Chapter 3 - 3.1 to 3.4
-]]- DH Parameters+Co-ordinate Convention
-
-[[pdf:~/university-notes/Introduction To Robotics/textbooks/(Tj211.T75) Lung-Wen Tsai - Robot Analysis_ The mechanics of serial and parallel manipulators (1999).pdf::84++0.00][(Tj211.T75) Lung-Wen Tsai Segment on Direct And Inverse Kinematics]]
-[[pdf:~/university-notes/Introduction To Robotics/textbooks/Introduction-to-Robotics-Craig.pdf::109++0.00][John J Craig On Forward And Inverse Kinematics]]
-- Forward Kinematics
-- Inverse Kinematics
-
-[[pdf:~/university-notes/Introduction To Robotics/textbooks/(Tj211.T75) Lung-Wen Tsai - Robot Analysis_ The mechanics of serial and parallel manipulators (1999).pdf::198++0.00][4.5-4.6.1]]
-- Jacobian
-- Singularity
 
 * Project
 ** Robotics Project

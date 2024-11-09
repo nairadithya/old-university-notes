@@ -658,12 +658,52 @@ This gives us $m$ equations
 
 The third condition is,
 
-$\lambda_i \ge 0$
+$$\lambda_i \ge 0$$
 
 This ensures that the sign does not flip, since they're paired with inequality constraints.
+
+This gives us $m$ equations
+
+The fourth condition
+
+$$g_i \le 0, h_j = 0$$
 
 No. of variables = $n+m+p$
 
 No. of KT conditions = $n + 3m + p$
 
 No. of equality conditions = $n + m + p$
+
+* Partial Differential Equations
+
+When a function is dependent on only one variable is expressed using ODEs, when there are multiple variables, we have partial differential equations.
+
+These include spatial co-ordinates with respect to time.
+
+*Boundary Conditions* - Value of the dependent variable with respect to the independent variable at a certain point.
+
+A differential equation is said to be non-linear if the equation has terms which are non-linear with respect to the dependent variable.
+
+
+A differential equation is said to be linear if the dependent variable and its derivatives are linear in every term of the differential equation i.e. if there are no products or non-linear functions of the dependent variable and its derivatives.
+** Linear Second Order PDEs
+For two independent variables, the general form of the pde is,
+
+  $$A \frac{\partial^2u}{\partial x^2}+B \frac{\partial ^2 u }{\partial x \partial y} + C \frac{\partial^2u}{\partial y^2}+ D = 0$$
+
+  For $B^2 - 4AC$,:
+  - < 0, Elliptic equations
+  - = 0, Parabolic equations
+  - > 0, Hyperbolic equations
+
+** Finite Difference Formula
+
+For a function T depending on x and y $$T(x,y)$$: The finite difference approximations of the partial derivatives,
+
+$$\frac{\partial T}{\partial x} = \frac{T(x+h,y)-T(x,y)}{h}$$
+$$\frac{\partial T}{\partial y} = \frac{T(x,y+h)-T(x,y)}{h}$$
+* Syllabus For Quiz 3
+1. Convex optimization problem
+2. Lagrangian Multiplier
+3. Kuhn-Tucker Conditions
+4. PDEs

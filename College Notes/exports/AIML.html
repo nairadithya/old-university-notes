@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-09-30 Mon 22:08 -->
+<!-- 2024-11-07 Thu 09:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introduction To Artificial Intelligence And Machine Learning.</title>
@@ -234,144 +234,164 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb4be075">1. Iris Data Classification</a></li>
-<li><a href="#orgfa89daa">2. Overview</a>
+<li><a href="#orga836078">1. Iris Data Classification</a></li>
+<li><a href="#org16992f2">2. Overview</a>
 <ul>
-<li><a href="#orgf6e781c">2.1. Some Terms Used</a></li>
-<li><a href="#orgd6eda8a">2.2. Types Of Machine Learning</a>
+<li><a href="#orge760a85">2.1. Some Terms Used</a></li>
+<li><a href="#org09eee1f">2.2. Types Of Machine Learning</a>
 <ul>
-<li><a href="#orgf62d5ed">2.2.1. Supervised Learning</a></li>
-<li><a href="#org009e9bc">2.2.2. Unsupervised Learning</a></li>
-<li><a href="#org6287596">2.2.3. Reinforcement Learning</a></li>
-<li><a href="#org7f865e2">2.2.4. Deep Learning</a></li>
+<li><a href="#orgfe40d4c">2.2.1. Supervised Learning</a></li>
+<li><a href="#org3cd1407">2.2.2. Unsupervised Learning</a></li>
+<li><a href="#org7a81d9a">2.2.3. Reinforcement Learning</a></li>
+<li><a href="#org5ed9e11">2.2.4. Deep Learning</a></li>
 </ul>
 </li>
-<li><a href="#orgf4c02dd">2.3. AI Use Cases</a>
+<li><a href="#org9799961">2.3. AI Use Cases</a>
 <ul>
-<li><a href="#orgc429b4f">2.3.1. Image Classification</a></li>
-<li><a href="#orgeabdabb">2.3.2. Text Classification</a></li>
-<li><a href="#org4e6e72d">2.3.3. Handwriting Recognition</a></li>
+<li><a href="#org872dcff">2.3.1. Image Classification</a></li>
+<li><a href="#org2ccf5d0">2.3.2. Text Classification</a></li>
+<li><a href="#org52d76ea">2.3.3. Handwriting Recognition</a></li>
 </ul>
 </li>
-<li><a href="#org3f0dcf0">2.4. Steps In Implementing An AI Model</a>
+<li><a href="#org7ccd323">2.4. Steps In Implementing An AI Model</a>
 <ul>
-<li><a href="#orgcb2ef03">2.4.1. Problem identification</a></li>
-<li><a href="#org7684d1e">2.4.2. Data Curation</a></li>
-<li><a href="#org9e2d26a">2.4.3. Pre-processing</a></li>
-<li><a href="#orgeb99c34">2.4.4. Selection of AI models based on the data</a></li>
-<li><a href="#org2d31b38">2.4.5. Training and tuning the model - A train/test split or a train/validation/testing split.</a></li>
-<li><a href="#orgc65a3c8">2.4.6. Testing the developed model</a></li>
-<li><a href="#orgdab4667">2.4.7. Analysis of the results</a></li>
-<li><a href="#orgc51e433">2.4.8. Re-iterate as needed</a></li>
-<li><a href="#org8ed28ab">2.4.9. Deploy model.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org90e5fd9">3. Pre-Processing</a>
-<ul>
-<li><a href="#org07fca3e">3.1. Handling Missing Values (Imputation)</a>
-<ul>
-<li><a href="#org9fc2c41">3.1.1. CREATING A DATAFRAME</a></li>
-<li><a href="#orgceeada6">3.1.2. There are two main methods in dealing with missing values.</a></li>
-<li><a href="#org1bd014a">3.1.3. Forward fill and Backward Fill</a></li>
-</ul>
-</li>
-<li><a href="#org707e928">3.2. Normalization</a>
-<ul>
-<li><a href="#org00d0d48">3.2.1. Types Of Normalization</a></li>
-</ul>
-</li>
-<li><a href="#orgdf58413">3.3. Sampling</a>
-<ul>
-<li><a href="#org97dba62">3.3.1. Random Sampling</a></li>
-<li><a href="#orgaa58e35">3.3.2. Oversampling</a></li>
-<li><a href="#orga98bcf5">3.3.3. Stratified SAMPLING</a></li>
-<li><a href="#orgbe75f44">3.3.4. Systematic Sampling</a></li>
-<li><a href="#org0b8e660">3.3.5. Undersampling</a></li>
-</ul>
-</li>
-<li><a href="#orgcbf1d5b">3.4. Binning</a></li>
-<li><a href="#orgf0fd3ae">3.5. Data Imbalance</a>
-<ul>
-<li><a href="#orgeb2405c">3.5.1. One Hot Encoding</a></li>
-<li><a href="#org722465a">3.5.2. Logistic Regression</a></li>
+<li><a href="#org86485a1">2.4.1. Problem identification</a></li>
+<li><a href="#orgc2b714b">2.4.2. Data Curation</a></li>
+<li><a href="#orgc575465">2.4.3. Pre-processing</a></li>
+<li><a href="#org11f35e0">2.4.4. Selection of AI models based on the data</a></li>
+<li><a href="#org66f5191">2.4.5. Training and tuning the model - A train/test split or a train/validation/testing split.</a></li>
+<li><a href="#org6c20623">2.4.6. Testing the developed model</a></li>
+<li><a href="#org665d723">2.4.7. Analysis of the results</a></li>
+<li><a href="#orgb0ee87f">2.4.8. Re-iterate as needed</a></li>
+<li><a href="#org491e743">2.4.9. Deploy model.</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org27a55e2">4. Exploratory Data Analysis</a></li>
-<li><a href="#orgf548847">5. Evaluation Metrics For Classification</a>
+<li><a href="#org9329cbb">3. Pre-Processing</a>
 <ul>
-<li><a href="#org76a446f">5.1. No Free Lunch Theorem</a></li>
-<li><a href="#orgf323438">5.2. Why do we need evaluation metrics?</a></li>
-<li><a href="#orge13a01b">5.3. Types Of Classification Metrics</a>
+<li><a href="#orgf038978">3.1. Handling Missing Values (Imputation)</a>
 <ul>
-<li><a href="#org5ba9e16">5.3.1. Classification Accuracy</a></li>
-<li><a href="#org14dbf57">5.3.2. Confusion Matrix</a></li>
-<li><a href="#orgfd27080">5.3.3. Precision</a></li>
-<li><a href="#org1b84bac">5.3.4. Recall</a></li>
-<li><a href="#orgdfcbd66">5.3.5. F1-score</a></li>
-<li><a href="#org02f334f">5.3.6. Specificity And Sensitivity</a></li>
-<li><a href="#org782f687">5.3.7. ROC Curve - Receiver Operating Characteristic Curve</a></li>
-<li><a href="#orgc341b6e">5.3.8. Support</a></li>
+<li><a href="#orgedf7687">3.1.1. CREATING A DATAFRAME</a></li>
+<li><a href="#orgada3665">3.1.2. There are two main methods in dealing with missing values.</a></li>
+<li><a href="#org6aebb3f">3.1.3. Forward fill and Backward Fill</a></li>
+</ul>
+</li>
+<li><a href="#orga664bcf">3.2. Normalization</a>
+<ul>
+<li><a href="#org127d5c4">3.2.1. Types Of Normalization</a></li>
+</ul>
+</li>
+<li><a href="#orga0b0e84">3.3. Sampling</a>
+<ul>
+<li><a href="#org00bfc59">3.3.1. Random Sampling</a></li>
+<li><a href="#org50ab993">3.3.2. Oversampling</a></li>
+<li><a href="#org2864659">3.3.3. Stratified SAMPLING</a></li>
+<li><a href="#orge5cf104">3.3.4. Systematic Sampling</a></li>
+<li><a href="#org180def6">3.3.5. Undersampling</a></li>
+</ul>
+</li>
+<li><a href="#org4746324">3.4. Binning</a></li>
+<li><a href="#orgdabf55c">3.5. Data Imbalance</a>
+<ul>
+<li><a href="#org0e26a8a">3.5.1. One Hot Encoding</a></li>
+<li><a href="#org1a35305">3.5.2. Logistic Regression</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org556945c">6. Naive Bayes Classifier</a>
+<li><a href="#org1a869ef">4. Exploratory Data Analysis</a></li>
+<li><a href="#org745a322">5. Evaluation Metrics For Classification</a>
 <ul>
-<li><a href="#org3b24395">6.1. Conditional Independence</a></li>
-<li><a href="#org1896155">6.2. Bayes Theorem</a></li>
-<li><a href="#org7493e95">6.3. o-probability problem</a></li>
-<li><a href="#org9db4773">6.4. Types Of Classifiers</a></li>
+<li><a href="#orgd6de92b">5.1. No Free Lunch Theorem</a></li>
+<li><a href="#org0c47a65">5.2. Why do we need evaluation metrics?</a></li>
+<li><a href="#org16ee00f">5.3. Types Of Classification Metrics</a>
+<ul>
+<li><a href="#orgf0a3368">5.3.1. Classification Accuracy</a></li>
+<li><a href="#org2d15a92">5.3.2. Confusion Matrix</a></li>
+<li><a href="#org7198c92">5.3.3. Precision</a></li>
+<li><a href="#org77a6594">5.3.4. Recall</a></li>
+<li><a href="#org545b244">5.3.5. F1-score</a></li>
+<li><a href="#orgad1acff">5.3.6. Specificity And Sensitivity</a></li>
+<li><a href="#orgda323f4">5.3.7. ROC Curve - Receiver Operating Characteristic Curve</a></li>
+<li><a href="#orgc09e490">5.3.8. Support</a></li>
 </ul>
 </li>
-<li><a href="#org9c7f65f">7. Feature Selection</a>
-<ul>
-<li><a href="#org7af01cc">7.1. Filter Methods</a></li>
-<li><a href="#org03662d3">7.2. Curse Of Dimensionality</a></li>
-<li><a href="#org183ffe7">7.3. Search Forms</a></li>
-<li><a href="#org3e72ea5">7.4. Wrapper Methods</a></li>
 </ul>
 </li>
-<li><a href="#orgbb78b15">8. K-Nearest Neighbour Classifier</a>
+<li><a href="#org13080d4">6. Naive Bayes Classifier</a>
 <ul>
-<li><a href="#org9c569f0">8.1. Other Names For It</a></li>
-<li><a href="#orgba11c36">8.2. Introduction</a></li>
-<li><a href="#org4572f06">8.3. Distance Measures For Continuous</a></li>
-<li><a href="#org42a9f70">8.4. How To Choose K</a></li>
-<li><a href="#org5dadaff">8.5. Feature Weighting</a></li>
-<li><a href="#org14c237a">8.6. Feature Normalization</a></li>
-<li><a href="#org9b36e0c">8.7. Nominal/Categorical Data</a></li>
-<li><a href="#org73111c3">8.8. Imbalanced Data</a></li>
-<li><a href="#org4b034e1">8.9. Distance Weighted Nearest Neighbour Algorithm</a></li>
-<li><a href="#orgc1625cb">8.10. Efficient Memory Search</a></li>
+<li><a href="#org3d0321f">6.1. Conditional Independence</a></li>
+<li><a href="#orgc0d410f">6.2. Bayes Theorem</a></li>
+<li><a href="#org1fb560f">6.3. o-probability problem</a></li>
+<li><a href="#org1d3b307">6.4. Types Of Classifiers</a></li>
 </ul>
 </li>
-<li><a href="#orge37b25c">9. Decision Tree Classifier</a>
+<li><a href="#orgefb9d51">7. Feature Selection</a>
 <ul>
-<li><a href="#org3a7bf3a">9.1. Entropy, Information Gain</a></li>
-<li><a href="#orgc8a84f1">9.2. Basic Algorithm</a></li>
-<li><a href="#org9abdbf6">9.3. Overfitting</a></li>
+<li><a href="#orge9c5759">7.1. Filter Methods</a></li>
+<li><a href="#orgdc10349">7.2. Curse Of Dimensionality</a></li>
+<li><a href="#orgac10552">7.3. Search Forms</a></li>
+<li><a href="#org35939a2">7.4. Wrapper Methods</a></li>
 </ul>
 </li>
-<li><a href="#org115c492">10. Regression</a>
+<li><a href="#orgfc97f0b">8. K-Nearest Neighbour Classifier</a>
 <ul>
-<li><a href="#org8f407c6">10.1. Metrics</a></li>
-<li><a href="#org0699225">10.2. Linear Regression</a></li>
-<li><a href="#org3a1e1fb">10.3. Lasso Regression</a></li>
-<li><a href="#org56b9de5">10.4. Ridge Regression</a></li>
-<li><a href="#org86e3e1d">10.5. ElasticNet</a></li>
-<li><a href="#org08003af">10.6. Logistic Regression</a></li>
-<li><a href="#orgedbbada">10.7. Regularization</a></li>
+<li><a href="#org391cf02">8.1. Other Names For It</a></li>
+<li><a href="#orgb0f4840">8.2. Introduction</a></li>
+<li><a href="#org7e3af0d">8.3. Distance Measures For Continuous</a></li>
+<li><a href="#org80322fc">8.4. How To Choose K</a></li>
+<li><a href="#org2b5adbe">8.5. Feature Weighting</a></li>
+<li><a href="#org6e80a0d">8.6. Feature Normalization</a></li>
+<li><a href="#org32cb9c4">8.7. Nominal/Categorical Data</a></li>
+<li><a href="#org1224b38">8.8. Imbalanced Data</a></li>
+<li><a href="#org8cf5072">8.9. Distance Weighted Nearest Neighbour Algorithm</a></li>
+<li><a href="#org5357a50">8.10. Efficient Memory Search</a></li>
+</ul>
+</li>
+<li><a href="#org91aabfd">9. Decision Tree Classifier</a>
+<ul>
+<li><a href="#org0ae04a5">9.1. Entropy, Information Gain</a></li>
+<li><a href="#org9344e1c">9.2. Basic Algorithm</a></li>
+<li><a href="#orgafe98e3">9.3. Overfitting</a></li>
+</ul>
+</li>
+<li><a href="#org40324a9">10. Regression</a>
+<ul>
+<li><a href="#org41f0f69">10.1. Metrics</a></li>
+<li><a href="#orgfab4f84">10.2. Linear Regression</a></li>
+<li><a href="#orgde5cd7d">10.3. Lasso Regression</a></li>
+<li><a href="#org3d61587">10.4. Ridge Regression</a></li>
+<li><a href="#org1100e7b">10.5. ElasticNet</a></li>
+<li><a href="#orgef12826">10.6. Logistic Regression</a></li>
+<li><a href="#org28eb21f">10.7. Regularization</a></li>
+</ul>
+</li>
+<li><a href="#orge530afa">11. Filter Vs Wrapper Methods</a></li>
+<li><a href="#org46e15f9">12. Clustering</a>
+<ul>
+<li><a href="#org2c7b060">12.1. K-Means Clustering</a></li>
+<li><a href="#org757cd36">12.2. K-Means++</a></li>
+<li><a href="#orgfda06db">12.3. Hierarchical Clustering</a></li>
+</ul>
+</li>
+<li><a href="#orgdfd974c">13. Ensemble Learning Algorithms</a>
+<ul>
+<li><a href="#org1996007">13.1. Simple models</a></li>
+<li><a href="#orgcf2af43">13.2. Strategies</a></li>
+<li><a href="#orgf96e841">13.3. <span class="todo TODO">TODO</span> look into decision trees for regression, support vector regressors</a></li>
+</ul>
+</li>
+<li><a href="#org875d3a0">14. Project</a>
+<ul>
+<li><a href="#orgfe01d60">14.1. IEEE Report Template</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb4be075" class="outline-2">
-<h2 id="orgb4be075"><span class="section-number-2">1.</span> Iris Data Classification</h2>
+<div id="outline-container-orga836078" class="outline-2">
+<h2 id="orga836078"><span class="section-number-2">1.</span> Iris Data Classification</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #cba6f7;">import</span> pandas <span style="color: #cba6f7;">as</span> pd
@@ -389,12 +409,12 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgfa89daa" class="outline-2">
-<h2 id="orgfa89daa"><span class="section-number-2">2.</span> Overview</h2>
+<div id="outline-container-org16992f2" class="outline-2">
+<h2 id="org16992f2"><span class="section-number-2">2.</span> Overview</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf6e781c" class="outline-3">
-<h3 id="orgf6e781c"><span class="section-number-3">2.1.</span> Some Terms Used</h3>
+<div id="outline-container-orge760a85" class="outline-3">
+<h3 id="orge760a85"><span class="section-number-3">2.1.</span> Some Terms Used</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Regression - Continuous numbers as output</li>
@@ -418,19 +438,19 @@ Solvable by:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd6eda8a" class="outline-3">
-<h3 id="orgd6eda8a"><span class="section-number-3">2.2.</span> Types Of Machine Learning</h3>
+<div id="outline-container-org09eee1f" class="outline-3">
+<h3 id="org09eee1f"><span class="section-number-3">2.2.</span> Types Of Machine Learning</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-orgf62d5ed" class="outline-4">
-<h4 id="orgf62d5ed"><span class="section-number-4">2.2.1.</span> Supervised Learning</h4>
+<div id="outline-container-orgfe40d4c" class="outline-4">
+<h4 id="orgfe40d4c"><span class="section-number-4">2.2.1.</span> Supervised Learning</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgdca7c66"></a>Regression<br />
+<li><a id="org180b236"></a>Regression<br />
 <div class="outline-text-5" id="text-2-2-1-1">
 <p>
 Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
@@ -441,8 +461,8 @@ Neural networks, support vector regressor, linear regression
 </li>
 </ol>
 </div>
-<div id="outline-container-org009e9bc" class="outline-4">
-<h4 id="org009e9bc"><span class="section-number-4">2.2.2.</span> Unsupervised Learning</h4>
+<div id="outline-container-org3cd1407" class="outline-4">
+<h4 id="org3cd1407"><span class="section-number-4">2.2.2.</span> Unsupervised Learning</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 Models that learn about a dataset without labels.
@@ -450,21 +470,21 @@ This includes
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgac0fcd9"></a>Clustering<br />
+<li><a id="orgc2ec3d4"></a>Clustering<br />
 <div class="outline-text-5" id="text-2-2-2-1">
 <p>
 Grouping of data points to automatically create classes for them
 </p>
 </div>
 </li>
-<li><a id="orge4a50f9"></a>Finding outliers<br />
+<li><a id="orgebd15ab"></a>Finding outliers<br />
 <div class="outline-text-5" id="text-2-2-2-2">
 <p>
 Done using SVM, Autoencoders
 </p>
 </div>
 </li>
-<li><a id="org5dcb047"></a>Dimensionality reduction<br />
+<li><a id="orgdef8aa9"></a>Dimensionality reduction<br />
 <div class="outline-text-5" id="text-2-2-2-3">
 <p>
 Done using Principal Component Analysis.
@@ -473,8 +493,8 @@ Done using Principal Component Analysis.
 </li>
 </ol>
 </div>
-<div id="outline-container-org6287596" class="outline-4">
-<h4 id="org6287596"><span class="section-number-4">2.2.3.</span> Reinforcement Learning</h4>
+<div id="outline-container-org7a81d9a" class="outline-4">
+<h4 id="org7a81d9a"><span class="section-number-4">2.2.3.</span> Reinforcement Learning</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
 Reinforcement Learning involves giving a model:
@@ -493,8 +513,8 @@ This type of model doesn&rsquo;t get any data, it explores the environment to ga
 </ul>
 </div>
 </div>
-<div id="outline-container-org7f865e2" class="outline-4">
-<h4 id="org7f865e2"><span class="section-number-4">2.2.4.</span> Deep Learning</h4>
+<div id="outline-container-org5ed9e11" class="outline-4">
+<h4 id="org5ed9e11"><span class="section-number-4">2.2.4.</span> Deep Learning</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
 Deep learning is a subset of ML.
@@ -507,28 +527,28 @@ One layer gives us approximate predictions, adding additional layers refines the
 </div>
 </div>
 </div>
-<div id="outline-container-orgf4c02dd" class="outline-3">
-<h3 id="orgf4c02dd"><span class="section-number-3">2.3.</span> AI Use Cases</h3>
+<div id="outline-container-org9799961" class="outline-3">
+<h3 id="org9799961"><span class="section-number-3">2.3.</span> AI Use Cases</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-orgc429b4f" class="outline-4">
-<h4 id="orgc429b4f"><span class="section-number-4">2.3.1.</span> Image Classification</h4>
+<div id="outline-container-org872dcff" class="outline-4">
+<h4 id="org872dcff"><span class="section-number-4">2.3.1.</span> Image Classification</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
 Convolutional Neural Networks
 </p>
 </div>
 </div>
-<div id="outline-container-orgeabdabb" class="outline-4">
-<h4 id="orgeabdabb"><span class="section-number-4">2.3.2.</span> Text Classification</h4>
+<div id="outline-container-org2ccf5d0" class="outline-4">
+<h4 id="org2ccf5d0"><span class="section-number-4">2.3.2.</span> Text Classification</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 Naive Bayes, Support Vector Machines
 </p>
 </div>
 </div>
-<div id="outline-container-org4e6e72d" class="outline-4">
-<h4 id="org4e6e72d"><span class="section-number-4">2.3.3.</span> Handwriting Recognition</h4>
+<div id="outline-container-org52d76ea" class="outline-4">
+<h4 id="org52d76ea"><span class="section-number-4">2.3.3.</span> Handwriting Recognition</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <p>
 Convolution Neural Networks
@@ -537,12 +557,12 @@ Long Short-Term Memory Networks
 </div>
 </div>
 </div>
-<div id="outline-container-org3f0dcf0" class="outline-3">
-<h3 id="org3f0dcf0"><span class="section-number-3">2.4.</span> Steps In Implementing An AI Model</h3>
+<div id="outline-container-org7ccd323" class="outline-3">
+<h3 id="org7ccd323"><span class="section-number-3">2.4.</span> Steps In Implementing An AI Model</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-orgcb2ef03" class="outline-4">
-<h4 id="orgcb2ef03"><span class="section-number-4">2.4.1.</span> Problem identification</h4>
+<div id="outline-container-org86485a1" class="outline-4">
+<h4 id="org86485a1"><span class="section-number-4">2.4.1.</span> Problem identification</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
 This is done by researching
@@ -555,8 +575,8 @@ This is done by researching
 </ul>
 </div>
 </div>
-<div id="outline-container-org7684d1e" class="outline-4">
-<h4 id="org7684d1e"><span class="section-number-4">2.4.2.</span> Data Curation</h4>
+<div id="outline-container-orgc2b714b" class="outline-4">
+<h4 id="orgc2b714b"><span class="section-number-4">2.4.2.</span> Data Curation</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <ul class="org-ul">
 <li>Data collection in person</li>
@@ -567,11 +587,11 @@ This is done by researching
 </ul>
 </div>
 </div>
-<div id="outline-container-org9e2d26a" class="outline-4">
-<h4 id="org9e2d26a"><span class="section-number-4">2.4.3.</span> Pre-processing</h4>
+<div id="outline-container-orgc575465" class="outline-4">
+<h4 id="orgc575465"><span class="section-number-4">2.4.3.</span> Pre-processing</h4>
 </div>
-<div id="outline-container-orgeb99c34" class="outline-4">
-<h4 id="orgeb99c34"><span class="section-number-4">2.4.4.</span> Selection of AI models based on the data</h4>
+<div id="outline-container-org11f35e0" class="outline-4">
+<h4 id="org11f35e0"><span class="section-number-4">2.4.4.</span> Selection of AI models based on the data</h4>
 <div class="outline-text-4" id="text-2-4-4">
 <ul class="org-ul">
 <li>Figure out whether the problem is a regression or a classification problem.</li>
@@ -580,8 +600,8 @@ This is done by researching
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d31b38" class="outline-4">
-<h4 id="org2d31b38"><span class="section-number-4">2.4.5.</span> Training and tuning the model - A train/test split or a train/validation/testing split.</h4>
+<div id="outline-container-org66f5191" class="outline-4">
+<h4 id="org66f5191"><span class="section-number-4">2.4.5.</span> Training and tuning the model - A train/test split or a train/validation/testing split.</h4>
 <div class="outline-text-4" id="text-2-4-5">
 <ul class="org-ul">
 <li>The data is separated out into training and testing.</li>
@@ -591,8 +611,8 @@ This is done by researching
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc65a3c8" class="outline-4">
-<h4 id="orgc65a3c8"><span class="section-number-4">2.4.6.</span> Testing the developed model</h4>
+<div id="outline-container-org6c20623" class="outline-4">
+<h4 id="org6c20623"><span class="section-number-4">2.4.6.</span> Testing the developed model</h4>
 <div class="outline-text-4" id="text-2-4-6">
 <ul class="org-ul">
 <li>Choose evaluation metrics based on the model.
@@ -603,31 +623,31 @@ This is done by researching
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdab4667" class="outline-4">
-<h4 id="orgdab4667"><span class="section-number-4">2.4.7.</span> Analysis of the results</h4>
+<div id="outline-container-org665d723" class="outline-4">
+<h4 id="org665d723"><span class="section-number-4">2.4.7.</span> Analysis of the results</h4>
 </div>
-<div id="outline-container-orgc51e433" class="outline-4">
-<h4 id="orgc51e433"><span class="section-number-4">2.4.8.</span> Re-iterate as needed</h4>
+<div id="outline-container-orgb0ee87f" class="outline-4">
+<h4 id="orgb0ee87f"><span class="section-number-4">2.4.8.</span> Re-iterate as needed</h4>
 </div>
-<div id="outline-container-org8ed28ab" class="outline-4">
-<h4 id="org8ed28ab"><span class="section-number-4">2.4.9.</span> Deploy model.</h4>
+<div id="outline-container-org491e743" class="outline-4">
+<h4 id="org491e743"><span class="section-number-4">2.4.9.</span> Deploy model.</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-org90e5fd9" class="outline-2">
-<h2 id="org90e5fd9"><span class="section-number-2">3.</span> Pre-Processing</h2>
+<div id="outline-container-org9329cbb" class="outline-2">
+<h2 id="org9329cbb"><span class="section-number-2">3.</span> Pre-Processing</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org07fca3e" class="outline-3">
-<h3 id="org07fca3e"><span class="section-number-3">3.1.</span> Handling Missing Values (Imputation)</h3>
+<div id="outline-container-orgf038978" class="outline-3">
+<h3 id="orgf038978"><span class="section-number-3">3.1.</span> Handling Missing Values (Imputation)</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
 Hence it is essential to handle the missing values.
 </p>
 </div>
-<div id="outline-container-org9fc2c41" class="outline-4">
-<h4 id="org9fc2c41"><span class="section-number-4">3.1.1.</span> CREATING A DATAFRAME</h4>
+<div id="outline-container-orgedf7687" class="outline-4">
+<h4 id="orgedf7687"><span class="section-number-4">3.1.1.</span> CREATING A DATAFRAME</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #cba6f7;">import</span> pandas <span style="color: #cba6f7;">as</span> pd
@@ -659,8 +679,8 @@ This dataset is not complete, Cabin and Age have values that are unfilled. We ca
 </div>
 </div>
 </div>
-<div id="outline-container-orgceeada6" class="outline-4">
-<h4 id="orgceeada6"><span class="section-number-4">3.1.2.</span> There are two main methods in dealing with missing values.</h4>
+<div id="outline-container-orgada3665" class="outline-4">
+<h4 id="orgada3665"><span class="section-number-4">3.1.2.</span> There are two main methods in dealing with missing values.</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ol class="org-ol">
 <li>Dropping rows with missing values.</li>
@@ -685,7 +705,7 @@ So here we replace the values with the mean for numerical values and mode for ca
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgbceeee4"></a>Look into other methods of imputation<br />
+<li><a id="org8e15763"></a>Look into other methods of imputation<br />
 <div class="outline-text-5" id="text-3-1-2-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #6c7086;"># </span><span style="color: #6c7086;">Method 3: Fill missing values with the mean (for numerical columns)</span>
@@ -703,8 +723,8 @@ df[<span style="color: #a6e3a1;">'Embarked'</span>].fillna(df[<span style="color
 </li>
 </ol>
 </div>
-<div id="outline-container-org1bd014a" class="outline-4">
-<h4 id="org1bd014a"><span class="section-number-4">3.1.3.</span> Forward fill and Backward Fill</h4>
+<div id="outline-container-org6aebb3f" class="outline-4">
+<h4 id="org6aebb3f"><span class="section-number-4">3.1.3.</span> Forward fill and Backward Fill</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 There are two better ways to fill the rows.
@@ -729,8 +749,8 @@ There are two better ways to fill the rows.
 </div>
 </div>
 </div>
-<div id="outline-container-org707e928" class="outline-3">
-<h3 id="org707e928"><span class="section-number-3">3.2.</span> Normalization</h3>
+<div id="outline-container-orga664bcf" class="outline-3">
+<h3 id="orga664bcf"><span class="section-number-3">3.2.</span> Normalization</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
@@ -744,8 +764,8 @@ Machine learning models tend to give a higher weightage to numerical attributres
 The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
 </p>
 </div>
-<div id="outline-container-org00d0d48" class="outline-4">
-<h4 id="org00d0d48"><span class="section-number-4">3.2.1.</span> Types Of Normalization</h4>
+<div id="outline-container-org127d5c4" class="outline-4">
+<h4 id="org127d5c4"><span class="section-number-4">3.2.1.</span> Types Of Normalization</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li><p>
@@ -763,7 +783,7 @@ MinMaxScaler - all data points are brought to the range \([0,1]\)
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="org62b7e60"></a>NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION<br />
+<li><a id="org8586afe"></a>NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION<br />
 <div class="outline-text-5" id="text-3-2-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #cba6f7;">import</span> numpy <span style="color: #cba6f7;">as</span> np
@@ -786,7 +806,7 @@ MinMaxScaler - all data points are brought to the range \([0,1]\)
 </div>
 </div>
 </li>
-<li><a id="orgd9ebcb7"></a>NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION<br />
+<li><a id="org66c6e13"></a>NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION<br />
 <div class="outline-text-5" id="text-3-2-1-2">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #cba6f7;">import</span> numpy <span style="color: #cba6f7;">as</span> np
@@ -809,7 +829,7 @@ MinMaxScaler - all data points are brought to the range \([0,1]\)
 </div>
 </div>
 </li>
-<li><a id="org1729265"></a>NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME<br />
+<li><a id="org23f930b"></a>NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME<br />
 <div class="outline-text-5" id="text-3-2-1-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #6c7086;"># </span><span style="color: #6c7086;">Initialize the MinMaxScaler</span>
@@ -831,16 +851,16 @@ MinMaxScaler - all data points are brought to the range \([0,1]\)
 </ol>
 </div>
 </div>
-<div id="outline-container-orgdf58413" class="outline-3">
-<h3 id="orgdf58413"><span class="section-number-3">3.3.</span> Sampling</h3>
+<div id="outline-container-orga0b0e84" class="outline-3">
+<h3 id="orga0b0e84"><span class="section-number-3">3.3.</span> Sampling</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
 Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
 </p>
 </div>
-<div id="outline-container-org97dba62" class="outline-4">
-<h4 id="org97dba62"><span class="section-number-4">3.3.1.</span> Random Sampling</h4>
+<div id="outline-container-org00bfc59" class="outline-4">
+<h4 id="org00bfc59"><span class="section-number-4">3.3.1.</span> Random Sampling</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 Random sampling is used for when the dataset is large.
@@ -859,15 +879,15 @@ Random sampling is used for when the dataset is large.
 </div>
 </div>
 </div>
-<div id="outline-container-orgaa58e35" class="outline-4">
-<h4 id="orgaa58e35"><span class="section-number-4">3.3.2.</span> Oversampling</h4>
+<div id="outline-container-org50ab993" class="outline-4">
+<h4 id="org50ab993"><span class="section-number-4">3.3.2.</span> Oversampling</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org6b4ea05"></a>Oversampling using SMOTE<br />
+<li><a id="org46ec600"></a>Oversampling using SMOTE<br />
 <div class="outline-text-5" id="text-3-3-2-1">
 <p>
 It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
@@ -876,8 +896,8 @@ It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the mos
 </li>
 </ol>
 </div>
-<div id="outline-container-orga98bcf5" class="outline-4">
-<h4 id="orga98bcf5"><span class="section-number-4">3.3.3.</span> Stratified SAMPLING</h4>
+<div id="outline-container-org2864659" class="outline-4">
+<h4 id="org2864659"><span class="section-number-4">3.3.3.</span> Stratified SAMPLING</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #cba6f7;">import</span> random
@@ -902,8 +922,8 @@ It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the mos
 </div>
 </div>
 </div>
-<div id="outline-container-orgbe75f44" class="outline-4">
-<h4 id="orgbe75f44"><span class="section-number-4">3.3.4.</span> Systematic Sampling</h4>
+<div id="outline-container-orge5cf104" class="outline-4">
+<h4 id="orge5cf104"><span class="section-number-4">3.3.4.</span> Systematic Sampling</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #6c7086;"># </span><span style="color: #6c7086;">Sample data</span>
@@ -942,12 +962,12 @@ It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the mos
 </div>
 </div>
 </div>
-<div id="outline-container-org0b8e660" class="outline-4">
-<h4 id="org0b8e660"><span class="section-number-4">3.3.5.</span> Undersampling</h4>
+<div id="outline-container-org180def6" class="outline-4">
+<h4 id="org180def6"><span class="section-number-4">3.3.5.</span> Undersampling</h4>
 </div>
 </div>
-<div id="outline-container-orgcbf1d5b" class="outline-3">
-<h3 id="orgcbf1d5b"><span class="section-number-3">3.4.</span> Binning</h3>
+<div id="outline-container-org4746324" class="outline-3">
+<h3 id="org4746324"><span class="section-number-3">3.4.</span> Binning</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #cba6f7;">import</span> pandas <span style="color: #cba6f7;">as</span> pd
@@ -984,23 +1004,23 @@ plt.tight_layout()
 </div>
 </div>
 </div>
-<div id="outline-container-orgf0fd3ae" class="outline-3">
-<h3 id="orgf0fd3ae"><span class="section-number-3">3.5.</span> Data Imbalance</h3>
+<div id="outline-container-orgdabf55c" class="outline-3">
+<h3 id="orgdabf55c"><span class="section-number-3">3.5.</span> Data Imbalance</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 We&rsquo;re doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
 </p>
 </div>
-<div id="outline-container-orgeb2405c" class="outline-4">
-<h4 id="orgeb2405c"><span class="section-number-4">3.5.1.</span> One Hot Encoding</h4>
+<div id="outline-container-org0e26a8a" class="outline-4">
+<h4 id="org0e26a8a"><span class="section-number-4">3.5.1.</span> One Hot Encoding</h4>
 <div class="outline-text-4" id="text-3-5-1">
 <p>
 This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
 </p>
 </div>
 </div>
-<div id="outline-container-org722465a" class="outline-4">
-<h4 id="org722465a"><span class="section-number-4">3.5.2.</span> Logistic Regression</h4>
+<div id="outline-container-org1a35305" class="outline-4">
+<h4 id="org1a35305"><span class="section-number-4">3.5.2.</span> Logistic Regression</h4>
 <div class="outline-text-4" id="text-3-5-2">
 <p>
 This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
@@ -1009,26 +1029,26 @@ This is a modified version of linear regression that can be used as a classifica
 </div>
 </div>
 </div>
-<div id="outline-container-org27a55e2" class="outline-2">
-<h2 id="org27a55e2"><span class="section-number-2">4.</span> Exploratory Data Analysis</h2>
+<div id="outline-container-org1a869ef" class="outline-2">
+<h2 id="org1a869ef"><span class="section-number-2">4.</span> Exploratory Data Analysis</h2>
 </div>
-<div id="outline-container-orgf548847" class="outline-2">
-<h2 id="orgf548847"><span class="section-number-2">5.</span> Evaluation Metrics For Classification</h2>
+<div id="outline-container-org745a322" class="outline-2">
+<h2 id="org745a322"><span class="section-number-2">5.</span> Evaluation Metrics For Classification</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 This will cover how to evaluate the results of our classification problems.
 </p>
 </div>
-<div id="outline-container-org76a446f" class="outline-3">
-<h3 id="org76a446f"><span class="section-number-3">5.1.</span> No Free Lunch Theorem</h3>
+<div id="outline-container-orgd6de92b" class="outline-3">
+<h3 id="orgd6de92b"><span class="section-number-3">5.1.</span> No Free Lunch Theorem</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 The no free lunch theorem in machine learning states that it conveys the idea that there is no universally superior algorithm that performs better than all others across all possible problem domains or datasets. What this means is that there is no one-size-fits-all solution. The datasets pose unique challenges that different models excel better for different models.
 </p>
 </div>
 </div>
-<div id="outline-container-orgf323438" class="outline-3">
-<h3 id="orgf323438"><span class="section-number-3">5.2.</span> Why do we need evaluation metrics?</h3>
+<div id="outline-container-org0c47a65" class="outline-3">
+<h3 id="org0c47a65"><span class="section-number-3">5.2.</span> Why do we need evaluation metrics?</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Evaluation metrics allow you to assess your model&rsquo;s performance, monitor your ML in production and customize your model to fit your business needs.</li>
@@ -1036,12 +1056,12 @@ The no free lunch theorem in machine learning states that it conveys the idea th
 </ul>
 </div>
 </div>
-<div id="outline-container-orge13a01b" class="outline-3">
-<h3 id="orge13a01b"><span class="section-number-3">5.3.</span> Types Of Classification Metrics</h3>
+<div id="outline-container-org16ee00f" class="outline-3">
+<h3 id="org16ee00f"><span class="section-number-3">5.3.</span> Types Of Classification Metrics</h3>
 <div class="outline-text-3" id="text-5-3">
 </div>
-<div id="outline-container-org5ba9e16" class="outline-4">
-<h4 id="org5ba9e16"><span class="section-number-4">5.3.1.</span> Classification Accuracy</h4>
+<div id="outline-container-orgf0a3368" class="outline-4">
+<h4 id="orgf0a3368"><span class="section-number-4">5.3.1.</span> Classification Accuracy</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <p>
 \[Accuracy = \frac{\text{No. of correct predictions}}{\text{Total no. of predictions}}\]
@@ -1049,8 +1069,8 @@ The problem with this is that it cannot tell the difference between the classes.
 </p>
 </div>
 </div>
-<div id="outline-container-org14dbf57" class="outline-4">
-<h4 id="org14dbf57"><span class="section-number-4">5.3.2.</span> Confusion Matrix</h4>
+<div id="outline-container-org2d15a92" class="outline-4">
+<h4 id="org2d15a92"><span class="section-number-4">5.3.2.</span> Confusion Matrix</h4>
 <div class="outline-text-4" id="text-5-3-2">
 <p>
 A matrix which documents the model&rsquo;s predictions against the actual value.
@@ -1063,8 +1083,8 @@ A matrix which documents the model&rsquo;s predictions against the actual value.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfd27080" class="outline-4">
-<h4 id="orgfd27080"><span class="section-number-4">5.3.3.</span> Precision</h4>
+<div id="outline-container-org7198c92" class="outline-4">
+<h4 id="org7198c92"><span class="section-number-4">5.3.3.</span> Precision</h4>
 <div class="outline-text-4" id="text-5-3-3">
 <p>
 Precision&rsquo;s formula
@@ -1074,8 +1094,8 @@ Precision&rsquo;s formula
 </p>
 </div>
 </div>
-<div id="outline-container-org1b84bac" class="outline-4">
-<h4 id="org1b84bac"><span class="section-number-4">5.3.4.</span> Recall</h4>
+<div id="outline-container-org77a6594" class="outline-4">
+<h4 id="org77a6594"><span class="section-number-4">5.3.4.</span> Recall</h4>
 <div class="outline-text-4" id="text-5-3-4">
 <p>
 Recall is the ratio of true positives to all the positives in your dataset.
@@ -1087,8 +1107,8 @@ This is good when you want to make sure your model correctly classifies the posi
 </p>
 </div>
 </div>
-<div id="outline-container-orgdfcbd66" class="outline-4">
-<h4 id="orgdfcbd66"><span class="section-number-4">5.3.5.</span> F1-score</h4>
+<div id="outline-container-org545b244" class="outline-4">
+<h4 id="org545b244"><span class="section-number-4">5.3.5.</span> F1-score</h4>
 <div class="outline-text-4" id="text-5-3-5">
 <p>
 F1-score is the harmonic mean of precision and recall
@@ -1101,8 +1121,8 @@ F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \tex
 </p>
 </div>
 </div>
-<div id="outline-container-org02f334f" class="outline-4">
-<h4 id="org02f334f"><span class="section-number-4">5.3.6.</span> Specificity And Sensitivity</h4>
+<div id="outline-container-orgad1acff" class="outline-4">
+<h4 id="orgad1acff"><span class="section-number-4">5.3.6.</span> Specificity And Sensitivity</h4>
 <div class="outline-text-4" id="text-5-3-6">
 <p>
 \[
@@ -1121,16 +1141,16 @@ Specificity focuses on correctly identifying negatives, while sensitivity focuse
 </p>
 </div>
 </div>
-<div id="outline-container-org782f687" class="outline-4">
-<h4 id="org782f687"><span class="section-number-4">5.3.7.</span> ROC Curve - Receiver Operating Characteristic Curve</h4>
+<div id="outline-container-orgda323f4" class="outline-4">
+<h4 id="orgda323f4"><span class="section-number-4">5.3.7.</span> ROC Curve - Receiver Operating Characteristic Curve</h4>
 <div class="outline-text-4" id="text-5-3-7">
 <p>
 The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc341b6e" class="outline-4">
-<h4 id="orgc341b6e"><span class="section-number-4">5.3.8.</span> Support</h4>
+<div id="outline-container-orgc09e490" class="outline-4">
+<h4 id="orgc09e490"><span class="section-number-4">5.3.8.</span> Support</h4>
 <div class="outline-text-4" id="text-5-3-8">
 <p>
 Count of test data in a class
@@ -1139,23 +1159,23 @@ Count of test data in a class
 </div>
 </div>
 </div>
-<div id="outline-container-org556945c" class="outline-2">
-<h2 id="org556945c"><span class="section-number-2">6.</span> Naive Bayes Classifier</h2>
+<div id="outline-container-org13080d4" class="outline-2">
+<h2 id="org13080d4"><span class="section-number-2">6.</span> Naive Bayes Classifier</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 This is a probabilistic classifier.
 </p>
 </div>
-<div id="outline-container-org3b24395" class="outline-3">
-<h3 id="org3b24395"><span class="section-number-3">6.1.</span> Conditional Independence</h3>
+<div id="outline-container-org3d0321f" class="outline-3">
+<h3 id="org3d0321f"><span class="section-number-3">6.1.</span> Conditional Independence</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Conditional independence is a requirement for the naive bayes classifier. The dataset must not have any features which have a correlation to each other.
 </p>
 </div>
 </div>
-<div id="outline-container-org1896155" class="outline-3">
-<h3 id="org1896155"><span class="section-number-3">6.2.</span> Bayes Theorem</h3>
+<div id="outline-container-orgc0d410f" class="outline-3">
+<h3 id="orgc0d410f"><span class="section-number-3">6.2.</span> Bayes Theorem</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 Given conditional probability,
@@ -1178,8 +1198,8 @@ We take the dataset&rsquo;s columns and figure out the conditional probability o
 </p>
 </div>
 </div>
-<div id="outline-container-org7493e95" class="outline-3">
-<h3 id="org7493e95"><span class="section-number-3">6.3.</span> o-probability problem</h3>
+<div id="outline-container-org1fb560f" class="outline-3">
+<h3 id="org1fb560f"><span class="section-number-3">6.3.</span> o-probability problem</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 There is a problem that might arise while calculating the probability of a given class.
@@ -1187,8 +1207,8 @@ We can have cases where there are conditions which are 0, the conditional relati
 </p>
 </div>
 </div>
-<div id="outline-container-org9db4773" class="outline-3">
-<h3 id="org9db4773"><span class="section-number-3">6.4.</span> Types Of Classifiers</h3>
+<div id="outline-container-org1d3b307" class="outline-3">
+<h3 id="org1d3b307"><span class="section-number-3">6.4.</span> Types Of Classifiers</h3>
 <div class="outline-text-3" id="text-6-4">
 <ol class="org-ol">
 <li>Gaussian Naive Bayes - Assumes that the features have a normal Gaussian distribution, good for continuous data.</li>
@@ -1198,8 +1218,8 @@ We can have cases where there are conditions which are 0, the conditional relati
 </div>
 </div>
 </div>
-<div id="outline-container-org9c7f65f" class="outline-2">
-<h2 id="org9c7f65f"><span class="section-number-2">7.</span> Feature Selection</h2>
+<div id="outline-container-orgefb9d51" class="outline-2">
+<h2 id="orgefb9d51"><span class="section-number-2">7.</span> Feature Selection</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The reasons to perform feature selection is:
@@ -1213,16 +1233,16 @@ The reasons to perform feature selection is:
 Read up on \(chi^2\) function
 </p>
 </div>
-<div id="outline-container-org7af01cc" class="outline-3">
-<h3 id="org7af01cc"><span class="section-number-3">7.1.</span> Filter Methods</h3>
+<div id="outline-container-orge9c5759" class="outline-3">
+<h3 id="orge9c5759"><span class="section-number-3">7.1.</span> Filter Methods</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 Works on the basis of score, like \(\chi^{2}\), the features are scored and the best features are selected.
 </p>
 </div>
 </div>
-<div id="outline-container-org03662d3" class="outline-3">
-<h3 id="org03662d3"><span class="section-number-3">7.2.</span> Curse Of Dimensionality</h3>
+<div id="outline-container-orgdc10349" class="outline-3">
+<h3 id="orgdc10349"><span class="section-number-3">7.2.</span> Curse Of Dimensionality</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>The number of traning examples initially increase accuracy but deteriorates after some point</li>
@@ -1231,8 +1251,8 @@ Works on the basis of score, like \(\chi^{2}\), the features are scored and the 
 </ul>
 </div>
 </div>
-<div id="outline-container-org183ffe7" class="outline-3">
-<h3 id="org183ffe7"><span class="section-number-3">7.3.</span> Search Forms</h3>
+<div id="outline-container-orgac10552" class="outline-3">
+<h3 id="orgac10552"><span class="section-number-3">7.3.</span> Search Forms</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Forward search involves finding a set that satisfies a measure.</li>
@@ -1242,8 +1262,8 @@ Works on the basis of score, like \(\chi^{2}\), the features are scored and the 
 </ul>
 </div>
 </div>
-<div id="outline-container-org3e72ea5" class="outline-3">
-<h3 id="org3e72ea5"><span class="section-number-3">7.4.</span> Wrapper Methods</h3>
+<div id="outline-container-org35939a2" class="outline-3">
+<h3 id="org35939a2"><span class="section-number-3">7.4.</span> Wrapper Methods</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 Recursive feature elimination
@@ -1251,12 +1271,12 @@ Recursive feature elimination
 </div>
 </div>
 </div>
-<div id="outline-container-orgbb78b15" class="outline-2">
-<h2 id="orgbb78b15"><span class="section-number-2">8.</span> K-Nearest Neighbour Classifier</h2>
+<div id="outline-container-orgfc97f0b" class="outline-2">
+<h2 id="orgfc97f0b"><span class="section-number-2">8.</span> K-Nearest Neighbour Classifier</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org9c569f0" class="outline-3">
-<h3 id="org9c569f0"><span class="section-number-3">8.1.</span> Other Names For It</h3>
+<div id="outline-container-org391cf02" class="outline-3">
+<h3 id="org391cf02"><span class="section-number-3">8.1.</span> Other Names For It</h3>
 <div class="outline-text-3" id="text-8-1">
 <ol class="org-ol">
 <li>K-nearest neighbours</li>
@@ -1267,8 +1287,8 @@ Recursive feature elimination
 </ol>
 </div>
 </div>
-<div id="outline-container-orgba11c36" class="outline-3">
-<h3 id="orgba11c36"><span class="section-number-3">8.2.</span> Introduction</h3>
+<div id="outline-container-orgb0f4840" class="outline-3">
+<h3 id="orgb0f4840"><span class="section-number-3">8.2.</span> Introduction</h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>K-nearest neighbours stores all available cases and classifies new cases based on a similarity measure(some distance function)</li>
@@ -1280,8 +1300,8 @@ The approach to doing this is by classifying new data points based on the most c
 </p>
 </div>
 </div>
-<div id="outline-container-org4572f06" class="outline-3">
-<h3 id="org4572f06"><span class="section-number-3">8.3.</span> Distance Measures For Continuous</h3>
+<div id="outline-container-org7e3af0d" class="outline-3">
+<h3 id="org7e3af0d"><span class="section-number-3">8.3.</span> Distance Measures For Continuous</h3>
 <div class="outline-text-3" id="text-8-3">
 <ol class="org-ol">
 <li>Euclidean</li>
@@ -1290,32 +1310,32 @@ The approach to doing this is by classifying new data points based on the most c
 </ol>
 </div>
 </div>
-<div id="outline-container-org42a9f70" class="outline-3">
-<h3 id="org42a9f70"><span class="section-number-3">8.4.</span> How To Choose K</h3>
+<div id="outline-container-org80322fc" class="outline-3">
+<h3 id="org80322fc"><span class="section-number-3">8.4.</span> How To Choose K</h3>
 <div class="outline-text-3" id="text-8-4">
 <p>
 If \(k\) is too small, it is sensitive to noise points. But if \(k\) is very large, then it might capture outliers. A good rule of thumb is \(K < \sqrt(n)\).
 </p>
 </div>
 </div>
-<div id="outline-container-org5dadaff" class="outline-3">
-<h3 id="org5dadaff"><span class="section-number-3">8.5.</span> Feature Weighting</h3>
+<div id="outline-container-org2b5adbe" class="outline-3">
+<h3 id="org2b5adbe"><span class="section-number-3">8.5.</span> Feature Weighting</h3>
 <div class="outline-text-3" id="text-8-5">
 <p>
 We can assign weights to features by making a vector \(\vec{w}\) which allows us to assign importance to a feature, based on our knowledge(These weights can be determined by cross-validation)
 </p>
 </div>
 </div>
-<div id="outline-container-org14c237a" class="outline-3">
-<h3 id="org14c237a"><span class="section-number-3">8.6.</span> Feature Normalization</h3>
+<div id="outline-container-org6e80a0d" class="outline-3">
+<h3 id="org6e80a0d"><span class="section-number-3">8.6.</span> Feature Normalization</h3>
 <div class="outline-text-3" id="text-8-6">
 <p>
 As is with most other algorithms, normalization prevents features with large numbers from overtaking the distance function.
 </p>
 </div>
 </div>
-<div id="outline-container-org9b36e0c" class="outline-3">
-<h3 id="org9b36e0c"><span class="section-number-3">8.7.</span> Nominal/Categorical Data</h3>
+<div id="outline-container-org32cb9c4" class="outline-3">
+<h3 id="org32cb9c4"><span class="section-number-3">8.7.</span> Nominal/Categorical Data</h3>
 <div class="outline-text-3" id="text-8-7">
 <p>
 Two methods
@@ -1326,24 +1346,24 @@ Two methods
 </ul>
 </div>
 </div>
-<div id="outline-container-org73111c3" class="outline-3">
-<h3 id="org73111c3"><span class="section-number-3">8.8.</span> Imbalanced Data</h3>
+<div id="outline-container-org1224b38" class="outline-3">
+<h3 id="org1224b38"><span class="section-number-3">8.8.</span> Imbalanced Data</h3>
 <div class="outline-text-3" id="text-8-8">
 <p>
 Imbalanced datasets have the consequence of higher values of \(k\) tending to select the majority class instead of the &rsquo;correct&rsquo; class.
 </p>
 </div>
 </div>
-<div id="outline-container-org4b034e1" class="outline-3">
-<h3 id="org4b034e1"><span class="section-number-3">8.9.</span> Distance Weighted Nearest Neighbour Algorithm</h3>
+<div id="outline-container-org8cf5072" class="outline-3">
+<h3 id="org8cf5072"><span class="section-number-3">8.9.</span> Distance Weighted Nearest Neighbour Algorithm</h3>
 <div class="outline-text-3" id="text-8-9">
 <p>
 \[w = \frac{1}{d(x_{q},x_{i})}\]
 </p>
 </div>
 </div>
-<div id="outline-container-orgc1625cb" class="outline-3">
-<h3 id="orgc1625cb"><span class="section-number-3">8.10.</span> Efficient Memory Search</h3>
+<div id="outline-container-org5357a50" class="outline-3">
+<h3 id="org5357a50"><span class="section-number-3">8.10.</span> Efficient Memory Search</h3>
 <div class="outline-text-3" id="text-8-10">
 <ul class="org-ul">
 <li>If we are working with a large dataset, the time cost in computing the distances between a query and all the training instances and retrieving the k nearest neighbors may be prohibitive.</li>
@@ -1364,16 +1384,16 @@ Step 3: Change the distance metric to Manhattan
 </div>
 </div>
 </div>
-<div id="outline-container-orge37b25c" class="outline-2">
-<h2 id="orge37b25c"><span class="section-number-2">9.</span> Decision Tree Classifier</h2>
+<div id="outline-container-org91aabfd" class="outline-2">
+<h2 id="org91aabfd"><span class="section-number-2">9.</span> Decision Tree Classifier</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 This is a rule based classifier
 A decision tree is a tree in which each branch node represents a choice between a number of alternatives, and each leaf node represnets a decision. It is a form of supervised learning
 </p>
 </div>
-<div id="outline-container-org3a7bf3a" class="outline-3">
-<h3 id="org3a7bf3a"><span class="section-number-3">9.1.</span> Entropy, Information Gain</h3>
+<div id="outline-container-org0ae04a5" class="outline-3">
+<h3 id="org0ae04a5"><span class="section-number-3">9.1.</span> Entropy, Information Gain</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 It is a useful concept to speak of decision trees and supervised learning algorithms. Entropy defines the chaos, or randomness, or disorder of a system while information gain is the opposite. It represents order.
@@ -1396,8 +1416,8 @@ Information gain&rsquo;s formula is
 </p>
 </div>
 </div>
-<div id="outline-container-orgc8a84f1" class="outline-3">
-<h3 id="orgc8a84f1"><span class="section-number-3">9.2.</span> Basic Algorithm</h3>
+<div id="outline-container-org9344e1c" class="outline-3">
+<h3 id="org9344e1c"><span class="section-number-3">9.2.</span> Basic Algorithm</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>Choose the &rsquo;best&rsquo; node A</li>
@@ -1409,8 +1429,8 @@ Information gain&rsquo;s formula is
 </ul>
 </div>
 </div>
-<div id="outline-container-org9abdbf6" class="outline-3">
-<h3 id="org9abdbf6"><span class="section-number-3">9.3.</span> Overfitting</h3>
+<div id="outline-container-orgafe98e3" class="outline-3">
+<h3 id="orgafe98e3"><span class="section-number-3">9.3.</span> Overfitting</h3>
 <div class="outline-text-3" id="text-9-3">
 <ul class="org-ul">
 <li>This might happen with too many branches, or outliers
@@ -1431,22 +1451,22 @@ In the prepruning experiment
 </div>
 </div>
 </div>
-<div id="outline-container-org115c492" class="outline-2">
-<h2 id="org115c492"><span class="section-number-2">10.</span> Regression</h2>
+<div id="outline-container-org40324a9" class="outline-2">
+<h2 id="org40324a9"><span class="section-number-2">10.</span> Regression</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Models the relationship between one or more independent or predictor variables and a dependent or response variable.
 </p>
 </div>
-<div id="outline-container-org8f407c6" class="outline-3">
-<h3 id="org8f407c6"><span class="section-number-3">10.1.</span> Metrics</h3>
+<div id="outline-container-org41f0f69" class="outline-3">
+<h3 id="org41f0f69"><span class="section-number-3">10.1.</span> Metrics</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 You use a loss function that measures the squared error in the prediction.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orga93a4dc"></a>Mean Absolute Error<br />
+<li><a id="org7ab82bf"></a>Mean Absolute Error<br />
 <div class="outline-text-5" id="text-10-1-0-1">
 <p>
 Average over the test sample of the differences between prediction and actual observation.
@@ -1455,8 +1475,8 @@ Average over the test sample of the differences between prediction and actual ob
 </li>
 </ol>
 </div>
-<div id="outline-container-org0699225" class="outline-3">
-<h3 id="org0699225"><span class="section-number-3">10.2.</span> Linear Regression</h3>
+<div id="outline-container-orgfab4f84" class="outline-3">
+<h3 id="orgfab4f84"><span class="section-number-3">10.2.</span> Linear Regression</h3>
 <div class="outline-text-3" id="text-10-2">
 <p>
 A model that fits a set of continuous values into a line.
@@ -1472,7 +1492,7 @@ Where \(m\) and \(c\) are known as the regression coefficients.
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="orgc69e908"></a>Method of least squares - Estimates the best-fitting straight line.<br />
+<li><a id="org09b5616"></a>Method of least squares - Estimates the best-fitting straight line.<br />
 <div class="outline-text-5" id="text-10-2-0-1">
 <p>
 \[m = \frac{\sum_{i=1}^{|D|} (x_i - \overline{x})(y_i - \overline{y})}{(\sum_{i=1}^{|D|}x_i - \overline{x})}\]
@@ -1493,32 +1513,32 @@ The cost function used to find this.
 </li>
 </ol>
 </div>
-<div id="outline-container-org3a1e1fb" class="outline-3">
-<h3 id="org3a1e1fb"><span class="section-number-3">10.3.</span> Lasso Regression</h3>
+<div id="outline-container-orgde5cd7d" class="outline-3">
+<h3 id="orgde5cd7d"><span class="section-number-3">10.3.</span> Lasso Regression</h3>
 <div class="outline-text-3" id="text-10-3">
 <p>
 Adds a penalty term which sums the coefficients to the loss function.
 </p>
 </div>
 </div>
-<div id="outline-container-org56b9de5" class="outline-3">
-<h3 id="org56b9de5"><span class="section-number-3">10.4.</span> Ridge Regression</h3>
+<div id="outline-container-org3d61587" class="outline-3">
+<h3 id="org3d61587"><span class="section-number-3">10.4.</span> Ridge Regression</h3>
 <div class="outline-text-3" id="text-10-4">
 <p>
 Adds a penalty term which sums the squares of the coefficients to the loss function.
 </p>
 </div>
 </div>
-<div id="outline-container-org86e3e1d" class="outline-3">
-<h3 id="org86e3e1d"><span class="section-number-3">10.5.</span> ElasticNet</h3>
+<div id="outline-container-org1100e7b" class="outline-3">
+<h3 id="org1100e7b"><span class="section-number-3">10.5.</span> ElasticNet</h3>
 <div class="outline-text-3" id="text-10-5">
 <p>
 Combination of lasso and ridge.
 </p>
 </div>
 </div>
-<div id="outline-container-org08003af" class="outline-3">
-<h3 id="org08003af"><span class="section-number-3">10.6.</span> Logistic Regression</h3>
+<div id="outline-container-orgef12826" class="outline-3">
+<h3 id="orgef12826"><span class="section-number-3">10.6.</span> Logistic Regression</h3>
 <div class="outline-text-3" id="text-10-6">
 <p>
 A regression algorithm that works as a classifier.
@@ -1533,8 +1553,8 @@ A sigmoid function,
 </p>
 </div>
 </div>
-<div id="outline-container-orgedbbada" class="outline-3">
-<h3 id="orgedbbada"><span class="section-number-3">10.7.</span> Regularization</h3>
+<div id="outline-container-org28eb21f" class="outline-3">
+<h3 id="org28eb21f"><span class="section-number-3">10.7.</span> Regularization</h3>
 <div class="outline-text-3" id="text-10-7">
 <p>
 Regularization is a mechanism to avoid overfitting and is particularly employed in regression models which are specially designed to handle high dimensionality data.
@@ -1542,10 +1562,96 @@ Regularization is a mechanism to avoid overfitting and is particularly employed 
 </div>
 </div>
 </div>
+<div id="outline-container-orge530afa" class="outline-2">
+<h2 id="orge530afa"><span class="section-number-2">11.</span> Filter Vs Wrapper Methods</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li>Filter methods select based on the statistical properties</li>
+<li>Ranked independently, using correlation, mutual information</li>
+<li>Wrapper methods use a ML model</li>
+</ul>
+
+<p>
+Note: - Genetic algorithms
+Look into computational intelligence - fuzzy logic, genetic algorithms and pso or particle swarm optimization.
+</p>
+</div>
+</div>
+<div id="outline-container-org46e15f9" class="outline-2">
+<h2 id="org46e15f9"><span class="section-number-2">12.</span> Clustering</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org2c7b060" class="outline-3">
+<h3 id="org2c7b060"><span class="section-number-3">12.1.</span> K-Means Clustering</h3>
+<div class="outline-text-3" id="text-12-1">
+<ol class="org-ol">
+<li>Partition objects into \(k\) nonempty subsets.</li>
+<li>Compute seed points as the centroids of the clusters of the current partitioning (the centroid is the mean of the cluster)</li>
+<li>Assign each object tot the cluster, with the nearest seed point.</li>
+<li>Go to step 2, stop when the assignment does not change.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org757cd36" class="outline-3">
+<h3 id="org757cd36"><span class="section-number-3">12.2.</span> K-Means++</h3>
+<div class="outline-text-3" id="text-12-2">
+<p>
+Initializes centroids by selecting the first centroids randomly, then chooses subsequent centroids based on how far away they are from existing centroids.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfda06db" class="outline-3">
+<h3 id="orgfda06db"><span class="section-number-3">12.3.</span> Hierarchical Clustering</h3>
+<div class="outline-text-3" id="text-12-3">
+<p>
+This uses a distance matrix, it does not require a \(k\), you set a threshold and figure out distances and closeness to cluster related data points together.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdfd974c" class="outline-2">
+<h2 id="orgdfd974c"><span class="section-number-2">13.</span> Ensemble Learning Algorithms</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+Take two or three classifiers and compare their results to optimize the results even further.
+</p>
+</div>
+<div id="outline-container-org1996007" class="outline-3">
+<h3 id="org1996007"><span class="section-number-3">13.1.</span> Simple models</h3>
+<div class="outline-text-3" id="text-13-1">
+<ol class="org-ol">
+<li>Max voting - used for classification, multiple models make predictions, majority vote wins.</li>
+<li>Averaging - self-explanatory, used for regression</li>
+<li>Weighted averaging - also self-explanatory.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgcf2af43" class="outline-3">
+<h3 id="orgcf2af43"><span class="section-number-3">13.2.</span> Strategies</h3>
+<div class="outline-text-3" id="text-13-2">
+<ol class="org-ol">
+<li>Bagging - the three simple models seen until now come under bagging.</li>
+<li>Boosting - involves filtering models with a low probability prediction rate.</li>
+<li>Stacking - automatically calculates the weightage of each</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgf96e841" class="outline-3">
+<h3 id="orgf96e841"><span class="section-number-3">13.3.</span> <span class="todo TODO">TODO</span> look into decision trees for regression, support vector regressors</h3>
+</div>
+</div>
+<div id="outline-container-org875d3a0" class="outline-2">
+<h2 id="org875d3a0"><span class="section-number-2">14.</span> Project</h2>
+<div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-orgfe01d60" class="outline-3">
+<h3 id="orgfe01d60"><span class="section-number-3">14.1.</span> IEEE Report Template</h3>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Adithya Nair</p>
-<p class="date">Created: 2024-09-30 Mon 22:08</p>
+<p class="date">Created: 2024-11-07 Thu 09:28</p>
 </div>
 </body>
 </html>

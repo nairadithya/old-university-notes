@@ -1,5 +1,5 @@
-elementCount = 1;
-nodeCount = 2;
+elementCount = 4;
+nodeCount = 4;
 
 stiffnessGlobal = zeros(nodeCount*2,nodeCount*2);
 forceGlobal = zeros(nodeCount*2,1);
@@ -55,4 +55,3 @@ function pointForce(p,x)
     H = [H1;H2;H3;H4];
     fe = H*p;
 end
-
