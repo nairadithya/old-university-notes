@@ -1,4 +1,3 @@
-
 cvx_begin quiet
 variables x y
 maximize x + y

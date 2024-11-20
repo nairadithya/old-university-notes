@@ -702,6 +702,31 @@ For a function T depending on x and y $$T(x,y)$$: The finite difference approxim
 
 $$\frac{\partial T}{\partial x} = \frac{T(x+h,y)-T(x,y)}{h}$$
 $$\frac{\partial T}{\partial y} = \frac{T(x,y+h)-T(x,y)}{h}$$
+
+** Laplace's Equation
+
+$$u_{xx} + u_{yy} = 0$$
+
+We had an iterative formula for single-variable calculus,
+
+\begin{align*}
+y' &= f(x) \\
+y(x+h) &= y(x) + hf(x) \\
+\end{align*}
+
+\begin{align*}
+y' &= f(x) \\
+y(x+h) &= y(x) + hf(x) \\
+\end{align*}
+
+The equation for evaluating these functions is,
+
+$$T(x,y)  = \frac{T(x+h,y) + T(x-h,y) + T(x,y+h) + T(x,y-h)}{4}$$
+
+This way, by writing the equation for every grid point, we obtain a system of linear equations, that can be solved by the Gauss-Siedel method, to obtain the value of the dependent variable at the grid points.
+
+
+
 * Syllabus For Quiz 3
 1. Convex optimization problem
 2. Lagrangian Multiplier
