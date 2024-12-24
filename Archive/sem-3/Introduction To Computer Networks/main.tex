@@ -1,0 +1,399 @@
+\documentclass[conference,letterpaper]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[OT1]{fontenc}
+\usepackage{pifont}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{threeparttable}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{float}
+\geometry{margin=0.6in}
+\setlength{\extrarowheight}{5pt}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\columnsep = 0.2in
+\usepackage{algorithmicx}
+\usepackage[noend]{algpseudocode}
+\definecolor{realBlue}{HTML}{044d97}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=realBlue,
+    filecolor=magenta,      
+    urlcolor=realBlue,
+    pdftitle={Image Compression Optimisation For General Medical Application},
+    pdfpagemode=FullScreen,
+}
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage[dvipsnames,svgnames]{xcolor, colortbl}
+\newcommand{\etal}{{\em et al.\ }}
+
+\newcommand*{\red}{\textcolor{red}}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\makeatletter
+ \newcommand{\linebreakand}{%
+ \end{@IEEEauthorhalign}
+ \hfill\mbox{}\par
+ \mbox{}\hfill\begin{@IEEEauthorhalign}
+ }
+ 
+ \makeatother
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+
+\title{Image Compression Optimisation For General Medical Application \\
+}\\
+
+\author{
+\IEEEauthorblockN{Shravan Sathiyanarayanan, K Sai Mokshagnya, Himanshi Aggarwal}
+\IEEEauthorblockA{\textit{Department of Computer Science} \textit{and Engineering}  \\
+\textit{Amrita School of Computing, Bangalore} \\
+\href{mailto:bl.en.u4cse23015@bl.students.amrita.edu}{bl.en.u4cse23015@bl.students.amrita.edu} \\
+\href{mailto:bl.en.u4cse23022@bl.students.amrita.edu}{bl.en.u4cse23022@bl.students.amrita.edu} \\
+\href{mailto:bl.en.u4cse23053@bl.students.amrita.edu}{bl.en.u4cse23053@bl.students.amrita.edu} \\ 
+}
+}
+
+\maketitle
+
+\begin{abstract}
+JPEG2000 has proven application in medical imaging. This is because the encoder supports both lossy and lossless compression without affecting the diagnostic quality. Techniques for compression These fall into broad categories of lossless, retaining an exact im age information data compress with trade-off between compressibility efficiency and Acceptable quality loss to the needs of diagnosis. TELEmedicine applications include appli- cations of ROI-based approaches. Prioritize regions of diagnostic interest while permitting greater compression in less critical areas.
+Metrics such as PSNR and SSIM are deemed
+essential for
+image quality assessment post compression, in order that
+diagnosis can be carried out with integrity. Recent developments with
+deep learning have delivered
+a potential adaptive models wherein ROI could be optimized.
+The biggest edge is preserved with a consequential edge. Bandwidth utilization retention
+Concern, as edges play a very important role in diagnostic applicability in
+medical images. Real time applications also require high decoding
+efficiency and extremely low latency allowing for the smooth
+Telemedicine workflows. Bandwidth Optimisation is more critical
+to healthcare data transmissions, particularly within the realm
+of under-resourced settings. Comparative studies of JPEG,
+JPEG2000, and newer standards reveal the trade-offs
+between efficiency and diagnostic quality. These works point
+to the vital role Quality and Performance in Medical Balancing Compression
+of Imaging systems.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Lossless Compression, JPEG2000, Medical Imaging, Diagnostic Quality Preservation, Telemedicine, Bandwidth Optimization, Compression Efficiency, Structural Similarity Index (SSIM), Real-Time Applications, Diagnostic Image Transmission.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Medical Imaging Technology: The foundation of the present day medical practice is medical imaging technology.  It helps in monitoring of the diseases, planning of the treatment, and the diagnosis of different types of illnesses. However, a number of issues related to data transmission, storage, and processing efficiency are brought up by the increasing amount of medical imaging data, including MRI, CT, and X-ray scans. Traditional compression methods for medical images compress them through a lossy compression approach such as JPEG to reduce image fidelity to enable a small size, and this is not appropriate because the pixel may contain important diagnostic information in a clinical point of view.
+
+JPEG 2000 employs a wavelet-based compression scheme. JPEG 2000 makes an impression in the area of lossy and lossless compression modes. For more general medical applications where the exact preservation of images are needed, lossless JPEG 2000 compression turns out to be a promising answer. These algorithms give highly compressed file size with no degradation in diagnostic quality; so these are quite useful in telemedicine, cloud storage, and the reliable transmission of medical data over healthcare networks. JPEG 2000 improves on previous methods with support for both lossless and lossy compression modes. Therefore, in medical applications, broadly classified, which require full pixels of the image to be saved, lossless JPEG 2000 compression would be the best solution. It would compress the file sizes without any dent in the diagnostic quality, thus making it suitable for telemedicine or cloud storage or effective data transmission in health networks.
+
+This paper optimizes the use of JPEG 2000 toward general medical imaging with the quality set for high compression ratios and simultaneously high image quality. Here, the proposed method addresses two distinct challenges together: lowering storage requirements and enhancing transmission speeds. The approach will hold under strict rigid constraints that are essentially posed by fidelity of medical images and DICOM compliance. The paper takes extensive experiments to evaluate the impact of the proposed compression technique on key quality metrics in images, such as Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM), and compression efficiency. Interestingly, research highlights the potential that the optimised JPEG 2000 has to revolutionise medical image management systems, enhancing workflows and therfore boosting clinical results in remote healthcare settings.
+
+\section{Literature Review}
+Recent years have seen major advancements in medical picture compression, especially in the optimisation of JPEG 2000 lossless compression. Because JPEG 2000 is wavelet-transform based and offers good compression without appreciably deteriorating images, it is a useful tool for medical image interpretation, transmission, and storage .
+
+Arthur et al. \cite{b1} mentioned an optimized JPEG 2000 procedure that provided promise in the applications of telemedicine, not only through the reduction of storage but also due to the preservation of diagnostic quality of the images. Their results demonstrated the possibility of effectively reducing file sizes without significant deterioration in the quality of images and are thus applicable to remote healthcare environments.
+
+In fact, Bharti et al. \cite{b2} compared several compression techniques for MRI and CT images and concluded that JPEG 2000, in particular in its lossless mode, holds on to all important diagnostic details even with fairly high compression rates.
+
+Beside that, Besar and Oh et al. \cite{b3} also discuss the advantages of wavelet compression techniques, such as JPEG 2000, as compared to DCT that apart from being more efficient when compressed combined with optimization techniques like ADMM, they offer better image quality as well.
+
+Marwan and Kartit \cite{b4} focused on the use of JPEG 2000 in cloud storage and transmission for the medical image, where they demonstrate that because of the scalable and lossless compression mode, it is appropriate for the health care system at cloud level.
+
+Rowberg et al. \cite{b5} continued to investigate in JPEG 2000 capabilities, particularly in medical image databases, with the issue of reduction of storage using minimal loss in fidelity, optimum for archival use.
+
+Besides, Preethy and Sumbur et al. \cite{b6} introduced a hybrid approach of compressing images to be used in remote diagnosis combining JPEG 2000 with compressed sensing. This hybrid technique demonstrated that it significantly reduces data transmission times and also the storage requirements without potentially leading to losses in terms of diagnostic accuracy.
+
+Additionally, the findings of Foos et al. \cite{b7} towards using JPEG 2000 for decreasing computational loads in diagnostic imaging systems indicated the efficiency of compression, which would be good enough to make fast processing capable for use in real-time applications.
+
+Schomer et al. \cite{b8} have focused on the contribution of wavelet-based compression techniques in the improvement of medical images, particularly in MRI and CT scans, where fine details are the important factors for proper diagnosis. Last but not least, considering recent trends in deep learning techniques, compression methods for medical images also received interest recently.
+
+Urbaniak et al. \cite{b9} in one of their studies reported that the deep neural networks on JPEG 2000 will compress an image tightly, thereby reducing file size and quality for telemedicine applications. Traditional compression combined with modern machine learning techniques will open up new avenues for in real-time medical image transmission and storage. 
+
+\section{Methodology}
+This study focuses on several transform techniques and various optimization algorithms in order to maximize the compression of an image without qualitatively impairing it. Thereby, the focus is set on general medical images in which an image has to be compressed without compromising the ROI.
+
+\subsection{Dataset Preparation}
+A collection of images related to the medical case, for instance MRI images, CT scans, and X-rays, are selected for evaluation. Data preprocessing is achieved by resizing data and normalizing images so that the entire process of assessment can be standardized.
+
+\subsection{Compression Implementation}
+The JPEG 2000 compression algorithm operates in lossless mode. The principal parameters are adjusted and optimized-in this case including the code block size, wavelet decomposition levels, and also quantization factors.
+
+\subsection{Performance Metrics}
+The compressed images are evaluated based on constraints like Peak Signal to Noise Ratio (PSNR), Structural Similarity Index (SSIM), and Compression Ratio (CR) that are used to compare the quality of the compressed images for the trade-off between quality and efficiency of compression.
+
+\subsection{Experimental Setup}
+
+\subsubsection{Input}
+The input that is to be given to the algorithm is the medical image that you want to compress.
+
+\subsubsection{Process}
+Compression is performed using JPEG 2000, and the results are being compared with the original images.
+
+\subsubsection{Output}
+The output that is given to us is the compressed images and their respective quality metrics.
+
+\subsection{Optimization Process}
+The algorithm is trained through the application of grid search so as to optimize iteratively and find out the best balancing parameter configuration between compression efficiency and diagnostic quality.
+
+\subsection{Validation}
+The method is tested on an independent set of images to ensure consistent performance across different imaging parameters and conditions.
+
+\subsection{DICOM Compliance Testing}
+The compressed images are then checked for conformance to the Digital Imaging and Communications in Medicine (DICOM) standard as an assurance that they will be compatible with the medical systems.
+
+This detailed process ensures the advanced JPEG 2000 compression method is effective and applicable for different medical imaging applications.
+
+To ensure that the compressed photos resulting from the above process are compatible with healthcare systems, their compatibility is checked against the DICOM standard. . 
+
+\section{FORMULATION}
+\subsection{ Problem Statement}
+
+The problem of medical image compression is a multi-objective problem requiring balances of several important factors: reduction in the size of the file, Preservation of ROI, reduction in bandwidth, and preservation of quality for diagnostics. Three main objectives are listed below.
+
+1. Minimize File Size: Reduce storage and transmission overheads.
+2. Optimize the Performance in Telemedicine: Telemedicine applications should not be latency or bandwidth-intensive.
+3. Optimize Diagnostic Quality:Retain the following ROIMaximum amount of information as possible:EdgesStructural information to support clinical decision-making.
+
+\subsection{Objective function and constraints}
+
+\subsubsection{Objective 1:}  Minimize the size of the file with Diagnostic Quality Preservation
+
+Minimize:
+\[
+S_{\text{compressed}}
+\]
+    subject to:
+\[
+D_{\text{ROI}} \leq D_{\text{ROI threshold}}
+\]
+    where:
+
+- \( S_{\text{compressed}} \) is the size of the compressed image.
+
+- \( D_{\text{ROI}} = \sum_{i \in \text{ROI}} \left| I_{\text{original}}(i) - I_{\text{compressed}}(i) \right| \): Total                   distortion within the Region of Interest (ROI).
+
+- \( D_{\text{ROI threshold}} \): Predefined distortion threshold.
+
+Constraints:
+
+1. Compression Ratio (\( C_r \)):
+   \[
+   1 \leq C_r = \frac{S_{\text{original}}}{S_{\text{compressed}}} \leq 10
+   \]
+   where \( S_{\text{original}} \) is the size of the original image, and \( S_{\text{compressed}} \) is the size of the compressed image.
+
+2. Peak Signal-to-Noise Ratio (P):
+   \[
+   \text{P} \geq 30 \, \text{dB}
+   \]
+   The P is calculated as:
+   \[
+   \text{P} = 10 \log_{10} \left( \frac{I_{\text{max}}^2}{\text{MSE}} \right)
+   \]
+   where \(I_{\text{max}} \) is the maximum pixel value (255 for 8-bit images), and MSE is the Mean Squared Error between the original and compressed images.
+
+
+ \subsubsection{Objective 2} Maximize Compression Efficiency for Telemedicine
+
+Minimize Bandwidth:
+\[
+B = \frac{S_{\text{compressed}}}{T_{\text{transmission}}}
+\]
+where:
+
+- \( B \) is the bandwidth required for transmitting the compressed image.
+
+- \( S_{\text{compressed}} \) is the size of the compressed image.
+
+- \( T_{\text{transmission}} \) is the transmission time.
+
+Minimize Latency:
+\[
+L = T_{\text{dec}} + T_{\text{display}}
+\]
+where:
+
+- \( L \) is the total latency.
+
+- \( T_{\text{dec}} \) is the time required to decode the image.
+
+- \( T_{\text{display}} \) is the time required to display the image.
+
+
+Constraints:
+
+1. Latency:
+   \[
+   L \leq L_{\text{max}}
+   \]
+   where \( L_{\text{max}} \) = 200ms, is the maximum allowable latency for time-sensitive medical applications.
+
+2. Transmission and Decoding Time:
+   \[
+   T_{\text{t}}, T_{\text{dec}} \leq T_{\text{max}}
+   \]
+   where \( T_{\text{max}} \)= 100ms, is the maximum permissible time for transmission and decoding.
+
+
+ \subsubsection{Objective 3} Maximize Image Quality for Diagnostic Purposes
+
+Maximize Edge Similarity:
+\[
+E_{\text{similarity}} = \frac{\sum_{i \in \text{edges}} \left| \nabla I_{\text{original}}(i) - \nabla I_{\text{compressed}}(i) \right|}{\sum_{i \in \text{edges}} \left| \nabla I_{\text{original}}(i) \right|}
+\]
+where:
+
+- \( E_{\text{similarity}} \) quantifies the preservation of edge details.
+
+- \( \nabla I_{\text{original}}(i) \) and \( \nabla I_{\text{compressed}}(i) \) are the gradient magnitudes (edge information) at pixel \( i \) in the original and compressed images, respectively.
+
+- \( \text{edges} \) refers to the set of pixels that contain important diagnostic information which is mostly the edges or boundaries of organs and lesions.
+
+
+Constraints:
+
+1. Structural Similarity Index (SSIM):
+   \[
+   \text{SSIM} \geq 0.75
+   \]
+   where SSIM measures the similarity in structure between the original and compressed images.
+
+2. ROI Quality:
+   \[
+   Q_{\text{ROI}} \geq Q_{\text{diagnosis threshold}}
+   \]
+   where \( Q_{\text{ROI}} \) is the quality of the Region of Interest, and \( Q_{\text{diagnosis threshold}} \) = 0.75, is the minimum acceptable quality for diagnostic purposes, often determined by medical professionals.
+
+
+
+
+\section{Results}
+
+In this section, we present the compression results obtained using the optimized JPEG 2000 method for medical imaging applications. The experiment mainly addresses the compression of medical images with a size that is diagnostically recognizable, specifically images of size 39 KB. To evaluate these methods, we apply the constraints like Compression Ratio, Compression Efficiency, Peak Signal-to-Noise Ratio (P), and Structural Similarity Index (SSIM).
+
+\subsection{Image Samples}
+The Original image was sourced from  \href{https://pydicom.github.io/pydicom/stable/tutorials/dataset_basics.html#reading}{[10]} \\
+Original Image: The original medical image, shown in Fig. \ref{fig:original_image.png}, has a file size of 39 KB. It was carefully selected to ensure the inclusion of important diagnostic features that must be preserved after compression.
+
+Compressed Image: After applying the JPEG 2000 compression in lossless mode, the compressed version of the image, shown in Fig. \ref{fig:compressed_image_paper.png}, reduced the file size to 20 KB. The compression was performed without compromising the image's diagnostic quality, maintaining all critical details and preserving the region of interest (ROI).
+
+\subsection{Compression Metrics}
+
+The following parameters were used to assess the effectiveness of the compression algorithm:
+
+Original File Size: 39,206 bytes
+    
+Compressed File Size: 20,136 bytes
+    
+Compression Ratio: The compression ratio was calculated as the ratio of the original file size to the compressed file size:
+\[
+\text{Compression Ratio} = \frac{\text{Original Size}}{\text{Compressed Size}} = \frac{39,206}{20,136} = 1.95
+\]
+This indicates that the compressed image is nearly half the size of the original, achieving a compression ratio of 1.95.
+
+Compression Efficiency: The compression efficiency is deemed Effective. This reflects the ability of the JPEG 2000 compression to significantly reduce the file size while preserving diagnostic quality.
+
+Peak Signal to Noise Ratio (PSNR): The PSNR value was infinite (PSNR = $\infty$ dB), indicating that the compression algorithm perfectly preserved the quality of the image, as no loss in pixel information occurred due to the lossless compression mode.
+
+Structural Similarity Index (SSIM): The SSIM value was 1.0000, which signifies that the compressed image is structurally identical to the original image. This means there is no significant difference in terms of the structural integrity of the image, including edges, textures, and regions of interest.
+
+\subsection{Comparison}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{original_image.png}
+    \caption{Original Image (39 KB)}
+    \label{fig:original_image.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{compressed_image_paper.png}
+    \caption{Compressed Image (20 KB)}
+    \label{fig:compressed_image_paper.png}
+\end{figure}
+
+The images in Fig. \ref{fig:original_image.png} and Fig. \ref{fig:compressed_image_paper.png} demonstrate the effectiveness of the JPEG 2000 compression. Both images show identical features, and the compression does not lead to any noticeable degradation in quality, which is critical for medical diagnostics.
+
+
+\section{Conclusion}
+
+The compression thus achieved shows that JPEG 2000 is indeed compressible in the lossless mode without loss of essential details required in diagnosis for medical images. The ratio obtained was about 1.95, allowing a file size reduction of nearly three-fourth without compromising the structural similarity between the original and compressed images. This has been reflected by the infinite PSNR and SSIM value of 1.0000. These results illustrate the prospect of using optimized JPEG 2000 for enhanced efficiency in the storage and communication of medical image quality without loss 
+This multi-objective optimization framework for medical image compression therefore presents an efficient solution to some of the most pressing challenges in modern healthcare, especially in the telemedicine and remote diagnostics context. In such a way, it will effectively balance the file size reduction with the preservation of critical diagnostic information without losing the nature of the required image quality in relation to data storage and transmission. These objectives, which include compression size minimization for a compressed image, maintaining region of interest, bandwidth and latency optimization for telemedicine applications in real-time, and edge preservation for diagnostic clarity, are carefully set up by considering technical and clinical requirements. Including rate constraints in preserving an acceptable Peak Signal-to-Noise Ratio (P), Structural Similarity Index (SSIM), and also ensuring the compression ratio is within the feasible limits ensures that the compress does not degrade the quality of the image beyond the acceptance thresholds for clinical use. At the same time, emphasis on edge similarity and structural preservation, critical in the medical fields like boundaries between organs or lesions, is capable of providing all the information critical for a correct diagnosis. Thus, this framework, while consistently meeting the challenging technical requirements in the context of efficient image transfer and storage, also enhances practical telemedicine feasibility by providing fast, high-quality image exchange between remote locations. The outcome would then be methodology supportive of real-time clinical decision-making with enhanced rapidity of diagnosis and ultimately improved outcomes in patients. At this time, the proposed approach may avail itself a good potential to translate  the field of medical imaging in light of its capability to be rather adaptable and efficient and used even more flexibly in various health settings.
+
+\section{Future Scope}
+
+Some of the frontiers in which JPEG 2000 will be applied in the near future include very critical areas of research and development. Thus, with increasing rapidity in the realm of artificial intelligence and deep learning, a promising direction for the application of JPEG 2000 compression is by incorporating machine learning algorithms. Deep learning models could thus be used to predict and compress image data in a way that maximizes the retention of diagnostic features while minimizing file sizes. Future research would be on hybrids combining lossless compression with neural network enhancements to further enhance the quality and efficiency of the compressed image.
+
+As telemedicine and remote health services continue to improve, so does the need for low-latency real-time compression. Pre-optimizing a JPEG 2000 solution for real-time without losing diagnoses can provide a lot of improvement in the treatment and patient diagnosis of home care and telemedicine. Future work scope would include optimizing JPEG 2000 compression techniques so that the latency period reduces and can be used for real-time transmission of large medical image datasets in low-bandwidth environments. Medical imaging systems usually capture data across several modalities such as MRI, CT, X-rays, and PET scans.  Future research may focus on optimizing JPEG 2000 compression for multi-modal imaging to ensure that the compression methods can manage the special challenges each image type imposes. This may be beneficial for a more robust and efficient system for storing and transmitting multimodal medical images.
+
+As 3D and 4D imaging are increasingly utilized in sophisticated diagnostic imaging applications, such as functional MRI and dynamic imaging, the ability to compress large volumetric datasets with preservation of critical spatial and temporal information becomes an increasingly important issue. Future work may be extended to incorporate JPEG 2000 with appropriate treatment for 3D and 4D datasets, thus allowing high-quality compression for even more sophisticated imaging techniques. 
+
+Since sensitive patient data may be involved, secure transmission and storage of medical images are necessary. In the future, JPEG 2000 can be integrated with blockchain technology to ensure that compressed medical images transmitted have integrity, are private, and are secure. Decentralized solutions for authenticating and tracking medical images throughout their lifecycle could be introduced through blockchain, such as in medical image management systems.
+
+Adaptive compression techniques, which change the compression level dynamically according to the content of the image and the particular requirements of the diagnostic process, will be of pivotal interest in future research. In certain diagnostics, such as MRI imaging, more critical regions of an image with tumors, may require greater compression quality than background areas; hence, developing algorithms that change compression parameters dynamically will increase both efficiency and reliability in diagnosis.
+
+As medical imaging starts to generate ever-larger datasets, the need for more efficient lossless compression algorithms is increasing. Lossless compression enhancement in JPEG 2000 could be the focus of future work, which would assure the integrity of large datasets while reducing storage and transmission requirements.
+Such developments will ensure more efficient and high-quality management of medical images and, in turn, benefit diagnosis and patient care.
+
+\section{Acknowledgment}
+We would like to take this opportunity to thank our professor and mentor, Ms. Mamatha T.M. She has guided us throughout this project with immense support and encouragement that has assured us that a proper approach was being developed to optimize the image compression in the medical field while maintaining the Region of Interest (ROI). The insights and dedication she brought into this subject greatly enriched our understanding of the topic, thus enabling us to approach advanced methodologies like quantization and gain meaningful results from them. We thank her for her guidance, which is crucial to the result in this work.\href{https://aseblr-my.sharepoint.com/:f:/g/personal/bl_en_u4cse23053_bl_students_amrita_edu/EoBQkj1sX41OnATeKMNuWaoBVwaYSTVmQtu9JLaZzlB1cA?e=U23Ujh}{ OT-Code} \\
+
+
+\begin{thebibliography}{00}
+
+\bibitem{b1}A. Arthur and V. Saravanan, "Efficient medical image compression technique for telemedicine considering online and offline application," 2012 International Conference on Computing, Communication and Applications, Dindigul, India, 2012, pp. 1-5, doi: 10.1109/ICCCA.2012.6179212.
+
+\href{https://ieeexplore.ieee.org/abstract/document/6179212}{https://ieeexplore.ieee.org/abstract/document/6179212}
+
+\bibitem{b2}P. Bharti, S. Gupta and R. Bhatia, "Comparative Analysis of Image Compression Techniques: A Case Study on Medical Images," 2009 International Conference on Advances in Recent Technologies in Communication and Computing, Kottayam, India, 2009, pp. 820-822, doi: 10.1109/ARTCom.2009.88.
+
+\href{https://ieeexplore.ieee.org/abstract/document/5328178}{https://ieeexplore.ieee.org/abstract/document/5328178}
+
+\bibitem{b3}Oh, T.H. and Besar, R., 2002. Medical image compression using JPEG-2000 and JPEG: A comparison study. Journal of Mechanics in Medicine and Biology, 2(03n04), pp.313-328.
+
+\href{https://www.worldscientific.com/doi/abs/10.1142/S021951940200054X}{https://www.worldscientific.com/doi/abs/10.1142/S021951940200054X}
+
+\bibitem{b4}M. Marwan, A. Kartit and H. Ouahmane, "A secure framework for medical image storage based on multi-cloud," 2016 2nd International Conference on Cloud Computing Technologies and Applications (CloudTech), Marrakech, Morocco, 2016, pp. 88-94, doi: 10.1109/CloudTech.2016.7847683.
+
+\href{https://ieeexplore.ieee.org/abstract/document/7847683}{https://ieeexplore.ieee.org/abstract/document/7847683}
+
+\bibitem{b5}A. Agarwal, A. H. Rowberg and Yongmin Kim, "Fast JPEG 2000 decoder and its use in medical imaging," in IEEE Transactions on Information Technology in Biomedicine, vol. 7, no. 3, pp. 184-190, Sept. 2003, doi: 10.1109/TITB.2003.813789.
+
+\href{https://ieeexplore.ieee.org/abstract/document/1229856}{https://ieeexplore.ieee.org/abstract/document/1229856}
+
+\bibitem{b6}A. Preethy Byju, G. Sumbul, B. Demir and L. Bruzzone, "Remote-Sensing Image Scene Classification With Deep Neural Networks in JPEG 2000 Compressed Domain," in IEEE Transactions on Geoscience and Remote Sensing, vol. 59, no. 4, pp. 3458-3472, April 2021, doi: 10.1109/TGRS.2020.3007523.
+
+\href{https://ieeexplore.ieee.org/abstract/document/9144368}{https://ieeexplore.ieee.org/abstract/document/9144368}
+
+\bibitem{b7}Foos, D.H., Muka, E., Slone, R.M., Erickson, B.J., Flynn, M.J., Clunie, D.A., Hildebrand, L., Kohm, K.S. and Young, S.S., 2000, May. JPEG 2000 compression of medical imagery. In Medical Imaging 2000: PACS Design and Evaluation: Engineering and Clinical Issues (Vol. 3980, pp. 85-96). SPIE.
+
+\href{https://www.spiedigitallibrary.org/conference-proceedings-of-spie/3980/0000/JPEG-2000-compression-of-medical-imagery/10.1117/12.386390.short}{https://www.spiedigitallibrary.org/conference-proceedings-of-spie/3980/0000/JPEG-2000-compression-of-medical-imagery/10.1117/12.386390.short}
+
+\bibitem{b8}Schomer, D.F., Elekes, A.A., Hazle, J.D., Huffman, J.C., Thompson, S.K., Chui, C.K. and Murphy Jr, W.A., 1998. Introduction to wavelet-based compression of medical images. Radiographics, 18(2), pp.469-481.
+
+\href{https://pubs.rsna.org/doi/abs/10.1148/radiographics.18.2.9536490}{https://pubs.rsna.org/doi/abs/10.1148/radiographics.18.2.9536490}
+
+\bibitem{b9}Urbaniak, I.A., 2024. Using Compressed JPEG and JPEG2000 Medical Images in Deep Learning: A Review. Applied Sciences, 14(22), p.10524.
+
+\href{https://www.mdpi.com/2076-3417/14/22/10524}{https://www.mdpi.com/2076-3417/14/22/10524}
+
+\bibitem{b10} Python docs for Dicom image handling.
+
+\href{https://www.mdpi.com/2076-3417/14/22/10524}{https://pydicom.github.io/pydicom/stable/tutorials/dataset_basics.html#reading}
+
+\end{thebibliography}
+
+\end{document}

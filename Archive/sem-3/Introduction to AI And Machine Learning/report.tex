@@ -1,0 +1,117 @@
+# Methodology and Proposed Architecture
+
+\section{Data Collection and Preprocessing}
+
+\subsection{Video Data Acquisition}
+Our methodology began with collecting a comprehensive dataset of American Sign Language (ASL) phrase videos. The dataset was organized into labeled folders, with each subfolder representing a specific ASL phrase. This structured approach enabled systematic training and evaluation of our gesture recognition model.
+
+\subsection{Landmark Extraction Methodology}
+We employed MediaPipe's holistic model (`mp.solutions.holistic.Holistic`) for landmark detection, which provides a robust framework for simultaneously extracting:
+- Pose landmarks
+- Left hand landmarks
+- Right hand landmarks
+
+The landmark extraction process involved the following key steps:
+1. Frame conversion to RGB color space
+2. Processing images through the holistic model
+3. Extracting [x, y, z] coordinates for each landmark
+4. Implementing zero-padding for undetected landmarks to maintain consistent input dimensions
+
+\section{Data Preprocessing and Transformation}
+
+\subsection{Label Encoding}
+To prepare the data for machine learning model training, we implemented two critical encoding techniques:
+- Label Encoding: Mapped unique ASL phrase strings to numeric values
+- One-Hot Encoding: Transformed numeric labels into vector representations suitable for multi-class classification
+
+\subsection{Data Splitting}
+We utilized a standard 80:20 train-test split to ensure robust model validation. This approach allows for comprehensive model training while maintaining a dedicated subset for performance evaluation.
+
+\section{Proposed Neural Network Architecture}
+
+\subsection{Model Configuration}
+Our proposed deep neural network comprises four distinct layers:
+\begin{itemize}
+\item \textbf{\textbf{Layer 1}}: First LSTM Layer
+\begin{itemize}
+\item Captures temporal dependencies in gesture sequences
+\item Processes landmark coordinate time series data
+\end{itemize}
+
+\item \textbf{\textbf{Layer 2}}: Second LSTM Layer
+\begin{itemize}
+\item Further refines temporal feature extraction
+\item Enables complex pattern recognition across gesture frames
+\end{itemize}
+
+\item \textbf{\textbf{Layer 3}}: Dense Layer with ReLU Activation
+\begin{itemize}
+\item Introduces non-linear transformation
+\item Enhances model's ability to learn complex, non-linear relationships
+\end{itemize}
+
+\item \textbf{\textbf{Layer 4}}: Output Dense Layer with Softmax Activation
+\begin{itemize}
+\item Generates probabilistic predictions across ASL phrase classes
+\item Enables multi-class classification with confidence scores
+\end{itemize}
+\end{itemize}
+
+\subsection{Input Data Reshaping}
+To accommodate LSTM requirements, we reshaped input data to the format (samples, time_steps, features):
+\begin{itemize}
+\item time\textsubscript{steps} = 1 (each sample treated as a single frame)
+\item features = landmark coordinates
+\end{itemize}
+
+\section{Training Procedure}
+
+\subsection{Hyperparameters}
+\begin{itemize}
+\item \textbf{\textbf{Epochs}}: 250
+\item \textbf{\textbf{Evaluation Metric}}: Accuracy
+\item \textbf{\textbf{Activation Functions}}:
+\begin{itemize}
+\item ReLU (hidden layers)
+\item Softmax (output layer)
+\end{itemize}
+\end{itemize}
+
+\subsection{Model Training Process}
+The training procedure involved:
+\begin{enumerate}
+\item Feeding preprocessed landmark data
+\item Iterative weight optimization
+\item Continuous performance evaluation
+\item Model parameter adjustment
+\end{enumerate}
+
+\section{Real-Time Inference Architecture}
+
+\subsection{Inference Pipeline}
+Our real-time gesture recognition system leverages:
+\begin{itemize}
+\item OpenCV for webcam feed management
+\item MediaPipe holistic model for landmark detection
+\item Trained LSTM model for gesture classification
+\end{itemize}
+
+\subsection{Inference Workflow}
+\begin{enumerate}
+\item Capture video frame from webcam
+\item Extract body and hand landmarks
+\item Preprocess landmarks
+\item Reshape for LSTM input
+\item Generate prediction
+\item Display predicted ASL phrase and confidence score
+\end{enumerate}
+
+\section{Technical Considerations}
+
+\subsection{Landmark Visualization}
+We integrated landmark visualization capabilities to:
+\begin{itemize}
+\item Provide visual feedback during inference
+\item Enable debugging and system performance assessment
+\item Enhance user interaction with the recognition system
+\end{itemize}

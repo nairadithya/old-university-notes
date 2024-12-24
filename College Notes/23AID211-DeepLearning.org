@@ -1,0 +1,10 @@
+#+title: 23AID211 Deep Learning
+#+author: Adithya Nair
+
+* Syllabus :noexport:
+** Unit 1
+Introduction to neural networks – Gradient Descent Algorithm - Deep Neural Networks (DNN) –Convolutional Neural Network (CNN) – Recurrent Neural Network (RNN): Long-Short- Term-Memory (LSTM).
+** Unit 2
+Pre-processing: Noise Removal using deep learning algorithms - Feature Extraction - Signal Analysis: Time Series Analysis, CNNs, Auto encoders.
+** Unit 3
+Image Analysis: Transfer Learning, Attention models- Ensemble Methods for Signal and Image Analysis.

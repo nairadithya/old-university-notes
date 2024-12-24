@@ -1,0 +1,10 @@
+#+title: 23AID214 Database Management Systems
+#+author: Adithya Nair
+
+* Syllabus :noexport:
+** Unit 1
+Introduction: Overview of DBMS fundamentals – Overview of Relational Databases and Keys. Relational Data Model: Structure of relational databases – Database schema – Formal Relational Query Languages – Overview of Relational Algebra and Relational Operations. Database Design: Overview of the design process - The E-RModels – Constraints - Removing Redundant Attributes in Entity Sets - E-R Diagrams - Reduction to Relational Schemas - Entity Relationship Design Issues - Extended E-R Features – Alternative E-R Notations – Overview of Unified Modelling Language (UML).
+** Unit 2
+Relational Database Design: Features of Good Relational Designs - Atomic Domains and 1NF – Decomposition using Functional Dependencies: 2NF, 3NF, BCNF and Higher Normal Forms. Functional Dependency Theory - Algorithm for Decomposition – Decomposition using multi-valued dependency: 4NF and 4NF decomposition. Database design process and its issues. SQL: review of SQL – Intermediate SQL – Advanced SQL.
+** Unit 3
+Transactions: Transaction concept – A simple transaction model - Storage structure - Transaction atomicity and durability - Transaction isolation – Serializability – Recoverable schedules, Casecade less schedules. concurrency control: Lock-based protocols – Locks, granting of locks, the two-phase locking protocol, implementation of locking, Graph-based protocols. Deadlock handling: Deadlock prevention, Deadlock detection and recovery. Case Study: Different types of high-level databases – MongoDB, Hadoop/Hbase, Redis, IBM Cloudant, Dynamo DB, Cassandra and Couch DB etc. Tips for choosing the right database for the given problem.
