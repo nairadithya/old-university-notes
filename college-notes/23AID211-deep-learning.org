@@ -1,7 +1,6 @@
 #+title: 23AID211 Deep Learning
 #+author: Adithya Nair
 #+OPTIONS: toc:nil
-#+EXPORT_FILE_NAME: exports/23AID211-deep-learning
 
 * Syllabus :noexport:
 ** Unit 1

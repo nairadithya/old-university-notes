@@ -1,12 +1,3 @@
 #+title: Example Note
 #+author: Adithya Nair
 #+OPTIONS: toc:nil
-
-* This Is A Test Heading
-
-** This is a second test
-alskdfjadsklfjasldk
-lkasjfaklsdfjalksdfj
-#+begin_src python
-import something
-#+end_src

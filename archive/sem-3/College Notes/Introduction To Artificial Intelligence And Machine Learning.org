@@ -1,0 +1,776 @@
+#+title:Introduction To Artificial Intelligence And Machine Learning.
+#+AUTHOR: Adithya Nair
+#+LATEX_HEADER: \usepackage[tmargin=2cm,rmargin=0.5in,lmargin=0.5in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+#+EXPORT_FILE_NAME: exports/AIML.html
+* Iris Data Classification
+
+#+begin_src python :results output results: output
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+irisdata = pd.read_csv('iris.csv')
+
+test, train = train_test_split(irisdata, train_size=0.8, test_size=0.2)
+
+print(np.size(test))
+print(np.size(train))
+print(irisdata.describe())
+#+end_src
+
+* Overview
+** Some Terms Used
+- Regression - Continuous numbers as output
+- Classification - Discrete classes as output
+- Binary classification - two classes treated differently.
+- Overfitting - Good performance on the training data, poor generalization to other
+  Solvable by:
+  - Cross-validation
+  - Data augmentation
+  - Feature selection
+  - Ensemble techniques
+- Underfitting - Poor performance on the training data and poor generalization to other data(test data).
+  - qualitatively or quantitatively poor data.
+  - Bad algorithm for the job
+  - Remedy is to add more features
+- Multi-class classification - Multiple classes treated differently.
+** Types Of Machine Learning
+*** Supervised Learning
+Supervised learning has a defined mapping from input to output, it learns this mapping from paired input/output data examples.
+**** Regression
+Regression arrives at an approximation curve or function that aligns itself to the discrete data points as closely as possible.
+To find the error, we add up the square of the distance of the data points to the closest point on the curve and that gives us the *mean-squared error.*
+Neural networks, support vector regressor, linear regression
+*** Unsupervised Learning
+Models that learn about a dataset without labels.
+This includes
+**** Clustering
+Grouping of data points to automatically create classes for them
+**** Finding outliers
+Done using SVM, Autoencoders
+**** Dimensionality reduction
+Done using Principal Component Analysis.
+*** Reinforcement Learning
+Reinforcement Learning involves giving a model:
+- A set of states
+- A set of actions
+- A set of rewards
+- A goal: taking actions to change the state to receive the reward.
+
+  This type of model doesn't get any data, it explores the environment to gather data.
+*** Deep Learning
+Deep learning is a subset of ML.
+It involves the use of neural networks, which consist of nodes and statistical relationships between nodes to model the way our mind works.
+
+One layer gives us approximate predictions, adding additional layers refines the model's capability. A "Deep" neural network is a network with more than 3 layers.
+** AI Use Cases
+*** Image Classification
+Convolutional Neural Networks
+*** Text Classification
+Naive Bayes, Support Vector Machines
+*** Handwriting Recognition
+Convolution Neural Networks
+Long Short-Term Memory Networks
+** Steps In Implementing An AI Model
+*** Problem identification
+This is done by researching
+- Experts in the field
+- Personal experience
+- Literature survey
+- Data curation
+*** Data Curation
+- Data collection in person
+- Public repos
+- Private repos
+- Simulated data
+- Synthetic data
+*** Pre-processing
+*** Selection of AI models based on the data
+- Figure out whether the problem is a regression or a classification problem.
+- Figure out the computational capacity
+- Try various models for best fit.
+*** Training and tuning the model - A train/test split or a train/validation/testing split.
+- The data is separated out into training and testing.
+- The training subset is passed onto the chosen AI model.
+- Validation is done because it prevents overfitting.
+- The model should generalize.
+*** Testing the developed model
+- Choose evaluation metrics based on the model.
+  - Regresssion can involve MSPE, MSAE, $R^2$
+- Test the data.
+*** Analysis of the results
+*** Re-iterate as needed
+*** Deploy model.
+* Pre-Processing
+** Handling Missing Values (Imputation)
+When the no. of missing values in a feature or on a whole in a dataset, is beyond a certain percentage. It might lead to wrong interpretations and might misguide the ML models.
+Hence it is essential to handle the missing values.
+*** CREATING A DATAFRAME
+
+#+begin_src python :results output :results output :session Titanic
+import pandas as pd
+import numpy as np
+
+# Load the Titanic dataset
+df = pd.read_csv('code/titanic.csv')
+
+# Display the first few rows of the dataset
+print("First few rows of the dataset:")
+print(df.head())
+#+end_src
+
+#+RESULTS:
+: First few rows of the dataset:
+:    PassengerId  Survived  Pclass                                               Name     Sex   Age  SibSp  Parch            Ticket     Fare Cabin Embarked
+: 0            1         0       3                            Braund, Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN        S
+: 1            2         1       1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0          PC 17599  71.2833   C85        C
+: 2            3         1       3                             Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250   NaN        S
+: 3            4         1       1       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1      0            113803  53.1000  C123        S
+: 4            5         0       3                           Allen, Mr. William Henry    male  35.0      0      0            373450   8.0500   NaN        S
+
+This dataset is not complete, Cabin and Age have values that are unfilled. We can verify this here.
+
+#+begin_src python :results output :session Titanic
+# Identify missing values
+print("\nMissing values in each column:")
+print(df.isnull().sum())
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Missing values in each column:
+PassengerId      0
+Survived         0
+Pclass           0
+Name             0
+Sex              0
+Age            177
+SibSp            0
+Parch            0
+Ticket           0
+Fare             0
+Cabin          687
+Embarked         2
+dtype: int64
+#+end_example
+*** There are two main methods in dealing with missing values.
+1. Dropping rows with missing values.
+2. Filling the empty missing values with zeros.
+#+begin_src python :results output :session Titanic
+# Method 1: Drop rows with missing values
+df_dropped = df.dropna()
+print("\n METHOD 1 Shape of dataset after dropping rows with missing values:", df_dropped.shape)
+
+# Method 2: Fill missing values with a specific value (e.g., 0)
+df_filled_zeros = df.fillna(0)
+print("\nMETHOD 2 Missing values filled with 0:")
+print(df_filled_zeros.isnull().sum())
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+ METHOD 1 Shape of dataset after dropping rows with missing values: (183, 12)
+
+METHOD 2 Missing values filled with 0:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          0
+Embarked       0
+dtype: int64
+#+end_example
+
+This isn't exactly ideal. Deleting the rows loses too  much of the dataset, and filling with zeros does not work here when that might affect the correctness of the prediction.
+So here we replace the values with the mean for numerical values and mode for categorical values.
+**** Look into other methods of imputation
+#+begin_src python :results output :session Titanic
+# Method 3: Fill missing values with the mean (for numerical columns)
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+print("\nMETHOD 3 Missing values in 'Age' column after filling with mean:")
+print(df['Age'].isnull().sum())
+
+# Method 4: Fill missing values with the most frequent value (mode)
+df['Embarked'].fillna(df['Embarked'].mode()[0], inplace=True)
+print("\nMETHOD 4 Missing values in 'Embarked' column after filling with mode:")
+print(df['Embarked'].isnull().sum())
+#+end_src
+
+#+RESULTS:
+:
+: METHOD 3 Missing values in 'Age' column after filling with mean:
+: 0
+:
+: METHOD 4 Missing values in 'Embarked' column after filling with mode:
+: 0
+
+*** Forward fill and Backward Fill
+ There are two better ways to fill the rows.
+- Forward Fill - It iterates down the given data, and fills in missing values with the last value it saw.
+- Backward Fill - it iterates up the given data, and fills in missing values with the last value it saw.
+#+begin_src python :results output :session Titanic
+# Method 5: Forward fill method
+df_ffill = df.fillna(method='ffill')
+print("\nMethod 5 Missing values handled using forward fill method:")
+print(df_ffill.isnull().sum())
+
+# Method 6: Backward fill method
+df_bfill = df.fillna(method='bfill')
+print("\nMethod 6 Missing values handled using backward fill method:")
+print(df_bfill.isnull().sum())
+print("*****************")
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+Method 5 Missing values handled using forward fill method:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          1
+Embarked       0
+dtype: int64
+
+Method 6 Missing values handled using backward fill method:
+PassengerId    0
+Survived       0
+Pclass         0
+Name           0
+Sex            0
+Age            0
+SibSp          0
+Parch          0
+Ticket         0
+Fare           0
+Cabin          1
+Embarked       0
+dtype: int64
+,*****************
+#+end_example
+** Normalization
+Used for multiple numerical features in the dataset, which belong to different ranges. I t would make ssense to normalize the data to a particular range.
+
+Machine learning models tend to give a higher weightage to numerical attributres which have a larger value.
+
+The solution is to normalize. Normalization reduces a given numerical feature into a range that is easier to manage as well as equate with other numerical features.
+
+*** Types Of Normalization
+- MinMaxScaler - all data points are brought to the range $[0,1]$
+
+  $$
+  x_{new} = \frac{x_{old} - x_{min}}{x_{max} - x_{min}}
+  $$
+- Z-score - Data points are converted in such a way that the mean becomes 0 and the standard deviation is 1.
+- LogScaler
+- DecimalScaler - divides the number by a power of 10 until it is lesser than 1.
+
+**** NORMALISING A SET OF VALUES USING MIN MAX NORMALIZATION
+#+begin_src python :results output :session Scaler
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+# Example usage:
+data = np.array([2, 5, 8, 11, 14]).reshape(-1, 1)  # Reshape to 2D array for scaler
+
+# Initialize the MinMaxScaler
+scaler = MinMaxScaler()
+
+# Apply Min-Max normalization
+normalized_data = scaler.fit_transform(data)
+
+# Flatten the normalized data to 1D array
+normalized_data = normalized_data.flatten()
+
+print(normalized_data)
+#+end_src
+
+#+RESULTS:
+: [0.   0.25 0.5  0.75 1.  ]
+
+**** NORMALISING A SET OF VALUES USING Z-SCORE NORMALIZATION
+#+begin_src python :results output :session Scaler
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+
+# Example usage:
+data = np.array([2, 5, 8, 11, 14]).reshape(-1, 1)  # Reshape to 2D array for scaler
+
+# Initialize the StandardScaler
+scaler = StandardScaler()
+
+# Apply Z-score normalization
+normalized_data = scaler.fit_transform(data)
+
+# Flatten the normalized data to 1D array
+normalized_data = normalized_data.flatten()
+
+print(normalized_data)
+#+end_src
+
+#+RESULTS:
+: [-1.41421356 -0.70710678  0.          0.70710678  1.41421356]
+
+**** NORMALIZING CERTAIN COLUMNS IN THE DATAFRAME
+#+begin_src python :results output :session Scaler
+# Initialize the MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+
+# List of columns to be normalized
+columns_to_normalize = ['Age', 'Fare']
+
+# Apply Min-Max normalization
+df[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
+
+print("\nDataFrame after Min-Max normalization:")
+print(df)
+#+end_src
+
+** Sampling
+Machine learning algorithms tend to underperform when trained on an imbalanced dataset because the learning is biased towards the majority class.
+Sampling techniques are used to balance the data distribution over classes in a dataset. The class with the lesser distribution is referred to as the minority class and the class with the higher distribution is referred to as the majority class. Undersampling and oversampling are two broad techniques falling under this category.
+*** Random Sampling
+Random sampling is used for when the dataset is large.
+#+begin_src python :results output
+import random
+
+# Sample data
+population = list(range(1, 101))  # Population from 1 to 100
+sample_size = 10  # Size of the sample
+
+# Simple random sampling
+sample = random.sample(population, sample_size)
+print("Simple Random Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: Simple Random Sample: [99, 67, 71, 4, 82, 24, 29, 54, 77, 34]
+*** Oversampling
+In oversampling the minority class instances are increased in number so as to more or less balance against the majority class.
+**** Oversampling using SMOTE
+It stands for SYNTHETIC MINORITY OVERSAMPLING TECHNIQUE, which is one of the most reliable algorithms which create synthetic instances using the KNN(K Nearest Neighbours) approach.
+*** Stratified SAMPLING
+#+begin_src python :results output
+import random
+
+# Sample data with strata
+strata_data = {
+    'stratum1': [1, 2, 3, 4, 5],
+    'stratum2': [6, 7, 8, 9, 10],
+}
+
+# Sample size per stratum
+sample_size_per_stratum = 3
+
+# Stratified sampling
+sample = []
+for stratum, data in strata_data.items():
+    stratum_sample = random.sample(data, sample_size_per_stratum)
+    sample.extend(stratum_sample)
+
+print("Stratified Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: Stratified Sample: [1, 2, 5, 8, 7, 10]
+
+*** Systematic Sampling
+#+begin_src python :results output
+# Sample data
+data = list(range(1, 101))  # Data from 1 to 100
+n = 5  # Every nth data point to be included in the sample
+
+# Systematic sampling
+sample = data[::n]
+print("Systematic Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: Systematic Sample: [1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61, 66, 71, 76, 81, 86, 91, 96]
+
+
+#+begin_src python :results output
+import random
+
+# Sample data with clusters
+clusters = {
+    'cluster1': [1, 2, 3],
+    'cluster2': [4, 5, 6],
+    'cluster3': [7, 8, 9],
+}
+
+# Number of clusters to sample
+clusters_to_sample = 2
+
+# Cluster sampling
+selected_clusters = random.sample(list(clusters.keys()), clusters_to_sample)
+print("chosen clusters ", selected_clusters)
+sample = []
+for cluster in selected_clusters:
+    sample.extend(clusters[cluster])
+
+print("Cluster Sample:", sample)
+#+end_src
+
+#+RESULTS:
+: chosen clusters  ['cluster1', 'cluster3']
+: Cluster Sample: [1, 2, 3, 7, 8, 9]
+
+*** Undersampling
+** Binning
+#+begin_src python :results output :session Bollywood
+import pandas as pd
+
+df = pd.read_csv('bollywood.csv')
+budget_bins = [0, 10, 20, float('inf')]  # Define your budget bins
+budget_labels = ['Low Budget', 'Medium Budget', 'High Budget']  # Labels for the bins
+df['BudgetBin'] = pd.cut(df['Budget'], bins=budget_bins, labels=budget_labels)
+print(df.head(10))
+#+end_src
+
+#+RESULTS:
+
+#+begin_src python :results output :session Bollywood
+collection_bins = [0, 20, 40, 60, float('inf')]  # Define your collection bins
+collection_labels = ['Low Collection', 'Medium Collection', 'High Collection', 'Very High Collection']  # Labels for the bins
+
+df['CollectionBin'] = pd.cut(df['BoxOfficeCollection'], bins=collection_bins, labels=collection_labels)
+df.head(10)
+#+end_src
+
+#+begin_src python :results graphics file output :file testplot.png :session Bollywood
+import matplotlib.pyplot as plt
+budget_bin_counts = df['BudgetBin'].value_counts()
+# Plot the data as a bar chart
+plt.figure(figsize=(8, 6))
+budget_bin_counts.plot(kind='bar', color='skyblue')
+plt.title('Number of Movies in Each Budget Bin')
+plt.xlabel('Budget Bin')
+plt.ylabel('Number of Movies')
+plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
+plt.tight_layout()
+#+end_src
+
+#+RESULTS:
+[[file:testplot.png]]
+
+** Data Imbalance
+We're doing churn prediction, this term means that it predicts how likely a customer is to not buy the product.
+*** One Hot Encoding
+This is used when we have categorical values spread into boolean values for their own category. If a given object is of a certain category, then the column of that category is true instead of giving it a numerical categorical value. This is better than using one column as a categorical value.
+*** Logistic Regression
+This is a modified version of linear regression that can be used as a classification model, where the output is mapped to a 1 or 0.
+* Exploratory Data Analysis
+* Evaluation Metrics For Classification
+This will cover how to evaluate the results of our classification problems.
+** No Free Lunch Theorem
+The no free lunch theorem in machine learning states that it conveys the idea that there is no universally superior algorithm that performs better than all others across all possible problem domains or datasets. What this means is that there is no one-size-fits-all solution. The datasets pose unique challenges that different models excel better for different models.
+** Why do we need evaluation metrics?
+- Evaluation metrics allow you to assess your model's performance, monitor your ML in production and customize your model to fit your business needs.
+- Our goal is to create and select a modelw hich gives high accuracy out of an unseen sample.
+** Types Of Classification Metrics
+*** Classification Accuracy
+\[Accuracy = \frac{\text{No. of correct predictions}}{\text{Total no. of predictions}}\]
+The problem with this is that it cannot tell the difference between the classes. The metric might deceive you, especially with unbalanced datasets.
+*** Confusion Matrix
+A matrix which documents the model's predictions against the actual value.
+- True positive - when the model's class and the actual class are the same.
+- False Positive - when the model's class incorrectly predicts the class, type-1 error
+- False Negative - when the model does not correctly recognize the class. type-2 errors.
+- True Negative - the model correctly predicts that the instance does not belong to that class.
+*** Precision
+Precision's formula
+\[
+\text{Precision} = \frac{\text{True Positive}}{\text{True Positive + False Positive}
+\]
+*** Recall
+Recall is the ratio of true positives to all the positives in your dataset.
+
+\[\text{Recall} = \frac{TP}{TP + FN}\]
+This is good when you want to make sure your model correctly classifies the positive samples.
+*** F1-score
+F1-score is the harmonic mean of precision and recall
+
+\[
+F1 = \frac{2 \cdot \text{precision} \cdot \text{recall}}{\text{precision} + \text{recall}}
+\]
+
+*** Specificity And Sensitivity
+$$
+Specificity = \frac{TN}{TN+FP}
+$$
+
+$$
+Sensitivity = \frac{TP}{TP+ FN}
+$$
+
+Specificity focuses on correctly identifying negatives, while sensitivity focuses on correctly identifies positives.
+*** ROC Curve - Receiver Operating Characteristic Curve
+The ROC Curve is meant to visualize the balance between (Sensitivity)TPR and (1-Specificity)FPR. They are computed by varying the thresholds for classification. The Area Under Curve is used to determinte the model performance.
+*** Support
+Count of test data in a class
+* Naive Bayes Classifier
+This is a probabilistic classifier.
+** Conditional Independence
+Conditional independence is a requirement for the naive bayes classifier. The dataset must not have any features which have a correlation to each other.
+** Bayes Theorem
+Given conditional probability,
+
+$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+
+$$P(A|B) = \frac{P(B|A) P (A)}{P(B)}$$
+
+What we're doing here is using this theorem, to find the hypothesis given a set of data which is the *most* probable.
+
+We take the dataset's columns and figure out the conditional probability of a given class, and returning the *most probable*
+** o-probability problem
+There is a problem that might arise while calculating the probability of a given class.
+We can have cases where there are conditions which are 0, the conditional relations result in a probability of 0. The remedy to fix this is *Laplacian Correction*, which is adding 1 to the numerator
+** Types Of Classifiers
+1. Gaussian Naive Bayes - Assumes that the features have a normal Gaussian distribution, good for continuous data.
+2. Multinomial Naive Bayes - Multiple classes.
+3. Bernoulli Naive Bayes - Assumes that the features follow a Bernoulli distribution(binary)
+* Feature Selection
+The reasons to perform feature selection is:
+1. Remove features which almost zero influence on the target class
+2. Right selection between features
+
+Read up on $chi^2$ function
+** Filter Methods
+Works on the basis of score, like $\chi^{2}$, the features are scored and the best features are selected.
+** Curse Of Dimensionality
+ * The number of traning examples initially increase accuracy but deteriorates after some point
+ * The number of training examples required increases exponentailly with dimensionality
+ * Other curses- visualization & performance challenges.
+** Search Forms
+ * Forward search involves finding a set that satisfies a measure.
+ * Backward search involves removing sets until the set satisfies a measure.
+ * Bidirectional Search - begins the search for both forward and backward and compares their results.
+ * Sequential Forward-Backward Search - Based on accuracy, we  check the feature that gives maximum accuracy
+** Wrapper Methods
+Recursive feature elimination
+* K-Nearest Neighbour Classifier
+** Other Names For It
+1. K-nearest neighbours
+2. Memory-based reasoning
+3. Example Based Reasoning
+4. Instance Based Learning
+5. Lazy learning
+** Introduction
+
+- K-nearest neighbours stores all available cases and classifies new cases based on a similarity measure(some distance function)
+- It is non-parametric
+
+The approach to doing this is by classifying new data points based on the most common class of its $K$ -nearest neighbours(measured by some distance function). We take odd numbers of neighbours since we don't want equal votes to happen.
+
+** Distance Measures For Continuous
+1. Euclidean
+2. Manhattan
+3. Minkowski
+
+** How To Choose K
+If $k$ is too small, it is sensitive to noise points. But if $k$ is very large, then it might capture outliers. A good rule of thumb is $K < \sqrt(n)$.
+
+** Feature Weighting
+We can assign weights to features by making a vector $\vec{w}$ which allows us to assign importance to a feature, based on our knowledge(These weights can be determined by cross-validation)
+
+** Feature Normalization
+As is with most other algorithms, normalization prevents features with large numbers from overtaking the distance function.
+
+** Nominal/Categorical Data
+Two methods
+- If they're the same, mark them as 0, if they're different mark the feature as 1
+- Use indexing to mark them from 0 - $n$ unique features and plot them in the space
+** Imbalanced Data
+Imbalanced datasets have the consequence of higher values of $k$ tending to select the majority class instead of the 'correct' class.
+** Distance Weighted Nearest Neighbour Algorithm
+$$w = \frac{1}{d(x_{q},x_{i})}$$
+** Efficient Memory Search
+ * If we are working with a large dataset, the time cost in computing the distances between a query and all the training instances and retrieving the k nearest neighbors may be prohibitive.
+ * Use a tree which is a balanced binary tree in which each of the n odes in the tree index one of the instances in a training dataset.
+ * The tree is constructed so that nodes that are nearby in the tree index.
+
+
+QUESTION Implement knn on the iris dataset for 10 different values of $k$ ranging from $3 - sqrt(n)$ and calculate the average f-measure of 30% on the test data.
+
+Step 1:
+Step 2: Identify the optimal $k$ value, for the value corresponding to the optimal $k$, rerun KNN by assigning weights to the features, which is the inverse of the distances.
+Step 3: Change the distance metric to Manhattan
+* Decision Tree Classifier
+This is a rule based classifier
+A decision tree is a tree in which each branch node represents a choice between a number of alternatives, and each leaf node represnets a decision. It is a form of supervised learning
+
+** Entropy, Information Gain
+It is a useful concept to speak of decision trees and supervised learning algorithms. Entropy defines the chaos, or randomness, or disorder of a system while information gain is the opposite. It represents order.
+
+The formula for entropy is... where $p_+$ is the proportion of  positive instances and $p_-$ is the proportion of negative instances
+
+$$\text{Entropy(S)} = -p_+ \log_2p_+ - p_- log_2p_{-}$$
+
+Information gain's formula is
+
+$$Gain(S,A) = Entropy(S) - \Sigma_{v \in values(A)} |S_v| / |S| Entropy(S_v)$$
+** Basic Algorithm
+- Choose the 'best' node A
+- Assign A as decision attribute for a node
+- For each value of A, create a new descendant node
+- If a decision node has all 'yes' or all 'no' we need not check further and convert the decision node into a leaf node.
+- If all the nodes are classified, stop
+- If not, recursively keep going.
+** Overfitting
+- This might happen with too many branches, or outliers
+  - We avoid this with prepruning, halt tree construction early
+  - We can also remove branches from a full tree.
+
+In the prepruning experiment
+1. Find the maximum depth of the tree if max depth was not given.
+2. What are the different values for 'criterion' that can be given in the python package implementation.
+3. Use min_samples_split, which is the minimum number of samples required to split a node
+* Regression
+Models the relationship between one or more independent or predictor variables and a dependent or response variable.
+** Metrics
+You use a loss function that measures the squared error in the prediction.
+
+**** Mean Absolute Error
+
+Average over the test sample of the differences between prediction and actual observation.
+
+** Linear Regression
+A model that fits a set of continuous values into a line.
+
+A line is modelled by the equation,
+$$y = mx + c$$
+
+Where $m$ and $c$ are known as the regression coefficients.
+
+**** Method of least squares - Estimates the best-fitting straight line.
+$$m = \frac{\sum_{i=1}^{|D|} (x_i - \overline{x})(y_i - \overline{y})}{(\sum_{i=1}^{|D|}x_i - \overline{x})}$$
+
+$$c = \overline{y} - m\overline{x}$$
+
+The cost function used to find this.
+
+$$J(\theta) = \frac{1}{2n}\sum_{i=1}^n(h_{\theta}(x^i) - y^i)^{2}$$
+
+** Lasso Regression
+Adds a penalty term which sums the coefficients to the loss function.
+
+** Ridge Regression
+Adds a penalty term which sums the squares of the coefficients to the loss function.
+
+** ElasticNet
+Combination of lasso and ridge.
+
+** Logistic Regression
+A regression algorithm that works as a classifier.
+
+A sigmoid function,
+
+$$\frac{1}{1+ e^{-x}}$$
+** Regularization
+Regularization is a mechanism to avoid overfitting and is particularly employed in regression models which are specially designed to handle high dimensionality data.
+* Filter Vs Wrapper Methods
+ * Filter methods select based on the statistical properties
+ * Ranked independently, using correlation, mutual information
+ * Wrapper methods use a ML model
+
+Note: - Genetic algorithms
+Look into computational intelligence - fuzzy logic, genetic algorithms and pso or particle swarm optimization.
+* Clustering
+** K-Means Clustering
+1. Partition objects into $k$ nonempty subsets.
+2. Compute seed points as the centroids of the clusters of the current partitioning (the centroid is the mean of the cluster)
+3. Assign each object tot the cluster, with the nearest seed point.
+4. Go to step 2, stop when the assignment does not change.
+** K-Means++
+Initializes centroids by selecting the first centroids randomly, then chooses subsequent centroids based on how far away they are from existing centroids.
+** Hierarchical Clustering
+This uses a distance matrix, it does not require a $k$, you set a threshold and figure out distances and closeness to cluster related data points together.
+* Ensemble Learning Algorithms
+Take two or three classifiers and compare their results to optimize the results even further.
+** Simple models
+1. Max voting - used for classification, multiple models make predictions, majority vote wins.
+2. Averaging - self-explanatory, used for regression
+3. Weighted averaging - also self-explanatory.
+** Strategies
+1. Bagging - the three simple models seen until now come under bagging.
+2. Boosting - involves filtering models with a low probability prediction rate.
+3. Stacking - automatically calculates the weightage of each
+** TODO look into decision trees for regression, support vector regressors
+* Project
+** IEEE Report Template
+- Abstract
+  * 150-200 words, first 2 lines(about application and its uses)
+  * Next 2 lines (what models you are experimenting with)
+  * Dataset sourced from
+  * Best results reported
+  * Enhancements from baseline(find papers reporting on the same dataset, and you compare your results to these papers)
+- Introduction
+  * 1-1.5 pages long
+  * Every paragraph contains some references.
+  * Paragraph 1 - Broad domain - Explain higher level concepts pertaining to your application
+  * Paragraph 2 - Application
+  * Paragraph 3 - Techniques Experimented
+  * Paragraph 4 - Proposed Model
+  * Paragraph 5 - Section Overview
+  * Paragraph 6 - Contributions as bullet points
+- Related Works
+  * Write out what has been done as part of your survey.
+  * Introduce the motivation for the related works being done.
+  * Find 10 papers related to your application
+    * Model design
+    * Dataset sourced from
+    * Experimented models
+    * Challenges and limitations
+    * Results reported
+- Dataset Description
+- Proposed Methodology
+- Results And Analysis
+- Conclusion
+- Future Work
+- Citations
+  * Overall 22-25
+  * Include papers from the last 2 years.
+  * Literature survey directly connected to your application - 8-10
+  * 4-6 Amrita Citations
+** Presentation
+- Title Slide
+  - Project Title
+  - Subject Code And Name
+  - Group Members - Name And Registration Number
+  - Mentor
+- Introduction(Optional)
+- Motivation
+- Problem Statement
+- Literature Survey - 2 Slides
+*Template for Literature Survey*
+|------+-------+----------------------------------------------------+---------+---------+------------|
+| Year | Title | Dataset/Domain                                     | Methods | Results | Challenges |
+|------+-------+----------------------------------------------------+---------+---------+------------|
+|      |       | note- Sometimes some datasets are streamed dataset |         |         |            |
+|------+-------+----------------------------------------------------+---------+---------+------------|
+- Proposed Methodology - 5-8 Slides
+  - Ideally an architecture diagram. [[http:app.diagrams.net/][relevant tool]]
+
+- Results And Analysis - 3-5 Slides
+- Conclusion And Future Work - 1 Slides
+- References - 1 Slides
