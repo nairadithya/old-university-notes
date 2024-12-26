@@ -2,6 +2,7 @@
 
 _region_.*
 /Introduction to AI And Machine Learning/notebooks/.ipynb_checkpoints/
+*.tex
 *.java
 *.class
 *.csv

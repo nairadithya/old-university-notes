@@ -2,7 +2,7 @@
 #+author: Adithya Nair
 #+EXPORT_FILE_NAME: exports/23AID213-operating-systems
 
-* Syllabus :noexport:
+* Syllabus
 ** Unit 1
 Operating systems, structure, operating systems services, system calls. Process and Processor management: Process concepts, process scheduling and algorithms, threads, multithreading. CPU scheduling and scheduling algorithms.
 ** Unit 2
@@ -10,4 +10,4 @@ Process synchronization, critical sections, Deadlock: Shared resources, resource
 ** Unit 3
 Disk scheduling algorithms and policies, File management: file concept, types and structures, directory structure,Case study on Unix (about process management, Thread management and Kernel) and Mobile OS – iOS and Android – Architecture and SDK Framework, Media Layer, Services Layer, Core OS Layer, File System)
 
-* Assignments :noexport:
+* Assignments

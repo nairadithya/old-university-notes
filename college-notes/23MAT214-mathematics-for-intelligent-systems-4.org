@@ -1,7 +1,7 @@
 #+title: 23MAT214 Mathematics For Intelligent Systems-4
 #+author: Adithya Nair
 #+EXPORT_FILE_NAME: exports/23AID211-deep-learning
-* Syllabus :noexport:
+* Syllabus
 ** Unit 1
 Special Matrices: Fourier Transform, discrete and Continuous, Shift matrices and Circulant matrices, The Kronecker product, Toeplitz matrices and shift invariant filters, Hankel matrices, DMD and need of Hankelization - Importance of Hankelization – DMD and its variants - Linear algebra for AI
 ** Unit 2

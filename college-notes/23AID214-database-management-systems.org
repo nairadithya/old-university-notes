@@ -2,7 +2,7 @@
 #+author: Adithya Nair
 #+EXPORT_FILE_NAME: exports/23AID211-deep-learning
 
-* Syllabus :noexport:
+* Syllabus
 ** Unit 1
 Introduction: Overview of DBMS fundamentals – Overview of Relational Databases and Keys. Relational Data Model: Structure of relational databases – Database schema – Formal Relational Query Languages – Overview of Relational Algebra and Relational Operations. Database Design: Overview of the design process - The E-RModels – Constraints - Removing Redundant Attributes in Entity Sets - E-R Diagrams - Reduction to Relational Schemas - Entity Relationship Design Issues - Extended E-R Features – Alternative E-R Notations – Overview of Unified Modelling Language (UML).
 ** Unit 2
