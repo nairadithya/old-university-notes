@@ -1,0 +1,11 @@
+#+title: 23MAT214 Mathematics For Intelligent Systems-4
+#+author: Adithya Nair
+* Syllabus :noexport:
+** Unit 1
+Special Matrices: Fourier Transform, discrete and Continuous, Shift matrices and Circulant matrices, The Kronecker product, Toeplitz matrices and shift invariant filters, Hankel matrices, DMD and need of Hankelization - Importance of Hankelization – DMD and its variants - Linear algebra for AI
+** Unit 2
+Matrix splitting and Proximal algorithms - Augmented Lagrangian- Introduction to ADMM, ADMM for LP and QP - Optimization methods for Neural Networks: Gradient Descent, Stochastic gradient descent- loss functions and learning functions
+** Unit 3
+Basics of statistical estimation theory and testing of hypothesis.
+** Unit 4
+Introduction to quantum computing- Bells’s circuit, Superdense coding, Quantum teleportation. Programming using Qiskit, Matlab.
