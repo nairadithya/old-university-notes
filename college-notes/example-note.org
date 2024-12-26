@@ -1,7 +1,6 @@
 #+title: Example Note
 #+author: Adithya Nair
 #+OPTIONS: toc:nil
-#+EXPORT_FILE_NAME: exports/example-note
 
 * This Is A Test Heading
 

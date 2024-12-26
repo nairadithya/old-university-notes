@@ -1,6 +1,5 @@
 #+title: 23AID215 User Interface Design
 #+author: Adithya Nair
-#+EXPORT_FILE_NAME: exports/23AID215-user-interface-design
 
 * Syllabus :noexport:
 ** Unit 1
@@ -9,3 +8,5 @@ Introduction to Web – Client/Server - Web Server - Application Server- HTML Ba
 CSS Basics –Features of CSS – Implementation of Borders - Backgrounds- CSS3 - Text Effects -Fonts -Page Layouts with CSS.
 ** Unit 3
 Introduction to Java Script –Form Validations – Event Handling – Document Object Model - Deploying an application.
+
+* Test Heading
