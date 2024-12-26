@@ -1,5 +1,6 @@
 #+title: 23AID471 Speech Processing
 #+author: Adithya Nair
+#+EXPORT_FILE_NAME: exports/23AID211-speech-processing
 
 * Syllabus
 ** Unit 1

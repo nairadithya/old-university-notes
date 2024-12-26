@@ -1,5 +1,7 @@
 #+title: 23AID211 Deep Learning
 #+author: Adithya Nair
+#+OPTIONS: toc:nil
+#+EXPORT_FILE_NAME: exports/23AID211-deep-learning
 
 * Syllabus :noexport:
 ** Unit 1
@@ -8,3 +10,7 @@ Introduction to neural networks – Gradient Descent Algorithm - Deep Neural Net
 Pre-processing: Noise Removal using deep learning algorithms - Feature Extraction - Signal Analysis: Time Series Analysis, CNNs, Auto encoders.
 ** Unit 3
 Image Analysis: Transfer Learning, Attention models- Ensemble Methods for Signal and Image Analysis.
+
+* Introduction To Neural Networks
+** This is a Network
+I'm writing text here.

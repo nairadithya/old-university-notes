@@ -1,5 +1,6 @@
 #+title: 23AID214 Database Management Systems
 #+author: Adithya Nair
+#+EXPORT_FILE_NAME: exports/23AID211-deep-learning
 
 * Syllabus :noexport:
 ** Unit 1

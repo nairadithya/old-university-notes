@@ -1,7 +1,8 @@
 #+title: 23AID215 User Interface Design
 #+author: Adithya Nair
+#+EXPORT_FILE_NAME: exports/23AID215-user-interface-design
 
-* Syllabus
+* Syllabus :noexport:
 ** Unit 1
 Introduction to Web – Client/Server - Web Server - Application Server- HTML Basics- Tags - Adding Web Links and Images- Creating Tables-Forms - Create a Simple Web Page - HTML 5 Elements - Media – Graphics.
 ** Unit 2

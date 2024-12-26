@@ -1,6 +1,6 @@
 #+title: 23AID212 Introduction To IoT
 #+author: Adithya Nair
-
+#+EXPORT_FILE_NAME: exports/23AID211-introduction-to-iot
 * Syllabus :noexport:
 ** Unit 1
 Introduction to IOT Overview of machine-to-machine communication - Sensing – Actuations-Basics of Networking- Introduction to Micro-Controllers-Introduction to Embedded systems.
