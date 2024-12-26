@@ -1,8 +1,2 @@
 #+title: Example Note
 #+author: Adithya Nair
-#+LATEX_HEADER: \input{preamble}
-
-* Interesting File
-[[xopp-figure:/home/adithya/university-notes/college-notes/figures/graphs.xopp]]
-
-$$x + 5$$
